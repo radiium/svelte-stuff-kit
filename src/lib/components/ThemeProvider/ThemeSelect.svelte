@@ -1,0 +1,73 @@
+<script lang="ts">
+	import { useThemeContext } from './theme.utils';
+	import AppWindow from 'phosphor-svelte/lib/AppWindow';
+	import Moon from 'phosphor-svelte/lib/Moon';
+	import Sun from 'phosphor-svelte/lib/Sun';
+	import { Popover } from '../Popover';
+	import { Button } from '../Button';
+	import { Flexbox } from '../Flexbox';
+	import { ThemeStrategy } from './theme.type';
+
+	const themeContext = useThemeContext();
+	const { strategy, updateStrategy = () => {} } = themeContext;
+	const themeOptions = [
+		{ icon: AppWindow, label: 'system', value: ThemeStrategy.SYSTEM },
+		{ icon: Sun, label: 'light', value: ThemeStrategy.LIGHT },
+		{ icon: Moon, label: 'dark', value: ThemeStrategy.DARK }
+	];
+
+	let currentTheme = themeOptions.find((opts) => opts.value === $strategy);
+	const selectTheme = (option: (typeof themeOptions)[number]) => {
+		currentTheme = option;
+		updateStrategy(option.value);
+	};
+</script>
+
+<!-- placement="bottom" -->
+<Popover placement="top" offset={10} backdrop>
+	<Button
+		slot="trigger"
+		let:open
+		let:isOpen
+		on:click={open}
+		active={isOpen}
+		size="2"
+		color="neutral"
+		mode="outline"
+		iconOnly={false}
+	>
+		{#if currentTheme}
+			<svelte:component this={currentTheme.icon} />
+			{currentTheme.label}
+		{/if}
+	</Button>
+
+	<Flexbox slot="content" direction="column" gap="1" class="no-p no-m" style="position: relative;" let:close>
+		{#each themeOptions as option}
+			<Button
+				size="2"
+				mode="clear"
+				align="start"
+				fullWidth
+				on:click={() => {
+					close();
+					selectTheme(option);
+				}}
+			>
+				<svelte:component this={option.icon} />
+				{option.label}
+			</Button>
+		{/each}
+	</Flexbox>
+</Popover>
+
+<!-- <Select
+	class={$$restProps.class}
+	options={themeOptions}
+	value={$themeStore.theme}
+	on:input={handleChange}
+	on:input
+	on:change
+	on:focus
+	on:blur
+/> -->

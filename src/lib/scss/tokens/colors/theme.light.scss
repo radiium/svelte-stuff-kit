@@ -1,0 +1,72 @@
+:root,
+.light,
+.system-light,
+[data-theme='light'],
+[data-theme='system-light'] {
+	--background: hsl(0deg, 0%, 100%);
+
+	--teal-100: hsl(180deg, 71%, 93%);
+	--teal-200: hsl(181deg, 73%, 80%);
+	--teal-300: hsl(181deg, 74%, 63%);
+	--teal-400: hsl(180deg, 73%, 48%);
+	--teal-500: hsl(181deg, 73%, 44%);
+	--teal-600: hsl(180deg, 73%, 40%);
+	--teal-700: hsl(181deg, 73%, 35%);
+	--teal-800: hsl(181deg, 73%, 31%);
+	--teal-900: hsl(181deg, 74%, 27%);
+	--teal-1000: hsl(180deg, 72%, 23%);
+	--teal-1100: hsl(181deg, 73%, 19%);
+	--teal-1200: hsl(180deg, 74%, 15%);
+
+	--blue-100: hsl(235deg, 100%, 97%);
+	--blue-200: hsl(236deg, 100%, 94%);
+	--blue-300: hsl(234deg, 100%, 89%);
+	--blue-400: hsl(235deg, 100%, 85%);
+	--blue-500: hsl(235deg, 100%, 81%);
+	--blue-600: hsl(235deg, 100%, 77%);
+	--blue-700: hsl(235deg, 100%, 72%);
+	--blue-800: hsl(235deg, 100%, 68%);
+	--blue-900: hsl(235deg, 77%, 60%);
+	--blue-1000: hsl(235deg, 54%, 51%);
+	--blue-1100: hsl(235deg, 52%, 42%);
+	--blue-1200: hsl(235deg, 51%, 34%);
+
+	--green-100: hsl(171deg, 60%, 93%);
+	--green-200: hsl(171deg, 59%, 83%);
+	--green-300: hsl(171deg, 59%, 72%);
+	--green-400: hsl(171deg, 58%, 58%);
+	--green-500: hsl(171deg, 77%, 43%);
+	--green-600: hsl(171deg, 90%, 36%);
+	--green-700: hsl(171deg, 90%, 32%);
+	--green-800: hsl(171deg, 90%, 28%);
+	--green-900: hsl(171deg, 90%, 24%);
+	--green-1000: hsl(171deg, 90%, 21%);
+	--green-1100: hsl(172deg, 91%, 17%);
+	--green-1200: hsl(171deg, 89%, 14%);
+
+	--yellow-100: hsl(47deg, 100%, 90%);
+	--yellow-200: hsl(47deg, 100%, 74%);
+	--yellow-300: hsl(47deg, 80%, 66%);
+	--yellow-400: hsl(47deg, 62%, 60%);
+	--yellow-500: hsl(47deg, 50%, 55%);
+	--yellow-600: hsl(47deg, 41%, 50%);
+	--yellow-700: hsl(47deg, 41%, 44%);
+	--yellow-800: hsl(47deg, 41%, 38%);
+	--yellow-900: hsl(47deg, 41%, 33%);
+	--yellow-1000: hsl(47deg, 41%, 28%);
+	--yellow-1100: hsl(46deg, 41%, 23%);
+	--yellow-1200: hsl(46deg, 41%, 19%);
+
+	--red-100: hsl(0deg, 100%, 97%);
+	--red-200: hsl(0deg, 100%, 93%);
+	--red-300: hsl(0deg, 100%, 88%);
+	--red-400: hsl(0deg, 100%, 83%);
+	--red-500: hsl(0deg, 100%, 78%);
+	--red-600: hsl(0deg, 100%, 71%);
+	--red-700: hsl(0deg, 100%, 63%);
+	--red-800: hsl(0deg, 77%, 55%);
+	--red-900: hsl(0deg, 63%, 48%);
+	--red-1000: hsl(0deg, 63%, 41%);
+	--red-1100: hsl(0deg, 63%, 34%);
+	--red-1200: hsl(0deg, 63%, 27%);
+}

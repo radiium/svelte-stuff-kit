@@ -1,0 +1,1228 @@
+[
+    {
+        "id": "button",
+        "title": "Button",
+        "component": "src/lib/components/Button/Button.svelte",
+        "componentDemo": "src/routes/components/demos/Button.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLButtonElement | HTMLAnchorElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "href",
+                    "type": "string",
+                    "defaultValue": ""
+                },
+                {
+                    "name": "target",
+                    "type": "string",
+                    "defaultValue": "_blank"
+                },
+                {
+                    "name": "type",
+                    "type": "PropTypeButton",
+                    "defaultValue": "button"
+                },
+                {
+                    "name": "mode",
+                    "type": "PropMode",
+                    "defaultValue": "solid"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeButton",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "color",
+                    "type": "PropColor",
+                    "defaultValue": "neutral"
+                },
+                {
+                    "name": "active",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "iconOnly",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "circle",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "align",
+                    "type": "PropAlign",
+                    "defaultValue": "center"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "--btn-border"
+                },
+                {
+                    "name": "--btn-color"
+                },
+                {
+                    "name": "--btn-background"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--space-1"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--line-height-1"
+                },
+                {
+                    "name": "--letter-spacing-1"
+                },
+                {
+                    "name": "--space-0"
+                },
+                {
+                    "name": "--space-6"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--line-height-2"
+                },
+                {
+                    "name": "--letter-spacing-2"
+                },
+                {
+                    "name": "--space-7"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--line-height-3"
+                },
+                {
+                    "name": "--letter-spacing-3"
+                },
+                {
+                    "name": "--space-8"
+                },
+                {
+                    "name": "--space-4"
+                },
+                {
+                    "name": "--font-size-4"
+                },
+                {
+                    "name": "--line-height-4"
+                },
+                {
+                    "name": "--letter-spacing-4"
+                },
+                {
+                    "name": "--radius-full"
+                },
+                {
+                    "name": "--border-width"
+                },
+                {
+                    "name": "--border-style"
+                },
+                {
+                    "name": "--accent-a12"
+                },
+                {
+                    "name": "--btn-background-hover"
+                },
+                {
+                    "name": "--accent-a6"
+                },
+                {
+                    "name": "--btn-background-active"
+                },
+                {
+                    "name": "--accent-a7"
+                },
+                {
+                    "name": "--accent-9"
+                },
+                {
+                    "name": "--accent-a8"
+                },
+                {
+                    "name": "--contrast"
+                },
+                {
+                    "name": "--accent-10"
+                },
+                {
+                    "name": "--accent-11"
+                }
+            ]
+        }
+    },
+    {
+        "id": "input",
+        "title": "Input",
+        "component": "src/lib/components/Input/Input.svelte",
+        "componentDemo": "src/routes/components/demos/Input.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLInputElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "defaultValue": ""
+                },
+                {
+                    "name": "type",
+                    "type": "PropTypeInput",
+                    "defaultValue": "text"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "readonly",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "error",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "name": "leading",
+                    "anonymous": false
+                },
+                {
+                    "name": "trailing",
+                    "anonymous": false
+                }
+            ],
+            "css": [
+                {
+                    "name": "-- Workaround"
+                },
+                {
+                    "name": "--"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--input-color"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--input-background"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--space-9"
+                },
+                {
+                    "name": "--space-1"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--letter-spacing-1"
+                },
+                {
+                    "name": "--space-6"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--letter-spacing-2"
+                },
+                {
+                    "name": "--space-7"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--letter-spacing-3"
+                },
+                {
+                    "name": "--tomato-9"
+                },
+                {
+                    "name": "--tomato-a2"
+                }
+            ]
+        }
+    },
+    {
+        "id": "input-number",
+        "title": "Input number",
+        "component": "src/lib/components/InputNumber/InputNumber.svelte",
+        "componentDemo": "src/routes/components/demos/InputNumber.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLInputElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "value",
+                    "type": "number | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "step",
+                    "type": "number",
+                    "defaultValue": "1"
+                },
+                {
+                    "name": "min",
+                    "type": "number | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "max",
+                    "type": "number | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "readonly",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [],
+            "css": [
+                {
+                    "name": "--input-size-m"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--border-color"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--color-primary-contrast-rgb"
+                },
+                {
+                    "name": "--input-color"
+                },
+                {
+                    "name": "--font-size-5"
+                },
+                {
+                    "name": "--input-background"
+                },
+                {
+                    "name": "--space-3"
+                }
+            ]
+        }
+    },
+    {
+        "id": "input-range",
+        "title": "Input range",
+        "component": "src/lib/components/Button/Button.svelte",
+        "componentDemo": "src/routes/components/demos/InputRange.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLButtonElement | HTMLAnchorElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "href",
+                    "type": "string",
+                    "defaultValue": ""
+                },
+                {
+                    "name": "target",
+                    "type": "string",
+                    "defaultValue": "_blank"
+                },
+                {
+                    "name": "type",
+                    "type": "PropTypeButton",
+                    "defaultValue": "button"
+                },
+                {
+                    "name": "mode",
+                    "type": "PropMode",
+                    "defaultValue": "solid"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeButton",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "color",
+                    "type": "PropColor",
+                    "defaultValue": "neutral"
+                },
+                {
+                    "name": "active",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "iconOnly",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "circle",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "align",
+                    "type": "PropAlign",
+                    "defaultValue": "center"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "--btn-border"
+                },
+                {
+                    "name": "--btn-color"
+                },
+                {
+                    "name": "--btn-background"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--space-1"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--line-height-1"
+                },
+                {
+                    "name": "--letter-spacing-1"
+                },
+                {
+                    "name": "--space-0"
+                },
+                {
+                    "name": "--space-6"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--line-height-2"
+                },
+                {
+                    "name": "--letter-spacing-2"
+                },
+                {
+                    "name": "--space-7"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--line-height-3"
+                },
+                {
+                    "name": "--letter-spacing-3"
+                },
+                {
+                    "name": "--space-8"
+                },
+                {
+                    "name": "--space-4"
+                },
+                {
+                    "name": "--font-size-4"
+                },
+                {
+                    "name": "--line-height-4"
+                },
+                {
+                    "name": "--letter-spacing-4"
+                },
+                {
+                    "name": "--radius-full"
+                },
+                {
+                    "name": "--border-width"
+                },
+                {
+                    "name": "--border-style"
+                },
+                {
+                    "name": "--accent-a12"
+                },
+                {
+                    "name": "--btn-background-hover"
+                },
+                {
+                    "name": "--accent-a6"
+                },
+                {
+                    "name": "--btn-background-active"
+                },
+                {
+                    "name": "--accent-a7"
+                },
+                {
+                    "name": "--accent-9"
+                },
+                {
+                    "name": "--accent-a8"
+                },
+                {
+                    "name": "--contrast"
+                },
+                {
+                    "name": "--accent-10"
+                },
+                {
+                    "name": "--accent-11"
+                }
+            ]
+        }
+    },
+    {
+        "id": "textarea",
+        "title": "Textarea",
+        "component": "src/lib/components/Textarea/Textarea.svelte",
+        "componentDemo": "src/routes/components/demos/Textarea.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLTextAreaElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "defaultValue": ""
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "readonly",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "error",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [],
+            "css": [
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--space-9"
+                },
+                {
+                    "name": "--space-1"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--letter-spacing-1"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--letter-spacing-2"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--letter-spacing-3"
+                },
+                {
+                    "name": "--input-color"
+                },
+                {
+                    "name": "--input-background"
+                }
+            ]
+        }
+    },
+    {
+        "id": "select",
+        "title": "Select",
+        "component": "src/lib/components/Select/Select.svelte",
+        "componentDemo": "src/routes/components/demos/Select.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLSelectElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "any | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "multiple",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "options",
+                    "type": "SelectOption[]",
+                    "defaultValue": "[]"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "-- Select Multiple --"
+                },
+                {
+                    "name": "-- Select Single --"
+                },
+                {
+                    "name": "-- Select an option --</option"
+                },
+                {
+                    "name": "--"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--gray-8"
+                },
+                {
+                    "name": "--input-color"
+                },
+                {
+                    "name": "--input-background"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--gray-a6"
+                },
+                {
+                    "name": "--color"
+                },
+                {
+                    "name": "--space-9"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--letter-spacing-1"
+                },
+                {
+                    "name": "--space-6"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--letter-spacing-2"
+                },
+                {
+                    "name": "--space-7"
+                },
+                {
+                    "name": "--letter-spacing-3"
+                },
+                {
+                    "name": "--gray-10"
+                }
+            ]
+        }
+    },
+    {
+        "id": "radio-button",
+        "title": "Radio button",
+        "component": "src/lib/components/RadioButton/RadioButton.svelte",
+        "componentDemo": "src/routes/components/demos/RadioButton.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLInputElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "string | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "group",
+                    "type": "string | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "color",
+                    "type": "PropColor",
+                    "defaultValue": "neutral"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "error",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "--line-height"
+                },
+                {
+                    "name": "--radio-size"
+                },
+                {
+                    "name": "--radio--background"
+                },
+                {
+                    "name": "--gray-8"
+                },
+                {
+                    "name": "--font-size"
+                },
+                {
+                    "name": "--label-padding"
+                },
+                {
+                    "name": "--radio-background"
+                },
+                {
+                    "name": "--gray-a3"
+                },
+                {
+                    "name": "--radio-background-checked"
+                },
+                {
+                    "name": "--accent-9"
+                },
+                {
+                    "name": "--check-color"
+                },
+                {
+                    "name": "--space-4"
+                },
+                {
+                    "name": "--check-width"
+                },
+                {
+                    "name": "--check-height"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--line-height-1"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--line-height-2"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--line-height-3"
+                }
+            ]
+        }
+    },
+    {
+        "id": "checkbox",
+        "title": "Checkbox",
+        "component": "src/lib/components/Checkbox/Checkbox.svelte",
+        "componentDemo": "src/routes/components/demos/CheckBox.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLInputElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "string | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "checked",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "indeterminate",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "color",
+                    "type": "PropColor",
+                    "defaultValue": "neutral"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "error",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "--line-height"
+                },
+                {
+                    "name": "--checkbox-size"
+                },
+                {
+                    "name": "--radius-3"
+                },
+                {
+                    "name": "--checkbox-background"
+                },
+                {
+                    "name": "--gray-8"
+                },
+                {
+                    "name": "--check-width"
+                },
+                {
+                    "name": "--check-height"
+                },
+                {
+                    "name": "--check-color"
+                },
+                {
+                    "name": "--space-4"
+                },
+                {
+                    "name": "--font-size"
+                },
+                {
+                    "name": "--label-padding"
+                },
+                {
+                    "name": "--gray-a3"
+                },
+                {
+                    "name": "--checkbox-background-checked"
+                },
+                {
+                    "name": "--solid-accent-1"
+                },
+                {
+                    "name": "--contrast"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--line-height-1"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--line-height-2"
+                },
+                {
+                    "name": "--space-6"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--line-height-3"
+                }
+            ]
+        }
+    },
+    {
+        "id": "switch",
+        "title": "Switch",
+        "component": "src/lib/components/Switch/Switch.svelte",
+        "componentDemo": "src/routes/components/demos/Switch.demo.svelte",
+        "info": {
+            "props": [
+                {
+                    "name": "elementRef",
+                    "type": "HTMLInputElement | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "value",
+                    "type": "string | undefined",
+                    "defaultValue": "undefined"
+                },
+                {
+                    "name": "checked",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "size",
+                    "type": "PropSizeInput",
+                    "defaultValue": "2"
+                },
+                {
+                    "name": "color",
+                    "type": "PropColor",
+                    "defaultValue": "neutral"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "required",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                },
+                {
+                    "name": "error",
+                    "type": "boolean",
+                    "defaultValue": "false"
+                }
+            ],
+            "actions": [],
+            "slots": [
+                {
+                    "anonymous": true
+                }
+            ],
+            "css": [
+                {
+                    "name": "--line-height"
+                },
+                {
+                    "name": "--switch-height"
+                },
+                {
+                    "name": "--switch-width"
+                },
+                {
+                    "name": "--switch-padding"
+                },
+                {
+                    "name": "--radius-2"
+                },
+                {
+                    "name": "--background"
+                },
+                {
+                    "name": "--gray-8"
+                },
+                {
+                    "name": "--switch-thumb-size"
+                },
+                {
+                    "name": "--check-color"
+                },
+                {
+                    "name": "--radius-1"
+                },
+                {
+                    "name": "--gray-a3"
+                },
+                {
+                    "name": "--space-4"
+                },
+                {
+                    "name": "--font-size"
+                },
+                {
+                    "name": "--label-padding"
+                },
+                {
+                    "name": "--background-checked"
+                },
+                {
+                    "name": "--accent-9"
+                },
+                {
+                    "name": "--switch-thumb-translate"
+                },
+                {
+                    "name": "--space-2"
+                },
+                {
+                    "name": "--font-size-1"
+                },
+                {
+                    "name": "--line-height-1"
+                },
+                {
+                    "name": "--space-5"
+                },
+                {
+                    "name": "--font-size-2"
+                },
+                {
+                    "name": "--line-height-2"
+                },
+                {
+                    "name": "--space-3"
+                },
+                {
+                    "name": "--font-size-3"
+                },
+                {
+                    "name": "--line-height-3"
+                }
+            ]
+        }
+    }
+]
