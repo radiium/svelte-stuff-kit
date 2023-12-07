@@ -1,11 +1,12 @@
 # stuff-kit
 
-A small SvelteJs library for building applications inspired by radix ui
+A small SvelteJs library for building applications inspired by radix ui  
 
-[Documentation and demo](#)  
+[Documentation and demo](https://svelte-stuff-kit.vercel.app/)  
 
 Some parts of this lib come from the following:  
 (thanks to the developers for their incredible work!)  
+
 - [Radix UI](https://www.radix-ui.com/)
 - [ionic](https://github.com/ionic-team/ionic-framework)
 - [sthemer](https://github.com/ivanhofer/sthemer)
