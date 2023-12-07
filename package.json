@@ -1,7 +1,7 @@
 {
     "name": "svelte-stuff-kit",
     "description": "Svelte ui components and other stuff",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "homepage": "https://github.com/radiium/svelte-stuff-kit",
     "keywords": [
