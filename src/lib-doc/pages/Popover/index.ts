@@ -23,6 +23,12 @@ export const docPopover: DocPageData = {
 			type: 'boolean',
 			defaultValue: 'true'
 		},
+
+		{
+			name: 'strategy',
+			type: '"absolute" | "fixed"',
+			defaultValue: 'absolute'
+		},
 		{
 			name: 'placement',
 			type: '"top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end"',
@@ -32,6 +38,11 @@ export const docPopover: DocPageData = {
 			name: 'offset',
 			type: 'number',
 			defaultValue: '0'
+		},
+		{
+			name: 'flip',
+			type: 'boolean',
+			defaultValue: 'true'
 		},
 		{
 			name: 'transition',

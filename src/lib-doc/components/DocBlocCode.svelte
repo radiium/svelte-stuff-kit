@@ -61,7 +61,7 @@
 						<pre><code>{@html highlighted}</code></pre>
 					</div>
 
-					<Button size="2" class="copy-btn mt-3 mr-3" mode="soft" iconOnly on:click={copyCode}>
+					<Button size="2" class="copy-btn mt-2 mr-2" mode="soft" iconOnly on:click={copyCode}>
 						{#if isCopied}
 							<Check />
 						{:else}

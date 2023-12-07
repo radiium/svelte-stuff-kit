@@ -63,8 +63,6 @@
 			side = response.placement.split('-')[0] as Side;
 			align = (response.placement.split('-')[1] || 'center') as Alignment | 'center';
 
-			// console.log(side, align, response);
-
 			Object.assign(popoverRef?.style, {
 				left: `${response.x}px`,
 				top: `${response.y}px`
@@ -130,6 +128,13 @@
 {/if}
 
 <style lang="scss">
+	:root {
+		--popover-color: var(--color);
+		--popover-background: var(--background-level-2);
+		--popover-border-color: var(--border-color);
+		--popover-border-radius: var(--radius-3);
+	}
+
 	.trigger-wrapper {
 		position: relative;
 	}
@@ -144,31 +149,6 @@
 		cursor: pointer;
 	}
 
-	.popover-arrow {
-		position: absolute;
-		background: var(--background-level-2);
-		width: 10px;
-		height: 10px;
-		transform: rotate(45deg);
-		z-index: -1;
-		pointer-events: none;
-		border-style: solid;
-		border-color: var(--border-color);
-
-		&.top {
-			border-width: 0 1px 1px 0;
-		}
-		&.bottom {
-			border-width: 1px 0 0 1px;
-		}
-		&.left {
-			border-width: 1px 1px 0 0;
-		}
-		&.right {
-			border-width: 0 0 1px 1px;
-		}
-	}
-
 	.popover {
 		position: absolute;
 		width: max-content;
@@ -177,11 +157,10 @@
 		z-index: 10002;
 		max-width: 32rem;
 		padding: 1rem;
-		border-radius: 4px;
-		color: var(--color);
-		background: var(--background-level-2);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-3);
+		color: var(--popover-color);
+		background: var(--popover-background);
+		border: 1px solid var(--popover-border-color);
+		border-radius: var(--popover-border-radius);
 
 		&[data-state='open'] {
 			display: block;
@@ -189,6 +168,31 @@
 
 		&[data-state='close'] {
 			display: none;
+		}
+
+		.popover-arrow {
+			position: absolute;
+			background: var(--popover-background);
+			width: 10px;
+			height: 10px;
+			transform: rotate(45deg);
+			z-index: -1;
+			pointer-events: none;
+			border-style: solid;
+			border-color: var(--popover-border-color);
+
+			&.top {
+				border-width: 0 1px 1px 0;
+			}
+			&.bottom {
+				border-width: 1px 0 0 1px;
+			}
+			&.left {
+				border-width: 1px 1px 0 0;
+			}
+			&.right {
+				border-width: 0 0 1px 1px;
+			}
 		}
 	}
 </style>

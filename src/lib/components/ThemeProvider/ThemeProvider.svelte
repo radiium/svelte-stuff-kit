@@ -59,7 +59,6 @@
 
 	onMount(() => {
 		if (isRoot && isBrowser()) {
-			console.log('[onMount] init prefersColorSchemeDark listener');
 			prefersColorSchemeDark.addEventListener('change', onSchemeSystemChange);
 			return () => {
 				prefersColorSchemeDark.removeEventListener('change', onSchemeSystemChange);

@@ -11,8 +11,6 @@
 			current.set(fn);
 		}
 	});
-
-	$: console.log($current)
 </script>
 
 <slot />
