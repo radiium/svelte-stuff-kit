@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import InputNumberSample from './InputNumberSample.svelte';
 
@@ -53,7 +54,7 @@ export const docInputNumber: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Text, InputNumber } from 'svelte-stuff-kit';
+    import { Flexbox, Text, InputNumber } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -74,7 +75,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleOptions = `<script lang="ts">
-    import { Flexbox, Text, InputNumber } from 'svelte-stuff-kit';
+    import { Flexbox, Text, InputNumber } from '${packageName}';
 </script>
 
 <Flexbox  direction="column" gap="3" alignItems="start">
@@ -95,7 +96,7 @@ export const sampleOptions = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Text, InputNumber } from 'svelte-stuff-kit';
+    import { Flexbox, Text, InputNumber } from '${packageName}';
 </script>
 
 <Flexbox  direction="column" alignItems="start">

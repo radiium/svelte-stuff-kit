@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import PopoverSample from './PopoverSample.svelte';
 
@@ -51,7 +52,7 @@ export const docPopover: DocPageData = {
 };
 
 export const sampleBasic = `<script lang="ts">
-    import { Popover, Button } from 'svelte-stuff-kit';
+    import { Popover, Button } from '${packageName}';
 </script>
 
 <Popover>
@@ -62,7 +63,7 @@ export const sampleBasic = `<script lang="ts">
 </Popover>`;
 
 export const sampleWithBackdrop = `<script lang="ts">
-    import { Popover, Button } from 'svelte-stuff-kit';
+    import { Popover, Button } from '${packageName}';
 </script>
 
 <Popover backdrop={true}>
@@ -73,7 +74,7 @@ export const sampleWithBackdrop = `<script lang="ts">
 </Popover>`;
 
 export const sampleWithoutArrow = `<script lang="ts">
-    import { Popover, Button } from 'svelte-stuff-kit';
+    import { Popover, Button } from '${packageName}';
 </script>
 
 <Popover arrow={false}>
@@ -84,7 +85,7 @@ export const sampleWithoutArrow = `<script lang="ts">
 </Popover>`;
 
 export const sampleOffset = `<script lang="ts">
-    import { Flexbox, Popover, Button } from 'svelte-stuff-kit';
+    import { Flexbox, Popover, Button } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3">
@@ -104,7 +105,7 @@ export const sampleOffset = `<script lang="ts">
 </Flexbox>`;
 
 export const samplePlacement = `<script lang="ts">
-    import { Flexbox, Popover, Button } from 'svelte-stuff-kit';
+    import { Flexbox, Popover, Button } from '${packageName}';
 </script>
 
 <Flexbox  direction="column" alignItems="start">
@@ -198,7 +199,7 @@ export const samplePlacement = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleMenu = `<script lang="ts">
-    import { Popover, Button } from 'svelte-stuff-kit';
+    import { Popover, Button } from '${packageName}';
 </script>
 
 <Popover offset={10} placement="bottom-start" backdrop={true} arrow={false}>

@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import SwitchSample from './SwitchSample.svelte';
 
@@ -55,7 +56,7 @@ export const docSwitch: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Switch } from 'svelte-stuff-kit';
+    import { Flexbox, Switch } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -65,7 +66,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
-    import { Flexbox, Switch } from 'svelte-stuff-kit';
+    import { Flexbox, Switch } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -78,14 +79,14 @@ export const sampleColor = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleWithoutLabel = `<script lang="ts">
-    import { Switch } from 'svelte-stuff-kit';
+    import { Switch } from '${packageName}';
 </script>
 
 <Switch/>
 `;
 
 export const sampleInCard = `<script lang="ts">
-    import { Flexbox, Card, Switch } from 'svelte-stuff-kit';
+    import { Flexbox, Card, Switch } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -99,7 +100,7 @@ export const sampleInCard = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Switch } from 'svelte-stuff-kit';
+    import { Flexbox, Switch } from '${packageName}';
 </script>
 
 <Flexbox  direction="column"  gap="3"alignItems="start">

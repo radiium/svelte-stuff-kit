@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextareaSample from './TextareaSample.svelte';
 
@@ -55,7 +56,7 @@ export const docTextarea: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Text, Textarea } from 'svelte-stuff-kit';
+    import { Flexbox, Text, Textarea } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -76,7 +77,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Textarea } from 'svelte-stuff-kit';
+    import { Flexbox, Textarea } from '${packageName}';
 </script>
 
 <Flexbox slot="demo" direction="column" gap="2" alignItems="start">

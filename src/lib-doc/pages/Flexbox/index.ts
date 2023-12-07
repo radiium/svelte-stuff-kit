@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import FlexboxSample from './FlexboxSample.svelte';
 
@@ -64,7 +65,7 @@ export const docFlexbox: DocPageData = {
 };
 
 export const sampleGap = `<script lang="ts">
-    import { Flexbox, Card } from 'svelte-stuff-kit';
+    import { Flexbox, Card } from '${packageName}';
 </script>
 
 <Flexbox>
@@ -149,7 +150,7 @@ export const sampleGap = `<script lang="ts">
 `;
 
 export const sampleDirection = `<script lang="ts">
-    import { Flexbox, Card } from 'svelte-stuff-kit';
+    import { Flexbox, Card } from '${packageName}';
 </script>
 
 <Flexbox direction="row" gap="3">
@@ -186,7 +187,7 @@ export const sampleDirection = `<script lang="ts">
 `;
 
 export const sampleJustify = `<script lang="ts">
-    import { Flexbox, Card } from 'svelte-stuff-kit';
+    import { Flexbox, Card } from '${packageName}';
 </script>
 
 <Flexbox justify="normal" gap="3">
@@ -247,7 +248,7 @@ export const sampleJustify = `<script lang="ts">
 `;
 
 export const sampleAlign = `<script lang="ts">
-    import { Flexbox, Card } from 'svelte-stuff-kit';
+    import { Flexbox, Card } from '${packageName}';
 </script>
 
 <Flexbox alignItems="normal" gap="3">

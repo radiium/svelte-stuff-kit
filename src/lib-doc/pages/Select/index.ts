@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import SelectSample from './SelectSample.svelte';
 
@@ -44,7 +45,7 @@ export const docSelect: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Text, Select } from 'svelte-stuff-kit';
+    import { Flexbox, Text, Select } from '${packageName}';
 
     const options = [
         { label: 'opt 1', value: 'opt 1' },
@@ -72,7 +73,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox></Flexbox>`;
 
 export const sampleMultiple = `<script lang="ts">
-    import { Flexbox, Text, InputNumber } from 'svelte-stuff-kit';
+    import { Flexbox, Text, InputNumber } from '${packageName}';
 
     const options = [
         { label: 'opt 1', value: 'opt 1' },
@@ -87,7 +88,7 @@ export const sampleMultiple = `<script lang="ts">
 </Flexbox></Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Text, InputNumber } from 'svelte-stuff-kit';
+    import { Flexbox, Text, InputNumber } from '${packageName}';
 
     const options = [
         { label: 'opt 1', value: 'opt 1' },

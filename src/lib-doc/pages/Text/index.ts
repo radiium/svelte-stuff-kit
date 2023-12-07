@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextSample from './TextSample.svelte';
 
@@ -55,7 +56,7 @@ export const docText: DocPageData = {
 };
 
 export const sampleSize = `<script>
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>
@@ -72,7 +73,7 @@ export const sampleSize = `<script>
 `;
 
 export const sampleColor = `<script lang="ts">
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>
@@ -87,7 +88,7 @@ export const sampleColor = `<script lang="ts">
 `;
 
 export const sampleWeight = `<script lang="ts">
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>
@@ -99,7 +100,7 @@ export const sampleWeight = `<script lang="ts">
 `;
 
 export const sampleAlign = `<script lang="ts">
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>
@@ -110,7 +111,7 @@ export const sampleAlign = `<script lang="ts">
 `;
 
 export const sampleRequired = `<script lang="ts">
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>
@@ -119,7 +120,7 @@ export const sampleRequired = `<script lang="ts">
 `;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Text } from 'svelte-stuff-kit';
+    import { Text } from '${packageName}';
 </script>
 
 <div>

@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import ButtonSample from './ButtonSample.svelte';
 
@@ -71,13 +72,13 @@ export const docButton: DocPageData = {
 };
 
 export const sample1 = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Button>button</Button>`;
 
 export const sampleSize = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 
@@ -88,7 +89,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleMode = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 
@@ -99,7 +100,7 @@ export const sampleMode = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 
@@ -113,7 +114,7 @@ export const sampleColor = `<script lang="ts">
 
 export const sampleIcon = `<script lang="ts">
     import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 
@@ -137,7 +138,7 @@ export const sampleIcon = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleFullWidth = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 
@@ -145,7 +146,7 @@ export const sampleFullWidth = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleAlign = `<script lang="ts">
-    import { Button } from 'svelte-stuff-kit';
+    import { Button } from '${packageName}';
 </script>
 
 <Flexbox gap="3"> 

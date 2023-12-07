@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import InputSample from './InputSample.svelte';
 
@@ -59,7 +60,7 @@ export const docInput: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -81,7 +82,7 @@ export const sampleSize = `<script lang="ts">
 
 export const sampleIcon = `<script lang="ts">
     import UserRectangle from 'phosphor-svelte/lib/UserRectangle';
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -107,7 +108,7 @@ export const sampleIcon = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleAlign = `<script lang="ts">
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -128,7 +129,7 @@ export const sampleAlign = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleState = `<script lang="ts">
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -159,7 +160,7 @@ export const sampleState = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleType = `<script lang="ts">
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -225,7 +226,7 @@ export const sampleType = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleFullWidth = `<script lang="ts">
-    import { Flexbox, Input, Text } from 'svelte-stuff-kit';
+    import { Flexbox, Input, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="2" alignItems="start">

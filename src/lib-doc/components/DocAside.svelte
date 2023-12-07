@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { version } from '$app/environment';
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 	import { page } from '$app/stores';
@@ -34,7 +33,7 @@
 	</article>
 
 	<footer>
-		<Text as="small" color="neutral">Version: {version}</Text>
+		<Text as="small" color="neutral">Version: {import.meta.env.VERSION}</Text>
 	</footer>
 </Flexbox>
 

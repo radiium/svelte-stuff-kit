@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import RadioButtonSample from './RadioButtonSample.svelte';
 
@@ -53,7 +54,7 @@ export const docRadioButton: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, RadioButton } from 'svelte-stuff-kit';
+    import { Flexbox, RadioButton } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -63,7 +64,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
-    import { Flexbox, RadioButton } from 'svelte-stuff-kit';
+    import { Flexbox, RadioButton } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -76,14 +77,14 @@ export const sampleColor = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleWithoutLabel = `<script lang="ts">
-    import { RadioButton } from 'svelte-stuff-kit';
+    import { RadioButton } from '${packageName}';
 </script>
 
 <RadioButton/>
 `;
 
 export const sampleInCard = `<script lang="ts">
-    import { Flexbox, Card, RadioButton } from 'svelte-stuff-kit';
+    import { Flexbox, Card, RadioButton } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -97,7 +98,7 @@ export const sampleInCard = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, RadioButton } from 'svelte-stuff-kit';
+    import { Flexbox, RadioButton } from '${packageName}';
 </script>
 
 <Flexbox  direction="column"  gap="3"alignItems="start">

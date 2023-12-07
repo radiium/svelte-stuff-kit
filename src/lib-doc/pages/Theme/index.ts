@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import ThemeSample from './ThemeSample.svelte';
 
@@ -22,7 +23,7 @@ export const docTheme: DocPageData = {
 };
 
 export const sampleNestedTheme = `<script lang="ts">
-    import { ThemeProvider, ThemeSelect, Card, Flexbox } from 'svelte-stuff-kit';
+    import { ThemeProvider, ThemeSelect, Card, Flexbox } from '${packageName}';
 </script>
 
 <ThemeProvider slot="demo" strategy="light">

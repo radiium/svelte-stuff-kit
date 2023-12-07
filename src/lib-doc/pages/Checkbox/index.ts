@@ -1,3 +1,4 @@
+import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import CheckBoxSample from './CheckBoxSample.svelte';
 
@@ -61,7 +62,7 @@ export const docCheckbox: DocPageData = {
 };
 
 export const sampleSize = `<script lang="ts">
-    import { Flexbox, Checkbox } from 'svelte-stuff-kit';
+    import { Flexbox, Checkbox } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -71,7 +72,7 @@ export const sampleSize = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
-    import { Flexbox, Checkbox } from 'svelte-stuff-kit';
+    import { Flexbox, Checkbox } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -84,14 +85,14 @@ export const sampleColor = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleWithoutLabel = `<script lang="ts">
-    import { Checkbox } from 'svelte-stuff-kit';
+    import { Checkbox } from '${packageName}';
 </script>
 
 <Checkbox/>
 `;
 
 export const sampleInCard = `<script lang="ts">
-    import { Flexbox, Card, Checkbox } from 'svelte-stuff-kit';
+    import { Flexbox, Card, Checkbox } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
@@ -105,7 +106,7 @@ export const sampleInCard = `<script lang="ts">
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Checkbox } from 'svelte-stuff-kit';
+    import { Flexbox, Checkbox } from '${packageName}';
 </script>
 
 <Flexbox  direction="column"  gap="3"alignItems="start">
