@@ -1,11 +1,26 @@
 <script lang="ts">
+	import Button from '$lib/components/Button/Button.svelte';
+	import List from 'phosphor-svelte/lib/List';
+	import X from 'phosphor-svelte/lib/X';
+
+	let isMobileMenuOpen = false;
 </script>
 
 <div class="wrapper">
+	<div id="mobile-menu-btn" class:is-open={isMobileMenuOpen}>
+		<Button mode="clear" iconOnly on:click={() => (isMobileMenuOpen = !isMobileMenuOpen)}>
+			{#if isMobileMenuOpen}
+				<X />
+			{:else}
+				<List />
+			{/if}
+		</Button>
+	</div>
+
 	<header>
 		<slot name="header" />
 	</header>
-	<aside>
+	<aside class:is-mobile-menu-open={isMobileMenuOpen}>
 		<slot name="aside" />
 	</aside>
 	<main>
@@ -85,5 +100,42 @@
 
 	:global(.panel-btn svg) {
 		height: unset !important;
+	}
+
+	#mobile-menu-btn {
+		display: none;
+	}
+
+	@media (max-width: 825px) {
+        #mobile-menu-btn {
+			display: flex;
+			position: fixed;
+			z-index: 99999;
+			top: 10px;
+			left: 10px;
+		}
+
+		.wrapper {
+			grid-template-columns: 1fr;
+			grid-template-rows: 48px 1fr;
+			grid-template-areas:
+				'header'
+				'main';
+
+			aside {
+				grid-area: unset;
+				z-index: 99998;
+				position: fixed;
+				top: 48px;
+				bottom: 0;
+				left: 0;
+				transition: transform linear 0.3s;
+				transform: translateX(-250px);
+
+				&.is-mobile-menu-open {
+					transform: translateX(0);
+				}
+			}
+		}
 	}
 </style>

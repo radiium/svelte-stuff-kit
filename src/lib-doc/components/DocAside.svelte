@@ -8,7 +8,7 @@
 	$: pageId = $page.params.pageId;
 </script>
 
-<Flexbox class="doc-aside-wrapper" direction="column">
+<Flexbox class="doc-aside-wrapper" direction="column" height="100%" width="100%">
 	<article class="p-4">
 		{#each allDocs as section, i}
 			<section class="no-p" class:mb-5={i < allDocs.length - 1}>
@@ -40,68 +40,66 @@
 
 <style lang="scss">
 	:global(.doc-aside-wrapper) {
-		height: 100%;
-		width: 100%;
 		overflow: hidden;
+	}
 
-		article {
-			flex: 1 1 auto;
-			overflow: auto;
-			min-height: 0;
+	article {
+		flex: 1 1 auto;
+		overflow: auto;
+		min-height: 0;
 
-			section {
+		section {
+			width: 100%;
+
+			ul {
 				width: 100%;
+				list-style: none;
 
-				ul {
+				li {
 					width: 100%;
-					list-style: none;
+					margin: 4px 0;
 
-					li {
-						width: 100%;
-						margin: 4px 0;
+					a {
+						display: block;
+						position: relative;
+						cursor: default;
+						padding: var(--space-2) var(--space-3);
+						border-radius: var(--radius-3);
+						font-size: var(--font-size-2);
+						line-height: var(--line-height-2);
+						letter-spacing: var(--letter-spacing-2);
 
-						a {
-							display: block;
-							position: relative;
-							cursor: default;
-							padding: var(--space-2) var(--space-3);
-							border-radius: var(--radius-3);
-							font-size: var(--font-size-2);
-							line-height: var(--line-height-2);
-							letter-spacing: var(--letter-spacing-2);
+						color: var(--slate-a12);
 
-							color: var(--slate-a12);
+						&:hover,
+						&.active {
+							background-color: var(--slate-a3);
+						}
 
-							&:hover,
-							&.active {
-								background-color: var(--slate-a3);
-							}
+						&.active {
+							color: var(--teal-a11);
+							background-color: var(--slate-a3);
 
-							&.active {
-								color: var(--teal-a11);
-								background-color: var(--slate-a3);
-
-								&::after {
-									content: '➜';
-									position: absolute;
-									right: var(--space-3);
-								}
+							&::after {
+								content: '➜';
+								position: absolute;
+								right: var(--space-3);
 							}
 						}
 					}
 				}
 			}
 		}
+	}
 
-		footer {
-			min-height: 46px;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-style: solid;
-			border-color: var(--border-color);
-			border-width: 1px 0 0 0;
-		}
+	footer {
+		min-height: 46px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-style: solid;
+		border-color: var(--border-color);
+		border-width: 1px 0 0 0;
 	}
 </style>

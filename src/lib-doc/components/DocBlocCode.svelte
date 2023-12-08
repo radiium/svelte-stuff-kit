@@ -77,49 +77,40 @@
 <style lang="scss">
 	:global(.doc-code-wrapper) {
 		overflow: hidden;
+	}
 
-		&.has-demo {
-			border: 4px solid red;
-
-			.code-block {
-				border-radius: var(--radius-4);
-			}
+	section {
+		&.demo-block {
+			border-bottom: 1px solid var(--gray-8);
 		}
 
-		section {
-			&.demo-block {
-				border-bottom: 1px solid var(--gray-8);
+		&.code-block {
+			overflow: hidden;
+			position: relative;
+			background: var(--background-level-2) !important;
+
+			> div {
+				overflow-x: auto;
+			}
+			pre {
+				margin: 0;
+
+				code {
+					font-size: 16px;
+					background: var(--background-level-2) !important;
+				}
 			}
 
-			&.code-block {
-				overflow: hidden;
-				position: relative;
-				background: var(--background-level-2) !important;
-				border-radius: 0 0 var(--radius-4) var(--radius-4);
+			:global(.copy-btn) {
+				opacity: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
 
-				> div {
-					overflow-x: auto;
-				}
-				pre {
-					margin: 0;
-
-					code {
-						font-size: 16px;
-						background: var(--background-level-2) !important;
-					}
-				}
-
+			&:hover {
 				:global(.copy-btn) {
-					opacity: 0;
-					position: absolute;
-					right: 0;
-					top: 0;
-				}
-
-				&:hover {
-					:global(.copy-btn) {
-						opacity: 1;
-					}
+					opacity: 1;
 				}
 			}
 		}
