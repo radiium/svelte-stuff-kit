@@ -1,15 +1,25 @@
+<script lang="ts" context="module">
+	import { get, writable } from 'svelte/store';
+
+	const isMobileMenuOpen = writable(false);
+	function toggleMenu() {
+		isMobileMenuOpen.set(!get(isMobileMenuOpen));
+	}
+	export function closeMenu() {
+		isMobileMenuOpen.set(false);
+	}
+</script>
+
 <script lang="ts">
 	import Button from '$lib/components/Button/Button.svelte';
 	import List from 'phosphor-svelte/lib/List';
 	import X from 'phosphor-svelte/lib/X';
-
-	let isMobileMenuOpen = false;
 </script>
 
 <div class="wrapper">
-	<div id="mobile-menu-btn" class:is-open={isMobileMenuOpen}>
-		<Button mode="clear" iconOnly on:click={() => (isMobileMenuOpen = !isMobileMenuOpen)}>
-			{#if isMobileMenuOpen}
+	<div id="mobile-menu-btn" class:is-open={$isMobileMenuOpen}>
+		<Button mode="clear" iconOnly on:click={toggleMenu}>
+			{#if $isMobileMenuOpen}
 				<X />
 			{:else}
 				<List />
@@ -20,7 +30,7 @@
 	<header>
 		<slot name="header" />
 	</header>
-	<aside class:is-mobile-menu-open={isMobileMenuOpen}>
+	<aside class:is-open={$isMobileMenuOpen}>
 		<slot name="aside" />
 	</aside>
 	<main>
@@ -98,16 +108,12 @@
 		}
 	}
 
-	:global(.panel-btn svg) {
-		height: unset !important;
-	}
-
 	#mobile-menu-btn {
 		display: none;
 	}
 
 	@media (max-width: 825px) {
-        #mobile-menu-btn {
+		#mobile-menu-btn {
 			display: flex;
 			position: fixed;
 			z-index: 99999;
@@ -132,7 +138,7 @@
 				transition: transform linear 0.3s;
 				transform: translateX(-250px);
 
-				&.is-mobile-menu-open {
+				&.is-open {
 					transform: translateX(0);
 				}
 			}

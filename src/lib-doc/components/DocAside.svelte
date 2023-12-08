@@ -4,6 +4,7 @@
 	import Text from '$lib/components/Text/Text.svelte';
 	import { page } from '$app/stores';
 	import { allDocs } from '../';
+	import { closeMenu } from './DocLayout.svelte';
 
 	$: pageId = $page.params.pageId;
 </script>
@@ -20,6 +21,7 @@
 							<a
 								class:active={page.id === pageId}
 								href={`/${section.id}/${page.id}`}
+								on:click={closeMenu}
 								data-sveltekit-preload-data="tap"
 								data-accent-color="neutral"
 							>
