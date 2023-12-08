@@ -116,6 +116,7 @@
 		bind:this={popoverRef}
 		role="dialog"
 		class="popover"
+		data-popover
 		data-state={isOpen ? 'open' : 'close'}
 		data-side={side}
 		data-align={align}
@@ -128,7 +129,7 @@
 {/if}
 
 <style lang="scss">
-	:root {
+	[data-popover] {
 		--popover-color: var(--color);
 		--popover-background: var(--background-level-2);
 		--popover-border-color: var(--border-color);
