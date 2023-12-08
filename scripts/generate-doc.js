@@ -1,5 +1,6 @@
-import { getInfo } from '@el3um4s/svelte-get-component-info';
 import fs from 'fs';
+import { getInfo } from '@el3um4s/svelte-get-component-info';
+import { extractTypesFromFile } from './extractor.js';
 
 const blocs = [
     {
@@ -59,10 +60,14 @@ const blocs = [
 ]
 
 blocs.forEach(bloc => {
-    const info = getInfo(bloc.component);
-    console.log(info);
-    console.log(bloc);
-    bloc.info = info;
+    // const info = getInfo(bloc.component);
+    // console.log(info);
+    // console.log(bloc);
+    // bloc.info = info;
+
+    // extractTypesFromFile(bloc.component).then((resp) => {
+    //     console.log(resp)
+    // })
 });
 
 fs.writeFileSync('./generated.json', JSON.stringify(blocs), { encoding: 'utf-8' })
