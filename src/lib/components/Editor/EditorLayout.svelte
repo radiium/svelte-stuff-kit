@@ -1,7 +1,8 @@
 <script lang="ts">
 	import SidebarSimple from 'phosphor-svelte/lib/SidebarSimple';
-	import { Button, Toolbar } from '..';
+	import { Button } from '..';
 	import { editorLayoutStore } from './editor-layout.store';
+	import Toolbar from './Toolbar.svelte';
 </script>
 
 <!-- class:has-header={$$slots.header} -->

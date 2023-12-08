@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Toolbar } from '..';
+	import { Button } from '..';
 	import Cursor from 'phosphor-svelte/lib/Cursor';
 	import Hand from 'phosphor-svelte/lib/Hand';
 	import LineSegment from 'phosphor-svelte/lib/LineSegment';
@@ -8,6 +8,7 @@
 	import ArrowArcRight from 'phosphor-svelte/lib/ArrowArcRight';
 	import ArrowsInCardinal from 'phosphor-svelte/lib/ArrowsInCardinal';
 	import EditorMenu from './EditorMenu.svelte';
+	import Toolbar from './Toolbar.svelte';
 
 	enum EditorMode {
 		default = 'default',

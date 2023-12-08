@@ -17,4 +17,3 @@ export * from './Textarea';
 export * from './ThemeProvider';
 export * from './Editor';
 export * from './types';
-export { default as Toolbar } from './Toolbar.svelte';
