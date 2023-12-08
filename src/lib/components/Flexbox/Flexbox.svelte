@@ -23,6 +23,8 @@
 	export let gap: FlexboxGap = '0';
 	export let grow: FlexboxGrow | undefined = undefined;
 	export let shrink: FlexboxShrink | undefined = undefined;
+	export let height: string | undefined = undefined;
+	export let width: string | undefined = undefined;
 
 	$: cssClass = clsx(
 		$$restProps.class,
@@ -39,6 +41,6 @@
 	);
 </script>
 
-<svelte:element this={as} bind:this={elementRef} {...$$restProps} class={cssClass}>
+<svelte:element this={as} bind:this={elementRef} style:height style:width {...$$restProps} class={cssClass}>
 	<slot />
 </svelte:element>
