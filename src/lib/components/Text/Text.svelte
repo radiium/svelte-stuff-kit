@@ -27,7 +27,7 @@
 	);
 
 	$: attributes = {
-		'data-accent-color': color,
+		'data-color': color,
 		...$$restProps
 	};
 </script>

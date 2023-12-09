@@ -35,8 +35,8 @@
 		disabled: disabled || undefined,
 		active: active || undefined,
 		tabindex: 0,
-		role: 'button',
-		'data-accent-color': color,
+		'data-color': color,
+		'data-size': size,
 		...$$restProps
 	};
 </script>
@@ -167,7 +167,7 @@
 			}
 		}
 		&.btn-size-4 {
-            --button-height: var(--space-8);
+			--button-height: var(--space-8);
 			--button-min-width: calc(var(--space-8) * 2);
 			--button-padding: 0 var(--space-4);
 			--button-border-radius: var(--radius-3);
@@ -181,31 +181,6 @@
 				--button-min-width: var(--space-8);
 				--button-width: var(--space-8);
 				--button-padding: var(--space-1);
-			}
-		}
-
-		&.btn-align-start {
-			justify-content: flex-start;
-			text-align: start;
-		}
-		&.btn-align-center {
-			justify-content: center;
-			text-align: center;
-		}
-		&.btn-align-end {
-			justify-content: flex-end;
-			text-align: end;
-		}
-		&.btn-full-width {
-			width: 100%;
-		}
-		&.btn-icon-only {
-			&.btn-circle {
-				--button-border-radius: var(--radius-full);
-
-				:global(svg) {
-					height: 65%;
-				}
 			}
 		}
 
@@ -237,6 +212,33 @@
 			--button-background: var(--accent-9);
 			--button-background-hover: var(--accent-10);
 			--button-background-active: var(--accent-11);
+		}
+
+		&.btn-icon-only {
+			&.btn-circle {
+				--button-border-radius: var(--radius-full);
+
+				:global(svg) {
+					height: 65%;
+				}
+			}
+		}
+
+		// Content
+		&.btn-align-start {
+			justify-content: flex-start;
+			text-align: start;
+		}
+		&.btn-align-center {
+			justify-content: center;
+			text-align: center;
+		}
+		&.btn-align-end {
+			justify-content: flex-end;
+			text-align: end;
+		}
+		&.btn-full-width {
+			width: 100%;
 		}
 
 		// States

@@ -33,7 +33,7 @@
 	};
 </script>
 
-<label class={cssClass} data-accent-color={color} aria-checked={checked}>
+<label class={cssClass} data-color={color} aria-checked={checked}>
 	<input
 		{...attributes}
 		type="checkbox"

@@ -137,8 +137,8 @@
     }
 }
 
-[data-accent-color='blue-gray'],
-[data-accent-color='neutral'] {
+[data-color='blue-gray'],
+[data-color='neutral'] {
     --contrast: white;
     --surface: var(--gray-surface);
     --focus-ring: var(--slate-8);
@@ -180,7 +180,7 @@
     --accent-a12: var(--slate-a12);
 }
 
-[data-accent-color='primary'] {
+[data-color='primary'] {
     --contrast: white;
     --surface: var(--teal-surface);
     --focus-ring: var(--teal-8);
@@ -222,8 +222,8 @@
     --accent-a12: var(--teal-a12);
 }
 
-[data-accent-color='blue'],
-[data-accent-color='info'] {
+[data-color='blue'],
+[data-color='info'] {
     --contrast: white;
     --surface: var(--blue-surface);
     --focus-ring: var(--blue-8);
@@ -265,8 +265,8 @@
     --accent-a12: var(--blue-a12);
 }
 
-[data-accent-color='green'],
-[data-accent-color='success'] {
+[data-color='green'],
+[data-color='success'] {
     --contrast: white;
     --surface: var(--grass-surface);
     --focus-ring: var(--grass-8);
@@ -308,8 +308,8 @@
     --accent-a12: var(--grass-a12);
 }
 
-[data-accent-color='yellow'],
-[data-accent-color='warning'] {
+[data-color='yellow'],
+[data-color='warning'] {
     --contrast: hsl(50, 8%, 12%);
     --surface: var(--amber-surface);
     --focus-ring: var(--amber-8);
@@ -351,8 +351,8 @@
     --accent-a12: var(--amber-a12);
 }
 
-[data-accent-color='red'],
-[data-accent-color='danger'] {
+[data-color='red'],
+[data-color='danger'] {
     --contrast: white;
     --surface: var(--tomato-surface);
     --focus-ring: var(--tomato-8);

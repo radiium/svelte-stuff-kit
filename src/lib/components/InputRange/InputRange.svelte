@@ -32,17 +32,8 @@
 	};
 </script>
 
-<div class={cssClass} data-accent-color={color}>
-	<input
-		{...attributes}
-		type="range"
-		bind:value
-		bind:this={elementRef}
-		on:input
-		on:change
-		on:focus
-		on:blur
-	/>
+<div class={cssClass} data-color={color}>
+	<input {...attributes} type="range" bind:value bind:this={elementRef} on:input on:change on:focus on:blur />
 	<div class="input-highlight" />
 </div>
 

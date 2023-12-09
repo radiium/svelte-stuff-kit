@@ -32,7 +32,7 @@
 	};
 </script>
 
-<label class={cssClass} data-accent-color={color}>
+<label class={cssClass} data-color={color}>
 	<input
 		{...attributes}
 		type="radio"
@@ -45,7 +45,7 @@
 		on:blur
 	/>
 	<span class="input-checkmark" />
-	
+
 	{#if $$slots.default}
 		<span class="input-label">
 			<slot />

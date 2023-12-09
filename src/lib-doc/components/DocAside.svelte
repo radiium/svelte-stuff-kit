@@ -23,7 +23,7 @@
 								href={`/${section.id}/${page.id}`}
 								on:click={closeMenu}
 								data-sveltekit-preload-data="tap"
-								data-accent-color="neutral"
+								data-color="neutral"
 							>
 								{page.title}
 								<!-- <Text color={page.id === pageId ? 'primary' : 'neutral'}></Text> -->

@@ -35,7 +35,7 @@
 	};
 </script>
 
-<label class={cssClass} data-accent-color={color} aria-checked={checked}>
+<label class={cssClass} data-color={color} aria-checked={checked}>
 	<input
 		type="checkbox"
 		{value}
@@ -49,7 +49,7 @@
 		{...attributes}
 	/>
 	<span class="input-checkmark" />
-	
+
 	{#if $$slots.default}
 		<span class="input-label">
 			<slot />

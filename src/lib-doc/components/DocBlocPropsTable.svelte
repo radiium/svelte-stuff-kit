@@ -18,13 +18,13 @@
 		<tbody>
 			{#each props as prop}
 				<tr>
-					<td data-accent-color="primary">
+					<td data-color="primary">
 						<code class="name">{prop.name}</code>
 					</td>
-					<td data-accent-color="neutral">
+					<td data-color="neutral">
 						<code class="type">{prop.type}</code>
 					</td>
-					<td data-accent-color="neutral">
+					<td data-color="neutral">
 						{#if prop.defaultValue}
 							<code class="default">
 								{prop.defaultValue}
