@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
 	import type { PropAlign, PropColor, PropMode, PropSizeButton, PropTypeButton } from '../types';
-	
+
 	export let elementRef: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
-	export let href: string = '';
+	export let href: string | undefined = undefined;
 	export let target: string = '_blank';
 	export let type: PropTypeButton = 'button';
 	export let mode: PropMode = 'solid';
@@ -64,6 +64,37 @@
 <style lang="scss">
 	a,
 	button {
+		// CSS Vars
+		--button-min-width: calc(var(--space-5) * 2);
+		--button-width: unset;
+		--button-height: var(--space-5);
+		--button-padding: 0 var(--space-2);
+		--button-border: none;
+		--button-border-radius: var(--radius-3);
+		--button-background: transparent;
+		--button-background-hover: var(--accent-a6);
+		--button-background-active: var(--accent-a7);
+		--button-color: var(--accent-a12);
+		--button-font-size: var(--font-size-1);
+		--button-line-height: var(--line-height-1);
+		--button-letter-spacing: var(--letter-spacing-1);
+		--button-gap: var(--space-1);
+
+		// Customizable
+		min-width: var(--button-min-width);
+		width: var(--button-width);
+		height: var(--button-height);
+		padding: var(--button-padding);
+		border: var(--button-border);
+		border-radius: var(--button-border-radius);
+		background-color: var(--button-background);
+		color: var(--button-color);
+		font-size: var(--button-font-size);
+		line-height: var(--button-line-height);
+		letter-spacing: var(--button-letter-spacing);
+		gap: var(--button-gap);
+
+		// Common
 		cursor: pointer;
 		position: relative;
 		box-sizing: border-box;
@@ -75,85 +106,81 @@
 		white-space: nowrap;
 		user-select: none;
 		font-weight: bold;
-
-		border: var(--btn-border);
-		color: var(--btn-color);
-		background-color: var(--btn-background);
 		transition: background-color linear 80ms;
 
 		:global(svg) {
 			height: 60%;
 			width: auto;
-			fill: var(--btn-color);
+			fill: var(--button-color);
 		}
 
 		// Sizes
 		&.btn-size-1 {
-			height: var(--space-5);
-			min-width: calc(var(--space-5) * 2);
-			padding: 0 var(--space-2);
-			border-radius: var(--radius-3);
-			gap: var(--space-1);
+			--button-height: var(--space-5);
+			--button-min-width: calc(var(--space-5) * 2);
+			--button-padding: 0 var(--space-2);
+			--button-border-radius: var(--radius-3);
+			--button-gap: var(--space-1);
 
-			font-size: var(--font-size-1);
-			line-height: var(--line-height-1);
-			letter-spacing: var(--letter-spacing-1);
+			--button-font-size: var(--font-size-1);
+			--button-line-height: var(--line-height-1);
+			--button-letter-spacing: var(--letter-spacing-1);
 
 			&.btn-icon-only {
-				min-width: var(--space-5);
-				width: var(--space-5);
-				padding: var(--space-0);
+				--button-min-width: var(--space-5);
+				--button-width: var(--space-5);
+				--button-padding: var(--space-0);
 			}
 		}
 		&.btn-size-2 {
-			height: var(--space-6);
-			min-width: calc(var(--space-6) * 2);
-			padding: 0 var(--space-2);
-			border-radius: var(--radius-3);
-			gap: var(--space-1);
+			--button-height: var(--space-6);
+			--button-min-width: calc(var(--space-6) * 2);
+			--button-padding: 0 var(--space-2);
+			--button-border-radius: var(--radius-3);
+			--button-gap: var(--space-1);
 
-			font-size: var(--font-size-2);
-			line-height: var(--line-height-2);
-			letter-spacing: var(--letter-spacing-2);
+			--button-font-size: var(--font-size-2);
+			--button-line-height: var(--line-height-2);
+			--button-letter-spacing: var(--letter-spacing-2);
 
 			&.btn-icon-only {
-				min-width: var(--space-6);
-				width: var(--space-6);
-				padding: var(--space-0);
+				--button-min-width: var(--space-6);
+				--button-width: var(--space-6);
+				--button-padding: var(--space-0);
 			}
 		}
 		&.btn-size-3 {
-			height: var(--space-7);
-			min-width: calc(var(--space-7) * 2);
-			padding: 0 var(--space-3);
-			border-radius: var(--radius-3);
-			gap: var(--space-3);
+			--button-height: var(--space-7);
+			--button-min-width: calc(var(--space-7) * 2);
+			--button-padding: 0 var(--space-3);
+			--button-border-radius: var(--radius-3);
+			--button-gap: var(--space-3);
 
-			font-size: var(--font-size-3);
-			line-height: var(--line-height-3);
-			letter-spacing: var(--letter-spacing-3);
+			--button-font-size: var(--font-size-3);
+			--button-line-height: var(--line-height-3);
+			--button-letter-spacing: var(--letter-spacing-3);
 
 			&.btn-icon-only {
-				min-width: var(--space-7);
-				width: var(--space-7);
-				padding: var(--space-1);
+				--button-min-width: var(--space-7);
+				--button-width: var(--space-7);
+				--button-padding: var(--space-1);
 			}
 		}
 		&.btn-size-4 {
-			height: var(--space-8);
-			min-width: calc(var(--space-8) * 2);
-			padding: 0 var(--space-4);
-			border-radius: var(--radius-3);
-			gap: var(--space-3);
+            --button-height: var(--space-8);
+			--button-min-width: calc(var(--space-8) * 2);
+			--button-padding: 0 var(--space-4);
+			--button-border-radius: var(--radius-3);
+			--button-gap: var(--space-3);
 
-			font-size: var(--font-size-4);
-			line-height: var(--line-height-4);
-			letter-spacing: var(--letter-spacing-4);
+			--button-font-size: var(--font-size-4);
+			--button-line-height: var(--line-height-4);
+			--button-letter-spacing: var(--letter-spacing-4);
 
 			&.btn-icon-only {
-				min-width: var(--space-8);
-				width: var(--space-8);
-				padding: var(--space-1);
+				--button-min-width: var(--space-8);
+				--button-width: var(--space-8);
+				--button-padding: var(--space-1);
 			}
 		}
 
@@ -174,7 +201,7 @@
 		}
 		&.btn-icon-only {
 			&.btn-circle {
-				border-radius: var(--radius-full);
+				--button-border-radius: var(--radius-full);
 
 				:global(svg) {
 					height: 65%;
@@ -183,41 +210,38 @@
 		}
 
 		// Modes
-		--border-width: 1px;
-		--border-style: solid;
-
 		&.btn-clear {
-			--btn-border: none;
-			--btn-color: var(--accent-a12);
-			--btn-background: transparent;
-			--btn-background-hover: var(--accent-a6);
-			--btn-background-active: var(--accent-a7);
+			--button-border: none;
+			--button-color: var(--accent-a12);
+			--button-background: transparent;
+			--button-background-hover: var(--accent-a6);
+			--button-background-active: var(--accent-a7);
 		}
 		&.btn-outline {
-			--btn-border: var(--border-width) var(--border-style) var(--accent-9);
-			--btn-color: var(--accent-a12);
-			--btn-background: transparent;
-			--btn-background-hover: var(--accent-a6);
-			--btn-background-active: var(--accent-a7);
+			--button-border: 1px solid var(--accent-9);
+			--button-color: var(--accent-a12);
+			--button-background: transparent;
+			--button-background-hover: var(--accent-a6);
+			--button-background-active: var(--accent-a7);
 		}
 		&.btn-soft {
-			--btn-border: none;
-			--btn-color: var(--accent-a12);
-			--btn-background: var(--accent-a6);
-			--btn-background-hover: var(--accent-a7);
-			--btn-background-active: var(--accent-a8);
+			--button-border: none;
+			--button-color: var(--accent-a12);
+			--button-background: var(--accent-a6);
+			--button-background-hover: var(--accent-a7);
+			--button-background-active: var(--accent-a8);
 		}
 		&.btn-solid {
-			--btn-border: none;
-			--btn-color: var(--contrast);
-			--btn-background: var(--accent-9);
-			--btn-background-hover: var(--accent-10);
-			--btn-background-active: var(--accent-11);
+			--button-border: none;
+			--button-color: var(--contrast);
+			--button-background: var(--accent-9);
+			--button-background-hover: var(--accent-10);
+			--button-background-active: var(--accent-11);
 		}
 
 		// States
 		&:hover {
-			background: var(--btn-background-hover);
+			background: var(--button-background-hover);
 
 			&.btn-link {
 				text-decoration: underline;
@@ -225,7 +249,7 @@
 		}
 		&:active,
 		&.btn-active {
-			background: var(--btn-background-active);
+			background: var(--button-background-active);
 		}
 		&:disabled {
 			@include disabled;
@@ -234,10 +258,10 @@
 			@include input-box-shadow-focus;
 		}
 		&:visited {
-			color: var(--btn-color);
+			color: var(--button-color);
 
 			:global(svg) {
-				fill: var(--btn-color);
+				fill: var(--button-color);
 			}
 		}
 	}
