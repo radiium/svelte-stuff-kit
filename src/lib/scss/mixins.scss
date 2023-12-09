@@ -2,67 +2,41 @@
 /// MIXINS
 ///
 
-@mixin reset-button {
-	appearance: none;
-	background-color: transparent;
-	border: none;
-	box-sizing: border-box;
-	font-family: inherit;
-	font-size: 100%;
-	line-height: 1;
-	outline: none;
-	padding: 0;
-	text-decoration: none;
-	user-select: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 @mixin input-box-shadow {
-	box-shadow: var(--border-color) 0px 0px 0px 1px;
-	outline: none;
+    box-shadow: var(--border-color) 0px 0px 0px 1px;
+    outline: none;
 }
 
 @mixin input-box-shadow-hover {
-	// transition: box-shadow ease 0.1s;
-	box-shadow: var(--border-color-hover) 0px 0px 0px 1px;
-	outline: none;
+    box-shadow: var(--border-color-hover) 0px 0px 0px 1px;
+    outline: none;
 }
 
 @mixin input-box-shadow-focus {
-	// transition: box-shadow ease 0.2s;
-	box-shadow: var(--border-color-focus) 0px 0px 0px 1px;
-	outline: none;
+    box-shadow: var(--border-color-focus) 0px 0px 0px 1px;
+    outline: none;
 }
 
 @mixin disabled {
-	cursor: default !important;
-	opacity: 0.5 !important;
-	outline: none !important;
-	pointer-events: none;
+    cursor: default !important;
+    opacity: 0.5 !important;
+    outline: none !important;
+    pointer-events: none;
 
-	&:focus,
-	&:focus-within,
-	&:focus-visible {
-		box-shadow: none !important;
-		outline: none !important;
-	}
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+        box-shadow: none !important;
+        outline: none !important;
+    }
 }
 
 @mixin hidden {
-	user-select: none;
-	margin: 0;
-	position: absolute;
-	opacity: 0;
-	border: 0;
-	box-shadow: none;
-	outline: 0;
-}
-
-@mixin not-disabled {
-	&:not([disabled]),
-	&:not(.disabled),
-	&:not(.input-disabled),
-	&:not(:disabled) {
-		@content;
-	}
+    user-select: none;
+    margin: 0;
+    position: absolute;
+    opacity: 0;
+    border: 0;
+    box-shadow: none;
+    outline: 0;
 }
