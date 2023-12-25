@@ -1,20 +1,22 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropAlign, PropSizeInput, PropTypeInput } from '../types';
+	import { defaultPropsInput, type PropsInput } from './Input.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let value: string = '';
-	export let type: PropTypeInput = 'text';
-	export let size: PropSizeInput = '2';
-	export let align: PropAlign = 'start';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let readonly: boolean = false;
-	export let error: boolean = false;
-	export let fullWidth: boolean = false;
+	type $$Props = PropsInput;
+	export let elementRef: PropsInput['elementRef'] = defaultPropsInput.elementRef;
+	export let value: PropsInput['value'] = defaultPropsInput.value;
+	export let type: PropsInput['type'] = defaultPropsInput.type;
+	export let size: PropsInput['size'] = defaultPropsInput.size;
+	export let align: PropsInput['align'] = defaultPropsInput.align;
+	export let disabled: PropsInput['disabled'] = defaultPropsInput.disabled;
+	export let required: PropsInput['required'] = defaultPropsInput.required;
+	export let readonly: PropsInput['readonly'] = defaultPropsInput.readonly;
+	export let error: PropsInput['error'] = defaultPropsInput.error;
+	export let fullWidth: PropsInput['fullWidth'] = defaultPropsInput.fullWidth;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		`input-size-${size}`,
 		'input-wrapper',
 		`input-type-${type}`,
@@ -29,11 +31,12 @@
 	);
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
 		readonly: readonly || undefined,
 		spellcheck: false,
-		...$$restProps
+		...restProps
 	};
 </script>
 

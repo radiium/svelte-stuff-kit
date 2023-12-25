@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropSizeInput, PropColor } from '../types';
+	import { defaultPropsInputRange, type PropsInputRange } from './InputRange.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let value: number | undefined = undefined;
-	export let size: PropSizeInput = '2';
-	export let color: PropColor = 'neutral';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let error: boolean = false;
-	export let fullWidth: boolean = false;
+	type $$Props = PropsInputRange;
+	export let elementRef: PropsInputRange['elementRef'] = defaultPropsInputRange.elementRef;
+	export let value: PropsInputRange['value'] = defaultPropsInputRange.value;
+	export let size: PropsInputRange['size'] = defaultPropsInputRange.size;
+	export let color: PropsInputRange['color'] = defaultPropsInputRange.color;
+	export let disabled: PropsInputRange['disabled'] = defaultPropsInputRange.disabled;
+	export let required: PropsInputRange['required'] = defaultPropsInputRange.required;
+	export let error: PropsInputRange['error'] = defaultPropsInputRange.error;
+	export let fullWidth: PropsInputRange['fullWidth'] = defaultPropsInputRange.fullWidth;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		'input-wrapper',
 		`input-type-range`,
 		`input-size-${size}`,
@@ -26,9 +28,10 @@
 	);
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		...$$restProps
+		...restProps
 	};
 </script>
 

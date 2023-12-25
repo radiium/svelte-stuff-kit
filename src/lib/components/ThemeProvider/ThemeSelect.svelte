@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { useThemeContext } from './theme.utils';
 	import AppWindow from 'phosphor-svelte/lib/AppWindow';
 	import Moon from 'phosphor-svelte/lib/Moon';
 	import Sun from 'phosphor-svelte/lib/Sun';
-	import { Popover } from '../Popover';
-	import { Button } from '../Button';
-	import { Flexbox } from '../Flexbox';
-	import { ThemeStrategy } from './theme.type';
+	import { useThemeContext } from './theme.utils';
+	import Popover from '../Popover/Popover.svelte';
+	import Button from '../Button/Button.svelte';
+	import Flexbox from '../Flexbox/Flexbox.svelte';
+	import { ThemeStrategy } from './ThemeProvider.props';
 
 	const themeContext = useThemeContext();
 	const { strategy, updateStrategy = () => {} } = themeContext;

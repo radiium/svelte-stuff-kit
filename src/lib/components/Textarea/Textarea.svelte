@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropSizeInput } from '../types';
+	import { defaultPropsTextarea, type PropsTextarea } from './Textarea.props';
 
-	export let elementRef: HTMLTextAreaElement | undefined = undefined;
-	export let value: string = '';
-	export let size: PropSizeInput = '2';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let readonly: boolean = false;
-	export let error: boolean = false;
-	export let fullWidth: boolean = false;
+	type $$Props = PropsTextarea;
+	export let elementRef: PropsTextarea['elementRef'] = defaultPropsTextarea.elementRef;
+	export let value: PropsTextarea['value'] = defaultPropsTextarea.value;
+	export let size: PropsTextarea['size'] = defaultPropsTextarea.size;
+	export let disabled: PropsTextarea['disabled'] = defaultPropsTextarea.disabled;
+	export let required: PropsTextarea['required'] = defaultPropsTextarea.required;
+	export let readonly: PropsTextarea['readonly'] = defaultPropsTextarea.readonly;
+	export let error: PropsTextarea['error'] = defaultPropsTextarea.error;
+	export let fullWidth: PropsTextarea['fullWidth'] = defaultPropsTextarea.fullWidth;
+	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx($$restProps.class, 'input-wrapper', `input-size-${size}`, {
+	$: cssClass = clsx(_class, 'input-wrapper', `input-size-${size}`, {
 		'input-disabled': disabled,
 		'input-required': required,
 		'input-readonly': readonly,
@@ -20,12 +22,13 @@
 	});
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
 		readonly: readonly || undefined,
 		spellcheck: false,
 		rows: 3,
-		...$$restProps
+		...restProps
 	};
 </script>
 

@@ -1,27 +1,32 @@
 <script lang="ts">
+	import { clsx } from '$lib';
 	import { longpress } from '../../actions/longpress';
-	import type { PropSizeInput } from '../types';
+	import { defaultPropsInputNumber, type PropsInputNumber } from './InputNumber.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let size: PropSizeInput = '2';
-	export let value: number | undefined = undefined;
-	export let step: number = 1;
-	export let min: number | undefined = undefined;
-	export let max: number | undefined = undefined;
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let readonly: boolean = false;
+	type $$Props = PropsInputNumber;
+	export let elementRef: PropsInputNumber['elementRef'] = defaultPropsInputNumber.elementRef;
+	export let size: PropsInputNumber['size'] = defaultPropsInputNumber.size;
+	export let value: PropsInputNumber['value'] = defaultPropsInputNumber.value;
+	export let step: PropsInputNumber['step'] = defaultPropsInputNumber.step;
+	export let min: PropsInputNumber['min'] = defaultPropsInputNumber.min;
+	export let max: PropsInputNumber['max'] = defaultPropsInputNumber.max;
+	export let disabled: PropsInputNumber['disabled'] = defaultPropsInputNumber.disabled;
+	export let required: PropsInputNumber['required'] = defaultPropsInputNumber.required;
+	export let readonly: PropsInputNumber['readonly'] = defaultPropsInputNumber.readonly;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	// Input css classes
 	let cssClass = '';
-	$: cssClass = [
-		'input-wrapper',
-		`input-size-${size}`,
-		disabled ? 'input-disabled' : '',
-		required ? 'input-required' : '',
-		readonly ? 'input-readonly' : '',
-		$$restProps.class
-	].join(' ');
+	$: cssClass = clsx(_class, 'input-wrapper', `input-size-${size}`, {
+		'input-disabled': disabled,
+		'input-required': required,
+		'input-readonly': readonly
+	});
+
+	$: attributes = {
+		style,
+		...restProps
+	};
 
 	let intervalId: any = undefined;
 
@@ -30,7 +35,7 @@
 			return;
 		}
 		initValue();
-		if (typeof value === 'number') {
+		if (typeof value === 'number' && typeof step === 'number') {
 			if (typeof min === 'number') {
 				value = Math.max(value - step, min);
 			} else {
@@ -51,7 +56,7 @@
 			return;
 		}
 		initValue();
-		if (typeof value === 'number') {
+		if (typeof value === 'number' && typeof step === 'number') {
 			if (typeof max === 'number') {
 				value = Math.min(value + step, max);
 			} else {
@@ -101,7 +106,7 @@
 		{disabled}
 		{required}
 		{readonly}
-		{...$$restProps}
+		{...attributes}
 		{step}
 		{min}
 		{max}

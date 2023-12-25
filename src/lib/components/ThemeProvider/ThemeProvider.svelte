@@ -1,7 +1,24 @@
 <script context="module" lang="ts">
 	import '../../style.scss';
+	import { derived, writable } from 'svelte/store';
 
-	import type { ThemeSchemeType } from './theme.type';
+	import {
+		prefersColorSchemeDark,
+		resolveStrategy,
+		resolveScheme,
+		resolveSchemeSystem,
+		setThemeStorage,
+		THEME_CONTEXT_KEY,
+		THEME_STORAGE_KEY
+	} from './theme.utils';
+	import {
+		ThemeStrategy,
+		type ThemeSchemeType,
+		type ThemeStrategyType,
+		type ThemeContext,
+		type PropsThemeProvider,
+		defaultPropsThemeProvider
+	} from './ThemeProvider.props';
 
 	const schemeSystemStore = writable<ThemeSchemeType>(resolveSchemeSystem());
 	const onSchemeSystemChange = () => {
@@ -11,19 +28,10 @@
 
 <script lang="ts">
 	import { hasContext, onMount, setContext } from 'svelte';
-	import { derived, writable } from 'svelte/store';
-	import { THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.constant';
-	import {
-		prefersColorSchemeDark,
-		resolveStrategy,
-		resolveScheme,
-		resolveSchemeSystem,
-		setThemeStorage
-	} from './theme.utils';
-	import { type ThemeContext, type ThemeStrategyType, ThemeStrategy } from './theme.type';
 	import { isBrowser } from '$lib/utils/is-browser';
 
-	export let strategy: ThemeStrategyType | undefined = undefined;
+	type $$Props = PropsThemeProvider;
+	export let strategy: PropsThemeProvider['strategy'] = defaultPropsThemeProvider.strategy;
 
 	let isRoot = !hasContext(THEME_CONTEXT_KEY);
 	const resolvedStrategy = resolveStrategy(strategy);

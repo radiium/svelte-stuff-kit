@@ -1,14 +1,25 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import type { AccordionContext, AccordionStore } from './types';
+	import {
+		defaultPropsAccordionGroup,
+		contextKeyAccordionGroup,
+		type AccordionStore,
+		type PropsAccordionGroup,
+		type AccordionGroupContext
+	} from './Accordion.props';
 
-	const current = writable<AccordionStore>(false);
+	type $$Props = PropsAccordionGroup;
+	export let multi: PropsAccordionGroup['multi'] = defaultPropsAccordionGroup.multi;
 
-	setContext<AccordionContext>('Accordion', {
-		setCurrent: (fn: () => void) => {
-			$current && $current !== fn && $current();
-			current.set(fn);
+	const current = writable<AccordionStore | undefined>();
+
+	setContext<AccordionGroupContext>(contextKeyAccordionGroup, {
+		setCurrent: (value: AccordionStore) => {
+			if (!!$current && $current?.key !== value.key && !multi) {
+				$current.close();
+			}
+			current.set(value);
 		}
 	});
 </script>

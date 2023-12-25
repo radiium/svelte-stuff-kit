@@ -1,13 +1,16 @@
 import { getContext } from 'svelte';
+import { isBrowser } from '$lib/utils/is-browser';
 import {
 	ThemeScheme,
-	type ThemeContext,
 	ThemeStrategy,
+	type ThemeSchemeType,
 	type ThemeStrategyType,
-	type ThemeSchemeType
-} from './theme.type';
-import { DEFAULT_STRATEGY, THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.constant';
-import { isBrowser } from '$lib/utils/is-browser';
+	type ThemeContext
+} from './ThemeProvider.props';
+
+export const THEME_CONTEXT_KEY: string = 'THEME_CONTEXT';
+export const THEME_STORAGE_KEY: string = 'THEME_STATE';
+export const DEFAULT_STRATEGY: ThemeStrategy = ThemeStrategy.SYSTEM;
 
 const prefersDarkFallback = false;
 const noop = (_) => undefined;

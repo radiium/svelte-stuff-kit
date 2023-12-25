@@ -1,43 +1,44 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import { clsx } from '../../utils/clsx';
-	import type { PropAlign, PropColor, PropMode, PropSizeButton, PropTypeButton } from '../types';
+	import { defaultPropsButton, type PropsButton } from './Button.props';
 
-	export let elementRef: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
-	export let href: string | undefined = undefined;
-	export let target: string = '_blank';
-	export let type: PropTypeButton = 'button';
-	export let mode: PropMode = 'solid';
-	export let size: PropSizeButton = '2';
-	export let color: PropColor = 'neutral';
-	export let align: PropAlign = 'center';
-	export let active: boolean = false;
-	export let disabled: boolean = false;
-	export let iconOnly: boolean = false;
-	export let circle: boolean = false;
-	export let fullWidth: boolean = false;
+	type $$Props = PropsButton;
 
-	$: cssClass = clsx(
-		$$restProps.class,
-		`btn-${mode}`,
-		`btn-size-${size}`,
-		`btn-${color}`,
-		`btn-align-${align}`,
-		{
-			'btn-full-width': fullWidth,
-			'btn-active': active,
-			'btn-icon-only': iconOnly,
-			'btn-circle': circle,
-			'btn-link': !!href
-		}
-	);
+	export let elementRef: PropsButton['elementRef'] = defaultPropsButton.elementRef;
+	export let href: PropsButton['href'] = defaultPropsButton.href;
+	export let target: PropsButton['target'] = defaultPropsButton.target;
+	export let type: PropsButton['type'] = defaultPropsButton.type;
+	export let size: PropsButton['size'] = defaultPropsButton.size;
+	export let mode: PropsButton['mode'] = defaultPropsButton.mode;
+	export let color: PropsButton['color'] = defaultPropsButton.color;
+	export let align: PropsButton['align'] = defaultPropsButton.align;
+	export let active: PropsButton['active'] = defaultPropsButton.active;
+	export let disabled: PropsButton['disabled'] = defaultPropsButton.disabled;
+	export let iconOnly: PropsButton['iconOnly'] = defaultPropsButton.iconOnly;
+	export let circle: PropsButton['circle'] = defaultPropsButton.fullWidth;
+	export let fullWidth: PropsButton['fullWidth'] = defaultPropsButton.fullWidth;
+	let { class: _class, style, ...restProps } = $$restProps;
+
+	const isInGroup = getContext('ButtonGroup');
+
+	$: cssClass = clsx(_class, `btn-${mode}`, `btn-size-${size}`, `btn-${color}`, `btn-align-${align}`, {
+		'btn-is-in-group': isInGroup,
+		'btn-full-width': fullWidth,
+		'btn-active': active,
+		'btn-icon-only': iconOnly,
+		'btn-circle': circle,
+		'btn-link': !!href
+	});
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		active: active || undefined,
 		tabindex: 0,
 		'data-color': color,
 		'data-size': size,
-		...$$restProps
+		...restProps
 	};
 </script>
 
@@ -112,6 +113,20 @@
 			height: 60%;
 			width: auto;
 			fill: var(--button-color);
+		}
+
+		// In group
+		&.btn-is-in-group {
+			border-radius: 0;
+
+			&:first-child {
+				border-top-left-radius: var(--button-border-radius);
+				border-bottom-left-radius: var(--button-border-radius);
+			}
+			&:last-child {
+				border-top-right-radius: var(--button-border-radius);
+				border-bottom-right-radius: var(--button-border-radius);
+			}
 		}
 
 		// Sizes

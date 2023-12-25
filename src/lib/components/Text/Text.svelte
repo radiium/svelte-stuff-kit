@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { SvelteHTMLElements } from 'svelte/elements';
-	import type { PropAlign, PropColor, PropSizeText, PropWeight } from '../types';
+	import { defaultPropsText, type PropsText } from './Text.props';
 
-	export let elementRef: SvelteHTMLElements | undefined = undefined;
-	export let as: keyof SvelteHTMLElements = 'span';
-	export let color: PropColor | undefined = undefined;
-	export let size: PropSizeText = '3';
-	export let weight: PropWeight = 'regular';
-	export let align: PropAlign = 'start';
-
-	export let disabled: boolean = false;
-	export let required: boolean = false;
+	type $$Props = PropsText;
+	export let elementRef: PropsText['elementRef'] = defaultPropsText.elementRef;
+	export let as: PropsText['as'] = defaultPropsText.as;
+	export let color: PropsText['color'] = defaultPropsText.color;
+	export let size: PropsText['size'] = defaultPropsText.size;
+	export let weight: PropsText['weight'] = defaultPropsText.weight;
+	export let align: PropsText['align'] = defaultPropsText.align;
+	export let disabled: PropsText['disabled'] = defaultPropsText.disabled;
+	export let required: PropsText['required'] = defaultPropsText.required;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		'text-wrapper',
 		`text-size-${size}`,
 		`text-weight-${weight}`,
@@ -27,8 +27,9 @@
 	);
 
 	$: attributes = {
+		style,
 		'data-color': color,
-		...$$restProps
+		...restProps
 	};
 </script>
 

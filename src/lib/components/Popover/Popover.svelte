@@ -1,31 +1,27 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
-	import { fade, fly, type FlyParams } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import {
 		computePosition,
 		flip as flipMiddleware,
 		offset as offsetMiddleware,
 		arrow as arrowMiddleware,
-		type Placement,
 		type Side,
-		type Alignment,
-		type Strategy
+		type Alignment
 	} from '@floating-ui/dom';
 	import { clickoutside } from '../../actions/clickoutside';
 	import { focusTrap } from '../../actions/focus-trap';
+	import { defaultPropsPopover, type PropsPopover } from './Popover.props';
 
-	export let isOpen = false;
-	export let backdrop = false;
-	export let arrow = true;
-	export let strategy: Strategy = 'absolute';
-	export let placement: Placement = 'top';
-	export let offset: number = 0;
-	export let flip: boolean = true;
-	export let transition: FlyParams = {
-		opacity: 0,
-		y: 10,
-		duration: 200
-	};
+	type $$Props = PropsPopover;
+	export let isOpen: PropsPopover['isOpen'] = defaultPropsPopover.isOpen;
+	export let backdrop: PropsPopover['backdrop'] = defaultPropsPopover.backdrop;
+	export let arrow: PropsPopover['arrow'] = defaultPropsPopover.arrow;
+	export let strategy: PropsPopover['strategy'] = defaultPropsPopover.strategy;
+	export let placement: PropsPopover['placement'] = defaultPropsPopover.placement;
+	export let offset: PropsPopover['offset'] = defaultPropsPopover.offset;
+	export let flip: PropsPopover['flip'] = defaultPropsPopover.flip;
+	export let transition: PropsPopover['transition'] = defaultPropsPopover.transition;
 
 	let triggerRef: HTMLDivElement | undefined = undefined;
 	let arrowRef: HTMLDivElement | undefined = undefined;
@@ -54,7 +50,7 @@
 				strategy,
 				placement,
 				middleware: [
-					offsetMiddleware(offset),
+					offsetMiddleware(offset ?? 0),
 					flip && flipMiddleware(),
 					arrow && arrowRef && arrowMiddleware({ element: arrowRef })
 				]
@@ -124,7 +120,7 @@
 		{#if arrow}
 			<div bind:this={arrowRef} class="popover-arrow {side}" />
 		{/if}
-		<slot name="content" {close} />
+		<slot name="content" {isOpen} {open} {close} />
 	</div>
 {/if}
 

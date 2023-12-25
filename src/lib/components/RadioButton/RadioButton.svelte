@@ -1,18 +1,21 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropColor, PropSizeInput } from '../types';
+	import { defaultPropsRadioButton, type PropsRadioButton } from './RadioButton.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let value: string | undefined = undefined;
-	export let group: string | undefined = undefined;
-	export let size: PropSizeInput = '2';
-	export let color: PropColor = 'neutral';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let error: boolean = false;
+	type $$Props = PropsRadioButton;
+	export let elementRef: PropsRadioButton['elementRef'] = defaultPropsRadioButton.elementRef;
+	export let value: PropsRadioButton['value'] = defaultPropsRadioButton.value;
+	export let checked: PropsRadioButton['checked'] = defaultPropsRadioButton.checked;
+	export let group: PropsRadioButton['group'] = defaultPropsRadioButton.group;
+	export let size: PropsRadioButton['size'] = defaultPropsRadioButton.size;
+	export let color: PropsRadioButton['color'] = defaultPropsRadioButton.color;
+	export let disabled: PropsRadioButton['disabled'] = defaultPropsRadioButton.disabled;
+	export let required: PropsRadioButton['required'] = defaultPropsRadioButton.required;
+	export let error: PropsRadioButton['error'] = defaultPropsRadioButton.error;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		'input-wrapper',
 		`input-type-radio`,
 		`input-size-${size}`,
@@ -26,9 +29,11 @@
 	);
 
 	$: attributes = {
+		style,
+		checked: checked,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		...$$restProps
+		...restProps
 	};
 </script>
 

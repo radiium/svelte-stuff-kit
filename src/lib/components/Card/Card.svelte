@@ -1,18 +1,30 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { SvelteHTMLElements } from 'svelte/elements';
-	import type { PropSizeCard } from '../types';
+	import { defaultPropsCard, type PropsCard } from './Card.props';
 
-	export let elementRef: SvelteHTMLElements | undefined = undefined;
-	export let as: keyof SvelteHTMLElements = 'article';
-	export let size: PropSizeCard = '3';
-	export let noPadding: boolean = false;
+	type $$Props = PropsCard;
+	export let elementRef: PropsCard['elementRef'] = defaultPropsCard.elementRef;
+	export let as: PropsCard['as'] = defaultPropsCard.as;
+	export let size: PropsCard['size'] = defaultPropsCard.size;
+	export let noPadding: PropsCard['noPadding'] = defaultPropsCard.noPadding;
+	export let asButton: PropsCard['asButton'] = defaultPropsCard.asButton;
+	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx($$restProps.class, 'card-wrapper', `card-size-${size}`, {
-		'card-no-padding': noPadding
+	$: isButton = asButton || as === 'button';
+
+	$: cssClass = clsx(_class, 'card-wrapper', `card-size-${size}`, {
+		'card-no-padding': noPadding,
+		'card-as-button': isButton
 	});
-	$: attributes = { ...$$restProps };
+	$: attributes = {
+		style,
+		role: isButton ? 'button' : undefined,
+		tabindex: isButton ? 0 : undefined,
+		...restProps
+	};
 </script>
+
+<div role="button"></div>
 
 <svelte:element this={as} {...attributes} class={cssClass} bind:this={elementRef}>
 	{#if $$slots.header}
@@ -45,22 +57,6 @@
 		gap: var(--space-4);
 		position: relative;
 		overflow: visible;
-
-		&[role='button'] {
-			cursor: pointer;
-
-			&:focus-within {
-				.card-highlight {
-					@include input-box-shadow-focus;
-				}
-			}
-
-			&:active {
-				.card-highlight {
-					@include input-box-shadow-focus;
-				}
-			}
-		}
 
 		header {
 			width: 100%;
@@ -114,6 +110,22 @@
 
 		&.card-no-padding {
 			--card-padding: 0;
+		}
+
+		&.card-as-button {
+			cursor: pointer;
+
+			&:focus-within {
+				.card-highlight {
+					@include input-box-shadow-focus;
+				}
+			}
+
+			&:active {
+				.card-highlight {
+					@include input-box-shadow-focus;
+				}
+			}
 		}
 	}
 </style>

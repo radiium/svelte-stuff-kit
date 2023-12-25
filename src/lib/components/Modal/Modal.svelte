@@ -21,18 +21,22 @@
 <script lang="ts">
 	import X from 'phosphor-svelte/lib/X';
 	import { fade, scale } from 'svelte/transition';
-	import { Button } from '../Button';
 	import { isBrowser } from '../../utils/is-browser';
 	import { focusTrap } from '../../actions/focus-trap';
-	import type { PropSizeModal } from '../types';
+	import type { PropSizeModal } from '../../types';
 	import { clsx } from '../../utils/clsx';
+	import Button from '../Button/Button.svelte';
+	import { defaultPropsModal, type PropsModal } from './Modal.props';
 
-	export let size: PropSizeModal = '3';
-	export let isOpen: boolean = false;
-	export let closeOnBackdropClick: boolean = true;
-	export let closeOnEscape: boolean = true;
-	export let showCloseButton: boolean = true;
-	export let blockScroll: boolean = true;
+	type $$Props = PropsModal;
+	export let size: PropsModal['size'] = defaultPropsModal.size;
+	export let isOpen: PropsModal['isOpen'] = defaultPropsModal.isOpen;
+	export let closeOnBackdropClick: PropsModal['closeOnBackdropClick'] =
+		defaultPropsModal.closeOnBackdropClick;
+	export let closeOnEscape: PropsModal['closeOnEscape'] = defaultPropsModal.closeOnEscape;
+	export let showCloseButton: PropsModal['showCloseButton'] = defaultPropsModal.showCloseButton;
+	export let blockScroll: PropsModal['blockScroll'] = defaultPropsModal.blockScroll;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	let modalRef: HTMLDivElement;
 
@@ -97,7 +101,7 @@
 		}
 	}
 
-	$: cssClass = clsx($$restProps.class, `modal-wrapper`, `modal-size-${size}`);
+	$: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
 </script>
 
 <svelte:window on:keydown={handlekeydown} />

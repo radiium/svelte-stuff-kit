@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { SelectOption, PropSizeInput } from '../types';
+	import { defaultPropsSelect, type PropsSelect } from './Select.props';
 
-	export let elementRef: HTMLSelectElement | undefined = undefined;
-	export let value: any | undefined = undefined;
-	export let multiple: boolean = false;
-	export let options: SelectOption[] = [];
-	export let size: PropSizeInput = '2';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let fullWidth: boolean = false;
+	type $$Props = PropsSelect;
+	export let elementRef: PropsSelect['elementRef'] = defaultPropsSelect.elementRef;
+	export let value: PropsSelect['value'] = defaultPropsSelect.value;
+	export let multiple: PropsSelect['multiple'] = defaultPropsSelect.multiple;
+	export let options: PropsSelect['options'] = defaultPropsSelect.options;
+	export let size: PropsSelect['size'] = defaultPropsSelect.size;
+	export let disabled: PropsSelect['disabled'] = defaultPropsSelect.disabled;
+	export let required: PropsSelect['required'] = defaultPropsSelect.required;
+	export let fullWidth: PropsSelect['fullWidth'] = defaultPropsSelect.fullWidth;
+	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx($$restProps.class, `input-type-select`, `input-size-${size}`, {
+	$: cssClass = clsx(_class, `input-type-select`, `input-size-${size}`, {
 		'input-disabled': disabled,
 		'input-required': required,
 		'input-multiple': multiple,
@@ -19,9 +21,10 @@
 	});
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		...$$restProps
+		...restProps
 	};
 </script>
 

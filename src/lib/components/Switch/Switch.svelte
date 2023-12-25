@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropColor, PropSizeInput } from '../types';
+	import { type PropsSwitch, defaultPropsSwitch } from './Switch.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let value: string | undefined = undefined;
-	export let checked: boolean = false;
-	export let size: PropSizeInput = '2';
-	export let color: PropColor = 'neutral';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let error: boolean = false;
+	type $$Props = PropsSwitch;
+	export let elementRef: PropsSwitch['elementRef'] = defaultPropsSwitch.elementRef;
+	export let value: PropsSwitch['value'] = defaultPropsSwitch.value;
+	export let checked: PropsSwitch['checked'] = defaultPropsSwitch.checked;
+	export let size: PropsSwitch['size'] = defaultPropsSwitch.size;
+	export let color: PropsSwitch['color'] = defaultPropsSwitch.color;
+	export let disabled: PropsSwitch['disabled'] = defaultPropsSwitch.disabled;
+	export let required: PropsSwitch['required'] = defaultPropsSwitch.required;
+	export let error: PropsSwitch['error'] = defaultPropsSwitch.error;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		'input-wrapper',
 		`input-type-switch`,
 		`input-size-${size}`,
@@ -27,9 +29,10 @@
 	);
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		...$$restProps
+		...restProps
 	};
 </script>
 

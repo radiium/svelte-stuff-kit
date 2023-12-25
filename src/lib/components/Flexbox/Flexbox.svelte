@@ -1,33 +1,22 @@
 <script lang="ts">
-	import type { SvelteHTMLElements } from 'svelte/elements';
 	import { clsx } from '../../utils/clsx';
-	import type {
-		FlexboxAlignItems,
-		FlexboxDirection,
-		FlexboxDisplay,
-		FlexboxGap,
-		FlexboxGrow,
-		FlexboxJustify,
-		FlexboxShrink,
-		FlexboxWrap
-	} from '../types';
+	import { defaultPropsFlexbox, type PropsFlexbox } from './Flexbox.props';
 
-	export let elementRef: SvelteHTMLElements | undefined = undefined;
-	export let as: keyof SvelteHTMLElements = 'div';
-
-	export let display: FlexboxDisplay = 'flex';
-	export let direction: FlexboxDirection = 'row';
-	export let justify: FlexboxJustify = 'normal';
-	export let alignItems: FlexboxAlignItems = 'normal';
-	export let wrap: FlexboxWrap = 'nowrap';
-	export let gap: FlexboxGap = '0';
-	export let grow: FlexboxGrow | undefined = undefined;
-	export let shrink: FlexboxShrink | undefined = undefined;
-	export let height: string | undefined = undefined;
-	export let width: string | undefined = undefined;
+	type $$Props = PropsFlexbox;
+	export let elementRef: PropsFlexbox['elementRef'] = defaultPropsFlexbox.elementRef;
+	export let as: PropsFlexbox['as'] = defaultPropsFlexbox.as;
+	export let display: PropsFlexbox['display'] = defaultPropsFlexbox.display;
+	export let direction: PropsFlexbox['direction'] = defaultPropsFlexbox.direction;
+	export let justify: PropsFlexbox['justify'] = defaultPropsFlexbox.justify;
+	export let alignItems: PropsFlexbox['alignItems'] = defaultPropsFlexbox.alignItems;
+	export let wrap: PropsFlexbox['wrap'] = defaultPropsFlexbox.wrap;
+	export let gap: PropsFlexbox['gap'] = defaultPropsFlexbox.gap;
+	export let grow: PropsFlexbox['grow'] = defaultPropsFlexbox.grow;
+	export let shrink: PropsFlexbox['shrink'] = defaultPropsFlexbox.shrink;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		`display-${display}`,
 		`flex-direction-${direction}`,
 		`flex-align-items-${alignItems}`,
@@ -39,8 +28,13 @@
 			[`shrink-${shrink}`]: shrink === '0' || shrink === '1'
 		}
 	);
+
+	$: attributes = {
+		style,
+		...restProps
+	};
 </script>
 
-<svelte:element this={as} bind:this={elementRef} style:height style:width {...$$restProps} class={cssClass}>
+<svelte:element this={as} bind:this={elementRef} {...attributes} class={cssClass}>
 	<slot />
 </svelte:element>

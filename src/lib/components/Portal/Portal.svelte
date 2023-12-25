@@ -55,7 +55,9 @@
 </script>
 
 <script lang="ts">
-	export let target: HTMLElement | string = 'body';
+	import { defaultPropsPortal, type PropsPortal } from './Portal.props';
+
+	export let target: PropsPortal['target'] = defaultPropsPortal.target;
 </script>
 
 <div use:portal={target} hidden>

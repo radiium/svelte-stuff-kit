@@ -1,19 +1,37 @@
+<script lang="ts" context="module">
+	export type Props = {
+		elementRef?: HTMLInputElement | undefined;
+		value?: string | undefined;
+		checked?: boolean;
+		indeterminate?: boolean;
+		size?: '1' | '2' | '3';
+		color?: 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
+		disabled?: boolean;
+		required?: boolean;
+		error?: boolean;
+		style?: string | undefined;
+		class?: string | undefined;
+	};
+</script>
+
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import type { PropColor, PropSizeInput } from '../types';
+	import { defaultPropsCheckbox, type PropsCheckbox } from './Chekbox.props';
 
-	export let elementRef: HTMLInputElement | undefined = undefined;
-	export let value: string | undefined = undefined;
-	export let checked: boolean = false;
-	export let indeterminate: boolean = false;
-	export let size: PropSizeInput = '2';
-	export let color: PropColor = 'neutral';
-	export let disabled: boolean = false;
-	export let required: boolean = false;
-	export let error: boolean = false;
+	type $$Props = PropsCheckbox;
+	export let elementRef: PropsCheckbox['elementRef'] = defaultPropsCheckbox.elementRef;
+	export let value: PropsCheckbox['value'] = defaultPropsCheckbox.value;
+	export let checked: PropsCheckbox['checked'] = defaultPropsCheckbox.checked;
+	export let indeterminate: PropsCheckbox['indeterminate'] = defaultPropsCheckbox.indeterminate;
+	export let size: PropsCheckbox['size'] = defaultPropsCheckbox.size;
+	export let color: PropsCheckbox['color'] = defaultPropsCheckbox.color;
+	export let disabled: PropsCheckbox['disabled'] = defaultPropsCheckbox.disabled;
+	export let required: PropsCheckbox['required'] = defaultPropsCheckbox.required;
+	export let error: PropsCheckbox['error'] = defaultPropsCheckbox.error;
+	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
-		$$restProps.class,
+		_class,
 		'input-wrapper',
 		'input-type-checkbox',
 		`input-size-${size}`,
@@ -29,9 +47,10 @@
 	);
 
 	$: attributes = {
+		style,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		...$$restProps
+		...restProps
 	};
 </script>
 
