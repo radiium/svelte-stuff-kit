@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import { getSectionById } from '../../lib-doc';
+import { getSectionById } from '../../lib-doc/index';
 import { redirect } from '@sveltejs/kit';
 
 export const load: PageLoad = ({ params }) => {

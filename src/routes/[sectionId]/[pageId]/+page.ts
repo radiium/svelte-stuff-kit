@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import { getPageBySectionAndId, getSectionById } from '../../../lib-doc';
+import { getPageBySectionAndId, getSectionById } from '../../../lib-doc/index';
 import type { DocPageData, DocSection } from '../../../lib-doc/types';
 
 export const load: PageLoad = ({ params }) => {
