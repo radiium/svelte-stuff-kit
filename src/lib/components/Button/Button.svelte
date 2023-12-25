@@ -10,7 +10,7 @@
 	export let target: PropsButton['target'] = defaultPropsButton.target;
 	export let type: PropsButton['type'] = defaultPropsButton.type;
 	export let size: PropsButton['size'] = defaultPropsButton.size;
-	export let mode: PropsButton['mode'] = defaultPropsButton.mode;
+	export let variant: PropsButton['variant'] = defaultPropsButton.variant;
 	export let color: PropsButton['color'] = defaultPropsButton.color;
 	export let align: PropsButton['align'] = defaultPropsButton.align;
 	export let active: PropsButton['active'] = defaultPropsButton.active;
@@ -22,7 +22,7 @@
 
 	const isInGroup = getContext('ButtonGroup');
 
-	$: cssClass = clsx(_class, `btn-${mode}`, `btn-size-${size}`, `btn-${color}`, `btn-align-${align}`, {
+	$: cssClass = clsx(_class, `btn-${variant}`, `btn-size-${size}`, `btn-${color}`, `btn-align-${align}`, {
 		'btn-is-in-group': isInGroup,
 		'btn-full-width': fullWidth,
 		'btn-active': active,
@@ -199,7 +199,7 @@
 			}
 		}
 
-		// Modes
+		// Variants
 		&.btn-clear {
 			--button-border: none;
 			--button-color: var(--accent-a12);

@@ -23,7 +23,6 @@
 	import { fade, scale } from 'svelte/transition';
 	import { isBrowser } from '../../utils/is-browser';
 	import { focusTrap } from '../../actions/focus-trap';
-	import type { PropSizeModal } from '../../types';
 	import { clsx } from '../../utils/clsx';
 	import Button from '../Button/Button.svelte';
 	import { defaultPropsModal, type PropsModal } from './Modal.props';
@@ -123,6 +122,7 @@
 			role="dialog"
 			class="content-wrapper"
 			aria-modal="true"
+			active={isOpen}
 			transition:scale={{
 				start: 0.9,
 				duration: 200,
@@ -134,7 +134,7 @@
 				<Button
 					iconOnly
 					circle
-					mode="clear"
+					variant="clear"
 					size="1"
 					class="modal-close-btn"
 					on:click={() => (isOpen = false)}

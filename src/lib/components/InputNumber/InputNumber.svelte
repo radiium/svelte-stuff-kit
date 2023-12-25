@@ -25,6 +25,7 @@
 
 	$: attributes = {
 		style,
+		autocomplete: 'off',
 		...restProps
 	};
 

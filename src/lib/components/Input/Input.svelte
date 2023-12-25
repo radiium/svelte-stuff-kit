@@ -36,6 +36,7 @@
 		required: required || undefined,
 		readonly: readonly || undefined,
 		spellcheck: false,
+		autocomplete: 'off',
 		...restProps
 	};
 </script>

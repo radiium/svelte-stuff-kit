@@ -1,10 +1,10 @@
 import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
-import type { PropTypeColor, PropTypeAlign, PropTypeStyle, PropTypeClass, PropTypeBoolean } from '$lib/types';
+import type { PropTypeColor, PropTypeAlign, PropTypeBoolean, PropTypeVariant } from '$lib/types';
 
 export type PropsButton = {
 	elementRef?: HTMLButtonElement | HTMLAnchorElement | undefined;
 	size?: '1' | '2' | '3' | '4' | undefined;
-	mode?: 'solid' | 'soft' | 'outline' | 'clear' | undefined;
+	variant?: PropTypeVariant;
 	active?: PropTypeBoolean;
 	disabled?: PropTypeBoolean;
 	iconOnly?: PropTypeBoolean;
@@ -19,16 +19,18 @@ export type PropsButton = {
 
 export const defaultPropsButton: PropsButton = {
 	elementRef: undefined,
-	href: undefined,
-	target: '_blank',
-	type: 'button',
 	size: '2',
-	mode: 'solid',
+	variant: 'solid',
 	color: 'neutral',
 	align: 'center',
 	active: false,
 	disabled: false,
 	iconOnly: false,
 	circle: false,
-	fullWidth: false
+	fullWidth: false,
+	// From HTMLAnchorAttributes
+	href: undefined,
+	target: '_blank',
+	// From HTMLButtonAttributes
+	type: 'button'
 };

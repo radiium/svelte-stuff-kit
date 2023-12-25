@@ -33,7 +33,7 @@
 		active={isOpen}
 		size="2"
 		color="neutral"
-		mode="outline"
+		variant="outline"
 		iconOnly={false}
 	>
 		{#if currentTheme}
@@ -46,7 +46,7 @@
 		{#each themeOptions as option}
 			<Button
 				size="2"
-				mode="clear"
+				variant="clear"
 				align="start"
 				fullWidth
 				on:click={() => {

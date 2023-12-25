@@ -33,6 +33,7 @@
 		checked: checked,
 		disabled: disabled || undefined,
 		required: required || undefined,
+		autocomplete: 'off',
 		...restProps
 	};
 </script>
