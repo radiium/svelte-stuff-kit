@@ -36,7 +36,7 @@ function toVal(mix: unknown): string {
 
 /**
  * A tiny (234B) utility for constructing className strings conditionally.
- * https://github.com/lukeed/clsx
+ * Credit: https://github.com/lukeed/clsx
  *
  * @param rest params
  * @returns

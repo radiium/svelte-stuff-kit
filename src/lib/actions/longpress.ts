@@ -9,6 +9,13 @@ type Attributes = {
 	'on:endlongpress': (e: CustomEvent<void>) => void;
 };
 
+/**
+ * Listen long press on node
+ *
+ * @param node
+ * @param params
+ * @returns
+ */
 export function longpress(node: HTMLElement, params: Parameters): ActionReturn<Parameters, Attributes> {
 	let timer: number;
 

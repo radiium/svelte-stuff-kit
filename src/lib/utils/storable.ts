@@ -34,9 +34,13 @@ const noopStorage = {
 	key: noop
 };
 
-function createStorage<T>(
-	type: StorableStorageType = StorableStorageType.local
-): StorableStorage<T> {
+/**
+ * Create local or session storage object
+ *
+ * @param type
+ * @returns
+ */
+function createStorage<T>(type: StorableStorageType = StorableStorageType.local): StorableStorage<T> {
 	let storage: Storage;
 	if (isBrowser()) {
 		storage = type === StorableStorageType.local ? localStorage : sessionStorage;
@@ -63,6 +67,7 @@ function createStorage<T>(
 }
 
 /**
+ * Create writable store with recording in local or session storage
  *
  * @param params
  * @returns

@@ -91,6 +91,15 @@ const defaultProps: CreateFloatingProps = {
 	customMiddleware: []
 };
 
+/**
+ * Create floating actions for
+ * - reference
+ * - floating
+ * - arrow
+ *
+ * @param props
+ * @returns
+ */
 export function createFloating(props: Partial<CreateFloatingProps> = {}) {
 	let referenceEl: ReferenceElement;
 	let floatingEl: FloatingElement;

@@ -6,6 +6,12 @@ type Attributes = {
 	'on:clickoutside': (e: CustomEvent<HTMLElement>) => void;
 };
 
+/**
+ * Listen click outside a node
+ *
+ * @param node
+ * @returns
+ */
 export function clickoutside(node: HTMLElement): ActionReturn<Parameters, Attributes> {
 	function handleClick(event: MouseEvent) {
 		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {

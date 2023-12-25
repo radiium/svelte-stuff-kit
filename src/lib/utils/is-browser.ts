@@ -1,5 +1,6 @@
 /**
  * Check if code running in browser or nodeJs
+ *
  * @returns
  */
 export const isBrowser = (): boolean =>
