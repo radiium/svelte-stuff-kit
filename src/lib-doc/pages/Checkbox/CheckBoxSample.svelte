@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Card, Checkbox, Flexbox } from '$lib';
-	import { sampleInCard, sampleColor, sampleDisabled, sampleSize, sampleWithoutLabel } from '.';
+	import { Card, Checkbox, Flexbox } from '$lib/index';
+	import { sampleInCard, sampleColor, sampleDisabled, sampleSize, sampleWithoutLabel } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, Flexbox, Modal, type PropSizeModal } from '$lib';
+	import { Button, Flexbox, Modal, type PropSizeModal } from '$lib/index';
 
-	const sizes: Array<PropSizeModal> = ['1', '2', '3', '4'];
+	const sizes = ['1', '2', '3', '4'];
 	const modalMap = {
 		'1': false,
 		'2': false,
@@ -27,7 +27,7 @@
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start" justify="start">
-	<Button size="3" mode="soft" on:click={() => (isModalOpen1 = true)}>
+	<Button size="3" variant="soft" on:click={() => (isModalOpen1 = true)}>
 		open modal with backdrop dismiss
 	</Button>
 	<Modal bind:isOpen={isModalOpen1} closeOnBackdropClick>
@@ -61,15 +61,15 @@
 				arcu. Nunc nisl lacus, pulvinar et condimentum quis, pulvinar id augue. Duis purus purus, tincidunt et
 				ligula eu, posuere facilisis lorem. Cras feugiat congue elit quis viverra.
 			</p>
-			<Button size="3" mode="soft" on:click={() => (isModalOpen2 = true)}>open modal 2</Button>
+			<Button size="3" variant="soft" on:click={() => (isModalOpen2 = true)}>open modal 2</Button>
 		</svelte:fragment>
 
 		<svelte:fragment slot="footer">
-			<Button mode="soft" on:click={() => (isModalOpen1 = false)}>close</Button>
+			<Button variant="soft" on:click={() => (isModalOpen1 = false)}>close</Button>
 		</svelte:fragment>
 	</Modal>
 
-	<Button size="3" mode="soft" on:click={() => (isModalOpen2 = true)}>
+	<Button size="3" variant="soft" on:click={() => (isModalOpen2 = true)}>
 		open modal without backdrop dismiss
 	</Button>
 	<Modal
@@ -89,31 +89,31 @@
 			</p>
 		</svelte:fragment>
 		<svelte:fragment slot="footer">
-			<Button mode="outline" on:click={() => (isModalOpen2 = false)}>cancel</Button>
+			<Button variant="outline" on:click={() => (isModalOpen2 = false)}>cancel</Button>
 			<Button color="success" on:click={() => (isModalOpen2 = false)}>confirm</Button>
 		</svelte:fragment>
 	</Modal>
 
-	<Button size="3" mode="soft" on:click={() => (isModalOpen3 = true)}>open modal small</Button>
+	<Button size="3" variant="soft" on:click={() => (isModalOpen3 = true)}>open modal small</Button>
 	<Modal bind:isOpen={isModalOpen3}>
 		<svelte:fragment slot="header">Small content modal</svelte:fragment>
 		<p slot="content">Confirm delete ?</p>
 		<svelte:fragment slot="footer">
-			<Button size="1" mode="soft" on:click={() => (isModalOpen3 = false)}>Cancel</Button>
+			<Button size="1" variant="soft" on:click={() => (isModalOpen3 = false)}>Cancel</Button>
 			<Button size="1" color="danger" on:click={() => (isModalOpen3 = false)}>Delete</Button>
 		</svelte:fragment>
 	</Modal>
 
 	<h5 class="no-m">Sizes</h5>
 	{#each sizes as size}
-		<Button {size} mode="soft" on:click={() => (modalMap[size] = true)}>
+		<Button {size} variant="soft" on:click={() => (modalMap[size] = true)}>
 			open modal size {size}</Button
 		>
 		<Modal {size} showCloseButton={false} bind:isOpen={modalMap[size]}>
 			<svelte:element this={mapH(size)} slot="header">Modal content size {size}</svelte:element>
 			<p slot="content">Confirm delete ?</p>
 			<svelte:fragment slot="footer">
-				<Button {size} mode="soft" on:click={() => (modalMap[size] = false)}>Cancel</Button>
+				<Button {size} variant="soft" on:click={() => (modalMap[size] = false)}>Cancel</Button>
 				<Button {size} color="danger" on:click={() => (modalMap[size] = false)}>Delete</Button>
 			</svelte:fragment>
 		</Modal>

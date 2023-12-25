@@ -1,5 +1,5 @@
 <script>
-	import { Card } from '$lib';
+	import { Card } from '$lib/index';
 </script>
 
 <Card>1</Card>

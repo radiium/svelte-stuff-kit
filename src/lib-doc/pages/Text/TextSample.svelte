@@ -1,7 +1,14 @@
 <script lang="ts">
-	import { Flexbox, Text } from '$lib';
+	import { Flexbox, Text } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import { sampleAlign, sampleColor, sampleDisabled, sampleRequired, sampleSize, sampleWeight } from '.';
+	import {
+		sampleAlign,
+		sampleColor,
+		sampleDisabled,
+		sampleRequired,
+		sampleSize,
+		sampleWeight
+	} from './index';
 </script>
 
 <DocBlocCode title="Size" code={sampleSize}>

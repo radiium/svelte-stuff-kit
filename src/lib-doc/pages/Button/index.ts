@@ -93,10 +93,10 @@ export const sampleMode = `<script lang="ts">
 </script>
 
 <Flexbox gap="3"> 
-    <Button mode="solid">button</Button>
-    <Button mode="soft">button</Button>
-    <Button mode="outline">button</Button>
-    <Button mode="clear">button</Button>
+    <Button variant="solid">button</Button>
+    <Button variant="soft">button</Button>
+    <Button variant="outline">button</Button>
+    <Button variant="clear">button</Button>
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
@@ -118,7 +118,7 @@ export const sampleIcon = `<script lang="ts">
 </script>
 
 <Flexbox gap="3"> 
-    <Button mode="clear">
+    <Button variant="clear">
         <MagnifyingGlass />
         button
     </Button>
@@ -126,7 +126,7 @@ export const sampleIcon = `<script lang="ts">
         button
         <MagnifyingGlass />
     </Button>
-	<Button color="info" mode="soft" iconOnly>
+	<Button color="info" variant="soft" iconOnly>
         <MagnifyingGlass />
     </Button>
 	<Button color="primary" iconOnly>

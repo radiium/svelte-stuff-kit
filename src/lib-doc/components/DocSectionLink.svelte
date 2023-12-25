@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Text } from '$lib/components';
+	import { Text } from '$lib/index';
 	import LinkSimple from 'phosphor-svelte/lib/LinkSimple';
 
 	export let text: string;

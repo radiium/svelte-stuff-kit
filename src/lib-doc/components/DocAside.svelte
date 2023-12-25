@@ -3,13 +3,13 @@
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 	import { page } from '$app/stores';
-	import { allDocs } from '../';
+	import { allDocs } from '../index';
 	import { closeMenu } from './DocLayout.svelte';
 
 	$: pageId = $page.params.pageId;
 </script>
 
-<Flexbox class="doc-aside-wrapper" direction="column" height="100%" width="100%">
+<Flexbox class="doc-aside-wrapper" direction="column" style="height: 100%">
 	<article class="p-4">
 		{#each allDocs as section, i}
 			<section class="no-p" class:mb-5={i < allDocs.length - 1}>

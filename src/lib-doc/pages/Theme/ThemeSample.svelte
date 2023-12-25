@@ -1,6 +1,6 @@
 <script>
-	import { ThemeProvider, ThemeSelect, Card, Flexbox } from '$lib';
-	import { sampleNestedTheme } from '.';
+	import { ThemeProvider, ThemeSelect, Card, Flexbox } from '$lib/index';
+	import { sampleNestedTheme } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Flexbox, Input, Text, type PropSizeCard } from '$lib';
+	import { Button, Card, Flexbox, Input, Text, type PropSizeCard } from '$lib/index';
 
 	const sizes: Array<PropSizeCard> = ['1', '2', '3', '4', '5'];
 </script>

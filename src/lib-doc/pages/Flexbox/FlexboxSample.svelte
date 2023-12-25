@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Flexbox } from '$lib';
-	import { sampleAlign, sampleDirection, sampleGap, sampleJustify } from '.';
+	import { Flexbox } from '$lib/index';
+	import { sampleAlign, sampleDirection, sampleGap, sampleJustify } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 	import BlocsDemo from './BlocsDemo.svelte';
 </script>

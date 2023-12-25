@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IdentificationCard from 'phosphor-svelte/lib/IdentificationCard';
-	import { Checkbox, Flexbox, Input, Text, Switch, RadioButton, Card } from '$lib';
+	import { Checkbox, Flexbox, Input, Text, Switch, RadioButton, Card } from '$lib/index';
 	import Button from '$lib/components/Button/Button.svelte';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 
@@ -34,14 +34,14 @@
 			<div class="row">
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text required>Firstname</Text>
-					<Input type="text" placeholder="Firstname" block required bind:value={formData.firstname}>
+					<Input type="text" placeholder="Firstname" fullWidth required bind:value={formData.firstname}>
 						<IdentificationCard slot="leading" />
 					</Input>
 				</Flexbox>
 
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text required>Firstname</Text>
-					<Input type="text" placeholder="Lastname" block required bind:value={formData.lastname}>
+					<Input type="text" placeholder="Lastname" fullWidth required bind:value={formData.lastname}>
 						<IdentificationCard slot="trailing" />
 					</Input>
 				</Flexbox>
@@ -49,17 +49,17 @@
 
 			<Flexbox direction="column" gap="2">
 				<Text>Adresse</Text>
-				<Input type="text" placeholder="Adresse" block bind:value={formData.address} />
+				<Input type="text" placeholder="Adresse" fullWidth bind:value={formData.address} />
 			</Flexbox>
 
 			<div class="row">
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>Zipcode</Text>
-					<Input type="text" placeholder="Zipcode" block bind:value={formData.zipcode} />
+					<Input type="text" placeholder="Zipcode" fullWidth bind:value={formData.zipcode} />
 				</Flexbox>
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>City</Text>
-					<Input type="text" placeholder="City" block bind:value={formData.city} />
+					<Input type="text" placeholder="City" fullWidth bind:value={formData.city} />
 				</Flexbox>
 			</div>
 
@@ -72,13 +72,13 @@
 						min="0"
 						max="100"
 						step="10"
-						block
+						fullWidth
 						bind:value={formData.count}
 					/>
 				</Flexbox>
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>Date</Text>
-					<Input type="date" placeholder="date" block bind:value={formData.date} />
+					<Input type="date" placeholder="date" fullWidth bind:value={formData.date} />
 				</Flexbox>
 			</div>
 
@@ -102,7 +102,7 @@
 			</div>
 
 			<Flexbox justify="end" class="mt-5" gap="3">
-				<Button color="warning" mode="outline">cancel</Button>
+				<Button color="warning" variant="outline">cancel</Button>
 				<Button color="primary" type="submit">Submit</Button>
 			</Flexbox>
 		</Flexbox>

@@ -1,5 +1,5 @@
 <script>
-	import { Flexbox } from '$lib';
+	import { Flexbox } from '$lib/index';
 </script>
 
 <Flexbox direction="column" gap="3">

@@ -18,7 +18,7 @@
 
 <div class="wrapper">
 	<div id="mobile-menu-btn" class:is-open={$isMobileMenuOpen}>
-		<Button mode="clear" iconOnly on:click={toggleMenu}>
+		<Button variant="clear" iconOnly on:click={toggleMenu}>
 			{#if $isMobileMenuOpen}
 				<X />
 			{:else}

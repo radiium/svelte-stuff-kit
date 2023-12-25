@@ -1,8 +1,8 @@
 <script lang="ts">
 	import UserRectangle from 'phosphor-svelte/lib/UserRectangle';
-	import { Flexbox, Input, Text, type PropSizeInput } from '$lib';
+	import { Flexbox, Input, Text, type PropSizeInput } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import { sampleAlign, sampleFullWidth, sampleIcon, sampleSize, sampleState, sampleType } from '.';
+	import { sampleAlign, sampleFullWidth, sampleIcon, sampleSize, sampleState, sampleType } from './index';
 
 	const sizes: Array<PropSizeInput> = ['1', '2', '3'];
 </script>

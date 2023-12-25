@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Flexbox, InputRange, Text } from '$lib';
-	import { sampleDisabled, sampleOptions, sampleSize } from '.';
+	import { Flexbox, InputRange, Text } from '$lib/index';
+	import { sampleDisabled, sampleOptions, sampleSize } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 </script>
 

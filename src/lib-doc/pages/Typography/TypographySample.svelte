@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Flexbox } from '$lib';
+	import { Flexbox } from '$lib/index';
 
 	const sampleText = 'Lorem ipsum dolor...';
 

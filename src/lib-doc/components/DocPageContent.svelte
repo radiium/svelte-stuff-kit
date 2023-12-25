@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Flexbox, Text } from '$lib';
+	import { Flexbox, Text } from '$lib/index';
 	import DocBlocPropsTable from './DocBlocPropsTable.svelte';
 	import DocBlocSlotsTable from './DocBlocSlotsTable.svelte';
 	import type { DocPageData, DocSection } from '../types';

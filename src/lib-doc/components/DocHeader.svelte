@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Flexbox, ThemeSelect } from '$lib';
+	import { Flexbox, ThemeSelect } from '$lib/index';
 	import GithubLink from './GithubLink.svelte';
 	import { packageName } from '../../constants';
 </script>
 
 <Flexbox class="doc-header-wrapper pl-3 pr-3" alignItems="center" justify="between" gap="3">
 	<Flexbox class="side">
-		<!-- <Button id="menu-btn" mode="clear" iconOnly>
+		<!-- <Button id="menu-btn" variant="clear" iconOnly>
             <List/>
         </Button> -->
 	</Flexbox>

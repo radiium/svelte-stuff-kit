@@ -3,7 +3,7 @@
 	import Check from 'phosphor-svelte/lib/Check';
 	import Card from '$lib/components/Card/Card.svelte';
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
-	import { Button } from '$lib/components';
+	import { Button } from '$lib/index';
 	import hljs from 'highlight.js';
 	import { hljsDefineSvelte } from './highlight-svelte.config';
 	import 'highlight.js/scss/atom-one-dark.scss';
@@ -61,7 +61,7 @@
 						<pre><code>{@html highlighted}</code></pre>
 					</div>
 
-					<Button size="2" class="copy-btn mt-2 mr-2" mode="soft" iconOnly on:click={copyCode}>
+					<Button size="2" class="copy-btn mt-2 mr-2" variant="soft" iconOnly on:click={copyCode}>
 						{#if isCopied}
 							<Check />
 						{:else}

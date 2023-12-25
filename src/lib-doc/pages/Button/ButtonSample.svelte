@@ -1,13 +1,21 @@
 <script lang="ts">
 	import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
 	import Trash from 'phosphor-svelte/lib/Trash';
-	import { Button, Flexbox, type PropColor, type PropMode, type PropSizeButton } from '$lib';
+	import { Button, Color, Flexbox, Variant } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import { sample1, sampleAlign, sampleColor, sampleFullWidth, sampleIcon, sampleMode, sampleSize } from '.';
+	import {
+		sample1,
+		sampleAlign,
+		sampleColor,
+		sampleFullWidth,
+		sampleIcon,
+		sampleMode,
+		sampleSize
+	} from './index';
 
-	const modes: Array<PropMode> = ['solid', 'soft', 'outline', 'clear'];
-	const sizes: Array<PropSizeButton> = ['1', '2', '3', '4'];
-	const colors: Array<PropColor> = ['primary', 'neutral', 'info', 'success', 'warning', 'danger'];
+	const variants = Variant;
+	const sizes = ['1', '2', '3', '4'];
+	const colors = Color;
 </script>
 
 <Flexbox direction="column" gap="5">
@@ -26,10 +34,10 @@
 
 	<DocBlocCode title="Mode" code={sampleMode}>
 		<Flexbox slot="demo" alignItems="center" gap="3">
-			<Button mode="solid">button</Button>
-			<Button mode="soft">button</Button>
-			<Button mode="outline">button</Button>
-			<Button mode="clear">button</Button>
+			<Button variant="solid">button</Button>
+			<Button variant="soft">button</Button>
+			<Button variant="outline">button</Button>
+			<Button variant="clear">button</Button>
 		</Flexbox>
 	</DocBlocCode>
 
@@ -46,7 +54,7 @@
 
 	<DocBlocCode title="With icons" code={sampleIcon}>
 		<Flexbox slot="demo" alignItems="center" gap="3">
-			<Button mode="clear">
+			<Button variant="clear">
 				<MagnifyingGlass />
 				button
 			</Button>
@@ -58,7 +66,7 @@
 			<Button size="1" color="info" iconOnly>
 				<MagnifyingGlass />
 			</Button>
-			<Button size="3" color="warning" mode="soft" iconOnly circle>
+			<Button size="3" color="warning" variant="soft" iconOnly circle>
 				<MagnifyingGlass />
 			</Button>
 			<Button size="4" color="danger" iconOnly circle>
@@ -85,31 +93,31 @@
 		<Flexbox slot="demo" direction="column" gap="3">
 			{#each colors as color}
 				<h5>Button {color}</h5>
-				{#each modes as mode}
+				{#each variants as variant}
 					<Flexbox gap="3" wrap="wrap">
-						<div>{mode}</div>
+						<div>{variant}</div>
 						{#each sizes as size}
-							<Button {mode} {size} {color}>Button</Button>
+							<Button {variant} {size} {color}>Button</Button>
 						{/each}
 
 						{#each sizes as size}
-							<Button {mode} {size} {color} disabled>Button</Button>
+							<Button {variant} {size} {color} disabled>Button</Button>
 						{/each}
 					</Flexbox>
 				{/each}
 
 				<h5 class="no-m">Button {color} + iconOnly</h5>
-				{#each modes as mode}
+				{#each variants as variant}
 					<Flexbox gap="3" wrap="wrap">
-						<div>{mode}</div>
+						<div>{variant}</div>
 						{#each sizes as size}
-							<Button {mode} {size} {color} iconOnly>
+							<Button {variant} {size} {color} iconOnly>
 								<MagnifyingGlass />
 							</Button>
 						{/each}
 
 						{#each sizes as size}
-							<Button {mode} {size} {color} iconOnly disabled>
+							<Button {variant} {size} {color} iconOnly disabled>
 								<MagnifyingGlass />
 							</Button>
 						{/each}
@@ -117,17 +125,17 @@
 				{/each}
 
 				<h5 class="no-m">Button {color} + iconOnly + circle</h5>
-				{#each modes as mode}
+				{#each variants as variant}
 					<Flexbox gap="3">
-						<div>{mode}</div>
+						<div>{variant}</div>
 						{#each sizes as size}
-							<Button {mode} {size} {color} iconOnly circle>
+							<Button {variant} {size} {color} iconOnly circle>
 								<MagnifyingGlass />
 							</Button>
 						{/each}
 
 						{#each sizes as size}
-							<Button {mode} {size} {color} iconOnly circle disabled>
+							<Button {variant} {size} {color} iconOnly circle disabled>
 								<MagnifyingGlass />
 							</Button>
 						{/each}

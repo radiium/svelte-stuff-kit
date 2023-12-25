@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Flexbox, Text, Select } from '$lib';
-	import { sampleDisabled, sampleMultiple, sampleSize } from '.';
+	import { Flexbox, Text, Select } from '$lib/index';
+	import { sampleDisabled, sampleMultiple, sampleSize } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 
 	const options = [
