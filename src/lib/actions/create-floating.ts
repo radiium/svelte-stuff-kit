@@ -231,12 +231,7 @@ export function createFloating(props: Partial<CreateFloatingProps> = {}) {
 
 	function initAutoUpdate(): () => void {
 		if (props.autoUpdate && referenceEl && floatingEl) {
-			return autoUpdate(
-				referenceEl,
-				floatingEl,
-				updatePosition,
-				parseOptions(props.autoUpdate) || {}
-			);
+			return autoUpdate(referenceEl, floatingEl, updatePosition, parseOptions(props.autoUpdate) || {});
 		}
 		return () => {};
 	}

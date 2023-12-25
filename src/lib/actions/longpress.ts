@@ -1,18 +1,15 @@
+import { listen } from '$lib/utils/listen';
 import type { ActionReturn } from 'svelte/action';
 
 type Parameters = {
 	duration: number;
 };
-
 type Attributes = {
 	'on:startlongpress': (e: CustomEvent<void>) => void;
 	'on:endlongpress': (e: CustomEvent<void>) => void;
 };
 
-export function longpress(
-	node: HTMLElement,
-	params: Parameters
-): ActionReturn<Parameters, Attributes> {
+export function longpress(node: HTMLElement, params: Parameters): ActionReturn<Parameters, Attributes> {
 	let timer: number;
 
 	function handlePress(): void {
@@ -26,10 +23,10 @@ export function longpress(
 		node.dispatchEvent(new CustomEvent('endlongpress'));
 	}
 
-	node.addEventListener('mousedown', handlePress);
-	node.addEventListener('mouseup', handleRelease);
-	node.addEventListener('touchstart', handlePress);
-	node.addEventListener('touchend', handleRelease);
+	const mousedownListener = listen(node, 'mousedown', handlePress);
+	const mouseupListener = listen(node, 'mouseup', handleRelease);
+	const touchstartListener = listen(node, 'touchstart', handlePress);
+	const touchendListener = listen(node, 'touchend', handleRelease);
 
 	return {
 		update(newParams: Parameters): void {
@@ -38,10 +35,10 @@ export function longpress(
 		},
 		destroy(): void {
 			handleRelease();
-			node.removeEventListener('touchend', handleRelease);
-			node.removeEventListener('touchstart', handlePress);
-			node.removeEventListener('mouseup', handleRelease);
-			node.removeEventListener('mousedown', handlePress);
+			mousedownListener();
+			mouseupListener();
+			touchstartListener();
+			touchendListener();
 		}
 	};
 }
