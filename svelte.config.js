@@ -1,6 +1,6 @@
-import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-auto';
 // import adapter from '@sveltejs/adapter-static';
-// import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-vercel';
 import sveltePreprocess from 'svelte-preprocess';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -27,12 +27,11 @@ const config = {
         },
     },
     vitePlugin: {
-        // set to true for defaults or customize with object
-        // inspector: {
-        //     toggleKeyCombo: 'meta-shift',
-        //     showToggleButton: 'always',
-        //     toggleButtonPos: 'bottom-right'
-        // }
+        inspector: {
+            toggleKeyCombo: 'meta-shift',
+            showToggleButton: 'always',
+            toggleButtonPos: 'bottom-right'
+        }
     }
 };
 
