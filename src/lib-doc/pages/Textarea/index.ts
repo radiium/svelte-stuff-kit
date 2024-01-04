@@ -1,3 +1,4 @@
+import { docPropsTextarea } from '$lib/components/Textarea/Textarea.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextareaSample from './TextareaSample.svelte';
@@ -7,52 +8,7 @@ export const docTextarea: DocPageData = {
 	title: 'Textarea',
 	demoTitle: 'Examples',
 	demoComponent: TextareaSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLTextAreaElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'string | undefined'
-		},
-		{
-			name: 'checked',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'readonly',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'fullWidth',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	]
+	props: docPropsTextarea
 };
 
 export const sampleSize = `<script lang="ts">

@@ -1,3 +1,4 @@
+import { docPropsText } from '$lib/components/Text/Text.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextSample from './TextSample.svelte';
@@ -8,46 +9,7 @@ export const docText: DocPageData = {
 	description: 'Common text element',
 	demoTitle: 'Examples',
 	demoComponent: TextSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'SvelteHTMLElements | undefined'
-		},
-		{
-			name: 'as',
-			type: 'keyof SvelteHTMLElements',
-			defaultValue: 'div'
-		},
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"',
-			defaultValue: '3'
-		},
-		{
-			name: 'weight',
-			type: '"light" | "regular" | "medium" | "bold"',
-			defaultValue: 'regular'
-		},
-		{
-			name: 'align',
-			type: '"start" | "center" | "end"',
-			defaultValue: 'start'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsText,
 	slots: [
 		{
 			default: true

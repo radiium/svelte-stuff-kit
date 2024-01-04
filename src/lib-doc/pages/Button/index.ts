@@ -1,3 +1,4 @@
+import { docPropsButton } from '$lib/components/Button/Button.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import ButtonSample from './ButtonSample.svelte';
@@ -5,69 +6,11 @@ import ButtonSample from './ButtonSample.svelte';
 export const docButton: DocPageData = {
 	id: 'button',
 	title: 'Button',
-	description: '',
+	description: 'Button component',
 	demoTitle: 'Examples',
 	demoComponent: ButtonSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLButtonElement | HTMLAnchorElement | undefined'
-		},
-		{
-			name: 'href',
-			type: 'string'
-		},
-		{
-			name: 'target',
-			type: 'string',
-			defaultValue: '_blank'
-		},
-		{
-			name: 'type',
-			type: '"button" | "submit" | "reset"',
-			defaultValue: 'button'
-		},
-		{
-			name: 'mode',
-			type: '"clear" | "outline" | "soft" | "solid"',
-			defaultValue: 'button'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3" | "4"',
-			defaultValue: '2'
-		},
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger"',
-			defaultValue: 'neutral'
-		},
-		{
-			name: 'active',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'iconOnly',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'circle',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'fullWidth',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'align',
-			type: '"start" | "center" | "end"',
-			defaultValue: 'center'
-		}
-	],
+	demos: [ButtonSample],
+	props: docPropsButton,
 	slots: [{ default: true }]
 };
 

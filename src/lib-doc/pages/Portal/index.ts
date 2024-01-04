@@ -1,22 +1,22 @@
-import { docPropsPopover } from '$lib/components/Popover/Popover.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
-import PopoverSample from './PopoverSample.svelte';
+import PortalSample from './PortalSample.svelte';
 
 export const docPopover: DocPageData = {
-	id: 'popover',
-	title: 'Popover',
+	id: 'portal',
+	title: 'Portal',
 	demoTitle: 'Examples',
-	demoComponent: PopoverSample,
-	props: docPropsPopover,
+	demoComponent: PortalSample,
+	props: [
+		{
+			name: 'target',
+			type: 'HTMLElement | string',
+			defaultValue: '"body"'
+		}
+	],
 	slots: [
 		{
-			name: 'trigger',
-			default: false
-		},
-		{
-			name: 'content',
-			default: false
+			default: true
 		}
 	]
 };

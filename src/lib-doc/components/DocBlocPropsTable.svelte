@@ -1,43 +1,80 @@
 <script lang="ts">
 	import Minus from 'phosphor-svelte/lib/Minus';
+	import Info from 'phosphor-svelte/lib/Info';
+
 	import type { DocProps } from '../types';
 	import Card from '$lib/components/Card/Card.svelte';
+	import Popover from '$lib/components/Popover/Popover.svelte';
+	import Button from '$lib/components/Button/Button.svelte';
+	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 
-	export let props: DocProps[] = [];
+	export let props: DocProps;
 </script>
 
-<Card noPadding>
-	<table>
-		<thead class="rt-TableHeader">
-			<tr class="rt-TableRow">
-				<th scope="col" style="width: auto;">Prop</th>
-				<th scope="col">Type</th>
-				<th scope="col">Default</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each props as prop}
-				<tr>
-					<td data-color="primary">
-						<code class="name">{prop.name}</code>
-					</td>
-					<td data-color="neutral">
-						<code class="type">{prop.type}</code>
-					</td>
-					<td data-color="neutral">
-						{#if prop.defaultValue}
-							<code class="default">
-								{prop.defaultValue}
-							</code>
-						{:else}
-							<Minus color="var(--accent-a11)" size="15" />
-						{/if}
-					</td>
+{#if !Array.isArray(props)}
+	<Card noPadding>
+		<table>
+			<thead class="rt-TableHeader">
+				<tr class="rt-TableRow">
+					<th scope="col" style="width: auto;">Prop</th>
+					<th scope="col">Type</th>
+					<th scope="col">Default</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
-</Card>
+			</thead>
+			<tbody>
+				{#each Object.keys(props) as key}
+					<tr>
+						<td data-color="primary">
+							<code class="name">{key}</code>
+						</td>
+						<td data-color="neutral">
+							<Flexbox alignItems="center" justify="start" gap="1">
+								<code class="type">{props[key].type}</code>
+								{#if props[key].values}
+									<Popover arrow={false}>
+										<Button
+											size="1"
+											iconOnly
+											color="neutral"
+											variant="clear"
+											slot="trigger"
+											let:open
+											let:isOpen
+											on:click={open}
+										>
+											<Info size="32" />
+										</Button>
+										<div slot="content">
+											{@const values = props[key].values}
+											{#if values}
+												{#each values as value, i}
+													<Text color="neutral">"{value}"</Text>
+													{#if values.length - 1 > i}
+														<span> | </span>
+													{/if}
+												{/each}
+											{/if}
+										</div>
+									</Popover>
+								{/if}
+							</Flexbox>
+						</td>
+						<td data-color="neutral">
+							{#if props[key].default !== undefined}
+								<code class="default">
+									{props[key].default}
+								</code>
+							{:else}
+								<Minus color="var(--accent-a11)" size="15" />
+							{/if}
+						</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</Card>
+{/if}
 
 <style lang="scss">
 	table {
@@ -81,7 +118,6 @@
 					padding: 12px;
 					height: 44px;
 					box-shadow: var(--table-row-box-shadow);
-
 					code {
 						padding: 0.2em 0.25em 0.25em;
 						background-color: var(--accent-a3);

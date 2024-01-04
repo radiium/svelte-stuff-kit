@@ -1,3 +1,4 @@
+import { docPropsInputRange } from '$lib/components/InputRange/InputRange.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import InputRangeSample from './InputRangeSample.svelte';
@@ -7,47 +8,7 @@ export const docInputRange: DocPageData = {
 	title: 'Input Range',
 	demoTitle: 'Examples',
 	demoComponent: InputRangeSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLInputElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'number | undefined'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger"',
-			defaultValue: 'neutral'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'fullWidth',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsInputRange,
 	slots: []
 };
 

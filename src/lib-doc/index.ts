@@ -1,4 +1,4 @@
-import { docAccordion } from './pages/Accordion/index';
+import { docAccordionGroup, docAccordionItem } from './pages/Accordion/index';
 import { docButton } from './pages/Button/index';
 import { docCard } from './pages/Card/index';
 import { docCheckbox } from './pages/Checkbox/index';
@@ -19,9 +19,9 @@ import { docText } from './pages/Text/index';
 import { docTextarea } from './pages/Textarea/index';
 import { docTheme } from './pages/Theme/index';
 import { docTypography } from './pages/Typography/index';
-import type { DocPageData, DocSection } from './types';
+import type { DocPageData, DocNavSection } from './types';
 
-export const allDocs: DocSection[] = [
+export const allDocs: DocNavSection[] = [
 	{
 		id: 'overview',
 		title: 'Overview',
@@ -30,32 +30,29 @@ export const allDocs: DocSection[] = [
 	{
 		id: 'elements',
 		title: 'Elements',
-		pages: [docList, docTable, docTypography, docText]
-	},
-	{
-		id: 'layout',
-		title: 'Layout',
-		pages: [docFlexbox]
-	},
-	{
-		id: 'form-components',
-		title: 'Form components',
-		pages: [
-			docButton,
-			docInput,
-			docInputNumber,
-			docInputRange,
-			docTextarea,
-			docSelect,
-			docRadioButton,
-			docCheckbox,
-			docSwitch
-		]
+		pages: [docList, docTable, docTypography]
 	},
 	{
 		id: 'components',
 		title: 'Components',
-		pages: [docPopover, docModal, docCard, docAccordion]
+		pages: [
+			docAccordionGroup,
+			docAccordionItem,
+			docButton,
+			docCard,
+			docCheckbox,
+			docFlexbox,
+			docInput,
+			docInputNumber,
+			docInputRange,
+			docModal,
+			docPopover,
+			docRadioButton,
+			docSelect,
+			docSwitch,
+			docText,
+			docTextarea
+		]
 	},
 	{
 		id: 'demo',
@@ -64,10 +61,13 @@ export const allDocs: DocSection[] = [
 	}
 ];
 
-export function getSectionById(id: string): DocSection | undefined {
-	return allDocs.find((section: DocSection) => section.id === id);
+export function getSectionById(id: string): DocNavSection | undefined {
+	return allDocs.find((section: DocNavSection) => section.id === id);
 }
 
-export function getPageBySectionAndId(section: DocSection | undefined, id: string): DocPageData | undefined {
+export function getPageBySectionAndId(
+	section: DocNavSection | undefined,
+	id: string
+): DocPageData | undefined {
 	return section?.pages.find((page: DocPageData) => page.id === id);
 }

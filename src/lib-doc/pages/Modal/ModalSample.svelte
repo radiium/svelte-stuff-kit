@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, Flexbox, Modal, type PropSizeModal } from '$lib/index';
+	import { Button, Flexbox, Modal, Sizes1To4 } from '$lib/index';
 
-	const sizes = ['1', '2', '3', '4'];
+	const sizes = Sizes1To4;
 	const modalMap = {
 		'1': false,
 		'2': false,
@@ -9,7 +9,7 @@
 		'4': false
 	};
 
-	function mapH(size: PropSizeModal) {
+	function mapH(size: (typeof Sizes1To4)[number]) {
 		switch (size) {
 			case '1':
 			case '2':

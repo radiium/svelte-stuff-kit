@@ -1,3 +1,4 @@
+import { docPropsSwitch } from '$lib/components/Switch/Switch.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import SwitchSample from './SwitchSample.svelte';
@@ -7,47 +8,7 @@ export const docSwitch: DocPageData = {
 	title: 'Switch',
 	demoTitle: 'Examples',
 	demoComponent: SwitchSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLSelectElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'any | undefined' // SelectOption
-		},
-		{
-			name: 'checked',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger"',
-			defaultValue: 'neutral'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsSwitch,
 	slots: [
 		{
 			default: true

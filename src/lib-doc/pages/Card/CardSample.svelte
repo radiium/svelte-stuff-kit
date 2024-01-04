@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, Card, Flexbox, Input, Text, type PropSizeCard } from '$lib/index';
+	import { Button, Card, Flexbox, Input, Text, Sizes1To5 } from '$lib/index';
 
-	const sizes: Array<PropSizeCard> = ['1', '2', '3', '4', '5'];
+	const sizes = Sizes1To5;
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start" justify="start">

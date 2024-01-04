@@ -1,7 +1,7 @@
 <script lang="ts">
 	import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
 	import Trash from 'phosphor-svelte/lib/Trash';
-	import { Button, Color, Flexbox, Variant } from '$lib/index';
+	import { Button, Colors, Flexbox, Sizes1To4, Variants } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 	import {
 		sample1,
@@ -13,14 +13,14 @@
 		sampleSize
 	} from './index';
 
-	const variants = Variant;
-	const sizes = ['1', '2', '3', '4'];
-	const colors = Color;
+	const variants = Variants;
+	const sizes = Sizes1To4;
+	const colors = Colors;
 </script>
 
 <Flexbox direction="column" gap="5">
 	<DocBlocCode title="Simple" code={sample1}>
-		<Button slot="demo">Button</Button>
+		<Button slot="demo" type="reset">Button</Button>
 	</DocBlocCode>
 
 	<DocBlocCode title="Size" code={sampleSize}>

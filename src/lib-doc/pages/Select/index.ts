@@ -1,3 +1,4 @@
+import { docPropsSelect } from '$lib/components/Select/Select.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import SelectSample from './SelectSample.svelte';
@@ -7,41 +8,7 @@ export const docSelect: DocPageData = {
 	title: 'Select',
 	demoTitle: 'Examples',
 	demoComponent: SelectSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLSelectElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'any | undefined' // SelectOption
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger"',
-			defaultValue: 'neutral'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'fullWidth',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	]
+	props: docPropsSelect
 };
 
 export const sampleSize = `<script lang="ts">

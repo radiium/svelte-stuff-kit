@@ -2,11 +2,18 @@
 	import { Card, Checkbox, Flexbox } from '$lib/index';
 	import { sampleInCard, sampleColor, sampleDisabled, sampleSize, sampleWithoutLabel } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 </script>
 
 <Flexbox direction="column" alignItems="start" gap="5">
 	<DocBlocCode title="Size" code={sampleSize}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
+			<Text as="label" size="2">
+				<Flexbox gap="2" alignItems="center">
+					<Checkbox size="1" /> Size 1
+				</Flexbox>
+			</Text>
+
 			<Checkbox size="1">Size 1</Checkbox>
 			<Checkbox size="2">Size 2</Checkbox>
 			<Checkbox size="3">Size 3</Checkbox>

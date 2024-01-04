@@ -2,13 +2,13 @@
 	import { Flexbox, Text } from '$lib/index';
 	import DocBlocPropsTable from './DocBlocPropsTable.svelte';
 	import DocBlocSlotsTable from './DocBlocSlotsTable.svelte';
-	import type { DocPageData, DocSection } from '../types';
+	import type { DocPageData, DocNavSection } from '../types';
 	import DocSectionLink from './DocSectionLink.svelte';
 
-	export let section: DocSection;
+	export let section: DocNavSection;
 	export let page: DocPageData;
 
-	$: hasPropsBloc = page.props && page.props.length > 0;
+	$: hasPropsBloc = page.props;
 	$: hasSlotsBloc = page.slots && page.slots.length > 0;
 	$: hasEventsBloc = page.events && page.events.length > 0;
 	$: hasApiSection = hasPropsBloc || hasSlotsBloc || hasEventsBloc;

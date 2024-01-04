@@ -1,3 +1,4 @@
+import { docPropsInput } from '$lib/components/Input/Input.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import InputSample from './InputSample.svelte';
@@ -7,46 +8,7 @@ export const docInput: DocPageData = {
 	title: 'Input',
 	demoTitle: 'Examples',
 	demoComponent: InputSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLInputElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'string | undefined'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'readonly',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'fullWidth',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsInput,
 	slots: [
 		{
 			name: 'leading',

@@ -1,3 +1,4 @@
+import { docPropsFlexbox } from '$lib/components/Flexbox/Flexbox.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import FlexboxSample from './FlexboxSample.svelte';
@@ -7,56 +8,7 @@ export const docFlexbox: DocPageData = {
 	title: 'Flexbox',
 	demoTitle: 'Examples',
 	demoComponent: FlexboxSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'SvelteHTMLElements | undefined'
-		},
-		{
-			name: 'as',
-			type: 'keyof SvelteHTMLElements',
-			defaultValue: 'div'
-		},
-
-		{
-			name: 'display',
-			type: '"none" | "inline-flex" | "flex"',
-			defaultValue: 'flex'
-		},
-		{
-			name: 'direction',
-			type: '"row" | "column" | "row-reverse" | "column-reverse"',
-			defaultValue: 'row'
-		},
-		{
-			name: 'justify',
-			type: '"start" | "center" | "end" | "around" | "between" | "evenly" | "normal"',
-			defaultValue: 'normal'
-		},
-		{
-			name: 'alignItems',
-			type: '"start" | "center" | "end" | "normal" | "baseline" | "stretch"',
-			defaultValue: 'normal'
-		},
-		{
-			name: 'wrap',
-			type: '"nowrap" | "wrap" | "wrap-reverse"',
-			defaultValue: 'nowrap'
-		},
-		{
-			name: 'gap',
-			type: '"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"',
-			defaultValue: '0'
-		},
-		{
-			name: 'grow',
-			type: '"0" | "1" | undefined'
-		},
-		{
-			name: 'shrink',
-			type: '"0" | "1" | undefined'
-		}
-	],
+	props: docPropsFlexbox,
 	slots: [
 		{
 			default: true

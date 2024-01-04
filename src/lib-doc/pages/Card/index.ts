@@ -1,3 +1,4 @@
+import { docPropsCard } from '$lib/components/Card/Card.props';
 import type { DocPageData } from '../../types';
 import CardSample from './CardSample.svelte';
 
@@ -7,27 +8,7 @@ export const docCard: DocPageData = {
 	description: '',
 	demoTitle: 'Examples',
 	demoComponent: CardSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'SvelteHTMLElements | undefined'
-		},
-		{
-			name: 'as',
-			type: 'SvelteHTMLElements',
-			defaultValue: 'article'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3" | "4" | "5"',
-			defaultValue: '3'
-		},
-		{
-			name: 'noPadding',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsCard,
 	slots: [
 		{
 			default: true

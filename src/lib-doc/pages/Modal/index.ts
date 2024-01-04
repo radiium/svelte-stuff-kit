@@ -1,3 +1,4 @@
+import { docPropsModal } from '$lib/components/Modal/Modal.props';
 import type { DocPageData } from '../../types';
 import ModalSample from './ModalSample.svelte';
 
@@ -6,38 +7,7 @@ export const docModal: DocPageData = {
 	title: 'Modal',
 	demoTitle: 'Examples',
 	demoComponent: ModalSample,
-	props: [
-		{
-			name: 'isOpen',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3" | "4"',
-			defaultValue: '3'
-		},
-		{
-			name: 'closeOnBackdropClick',
-			type: 'boolean',
-			defaultValue: 'true'
-		},
-		{
-			name: 'closeOnEscape',
-			type: 'boolean',
-			defaultValue: 'true'
-		},
-		{
-			name: 'showCloseButton',
-			type: 'boolean',
-			defaultValue: 'true'
-		},
-		{
-			name: 'blockScroll',
-			type: 'boolean',
-			defaultValue: 'true'
-		}
-	],
+	props: docPropsModal,
 	slots: [
 		{
 			name: 'header',

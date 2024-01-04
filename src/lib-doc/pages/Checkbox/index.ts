@@ -1,3 +1,4 @@
+import { docPropsCheckbox } from '$lib/components/Checkbox/Chekbox.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import CheckBoxSample from './CheckBoxSample.svelte';
@@ -8,52 +9,7 @@ export const docCheckbox: DocPageData = {
 	description: '',
 	demoTitle: 'Examples',
 	demoComponent: CheckBoxSample,
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLInputElement | undefined'
-		},
-		{
-			name: 'value',
-			type: 'string | undefined'
-		},
-		{
-			name: 'checked',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'indeterminate',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'size',
-			type: '"1" | "2" | "3"',
-			defaultValue: '2'
-		},
-		{
-			name: 'color',
-			type: '"neutral" | "primary" | "info" | "success" | "warning" | "danger"',
-			defaultValue: 'neutral'
-		},
-
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: 'false'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: 'false'
-		}
-	],
+	props: docPropsCheckbox,
 	slots: [
 		{
 			default: true
