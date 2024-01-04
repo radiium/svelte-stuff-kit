@@ -3,14 +3,14 @@
 	import { defaultPropsSelect, type PropsSelect } from './Select.props';
 
 	type $$Props = PropsSelect;
-	export let elementRef: PropsSelect['elementRef'] = defaultPropsSelect.elementRef;
-	export let value: PropsSelect['value'] = defaultPropsSelect.value;
-	export let multiple: PropsSelect['multiple'] = defaultPropsSelect.multiple;
-	export let options: PropsSelect['options'] = defaultPropsSelect.options;
-	export let size: PropsSelect['size'] = defaultPropsSelect.size;
-	export let disabled: PropsSelect['disabled'] = defaultPropsSelect.disabled;
-	export let required: PropsSelect['required'] = defaultPropsSelect.required;
-	export let fullWidth: PropsSelect['fullWidth'] = defaultPropsSelect.fullWidth;
+	export let elementRef: $$Props['elementRef'] = defaultPropsSelect.elementRef;
+	export let options: $$Props['options'] = defaultPropsSelect.options;
+	export let value: $$Props['value'] = defaultPropsSelect.value;
+	export let multiple: $$Props['multiple'] = defaultPropsSelect.multiple;
+	export let size: $$Props['size'] = defaultPropsSelect.size;
+	export let disabled: $$Props['disabled'] = defaultPropsSelect.disabled;
+	export let required: $$Props['required'] = defaultPropsSelect.required;
+	export let fullWidth: $$Props['fullWidth'] = defaultPropsSelect.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(_class, `input-type-select`, `input-size-${size}`, {

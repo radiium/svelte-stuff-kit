@@ -1,33 +1,17 @@
-<script lang="ts" context="module">
-	export type Props = {
-		elementRef?: HTMLInputElement | undefined;
-		value?: string | undefined;
-		checked?: boolean;
-		indeterminate?: boolean;
-		size?: '1' | '2' | '3';
-		color?: 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
-		disabled?: boolean;
-		required?: boolean;
-		error?: boolean;
-		style?: string | undefined;
-		class?: string | undefined;
-	};
-</script>
-
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsCheckbox, type PropsCheckbox } from './Chekbox.props';
 
 	type $$Props = PropsCheckbox;
-	export let elementRef: PropsCheckbox['elementRef'] = defaultPropsCheckbox.elementRef;
-	export let value: PropsCheckbox['value'] = defaultPropsCheckbox.value;
-	export let checked: PropsCheckbox['checked'] = defaultPropsCheckbox.checked;
-	export let indeterminate: PropsCheckbox['indeterminate'] = defaultPropsCheckbox.indeterminate;
-	export let size: PropsCheckbox['size'] = defaultPropsCheckbox.size;
-	export let color: PropsCheckbox['color'] = defaultPropsCheckbox.color;
-	export let disabled: PropsCheckbox['disabled'] = defaultPropsCheckbox.disabled;
-	export let required: PropsCheckbox['required'] = defaultPropsCheckbox.required;
-	export let error: PropsCheckbox['error'] = defaultPropsCheckbox.error;
+	export let elementRef: $$Props['elementRef'] = defaultPropsCheckbox.elementRef;
+	export let value: $$Props['value'] = defaultPropsCheckbox.value;
+	export let checked: $$Props['checked'] = defaultPropsCheckbox.checked;
+	export let indeterminate: $$Props['indeterminate'] = defaultPropsCheckbox.indeterminate;
+	export let size: $$Props['size'] = defaultPropsCheckbox.size;
+	export let color: $$Props['color'] = defaultPropsCheckbox.color;
+	export let disabled: $$Props['disabled'] = defaultPropsCheckbox.disabled;
+	export let required: $$Props['required'] = defaultPropsCheckbox.required;
+	export let error: $$Props['error'] = defaultPropsCheckbox.error;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
@@ -55,7 +39,7 @@
 	};
 </script>
 
-<label class={cssClass} data-color={color} aria-checked={checked}>
+<label data-checkbox class={cssClass} data-color={color}>
 	<input
 		type="checkbox"
 		{value}

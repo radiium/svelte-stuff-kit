@@ -1,28 +1,15 @@
-import type { AriaAttributes, HTMLAttributes } from 'svelte/elements';
-import type {
-	PropTypeColor,
-	PropTypeUse,
-	PropTypeStyle,
-	PropTypeClass,
-	PropTypeBoolean,
-	PropTypeString
-} from '$lib/types';
+import { Sizes1To3, Colors } from '$lib/types';
 
 export type PropsSwitch = {
 	elementRef?: HTMLInputElement | undefined;
-	value?: PropTypeString;
-	checked?: PropTypeBoolean;
-	size?: '1' | '2' | '3';
-	color?: PropTypeColor;
-	disabled?: PropTypeBoolean;
-	required?: PropTypeBoolean;
-	error?: PropTypeBoolean;
-	//
-	// use?: PropTypeUse;
-	// style?: PropTypeStyle;
-	// class?: PropTypeClass;
-} & HTMLAttributes<HTMLElement> &
-	AriaAttributes;
+	value?: string;
+	checked?: boolean;
+	size?: (typeof Sizes1To3)[number];
+	color?: (typeof Colors)[number];
+	disabled?: boolean;
+	required?: boolean;
+	error?: boolean;
+};
 
 export const defaultPropsSwitch: PropsSwitch = {
 	elementRef: undefined,
@@ -33,4 +20,37 @@ export const defaultPropsSwitch: PropsSwitch = {
 	disabled: false,
 	required: false,
 	error: false
+};
+
+export const docPropsSwitch = {
+	value: {
+		type: 'string',
+		default: defaultPropsSwitch.value
+	},
+	checked: {
+		type: 'boolean',
+		default: defaultPropsSwitch.checked
+	},
+	size: {
+		type: 'enum',
+		values: Sizes1To3,
+		default: defaultPropsSwitch.size
+	},
+	color: {
+		type: 'enum',
+		values: Colors,
+		default: defaultPropsSwitch.color
+	},
+	disabled: {
+		type: 'boolean',
+		default: defaultPropsSwitch.disabled
+	},
+	required: {
+		type: 'boolean',
+		default: defaultPropsSwitch.required
+	},
+	error: {
+		type: 'boolean',
+		default: defaultPropsSwitch.error
+	}
 };

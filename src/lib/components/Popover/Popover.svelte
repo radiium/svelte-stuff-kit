@@ -14,14 +14,16 @@
 	import { defaultPropsPopover, type PropsPopover } from './Popover.props';
 
 	type $$Props = PropsPopover;
-	export let isOpen: PropsPopover['isOpen'] = defaultPropsPopover.isOpen;
-	export let backdrop: PropsPopover['backdrop'] = defaultPropsPopover.backdrop;
-	export let arrow: PropsPopover['arrow'] = defaultPropsPopover.arrow;
-	export let strategy: PropsPopover['strategy'] = defaultPropsPopover.strategy;
-	export let placement: PropsPopover['placement'] = defaultPropsPopover.placement;
-	export let offset: PropsPopover['offset'] = defaultPropsPopover.offset;
-	export let flip: PropsPopover['flip'] = defaultPropsPopover.flip;
-	export let transition: PropsPopover['transition'] = defaultPropsPopover.transition;
+	export let isOpen: $$Props['isOpen'] = defaultPropsPopover.isOpen;
+	export let backdrop: $$Props['backdrop'] = defaultPropsPopover.backdrop;
+	export let arrow: $$Props['arrow'] = defaultPropsPopover.arrow;
+	export let strategy: $$Props['strategy'] = defaultPropsPopover.strategy;
+	export let placement: $$Props['placement'] = defaultPropsPopover.placement;
+	export let offset: $$Props['offset'] = defaultPropsPopover.offset;
+	export let flip: $$Props['flip'] = defaultPropsPopover.flip;
+	export let transitionOpacity: $$Props['transitionOpacity'] = defaultPropsPopover.transitionOpacity;
+	export let transitionY: $$Props['transitionY'] = defaultPropsPopover.transitionY;
+	export let transitionDuration: $$Props['transitionDuration'] = defaultPropsPopover.transitionDuration;
 
 	let triggerRef: HTMLDivElement | undefined = undefined;
 	let arrowRef: HTMLDivElement | undefined = undefined;
@@ -108,10 +110,15 @@
 		use:clickoutside
 		use:focusTrap
 		on:clickoutside={close}
-		transition:fly={transition}
+		transition:fly={{
+			opacity: transitionOpacity,
+			y: transitionY,
+			duration: transitionDuration
+		}}
 		bind:this={popoverRef}
 		role="dialog"
 		class="popover"
+		active={isOpen}
 		data-popover
 		data-state={isOpen ? 'open' : 'close'}
 		data-side={side}

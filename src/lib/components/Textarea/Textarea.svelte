@@ -3,17 +3,18 @@
 	import { defaultPropsTextarea, type PropsTextarea } from './Textarea.props';
 
 	type $$Props = PropsTextarea;
-	export let elementRef: PropsTextarea['elementRef'] = defaultPropsTextarea.elementRef;
-	export let value: PropsTextarea['value'] = defaultPropsTextarea.value;
-	export let size: PropsTextarea['size'] = defaultPropsTextarea.size;
-	export let disabled: PropsTextarea['disabled'] = defaultPropsTextarea.disabled;
-	export let required: PropsTextarea['required'] = defaultPropsTextarea.required;
-	export let readonly: PropsTextarea['readonly'] = defaultPropsTextarea.readonly;
-	export let error: PropsTextarea['error'] = defaultPropsTextarea.error;
-	export let fullWidth: PropsTextarea['fullWidth'] = defaultPropsTextarea.fullWidth;
+	export let elementRef: $$Props['elementRef'] = defaultPropsTextarea.elementRef;
+	export let value: $$Props['value'] = defaultPropsTextarea.value;
+	export let size: $$Props['size'] = defaultPropsTextarea.size;
+	export let color: $$Props['color'] = defaultPropsTextarea.color;
+	export let disabled: $$Props['disabled'] = defaultPropsTextarea.disabled;
+	export let required: $$Props['required'] = defaultPropsTextarea.required;
+	export let readonly: $$Props['readonly'] = defaultPropsTextarea.readonly;
+	export let error: $$Props['error'] = defaultPropsTextarea.error;
+	export let fullWidth: $$Props['fullWidth'] = defaultPropsTextarea.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(_class, 'input-wrapper', `input-size-${size}`, {
+	$: cssClass = clsx(_class, 'input-wrapper', `input-color-${color}`, `input-size-${size}`, {
 		'input-disabled': disabled,
 		'input-required': required,
 		'input-readonly': readonly,

@@ -3,16 +3,16 @@
 	import { defaultPropsInput, type PropsInput } from './Input.props';
 
 	type $$Props = PropsInput;
-	export let elementRef: PropsInput['elementRef'] = defaultPropsInput.elementRef;
-	export let value: PropsInput['value'] = defaultPropsInput.value;
-	export let type: PropsInput['type'] = defaultPropsInput.type;
-	export let size: PropsInput['size'] = defaultPropsInput.size;
-	export let align: PropsInput['align'] = defaultPropsInput.align;
-	export let disabled: PropsInput['disabled'] = defaultPropsInput.disabled;
-	export let required: PropsInput['required'] = defaultPropsInput.required;
-	export let readonly: PropsInput['readonly'] = defaultPropsInput.readonly;
-	export let error: PropsInput['error'] = defaultPropsInput.error;
-	export let fullWidth: PropsInput['fullWidth'] = defaultPropsInput.fullWidth;
+	export let elementRef: $$Props['elementRef'] = defaultPropsInput.elementRef;
+	export let value: $$Props['value'] = defaultPropsInput.value;
+	export let type: $$Props['type'] = defaultPropsInput.type;
+	export let size: $$Props['size'] = defaultPropsInput.size;
+	export let align: $$Props['align'] = defaultPropsInput.align;
+	export let disabled: $$Props['disabled'] = defaultPropsInput.disabled;
+	export let required: $$Props['required'] = defaultPropsInput.required;
+	export let readonly: $$Props['readonly'] = defaultPropsInput.readonly;
+	export let error: $$Props['error'] = defaultPropsInput.error;
+	export let fullWidth: $$Props['fullWidth'] = defaultPropsInput.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
@@ -42,6 +42,7 @@
 </script>
 
 <div
+	data-input
 	class={cssClass}
 	role="button"
 	tabindex="-1"

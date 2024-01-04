@@ -1,8 +1,5 @@
-// From
-// https://github.com/henrygd/trap-focus-svelte/blob/main/index.ts
+// credit: https://github.com/henrygd/trap-focus-svelte/blob/main/index.ts
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { listen } from '$lib/utils/listen';
 import type { ActionReturn } from 'svelte/action';
 
@@ -15,12 +12,11 @@ let stack: HTMLElement[] = [];
 
 /**
  * Traps focus within a wrapper element
- * credit: https://github.com/henrygd/trap-focus-svelte/blob/main/index.ts
  *
  * @param wrap
  * @param active
  * @returns
- */ 
+ */
 function focusTrap(wrap: HTMLElement, active = true): ActionReturn<Parameters, Attributes> {
 	// true if tabbing backwards with shift + tab
 	let shiftTab = false;

@@ -3,14 +3,14 @@
 	import { defaultPropsText, type PropsText } from './Text.props';
 
 	type $$Props = PropsText;
-	export let elementRef: PropsText['elementRef'] = defaultPropsText.elementRef;
-	export let as: PropsText['as'] = defaultPropsText.as;
-	export let color: PropsText['color'] = defaultPropsText.color;
-	export let size: PropsText['size'] = defaultPropsText.size;
-	export let weight: PropsText['weight'] = defaultPropsText.weight;
-	export let align: PropsText['align'] = defaultPropsText.align;
-	export let disabled: PropsText['disabled'] = defaultPropsText.disabled;
-	export let required: PropsText['required'] = defaultPropsText.required;
+	export let elementRef: $$Props['elementRef'] = defaultPropsText.elementRef;
+	export let as: $$Props['as'] = defaultPropsText.as;
+	export let color: $$Props['color'] = defaultPropsText.color;
+	export let size: $$Props['size'] = defaultPropsText.size;
+	export let weight: $$Props['weight'] = defaultPropsText.weight;
+	export let align: $$Props['align'] = defaultPropsText.align;
+	export let disabled: $$Props['disabled'] = defaultPropsText.disabled;
+	export let required: $$Props['required'] = defaultPropsText.required;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(

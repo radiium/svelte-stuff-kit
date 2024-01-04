@@ -3,14 +3,14 @@
 	import { type PropsSwitch, defaultPropsSwitch } from './Switch.props';
 
 	type $$Props = PropsSwitch;
-	export let elementRef: PropsSwitch['elementRef'] = defaultPropsSwitch.elementRef;
-	export let value: PropsSwitch['value'] = defaultPropsSwitch.value;
-	export let checked: PropsSwitch['checked'] = defaultPropsSwitch.checked;
-	export let size: PropsSwitch['size'] = defaultPropsSwitch.size;
-	export let color: PropsSwitch['color'] = defaultPropsSwitch.color;
-	export let disabled: PropsSwitch['disabled'] = defaultPropsSwitch.disabled;
-	export let required: PropsSwitch['required'] = defaultPropsSwitch.required;
-	export let error: PropsSwitch['error'] = defaultPropsSwitch.error;
+	export let elementRef: $$Props['elementRef'] = defaultPropsSwitch.elementRef;
+	export let value: $$Props['value'] = defaultPropsSwitch.value;
+	export let checked: $$Props['checked'] = defaultPropsSwitch.checked;
+	export let size: $$Props['size'] = defaultPropsSwitch.size;
+	export let color: $$Props['color'] = defaultPropsSwitch.color;
+	export let disabled: $$Props['disabled'] = defaultPropsSwitch.disabled;
+	export let required: $$Props['required'] = defaultPropsSwitch.required;
+	export let error: $$Props['error'] = defaultPropsSwitch.error;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(

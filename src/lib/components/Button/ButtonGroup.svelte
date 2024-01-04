@@ -1,17 +1,15 @@
-<!--
- @component
- Button component
--->
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import { clsx } from '../../utils/clsx';
 	import { setContext } from 'svelte';
 
-	type $$Props = HTMLAttributes<HTMLDivElement>;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(_class, `btn-group`);
-	$: attributes = attributes = { style, ...restProps };
+	$: attributes = attributes = {
+		role: 'group',
+		style,
+		...restProps
+	};
 
 	setContext('ButtonGroup', true);
 </script>

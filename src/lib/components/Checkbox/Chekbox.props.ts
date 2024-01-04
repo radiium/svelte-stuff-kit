@@ -1,28 +1,16 @@
-import type { HTMLInputAttributes } from 'svelte/elements';
-import type {
-	PropTypeColor,
-	PropTypeUse,
-	PropTypeStyle,
-	PropTypeClass,
-	PropTypeBoolean,
-	PropTypeString
-} from '$lib/types';
+import { Sizes1To3, Colors } from '$lib/types';
 
 export type PropsCheckbox = {
 	elementRef?: HTMLInputElement | undefined;
-	value?: PropTypeString;
-	checked?: PropTypeBoolean;
-	indeterminate?: PropTypeBoolean;
-	size?: '1' | '2' | '3' | undefined;
-	color?: PropTypeColor;
-	disabled?: PropTypeBoolean;
-	required?: PropTypeBoolean;
-	error?: PropTypeBoolean;
-	//
-	use?: PropTypeUse;
-	style?: PropTypeStyle;
-	class?: PropTypeClass;
-} & Omit<HTMLInputAttributes, 'size'>;
+	value?: string;
+	checked?: boolean;
+	indeterminate?: boolean;
+	size?: (typeof Sizes1To3)[number];
+	color?: (typeof Colors)[number];
+	disabled?: boolean;
+	required?: boolean;
+	error?: boolean;
+};
 
 export const defaultPropsCheckbox: PropsCheckbox = {
 	elementRef: undefined,
@@ -34,4 +22,41 @@ export const defaultPropsCheckbox: PropsCheckbox = {
 	disabled: false,
 	required: false,
 	error: false
+};
+
+export const docPropsCheckbox = {
+	value: {
+		type: 'string',
+		default: defaultPropsCheckbox.value
+	},
+	checked: {
+		type: 'boolean',
+		default: defaultPropsCheckbox.checked
+	},
+	indeterminate: {
+		type: 'boolean',
+		default: defaultPropsCheckbox.indeterminate
+	},
+	size: {
+		type: 'enum',
+		values: Sizes1To3,
+		default: defaultPropsCheckbox.size
+	},
+	color: {
+		type: 'enum',
+		values: Colors,
+		default: defaultPropsCheckbox.color
+	},
+	disabled: {
+		type: 'boolean',
+		default: defaultPropsCheckbox.disabled
+	},
+	required: {
+		type: 'boolean',
+		default: defaultPropsCheckbox.required
+	},
+	error: {
+		type: 'boolean',
+		default: defaultPropsCheckbox.error
+	}
 };

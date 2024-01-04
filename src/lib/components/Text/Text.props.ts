@@ -1,31 +1,16 @@
-import type { AriaAttributes, HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
-import type {
-	PropTypeUse,
-	PropTypeStyle,
-	PropTypeClass,
-	PropTypeAs,
-	PropTypeBoolean,
-	PropTypeString,
-	PropTypeColor,
-	PropTypeAlign
-} from '$lib/types';
+import type { SvelteHTMLElements } from 'svelte/elements';
+import { Sizes1To9, Colors, Weights, Aligns } from '$lib/types';
 
 export type PropsText = {
 	elementRef?: SvelteHTMLElements | undefined;
-	as?: PropTypeAs;
-	color?: PropTypeColor;
-	size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
-	weight?: 'light' | 'regular' | 'medium' | 'bold';
-	align?: PropTypeAlign;
-	disabled?: PropTypeBoolean;
-	required?: PropTypeBoolean;
-	for?: PropTypeString;
-	//
-	// use?: PropTypeUse;
-	// style?: PropTypeStyle;
-	// class?: PropTypeClass;
-} & HTMLAttributes<HTMLElement> &
-	AriaAttributes;
+	as?: keyof SvelteHTMLElements;
+	color?: (typeof Colors)[number];
+	size?: (typeof Sizes1To9)[number];
+	weight?: (typeof Weights)[number];
+	align?: (typeof Aligns)[number];
+	disabled?: boolean;
+	required?: boolean;
+};
 
 export const defaultPropsText: PropsText = {
 	elementRef: undefined,
@@ -36,4 +21,39 @@ export const defaultPropsText: PropsText = {
 	align: 'start',
 	disabled: false,
 	required: false
+};
+
+export const docPropsText = {
+	as: {
+		type: 'keyof SvelteHTMLElements',
+		default: defaultPropsText.as
+	},
+	color: {
+		type: 'enum',
+		values: Colors,
+		default: defaultPropsText.color
+	},
+	size: {
+		type: 'enum',
+		values: Sizes1To9,
+		default: defaultPropsText.size
+	},
+	weight: {
+		type: 'enum',
+		values: Weights,
+		default: defaultPropsText.weight
+	},
+	align: {
+		type: 'enum',
+		values: Aligns,
+		default: defaultPropsText.align
+	},
+	disabled: {
+		type: 'boolean',
+		default: defaultPropsText.disabled
+	},
+	required: {
+		type: 'boolean',
+		default: defaultPropsText.required
+	}
 };

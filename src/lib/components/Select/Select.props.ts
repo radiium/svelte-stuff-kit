@@ -1,5 +1,4 @@
-import type { AriaAttributes, HTMLAttributes } from 'svelte/elements';
-import type { PropTypeUse, PropTypeStyle, PropTypeClass, PropTypeBoolean } from '$lib/types';
+import { Sizes1To3 } from '$lib/types';
 
 export type SelectOption = {
 	label: string;
@@ -10,18 +9,13 @@ export type SelectOption = {
 export type PropsSelect = {
 	elementRef?: HTMLSelectElement | undefined;
 	value?: unknown | undefined;
-	multiple?: PropTypeBoolean;
+	multiple?: boolean;
 	options: SelectOption[];
-	size?: '1' | '2' | '3';
-	disabled?: PropTypeBoolean;
-	required?: PropTypeBoolean;
-	fullWidth?: PropTypeBoolean;
-	//
-	// use?: PropTypeUse;
-	// style?: PropTypeStyle;
-	// class?: PropTypeClass;
-} & HTMLAttributes<HTMLElement> &
-	AriaAttributes;
+	size?: (typeof Sizes1To3)[number];
+	disabled?: boolean;
+	required?: boolean;
+	fullWidth?: boolean;
+};
 
 export const defaultPropsSelect: PropsSelect = {
 	elementRef: undefined,
@@ -32,4 +26,32 @@ export const defaultPropsSelect: PropsSelect = {
 	disabled: false,
 	required: false,
 	fullWidth: false
+};
+
+export const docPropsSelect = {
+	value: {
+		type: 'string | number',
+		default: defaultPropsSelect.value
+	},
+	size: {
+		type: 'enum',
+		values: Sizes1To3,
+		default: defaultPropsSelect.size
+	},
+	multiple: {
+		type: 'boolean',
+		default: defaultPropsSelect.multiple
+	},
+	disabled: {
+		type: 'boolean',
+		default: defaultPropsSelect.disabled
+	},
+	required: {
+		type: 'boolean',
+		default: defaultPropsSelect.required
+	},
+	fullWidth: {
+		type: 'boolean',
+		default: defaultPropsSelect.fullWidth
+	}
 };
