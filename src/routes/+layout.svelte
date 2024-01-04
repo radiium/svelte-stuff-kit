@@ -2,15 +2,15 @@
 	import { ThemeProvider } from '$lib/index';
 	import IconContext from 'phosphor-svelte/lib/IconContext';
 	import DocLayout from '../lib-doc/components/DocLayout.svelte';
-	import DocHeader from '../lib-doc/components/DocHeader.svelte';
-	import DocAside from '../lib-doc/components/DocAside.svelte';
+	import DocPageHeader from '../lib-doc/components/DocPageHeader.svelte';
+	import DocPageSidebar from '../lib-doc/components/DocPageSidebar.svelte';
 </script>
 
 <ThemeProvider>
 	<IconContext values={{ color: 'var(--color)', size: 24 }}>
 		<DocLayout>
-			<DocHeader slot="header" />
-			<DocAside slot="aside" />
+			<DocPageHeader slot="header" />
+			<DocPageSidebar slot="aside" />
 			<div slot="main" class="content">
 				<slot />
 			</div>
