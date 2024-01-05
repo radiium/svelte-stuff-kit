@@ -16,5 +16,5 @@ export const load: PageLoad = ({ params }) => {
 		};
 	}
 
-	throw error(404, 'Introuvable');
+	error(404, 'Introuvable');
 };
