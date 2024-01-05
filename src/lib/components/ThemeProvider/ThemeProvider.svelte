@@ -30,7 +30,6 @@
 	import { hasContext, onMount, setContext } from 'svelte';
 	import { isBrowser } from '$lib/utils/is-browser';
 
-	type $$Props = PropsThemeProvider;
 	export let strategy: PropsThemeProvider['strategy'] = defaultPropsThemeProvider.strategy;
 
 	let isRoot = !hasContext(THEME_CONTEXT_KEY);

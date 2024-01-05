@@ -2,21 +2,19 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsLink, type PropsLink } from './Link.props';
 
-	type $$Props = PropsLink;
-
-	export let elementRef: $$Props['elementRef'] = defaultPropsLink.elementRef;
-	export let href: $$Props['href'] = defaultPropsLink.href;
-	export let target: $$Props['target'] = defaultPropsLink.target;
-	export let rel: $$Props['rel'] = defaultPropsLink.rel;
-	export let size: $$Props['size'] = defaultPropsLink.size;
-	export let variant: $$Props['variant'] = defaultPropsLink.variant;
-	export let color: $$Props['color'] = defaultPropsLink.color;
-	export let align: $$Props['align'] = defaultPropsLink.align;
-	export let active: $$Props['active'] = defaultPropsLink.active;
-	export let disabled: $$Props['disabled'] = defaultPropsLink.disabled;
-	export let iconOnly: $$Props['iconOnly'] = defaultPropsLink.iconOnly;
-	export let circle: $$Props['circle'] = defaultPropsLink.fullWidth;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsLink.fullWidth;
+	export let elementRef: PropsLink['elementRef'] = defaultPropsLink.elementRef;
+	export let href: PropsLink['href'] = defaultPropsLink.href;
+	export let target: PropsLink['target'] = defaultPropsLink.target;
+	export let rel: PropsLink['rel'] = defaultPropsLink.rel;
+	export let size: PropsLink['size'] = defaultPropsLink.size;
+	export let variant: PropsLink['variant'] = defaultPropsLink.variant;
+	export let color: PropsLink['color'] = defaultPropsLink.color;
+	export let align: PropsLink['align'] = defaultPropsLink.align;
+	export let active: PropsLink['active'] = defaultPropsLink.active;
+	export let disabled: PropsLink['disabled'] = defaultPropsLink.disabled;
+	export let iconOnly: PropsLink['iconOnly'] = defaultPropsLink.iconOnly;
+	export let circle: PropsLink['circle'] = defaultPropsLink.fullWidth;
+	export let fullWidth: PropsLink['fullWidth'] = defaultPropsLink.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(

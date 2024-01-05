@@ -3,6 +3,7 @@ import { InputTypes, Sizes1To3, Aligns } from '$lib/types';
 export type PropsInput = {
 	elementRef?: HTMLInputElement | undefined;
 	value?: string;
+	placeholder?: string;
 	type?: (typeof InputTypes)[number];
 	size?: (typeof Sizes1To3)[number];
 	align?: (typeof Aligns)[number];
@@ -16,6 +17,7 @@ export type PropsInput = {
 export const defaultPropsInput: PropsInput = {
 	elementRef: undefined,
 	value: '',
+	placeholder: undefined,
 	type: 'text',
 	size: '2',
 	align: 'start',

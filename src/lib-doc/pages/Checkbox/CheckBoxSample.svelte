@@ -39,11 +39,11 @@
 
 	<DocBlocCode title="In card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" role="button">
+			<Card as="label" asButton>
 				<Checkbox>Checkbox in card 1</Checkbox>
 			</Card>
 
-			<Card as="label" role="button">
+			<Card as="label" asButton>
 				<Checkbox>Checkbox in card 2</Checkbox>
 			</Card>
 		</Flexbox>

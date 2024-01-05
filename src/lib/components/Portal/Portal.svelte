@@ -57,8 +57,7 @@
 <script lang="ts">
 	import { type PropsPortal, defaultPropsPortal } from './Portal.props';
 
-	type $$Props = PropsPortal;
-	export let target: $$Props['target'] = defaultPropsPortal.target;
+	export let target: PropsPortal['target'] = defaultPropsPortal.target;
 </script>
 
 <div use:portal={target} hidden>

@@ -9,7 +9,6 @@
 		type AccordionGroupContext
 	} from './Accordion.props';
 
-	type $$Props = PropsAccordionGroup;
 	export let multi: PropsAccordionGroup['multi'] = defaultPropsAccordionGroup.multi;
 
 	const current = writable<AccordionStore | undefined>();

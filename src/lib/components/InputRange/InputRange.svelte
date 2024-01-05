@@ -2,18 +2,17 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsInputRange, type PropsInputRange } from './InputRange.props';
 
-	type $$Props = PropsInputRange;
-	export let elementRef: $$Props['elementRef'] = defaultPropsInputRange.elementRef;
-	export let value: $$Props['value'] = defaultPropsInputRange.value;
-	export let step: $$Props['step'] = defaultPropsInputRange.step;
-	export let min: $$Props['min'] = defaultPropsInputRange.min;
-	export let max: $$Props['max'] = defaultPropsInputRange.max;
-	export let size: $$Props['size'] = defaultPropsInputRange.size;
-	export let color: $$Props['color'] = defaultPropsInputRange.color;
-	export let disabled: $$Props['disabled'] = defaultPropsInputRange.disabled;
-	export let required: $$Props['required'] = defaultPropsInputRange.required;
-	export let error: $$Props['error'] = defaultPropsInputRange.error;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsInputRange.fullWidth;
+	export let elementRef: PropsInputRange['elementRef'] = defaultPropsInputRange.elementRef;
+	export let value: PropsInputRange['value'] = defaultPropsInputRange.value;
+	export let step: PropsInputRange['step'] = defaultPropsInputRange.step;
+	export let min: PropsInputRange['min'] = defaultPropsInputRange.min;
+	export let max: PropsInputRange['max'] = defaultPropsInputRange.max;
+	export let size: PropsInputRange['size'] = defaultPropsInputRange.size;
+	export let color: PropsInputRange['color'] = defaultPropsInputRange.color;
+	export let disabled: PropsInputRange['disabled'] = defaultPropsInputRange.disabled;
+	export let required: PropsInputRange['required'] = defaultPropsInputRange.required;
+	export let error: PropsInputRange['error'] = defaultPropsInputRange.error;
+	export let fullWidth: PropsInputRange['fullWidth'] = defaultPropsInputRange.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(

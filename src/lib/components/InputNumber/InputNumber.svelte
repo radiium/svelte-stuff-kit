@@ -3,17 +3,16 @@
 	import { longpress } from '../../actions/longpress';
 	import { defaultPropsInputNumber, type PropsInputNumber } from './InputNumber.props';
 
-	type $$Props = PropsInputNumber;
-	export let elementRef: $$Props['elementRef'] = defaultPropsInputNumber.elementRef;
-	export let value: $$Props['value'] = defaultPropsInputNumber.value;
-	export let step: $$Props['step'] = defaultPropsInputNumber.step;
-	export let min: $$Props['min'] = defaultPropsInputNumber.min;
-	export let max: $$Props['max'] = defaultPropsInputNumber.max;
-	export let size: $$Props['size'] = defaultPropsInputNumber.size;
-	export let color: $$Props['color'] = defaultPropsInputNumber.color;
-	export let disabled: $$Props['disabled'] = defaultPropsInputNumber.disabled;
-	export let required: $$Props['required'] = defaultPropsInputNumber.required;
-	export let readonly: $$Props['readonly'] = defaultPropsInputNumber.readonly;
+	export let elementRef: PropsInputNumber['elementRef'] = defaultPropsInputNumber.elementRef;
+	export let value: PropsInputNumber['value'] = defaultPropsInputNumber.value;
+	export let step: PropsInputNumber['step'] = defaultPropsInputNumber.step;
+	export let min: PropsInputNumber['min'] = defaultPropsInputNumber.min;
+	export let max: PropsInputNumber['max'] = defaultPropsInputNumber.max;
+	export let size: PropsInputNumber['size'] = defaultPropsInputNumber.size;
+	export let color: PropsInputNumber['color'] = defaultPropsInputNumber.color;
+	export let disabled: PropsInputNumber['disabled'] = defaultPropsInputNumber.disabled;
+	export let required: PropsInputNumber['required'] = defaultPropsInputNumber.required;
+	export let readonly: PropsInputNumber['readonly'] = defaultPropsInputNumber.readonly;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	// Input css classes

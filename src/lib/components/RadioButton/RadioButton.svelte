@@ -2,16 +2,15 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsRadioButton, type PropsRadioButton } from './RadioButton.props';
 
-	type $$Props = PropsRadioButton;
-	export let elementRef: $$Props['elementRef'] = defaultPropsRadioButton.elementRef;
-	export let value: $$Props['value'] = defaultPropsRadioButton.value;
-	export let checked: $$Props['checked'] = defaultPropsRadioButton.checked;
-	export let group: $$Props['group'] = defaultPropsRadioButton.group;
-	export let size: $$Props['size'] = defaultPropsRadioButton.size;
-	export let color: $$Props['color'] = defaultPropsRadioButton.color;
-	export let disabled: $$Props['disabled'] = defaultPropsRadioButton.disabled;
-	export let required: $$Props['required'] = defaultPropsRadioButton.required;
-	export let error: $$Props['error'] = defaultPropsRadioButton.error;
+	export let elementRef: PropsRadioButton['elementRef'] = defaultPropsRadioButton.elementRef;
+	export let value: PropsRadioButton['value'] = defaultPropsRadioButton.value;
+	export let checked: PropsRadioButton['checked'] = defaultPropsRadioButton.checked;
+	export let group: PropsRadioButton['group'] = defaultPropsRadioButton.group;
+	export let size: PropsRadioButton['size'] = defaultPropsRadioButton.size;
+	export let color: PropsRadioButton['color'] = defaultPropsRadioButton.color;
+	export let disabled: PropsRadioButton['disabled'] = defaultPropsRadioButton.disabled;
+	export let required: PropsRadioButton['required'] = defaultPropsRadioButton.required;
+	export let error: PropsRadioButton['error'] = defaultPropsRadioButton.error;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
@@ -33,16 +32,19 @@
 		checked: checked,
 		disabled: disabled || undefined,
 		required: required || undefined,
-		autocomplete: 'off',
 		...restProps
 	};
 </script>
 
-<label class={cssClass} data-color={color}>
+<label class={cssClass} data-color={color} {...attributes}>
 	<input
 		{...attributes}
 		type="radio"
-		{value}
+		autocomplete="off"
+		{disabled}
+		{required}
+		{checked}
+		bind:value
 		bind:group
 		bind:this={elementRef}
 		on:input

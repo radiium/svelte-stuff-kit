@@ -27,14 +27,13 @@
 	import Button from '../Button/Button.svelte';
 	import { defaultPropsModal, type PropsModal } from './Modal.props';
 
-	type $$Props = PropsModal;
-	export let isOpen: $$Props['isOpen'] = defaultPropsModal.isOpen.default;
-	export let size: $$Props['size'] = defaultPropsModal.size.default;
-	export let closeOnBackdropClick: $$Props['closeOnBackdropClick'] =
-		defaultPropsModal.closeOnBackdropClick.default;
-	export let closeOnEscape: $$Props['closeOnEscape'] = defaultPropsModal.closeOnEscape.default;
-	export let showCloseButton: $$Props['showCloseButton'] = defaultPropsModal.showCloseButton.default;
-	export let blockScroll: $$Props['blockScroll'] = defaultPropsModal.blockScroll.default;
+	export let isOpen: PropsModal['isOpen'] = defaultPropsModal.isOpen;
+	export let size: PropsModal['size'] = defaultPropsModal.size;
+	export let closeOnBackdropClick: PropsModal['closeOnBackdropClick'] =
+		defaultPropsModal.closeOnBackdropClick;
+	export let closeOnEscape: PropsModal['closeOnEscape'] = defaultPropsModal.closeOnEscape;
+	export let showCloseButton: PropsModal['showCloseButton'] = defaultPropsModal.showCloseButton;
+	export let blockScroll: PropsModal['blockScroll'] = defaultPropsModal.blockScroll;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	let modalRef: HTMLDivElement;

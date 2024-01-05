@@ -3,18 +3,16 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsButton, type PropsButton } from './Button.props';
 
-	type $$Props = PropsButton;
-	export let elementRef: $$Props['elementRef'] = undefined;
-	// export let type: $$Props['type'] = defaultPropsButton.type.default;
-	export let size: $$Props['size'] = defaultPropsButton.size;
-	export let variant: $$Props['variant'] = defaultPropsButton.variant;
-	export let color: $$Props['color'] = defaultPropsButton.color;
-	export let align: $$Props['align'] = defaultPropsButton.align;
-	export let active: $$Props['active'] = defaultPropsButton.active;
-	export let disabled: $$Props['disabled'] = defaultPropsButton.disabled;
-	export let iconOnly: $$Props['iconOnly'] = defaultPropsButton.iconOnly;
-	export let circle: $$Props['circle'] = defaultPropsButton.fullWidth;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsButton.fullWidth;
+	export let elementRef: PropsButton['elementRef'] = undefined;
+	export let size: PropsButton['size'] = defaultPropsButton.size;
+	export let variant: PropsButton['variant'] = defaultPropsButton.variant;
+	export let color: PropsButton['color'] = defaultPropsButton.color;
+	export let align: PropsButton['align'] = defaultPropsButton.align;
+	export let active: PropsButton['active'] = defaultPropsButton.active;
+	export let disabled: PropsButton['disabled'] = defaultPropsButton.disabled;
+	export let iconOnly: PropsButton['iconOnly'] = defaultPropsButton.iconOnly;
+	export let circle: PropsButton['circle'] = defaultPropsButton.fullWidth;
+	export let fullWidth: PropsButton['fullWidth'] = defaultPropsButton.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	const isInGroup = getContext('ButtonGroup');

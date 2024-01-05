@@ -2,17 +2,16 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsInput, type PropsInput } from './Input.props';
 
-	type $$Props = PropsInput;
-	export let elementRef: $$Props['elementRef'] = defaultPropsInput.elementRef;
-	export let value: $$Props['value'] = defaultPropsInput.value;
-	export let type: $$Props['type'] = defaultPropsInput.type;
-	export let size: $$Props['size'] = defaultPropsInput.size;
-	export let align: $$Props['align'] = defaultPropsInput.align;
-	export let disabled: $$Props['disabled'] = defaultPropsInput.disabled;
-	export let required: $$Props['required'] = defaultPropsInput.required;
-	export let readonly: $$Props['readonly'] = defaultPropsInput.readonly;
-	export let error: $$Props['error'] = defaultPropsInput.error;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsInput.fullWidth;
+	export let elementRef: PropsInput['elementRef'] = defaultPropsInput.elementRef;
+	export let value: PropsInput['value'] = defaultPropsInput.value;
+	export let type: PropsInput['type'] = defaultPropsInput.type;
+	export let size: PropsInput['size'] = defaultPropsInput.size;
+	export let align: PropsInput['align'] = defaultPropsInput.align;
+	export let disabled: PropsInput['disabled'] = defaultPropsInput.disabled;
+	export let required: PropsInput['required'] = defaultPropsInput.required;
+	export let readonly: PropsInput['readonly'] = defaultPropsInput.readonly;
+	export let error: PropsInput['error'] = defaultPropsInput.error;
+	export let fullWidth: PropsInput['fullWidth'] = defaultPropsInput.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(
@@ -39,172 +38,32 @@
 		autocomplete: 'off',
 		...restProps
 	};
+
+	const setType = (node: HTMLInputElement) => {
+		if (type) {
+			node.type = type;
+		}
+	};
 </script>
 
-<div
-	data-input
-	class={cssClass}
-	role="button"
-	tabindex="-1"
-	on:click={() => {
-		if (elementRef) {
-			elementRef.focus();
-		}
-	}}
-	on:keydown={() => {}}
->
+<div data-input class={cssClass}>
 	{#if $$slots.leading}
 		<div class="input-leading">
 			<slot name="leading" />
 		</div>
 	{/if}
 
-	<!-- Workaround, svelte can't handle two-way binding when the input type is dynamic. -->
-	{#if type === 'text'}
-		<input
-			{...attributes}
-			type="text"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'number'}
-		<input
-			{...attributes}
-			type="number"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'search'}
-		<input
-			{...attributes}
-			type="search"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'password'}
-		<input
-			{...attributes}
-			type="password"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'email'}
-		<input
-			{...attributes}
-			type="email"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'tel'}
-		<input
-			{...attributes}
-			type="tel"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'url'}
-		<input
-			{...attributes}
-			type="url"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'date'}
-		<input
-			{...attributes}
-			type="date"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'datetime-local'}
-		<input
-			{...attributes}
-			type="datetime-local"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'month'}
-		<input
-			{...attributes}
-			type="month"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'time'}
-		<input
-			{...attributes}
-			type="time"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{:else if type === 'week'}
-		<input
-			{...attributes}
-			type="week"
-			bind:value
-			bind:this={elementRef}
-			on:input
-			on:change
-			on:focus
-			on:blur
-			on:keydown
-		/>
-	{/if}
+	<input
+		use:setType
+		bind:value
+		bind:this={elementRef}
+		on:input
+		on:change
+		on:focus
+		on:blur
+		on:keydown
+		{...attributes}
+	/>
 
 	{#if $$slots.trailing}
 		<div class="input-trailing">

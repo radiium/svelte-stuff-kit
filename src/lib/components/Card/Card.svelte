@@ -2,12 +2,11 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsCard, type PropsCard } from './Card.props';
 
-	type $$Props = PropsCard;
-	export let elementRef: $$Props['elementRef'] = defaultPropsCard.elementRef;
-	export let as: $$Props['as'] = defaultPropsCard.as;
-	export let size: $$Props['size'] = defaultPropsCard.size;
-	export let noPadding: $$Props['noPadding'] = defaultPropsCard.noPadding;
-	export let asButton: $$Props['asButton'] = defaultPropsCard.asButton;
+	export let elementRef: PropsCard['elementRef'] = defaultPropsCard.elementRef;
+	export let as: PropsCard['as'] = defaultPropsCard.as;
+	export let size: PropsCard['size'] = defaultPropsCard.size;
+	export let noPadding: PropsCard['noPadding'] = defaultPropsCard.noPadding;
+	export let asButton: PropsCard['asButton'] = defaultPropsCard.asButton;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: isButton = asButton || as === 'button';

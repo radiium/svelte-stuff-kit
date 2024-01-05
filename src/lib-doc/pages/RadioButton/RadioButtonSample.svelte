@@ -35,11 +35,11 @@
 
 	<DocBlocCode title="In card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" role="button">
+			<Card as="label" asButton>
 				<RadioButton value={'1'} bind:group={groupCard}>Radio button in card 1</RadioButton>
 			</Card>
 
-			<Card as="label" role="button">
+			<Card as="label" asButton>
 				<RadioButton value={'2'} bind:group={groupCard}>Radio button in card 2</RadioButton>
 			</Card>
 		</Flexbox>
