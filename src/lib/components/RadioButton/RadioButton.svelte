@@ -44,7 +44,7 @@
 		{disabled}
 		{required}
 		{checked}
-		bind:value
+		{value}
 		bind:group
 		bind:this={elementRef}
 		on:input

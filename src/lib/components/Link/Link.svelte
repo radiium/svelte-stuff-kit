@@ -2,52 +2,48 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsLink, type PropsLink } from './Link.props';
 
-	export let elementRef: PropsLink['elementRef'] = defaultPropsLink.elementRef;
-	export let href: PropsLink['href'] = defaultPropsLink.href;
-	export let target: PropsLink['target'] = defaultPropsLink.target;
-	export let rel: PropsLink['rel'] = defaultPropsLink.rel;
-	export let size: PropsLink['size'] = defaultPropsLink.size;
-	export let variant: PropsLink['variant'] = defaultPropsLink.variant;
-	export let color: PropsLink['color'] = defaultPropsLink.color;
-	export let align: PropsLink['align'] = defaultPropsLink.align;
-	export let active: PropsLink['active'] = defaultPropsLink.active;
-	export let disabled: PropsLink['disabled'] = defaultPropsLink.disabled;
-	export let iconOnly: PropsLink['iconOnly'] = defaultPropsLink.iconOnly;
-	export let circle: PropsLink['circle'] = defaultPropsLink.fullWidth;
-	export let fullWidth: PropsLink['fullWidth'] = defaultPropsLink.fullWidth;
+	type $$Props = PropsLink;
+	export let elementRef: $$Props['elementRef'] = defaultPropsLink.elementRef;
+	export let href: $$Props['href'] = defaultPropsLink.href;
+	export let target: $$Props['target'] = defaultPropsLink.target;
+	export let rel: $$Props['rel'] = defaultPropsLink.rel;
+	export let size: $$Props['size'] = defaultPropsLink.size;
+	export let variant: $$Props['variant'] = defaultPropsLink.variant;
+	export let color: $$Props['color'] = defaultPropsLink.color;
+	export let align: $$Props['align'] = defaultPropsLink.align;
+	export let active: $$Props['active'] = defaultPropsLink.active;
+	export let iconOnly: $$Props['iconOnly'] = defaultPropsLink.iconOnly;
+	export let circle: $$Props['circle'] = defaultPropsLink.fullWidth;
+	export let fullWidth: $$Props['fullWidth'] = defaultPropsLink.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(
-		_class,
-		'link',
-		`link-${variant}`,
-		`link-size-${size}`,
-		`link-${color}`,
-		`link-align-${align}`,
-		{
-			'link-full-width': fullWidth,
-			'link-active': active,
-			'link-icon-only': iconOnly,
-			'link-circle': circle
-		}
-	);
+	$: cssClass = clsx(_class, 'Link', {
+		[`Link-${variant}`]: variant,
+		[`Link-size-${size}`]: size,
+		[`Link-${color}`]: color,
+		[`Link-align-${align}`]: align,
+		'Link-full-width': fullWidth,
+		'Link-active': active,
+		'Link-icon-only': iconOnly,
+		'Link-circle': circle
+	});
 
 	$: attributes = {
-		style,
-		disabled: disabled || undefined,
-		tabindex: 0,
 		'data-color': color,
 		'data-size': size,
+		tabindex: 0,
+		class: cssClass,
+		style,
 		...restProps
 	};
 </script>
 
-<a {...attributes} {href} {target} {rel} class={cssClass} bind:this={elementRef} on:click on:focus on:blur>
+<a bind:this={elementRef} {...attributes} {href} {target} {rel} on:click on:focus on:blur>
 	<slot />
 </a>
 
 <style lang="scss">
-	a.link {
+	a.Link {
 		// CSS Vars
 		--button-min-width: calc(var(--space-5) * 2);
 		--button-width: unset;
@@ -99,7 +95,7 @@
 		}
 
 		// In group
-		&.link-is-in-group {
+		&.Link-is-in-group {
 			border-radius: 0;
 
 			&:first-child {
@@ -113,7 +109,7 @@
 		}
 
 		// Sizes
-		&.link-size-1 {
+		&.Link-size-1 {
 			--button-height: var(--space-5);
 			--button-min-width: calc(var(--space-5) * 2);
 			--button-padding: 0 var(--space-2);
@@ -124,13 +120,13 @@
 			--button-line-height: var(--line-height-1);
 			--button-letter-spacing: var(--letter-spacing-1);
 
-			&.link-icon-only {
+			&.Link-icon-only {
 				--button-min-width: var(--space-5);
 				--button-width: var(--space-5);
 				--button-padding: var(--space-0);
 			}
 		}
-		&.link-size-2 {
+		&.Link-size-2 {
 			--button-height: var(--space-6);
 			--button-min-width: calc(var(--space-6) * 2);
 			--button-padding: 0 var(--space-2);
@@ -141,13 +137,13 @@
 			--button-line-height: var(--line-height-2);
 			--button-letter-spacing: var(--letter-spacing-2);
 
-			&.link-icon-only {
+			&.Link-icon-only {
 				--button-min-width: var(--space-6);
 				--button-width: var(--space-6);
 				--button-padding: var(--space-0);
 			}
 		}
-		&.link-size-3 {
+		&.Link-size-3 {
 			--button-height: var(--space-7);
 			--button-min-width: calc(var(--space-7) * 2);
 			--button-padding: 0 var(--space-3);
@@ -158,13 +154,13 @@
 			--button-line-height: var(--line-height-3);
 			--button-letter-spacing: var(--letter-spacing-3);
 
-			&.link-icon-only {
+			&.Link-icon-only {
 				--button-min-width: var(--space-7);
 				--button-width: var(--space-7);
 				--button-padding: var(--space-1);
 			}
 		}
-		&.link-size-4 {
+		&.Link-size-4 {
 			--button-height: var(--space-8);
 			--button-min-width: calc(var(--space-8) * 2);
 			--button-padding: 0 var(--space-4);
@@ -175,7 +171,7 @@
 			--button-line-height: var(--line-height-4);
 			--button-letter-spacing: var(--letter-spacing-4);
 
-			&.link-icon-only {
+			&.Link-icon-only {
 				--button-min-width: var(--space-8);
 				--button-width: var(--space-8);
 				--button-padding: var(--space-1);
@@ -183,28 +179,28 @@
 		}
 
 		// Variants
-		&.link-clear {
+		&.Link-clear {
 			--button-border: none;
 			--button-color: var(--accent-a12);
 			--button-background: transparent;
 			--button-background-hover: var(--accent-a6);
 			--button-background-active: var(--accent-a7);
 		}
-		&.link-outline {
+		&.Link-outline {
 			--button-border: 1px solid var(--accent-9);
 			--button-color: var(--accent-a12);
 			--button-background: transparent;
 			--button-background-hover: var(--accent-a6);
 			--button-background-active: var(--accent-a7);
 		}
-		&.link-soft {
+		&.Link-soft {
 			--button-border: none;
 			--button-color: var(--accent-a12);
 			--button-background: var(--accent-a6);
 			--button-background-hover: var(--accent-a7);
 			--button-background-active: var(--accent-a8);
 		}
-		&.link-solid {
+		&.Link-solid {
 			--button-border: none;
 			--button-color: var(--contrast);
 			--button-background: var(--accent-9);
@@ -212,8 +208,8 @@
 			--button-background-active: var(--accent-11);
 		}
 
-		&.link-icon-only {
-			&.link-circle {
+		&.Link-icon-only {
+			&.Link-circle {
 				--button-border-radius: var(--radius-full);
 
 				:global(svg) {
@@ -223,19 +219,19 @@
 		}
 
 		// Content
-		&.link-align-start {
+		&.Link-align-start {
 			justify-content: flex-start;
 			text-align: start;
 		}
-		&.link-align-center {
+		&.Link-align-center {
 			justify-content: center;
 			text-align: center;
 		}
-		&.link-align-end {
+		&.Link-align-end {
 			justify-content: flex-end;
 			text-align: end;
 		}
-		&.link-full-width {
+		&.Link-full-width {
 			width: 100%;
 		}
 
@@ -243,12 +239,12 @@
 		&:hover {
 			background: var(--button-background-hover);
 
-			&.link-link {
+			&.Link-link {
 				text-decoration: underline;
 			}
 		}
 		&:active,
-		&.link-active {
+		&.Link-active {
 			background: var(--button-background-active);
 		}
 		&:disabled {

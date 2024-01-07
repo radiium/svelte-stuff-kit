@@ -1,25 +1,30 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { clsx } from '../../utils/clsx';
 	import { setContext } from 'svelte';
+	import { ButtonGroupContextKey } from './Button.props';
+
+	type $$Props = HTMLAttributes<HTMLDivElement>;
 
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(_class, `btn-group`);
-	$: attributes = attributes = {
-		role: 'group',
+	$: cssClass = clsx(_class, `ButtonGroup`);
+	$: attributes = {
+		class: cssClass,
 		style,
+		role: 'group',
 		...restProps
 	};
 
-	setContext('ButtonGroup', true);
+	setContext(ButtonGroupContextKey, true);
 </script>
 
-<div class={cssClass} {...attributes}>
+<div {...attributes}>
 	<slot />
 </div>
 
 <style lang="scss">
-	div.btn-group {
+	div.ButtonGroup {
 		cursor: pointer;
 		position: relative;
 		box-sizing: border-box;

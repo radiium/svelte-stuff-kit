@@ -72,15 +72,6 @@ export const sampleAlign = `<script lang="ts">
 </div>
 `;
 
-export const sampleRequired = `<script lang="ts">
-    import { Text } from '${packageName}';
-</script>
-
-<div>
-    <Text required>Super long text</Text>
-</div>
-`;
-
 export const sampleDisabled = `<script lang="ts">
     import { Text } from '${packageName}';
 </script>

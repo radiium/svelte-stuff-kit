@@ -1,17 +1,19 @@
 import { Sizes1To4, Variants, Colors, Aligns } from '$lib/types';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
-export type PropsButton = {
+export const ButtonGroupContextKey = 'ButtonGroupContextKey';
+
+export interface PropsButton extends Omit<HTMLButtonAttributes, 'size'> {
 	elementRef?: HTMLButtonElement;
 	size?: (typeof Sizes1To4)[number];
 	variant?: (typeof Variants)[number];
 	color?: (typeof Colors)[number];
 	align?: (typeof Aligns)[number];
 	active?: boolean;
-	disabled?: boolean;
 	iconOnly?: boolean;
 	circle?: boolean;
 	fullWidth?: boolean;
-};
+}
 
 export type PropsButtonIcon = Omit<PropsButton, 'iconOnly'>;
 
@@ -21,7 +23,6 @@ export const defaultPropsButton: PropsButton = {
 	color: 'neutral',
 	align: 'center',
 	active: false,
-	disabled: false,
 	iconOnly: false,
 	circle: false,
 	fullWidth: false
@@ -51,10 +52,6 @@ export const docPropsButton = {
 	active: {
 		type: 'boolean',
 		default: defaultPropsButton.active
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultPropsButton.disabled
 	},
 	iconOnly: {
 		type: 'boolean',

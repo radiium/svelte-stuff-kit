@@ -1,7 +1,7 @@
 import { Sizes1To3, Colors } from '$lib/types';
 
-export type PropsCheckbox = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsCheckbox {
+	elementRef?: HTMLInputElement;
 	value?: string;
 	checked?: boolean;
 	indeterminate?: boolean;
@@ -10,7 +10,7 @@ export type PropsCheckbox = {
 	disabled?: boolean;
 	required?: boolean;
 	error?: boolean;
-};
+}
 
 export const defaultPropsCheckbox: PropsCheckbox = {
 	elementRef: undefined,

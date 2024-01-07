@@ -22,7 +22,7 @@ export const Placements = [
 	'left-end'
 ] as const;
 
-export type PropsPopover = {
+export interface PropsPopover {
 	isOpen?: boolean;
 	backdrop?: boolean;
 	arrow?: boolean;
@@ -33,7 +33,7 @@ export type PropsPopover = {
 	transitionOpacity?: number;
 	transitionY?: number;
 	transitionDuration?: number;
-};
+}
 
 export const defaultPropsPopover: PropsPopover = {
 	isOpen: false,

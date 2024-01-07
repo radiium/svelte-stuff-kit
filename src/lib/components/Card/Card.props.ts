@@ -1,13 +1,13 @@
 import { Sizes1To5 } from '$lib/types';
-import type { SvelteHTMLElements } from 'svelte/elements';
+import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
 
-export type PropsCard = {
-	elementRef?: SvelteHTMLElements | undefined | undefined;
+export interface PropsCard extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
+	elementRef?: HTMLElement;
 	as?: keyof SvelteHTMLElements;
 	size?: (typeof Sizes1To5)[number];
 	noPadding?: boolean;
 	asButton?: boolean;
-};
+}
 
 export const defaultPropsCard: PropsCard = {
 	elementRef: undefined,

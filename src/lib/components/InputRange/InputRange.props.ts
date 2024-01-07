@@ -1,7 +1,7 @@
 import { Colors, Sizes1To3 } from '$lib/types';
 
-export type PropsInputRange = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsInputRange {
+	elementRef?: HTMLInputElement;
 	value?: number;
 	size?: (typeof Sizes1To3)[number];
 	color?: (typeof Colors)[number];
@@ -12,7 +12,7 @@ export type PropsInputRange = {
 	required?: boolean;
 	error?: boolean;
 	fullWidth?: boolean;
-};
+}
 
 export const defaultPropsInputRange: PropsInputRange = {
 	elementRef: undefined,

@@ -1,4 +1,5 @@
 import { Sizes1To3 } from '$lib/types';
+import type { HTMLSelectAttributes } from 'svelte/elements';
 
 export type SelectOption = {
 	label: string;
@@ -6,29 +7,27 @@ export type SelectOption = {
 	disabled?: boolean | undefined;
 };
 
-export type PropsSelect = {
-	elementRef?: HTMLSelectElement | undefined;
-	value?: unknown | undefined;
-	multiple?: boolean;
+export interface PropsSelect extends Omit<HTMLSelectAttributes, 'size'> {
+	elementRef?: HTMLSelectElement;
 	options: SelectOption[];
+	value?: unknown | undefined;
 	size?: (typeof Sizes1To3)[number];
-	disabled?: boolean;
-	required?: boolean;
 	fullWidth?: boolean;
-};
+}
 
 export const defaultPropsSelect: PropsSelect = {
 	elementRef: undefined,
-	value: undefined,
-	multiple: false,
 	options: [] as SelectOption[],
+	value: undefined,
 	size: '2',
-	disabled: false,
-	required: false,
 	fullWidth: false
 };
 
 export const docPropsSelect = {
+	options: {
+		type: 'Array',
+		default: defaultPropsSelect.options
+	},
 	value: {
 		type: 'string | number',
 		default: defaultPropsSelect.value
@@ -37,18 +36,6 @@ export const docPropsSelect = {
 		type: 'enum',
 		values: Sizes1To3,
 		default: defaultPropsSelect.size
-	},
-	multiple: {
-		type: 'boolean',
-		default: defaultPropsSelect.multiple
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultPropsSelect.disabled
-	},
-	required: {
-		type: 'boolean',
-		default: defaultPropsSelect.required
 	},
 	fullWidth: {
 		type: 'boolean',

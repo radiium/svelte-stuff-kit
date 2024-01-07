@@ -1,10 +1,10 @@
 <script lang="ts">
 	import UserRectangle from 'phosphor-svelte/lib/UserRectangle';
-	import { Flexbox, Input, Text, type PropSizeInput } from '$lib/index';
+	import { Flexbox, Input, Text, Sizes1To3 } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import { sampleAlign, sampleFullWidth, sampleIcon, sampleSize, sampleState, sampleType } from './index';
+	import { sampleAlign, sampleFullWidth, sampleSize, sampleState, sampleType } from './index';
 
-	const sizes: Array<PropSizeInput> = ['1', '2', '3'];
+	const sizes = Sizes1To3;
 </script>
 
 <Flexbox direction="column" gap="5">
@@ -23,30 +23,6 @@
 			<Flexbox direction="column" gap="2">
 				<Text size="3">Input text size 3</Text>
 				<Input type="text" placeholder="text" size="3" />
-			</Flexbox>
-		</Flexbox>
-	</DocBlocCode>
-
-	<DocBlocCode title="Leading/trailing icons" code={sampleIcon}>
-		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Flexbox direction="column" gap="2">
-				<Text>Input text leading icon</Text>
-				<Input type="text" placeholder="text">
-					<UserRectangle slot="leading" />
-				</Input>
-			</Flexbox>
-			<Flexbox direction="column" gap="2">
-				<Text>Input text trailing icon</Text>
-				<Input type="text" placeholder="text">
-					<UserRectangle slot="trailing" />
-				</Input>
-			</Flexbox>
-			<Flexbox direction="column" gap="2">
-				<Text>Input text both leading trailing icons</Text>
-				<Input type="text" placeholder="text">
-					<UserRectangle slot="leading" />
-					<UserRectangle slot="trailing" />
-				</Input>
 			</Flexbox>
 		</Flexbox>
 	</DocBlocCode>
@@ -79,7 +55,7 @@
 
 			<Flexbox direction="column" gap="2">
 				<Text>Input text readonly</Text>
-				<Input type="text" placeholder="text" readonly value="lalaland" />
+				<Input type="text" placeholder="text" readonly value="I'm readonly" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
@@ -102,62 +78,62 @@
 	<DocBlocCode title="Type" code={sampleType}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
 			<Flexbox direction="column" gap="2">
-				<Text for="text">Input text</Text>
+				<Text as="label" for="text">Input text</Text>
 				<Input id="text" type="text" placeholder="text" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="number">Input number</Text>
+				<Text as="label" for="number">Input number</Text>
 				<Input id="number" type="number" placeholder="number" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="search">Input search</Text>
+				<Text as="label" for="search">Input search</Text>
 				<Input id="search" type="search" placeholder="search" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="password">Input password</Text>
+				<Text as="label" for="password">Input password</Text>
 				<Input id="password" type="password" placeholder="password" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="email">Input email</Text>
+				<Text as="label" for="email">Input email</Text>
 				<Input id="email" type="email" placeholder="email" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="tel">Input tel</Text>
+				<Text as="label" for="tel">Input tel</Text>
 				<Input id="tel" type="tel" placeholder="tel" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="url">Input url</Text>
+				<Text as="label" for="url">Input url</Text>
 				<Input id="url" type="url" placeholder="url" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="date">Input date</Text>
+				<Text as="label" for="date">Input date</Text>
 				<Input id="date" type="date" placeholder="date" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="datetime-local">Input datetime-local</Text>
+				<Text as="label" for="datetime-local">Input datetime-local</Text>
 				<Input id="datetime-local" type="datetime-local" placeholder="datetime-local" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="month">Input month</Text>
+				<Text as="label" for="month">Input month</Text>
 				<Input id="month" type="month" placeholder="month" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="time">Input time</Text>
+				<Text as="label" for="time">Input time</Text>
 				<Input id="time" type="time" placeholder="time" />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2">
-				<Text for="week">Input week</Text>
+				<Text as="label" for="week">Input week</Text>
 				<Input id="week" type="week" placeholder="week" required />
 			</Flexbox>
 		</Flexbox>

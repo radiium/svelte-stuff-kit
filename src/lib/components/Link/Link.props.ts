@@ -1,20 +1,17 @@
 import { Sizes1To4, Colors, Aligns, Variants } from '$lib/types';
+import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-export type PropsLink = {
-	elementRef?: HTMLAnchorElement | undefined;
-	href: HTMLAnchorElement['href'] | null | undefined;
-	target: HTMLAnchorElement['target'] | null | undefined;
-	rel: HTMLAnchorElement['rel'] | null | undefined;
+export interface PropsLink extends HTMLAnchorAttributes {
+	elementRef?: HTMLAnchorElement;
 	size: (typeof Sizes1To4)[number];
 	variant: (typeof Variants)[number];
 	color: (typeof Colors)[number];
 	align: (typeof Aligns)[number];
 	active: boolean;
-	disabled: boolean;
 	iconOnly: boolean;
 	circle: boolean;
 	fullWidth: boolean;
-};
+}
 
 export const defaultPropsLink: PropsLink = {
 	href: '',
@@ -25,7 +22,6 @@ export const defaultPropsLink: PropsLink = {
 	color: 'neutral',
 	align: 'center',
 	active: false,
-	disabled: false,
 	iconOnly: false,
 	circle: false,
 	fullWidth: false
@@ -67,10 +63,6 @@ export const docPropsLink = {
 	active: {
 		type: 'boolean',
 		default: defaultPropsLink.active
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultPropsLink.disabled
 	},
 	iconOnly: {
 		type: 'boolean',

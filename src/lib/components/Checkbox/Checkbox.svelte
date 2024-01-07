@@ -13,21 +13,16 @@
 	export let error: PropsCheckbox['error'] = defaultPropsCheckbox.error;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(
-		_class,
-		'input-wrapper',
-		'input-type-checkbox',
-		`input-size-${size}`,
-		`input-color-${color}`,
-		{
-			'input-checked': checked,
-			'input-indeterminate': indeterminate,
-			'input-disabled': disabled,
-			'input-required': required,
-			'input-error': error,
-			'input-with-label': $$slots.default
-		}
-	);
+	$: cssClass = clsx(_class, 'Checkbox', {
+		[`Checkbox-size-${size}`]: size,
+		[`Checkbox-color-${color}`]: color,
+		'Checkbox-checked': checked,
+		'Checkbox-indeterminate': indeterminate,
+		'Checkbox-disabled': disabled,
+		'Checkbox-required': required,
+		'Checkbox-error': error,
+		'Checkbox-with-label': $$slots.default
+	});
 
 	$: attributes = {
 		style,
@@ -53,17 +48,17 @@
 		on:blur
 	/>
 
-	<span class="input-checkmark" />
+	<span class="Checkbox-checkmark" />
 
 	{#if $$slots.default}
-		<span class="input-label">
+		<span class="Checkbox-label">
 			<slot />
 		</span>
 	{/if}
 </label>
 
 <style lang="scss">
-	.input-wrapper {
+	.Checkbox {
 		position: relative;
 		display: flex;
 		flex-direction: row;
@@ -72,7 +67,7 @@
 		cursor: pointer;
 		height: var(--line-height, var(--checkbox-size));
 
-		&:not(.input-with-label) {
+		&:not(.Checkbox-with-label) {
 			width: var(--checkbox-size);
 		}
 		input {
@@ -82,7 +77,7 @@
 			height: var(--checkbox-size);
 		}
 
-		.input-checkmark {
+		.Checkbox-checkmark {
 			position: absolute;
 			overflow: hidden;
 			top: 50%;
@@ -109,7 +104,7 @@
 				/* transition: background-color ease 0.2s; */
 			}
 		}
-		&.input-indeterminate {
+		&.Checkbox-indeterminate {
 			.input-checkmark {
 				&:after {
 					transform: translate(-50%, -80%) rotate(0);
@@ -119,7 +114,7 @@
 			}
 		}
 
-		.input-label {
+		.Checkbox-label {
 			user-select: none;
 			font-size: var(--font-size);
 			line-height: var(--line-height);
@@ -132,7 +127,7 @@
 		--check-color: var(--contrast);
 
 		// Sizes
-		&.input-size-1 {
+		&.Checkbox-size-1 {
 			--checkbox-size: calc(var(--space-4) * 0.875); // var(--space-4);
 			--check-width: calc(var(--checkbox-size) / 3.5);
 			--check-height: calc(var(--checkbox-size) / 2.5);
@@ -141,7 +136,7 @@
 			--font-size: var(--font-size-1);
 			--line-height: var(--line-height-1);
 		}
-		&.input-size-2 {
+		&.Checkbox-size-2 {
 			--checkbox-size: var(--space-4); // var(--space-5);
 			--check-width: calc(var(--checkbox-size) / 3.5);
 			--check-height: calc(var(--checkbox-size) / 2.5);
@@ -150,7 +145,7 @@
 			--font-size: var(--font-size-2);
 			--line-height: var(--line-height-2);
 		}
-		&.input-size-3 {
+		&.Checkbox-size-3 {
 			--checkbox-size: calc(var(--space-4) * 1.25); // var(--space-6);
 			--check-width: calc(var(--checkbox-size) / 3.5);
 			--check-height: calc(var(--checkbox-size) / 2.5);
@@ -161,31 +156,31 @@
 		}
 
 		// States
-		&.input-disabled {
+		&.Checkbox-disabled {
 			cursor: default !important;
 			opacity: 0.5 !important;
 			outline: none !important;
 			pointer-events: none;
 		}
 
-		&:focus-visible {
+		&:checkbox-visible {
 			outline: none;
 		}
 
 		input {
-			&:focus-visible ~ .input-checkmark {
+			&:focus-visible ~ .Checkbox-checkmark {
 				@include input-box-shadow-focus;
 			}
 		}
 
 		&:focus {
-			.input-checkmark {
+			.Checkbox-checkmark {
 				@include input-box-shadow-focus;
 			}
 		}
 
-		&.input-checked {
-			.input-checkmark {
+		&.Checkbox-checked {
+			.Checkbox-checkmark {
 				background-color: var(--checkbox-background-checked);
 				box-shadow: none;
 

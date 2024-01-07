@@ -1,7 +1,7 @@
 import { Sizes1To3, Colors } from '$lib/types';
 
-export type PropsRadioButton = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsRadioButton {
+	elementRef?: HTMLInputElement;
 	value?: string;
 	checked?: boolean;
 	group?: string;
@@ -10,7 +10,7 @@ export type PropsRadioButton = {
 	disabled?: boolean;
 	required?: boolean;
 	error?: boolean;
-};
+}
 
 export const defaultPropsRadioButton: PropsRadioButton = {
 	elementRef: undefined,

@@ -1,6 +1,6 @@
-export type PropsPortal = {
+export interface PropsPortal {
 	target: HTMLElement | string;
-};
+}
 
 export const defaultPropsPortal: PropsPortal = {
 	target: 'body'

@@ -2,30 +2,39 @@
 	import { clsx } from '../../utils/clsx';
 	import { defaultPropsCard, type PropsCard } from './Card.props';
 
-	export let elementRef: PropsCard['elementRef'] = defaultPropsCard.elementRef;
-	export let as: PropsCard['as'] = defaultPropsCard.as;
-	export let size: PropsCard['size'] = defaultPropsCard.size;
-	export let noPadding: PropsCard['noPadding'] = defaultPropsCard.noPadding;
-	export let asButton: PropsCard['asButton'] = defaultPropsCard.asButton;
+	type $$Props = PropsCard;
+	export let elementRef: $$Props['elementRef'] = defaultPropsCard.elementRef;
+	export let as: $$Props['as'] = defaultPropsCard.as;
+	export let size: $$Props['size'] = defaultPropsCard.size;
+	export let noPadding: $$Props['noPadding'] = defaultPropsCard.noPadding;
+	export let asButton: $$Props['asButton'] = defaultPropsCard.asButton;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	$: isButton = asButton || as === 'button';
-
-	$: cssClass = clsx(_class, 'card-wrapper', `card-size-${size}`, {
-		'card-no-padding': noPadding,
-		'card-as-button': isButton
+	$: cssClass = clsx(_class, 'Card', {
+		[`Card-size-${size}`]: size,
+		'Card-no-padding': noPadding,
+		'Card-as-button': isButton
 	});
+
+	$: isButton = asButton || as === 'button';
+	$: attributesButton = isButton
+		? {
+				role: 'button',
+				tabindex: 0
+			}
+		: {};
+
 	$: attributes = {
+		class: cssClass,
 		style,
-		role: isButton ? 'button' : undefined,
-		tabindex: isButton ? 0 : undefined,
+		...attributesButton,
 		...restProps
 	};
 </script>
 
 <div role="button"></div>
 
-<svelte:element this={as} {...attributes} class={cssClass} bind:this={elementRef} data-card>
+<svelte:element this={as} bind:this={elementRef} {...attributes}>
 	{#if $$slots.header}
 		<header>
 			<slot name="header" />
@@ -43,11 +52,11 @@
 			<slot name="footer" />
 		</footer>
 	{/if}
-	<div class="card-highlight" />
+	<div class="Card-highlight" />
 </svelte:element>
 
 <style lang="scss">
-	.card-wrapper {
+	.Card {
 		padding: var(--card-padding);
 		border-radius: var(--card-border-radius);
 		background-color: var(--background-level-1);
@@ -73,7 +82,7 @@
 			gap: var(--space-3);
 		}
 
-		.card-highlight {
+		.Card-highlight {
 			z-index: 0;
 			position: absolute;
 			inset: 0 0 0 0;
@@ -86,42 +95,42 @@
 		}
 
 		// Sizes
-		&.card-size-1 {
+		&.Card-size-1 {
 			--card-padding: var(--space-3);
 			--card-border-radius: var(--radius-4);
 		}
-		&.card-size-2 {
+		&.Card-size-2 {
 			--card-padding: var(--space-4);
 			--card-border-radius: var(--radius-4);
 		}
-		&.card-size-3 {
+		&.Card-size-3 {
 			--card-padding: var(--space-5);
 			--card-border-radius: var(--radius-5);
 		}
-		&.card-size-4 {
+		&.Card-size-4 {
 			--card-padding: var(--space-6);
 			--card-border-radius: var(--radius-5);
 		}
-		&.card-size-5 {
+		&.Card-size-5 {
 			--card-padding: var(--space-8);
 			--card-border-radius: var(--radius-6);
 		}
 
-		&.card-no-padding {
+		&.Card-no-padding {
 			--card-padding: 0;
 		}
 
-		&.card-as-button {
+		&.Card-as-button {
 			cursor: pointer;
 
 			&:focus-within {
-				.card-highlight {
+				.Card-highlight {
 					@include input-box-shadow-focus;
 				}
 			}
 
 			&:active {
-				.card-highlight {
+				.Card-highlight {
 					@include input-box-shadow-focus;
 				}
 			}

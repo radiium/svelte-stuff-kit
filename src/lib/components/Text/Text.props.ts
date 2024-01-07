@@ -1,15 +1,19 @@
-import type { SvelteHTMLElements } from 'svelte/elements';
-import { Sizes1To9, Colors, Weights, Aligns } from '$lib/types';
+import type { HTMLAttributes, HTMLLabelAttributes } from 'svelte/elements';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '$lib/types';
 
-export type PropsText = {
-	elementRef?: SvelteHTMLElements | undefined;
-	as?: keyof SvelteHTMLElements;
+export type PropsText = (
+	| HTMLAttributes<HTMLSpanElement>
+	| HTMLAttributes<HTMLDivElement>
+	| HTMLAttributes<HTMLParagraphElement>
+	| HTMLLabelAttributes
+) & {
+	elementRef?: HTMLSpanElement | HTMLDivElement | HTMLParagraphElement | HTMLLabelElement;
+	as?: (typeof TextTags)[number];
 	color?: (typeof Colors)[number];
 	size?: (typeof Sizes1To9)[number];
 	weight?: (typeof Weights)[number];
 	align?: (typeof Aligns)[number];
 	disabled?: boolean;
-	required?: boolean;
 };
 
 export const defaultPropsText: PropsText = {
@@ -19,8 +23,7 @@ export const defaultPropsText: PropsText = {
 	size: '3',
 	weight: 'regular',
 	align: 'start',
-	disabled: false,
-	required: false
+	disabled: false
 };
 
 export const docPropsText = {
@@ -47,13 +50,5 @@ export const docPropsText = {
 		type: 'enum',
 		values: Aligns,
 		default: defaultPropsText.align
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultPropsText.disabled
-	},
-	required: {
-		type: 'boolean',
-		default: defaultPropsText.required
 	}
 };

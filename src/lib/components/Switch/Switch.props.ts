@@ -1,7 +1,7 @@
 import { Sizes1To3, Colors } from '$lib/types';
 
-export type PropsSwitch = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsSwitch {
+	elementRef?: HTMLInputElement;
 	value?: string;
 	checked?: boolean;
 	size?: (typeof Sizes1To3)[number];
@@ -9,7 +9,7 @@ export type PropsSwitch = {
 	disabled?: boolean;
 	required?: boolean;
 	error?: boolean;
-};
+}
 
 export const defaultPropsSwitch: PropsSwitch = {
 	elementRef: undefined,

@@ -1,13 +1,13 @@
 import { Sizes1To4 } from '$lib/types';
 
-export type PropsModal = {
+export interface PropsModal {
 	isOpen?: boolean;
 	size?: (typeof Sizes1To4)[number];
 	closeOnBackdropClick?: boolean;
 	closeOnEscape?: boolean;
 	showCloseButton?: boolean;
 	blockScroll?: boolean;
-};
+}
 
 export const defaultPropsModal: PropsModal = {
 	isOpen: false,

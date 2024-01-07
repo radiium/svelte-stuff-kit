@@ -1,8 +1,8 @@
-import type { SvelteHTMLElements } from 'svelte/elements';
+import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
 import { Displays, Justifys, Directions, AlignItems, Wraps, Gaps, Grows, Shrinks } from '$lib/types';
 
-export type PropsFlexbox = {
-	elementRef?: SvelteHTMLElements | undefined;
+export interface PropsFlexbox extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
+	elementRef?: HTMLElement;
 	as?: keyof SvelteHTMLElements;
 	display?: (typeof Displays)[number];
 	justify?: (typeof Justifys)[number];
@@ -12,7 +12,7 @@ export type PropsFlexbox = {
 	gap?: (typeof Gaps)[number];
 	grow?: (typeof Grows)[number];
 	shrink?: (typeof Shrinks)[number];
-};
+}
 
 export const defaultPropsFlexbox: PropsFlexbox = {
 	elementRef: undefined,

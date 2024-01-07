@@ -1,5 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
-
 export const contextKeyAccordionGroup = 'AccordionGroup';
 
 export type AccordionStore = {
@@ -14,9 +12,12 @@ export type AccordionGroupContext = {
 	setCurrent: (value: AccordionStore) => void;
 };
 
-export type PropsAccordionGroup = {
-	multi?: boolean | undefined;
-} & HTMLAttributes<any>;
+/**
+ * AccordionGroup
+ */
+export interface PropsAccordionGroup {
+	multi?: boolean;
+}
 export const defaultPropsAccordionGroup: PropsAccordionGroup = {
 	multi: false
 };
@@ -27,13 +28,15 @@ export const docPropsAccordionGroup = {
 	}
 };
 
-export type PropsAccordionItem = {
-	isOpen?: boolean | undefined;
-};
+/**
+ * PropsAccordionItem
+ */
+export interface PropsAccordionItem {
+	isOpen?: boolean;
+}
 export const defaultPropsAccordionItem: PropsAccordionItem = {
 	isOpen: false
 };
-
 export const docPropsAccordionItem = {
 	isOpen: {
 		type: 'boolean',

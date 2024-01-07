@@ -3,6 +3,7 @@
 	import { Checkbox, Flexbox, Input, Text, Switch, RadioButton, Card } from '$lib/index';
 	import Button from '$lib/components/Button/Button.svelte';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
+	import Textarea from '$lib/components/Textarea/Textarea.svelte';
 
 	let radioOptions = ['opt1', 'opt2', 'opt3'];
 	let radioSelection;
@@ -13,9 +14,10 @@
 		address: '',
 		zipcode: '',
 		city: '',
+		coment: '',
 		count: '0',
 		date: undefined,
-		option: undefined,
+		option: radioOptions[0],
 		newsletter: true,
 		cgu: false
 	};
@@ -33,14 +35,14 @@
 		<Flexbox direction="column" gap="4">
 			<div class="row">
 				<Flexbox direction="column" gap="2" grow="1">
-					<Text required>Firstname</Text>
+					<Text>Firstname*</Text>
 					<Input type="text" placeholder="Firstname" fullWidth required bind:value={formData.firstname}>
 						<IdentificationCard slot="leading" />
 					</Input>
 				</Flexbox>
 
 				<Flexbox direction="column" gap="2" grow="1">
-					<Text required>Firstname</Text>
+					<Text>Firstname*</Text>
 					<Input type="text" placeholder="Lastname" fullWidth required bind:value={formData.lastname}>
 						<IdentificationCard slot="trailing" />
 					</Input>
@@ -81,6 +83,11 @@
 					<Input type="date" placeholder="date" fullWidth bind:value={formData.date} />
 				</Flexbox>
 			</div>
+
+			<Flexbox direction="column" gap="2">
+				<Text>Comment</Text>
+				<Textarea type="text" placeholder="Comment" rows="8" fullWidth bind:value={formData.coment} />
+			</Flexbox>
 
 			<div class="row">
 				<Flexbox direction="column" gap="2" grow="1">

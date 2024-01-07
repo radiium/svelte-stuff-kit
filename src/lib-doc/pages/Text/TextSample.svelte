@@ -1,14 +1,7 @@
 <script lang="ts">
 	import { Flexbox, Text } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import {
-		sampleAlign,
-		sampleColor,
-		sampleDisabled,
-		sampleRequired,
-		sampleSize,
-		sampleWeight
-	} from './index';
+	import { sampleAlign, sampleColor, sampleDisabled, sampleSize, sampleWeight } from './index';
 </script>
 
 <DocBlocCode title="Size" code={sampleSize}>
@@ -54,14 +47,8 @@
 	</Flexbox>
 </DocBlocCode>
 
-<DocBlocCode title="Required" code={sampleRequired}>
-	<Flexbox slot="demo" direction="column" gap="3">
-		<Text required>Label required</Text>
-	</Flexbox>
-</DocBlocCode>
-
 <DocBlocCode title="Disabled" code={sampleDisabled}>
 	<Flexbox slot="demo" direction="column" gap="3">
-		<Text disabled>Label disabled</Text>
+		<Text as="label" disabled>Label disabled</Text>
 	</Flexbox>
 </DocBlocCode>

@@ -11,7 +11,8 @@
 		contextKeyAccordionGroup
 	} from './Accordion.props';
 
-	export let isOpen: PropsAccordionItem['isOpen'] = defaultPropsAccordionItem.isOpen;
+	type $$Props = PropsAccordionItem;
+	export let isOpen: $$Props['isOpen'] = defaultPropsAccordionItem.isOpen;
 
 	const accordionStore = {
 		key: Symbol('accordion-' + id++),

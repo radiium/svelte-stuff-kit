@@ -1,55 +1,51 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsButton, type PropsButton } from './Button.props';
+	import { ButtonGroupContextKey, defaultPropsButton, type PropsButton } from './Button.props';
 
-	export let elementRef: PropsButton['elementRef'] = undefined;
-	export let size: PropsButton['size'] = defaultPropsButton.size;
-	export let variant: PropsButton['variant'] = defaultPropsButton.variant;
-	export let color: PropsButton['color'] = defaultPropsButton.color;
-	export let align: PropsButton['align'] = defaultPropsButton.align;
-	export let active: PropsButton['active'] = defaultPropsButton.active;
-	export let disabled: PropsButton['disabled'] = defaultPropsButton.disabled;
-	export let iconOnly: PropsButton['iconOnly'] = defaultPropsButton.iconOnly;
-	export let circle: PropsButton['circle'] = defaultPropsButton.fullWidth;
-	export let fullWidth: PropsButton['fullWidth'] = defaultPropsButton.fullWidth;
+	type $$Props = PropsButton;
+	export let elementRef: $$Props['elementRef'] = undefined;
+	export let size: $$Props['size'] = defaultPropsButton.size;
+	export let variant: $$Props['variant'] = defaultPropsButton.variant;
+	export let color: $$Props['color'] = defaultPropsButton.color;
+	export let align: $$Props['align'] = defaultPropsButton.align;
+	export let active: $$Props['active'] = defaultPropsButton.active;
+	export let iconOnly: $$Props['iconOnly'] = defaultPropsButton.iconOnly;
+	export let circle: $$Props['circle'] = defaultPropsButton.fullWidth;
+	export let fullWidth: $$Props['fullWidth'] = defaultPropsButton.fullWidth;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	const isInGroup = getContext('ButtonGroup');
+	const isInGroup = getContext<boolean | undefined>(ButtonGroupContextKey);
 
 	elementRef;
-	$: cssClass = clsx(
-		_class,
-		'btn',
-		`btn-${variant}`,
-		`btn-size-${size}`,
-		`btn-${color}`,
-		`btn-align-${align}`,
-		{
-			'btn-is-in-group': isInGroup,
-			'btn-full-width': fullWidth,
-			'btn-active': active,
-			'btn-icon-only': iconOnly,
-			'btn-circle': circle
-		}
-	);
+	$: cssClass = clsx(_class, 'Button', {
+		[`Button-${variant}`]: variant,
+		[`Button-size-${size}`]: size,
+		[`Button-${color}`]: color,
+		[`Button-align-${align}`]: align,
+		'Button-is-in-group': isInGroup,
+		'Button-full-width': fullWidth,
+		'Button-active': active,
+		'Button-icon-only': iconOnly,
+		'Button-circle': circle
+	});
 
 	$: attributes = {
-		style,
-		disabled: disabled || undefined,
-		tabindex: 0,
 		'data-color': color,
 		'data-size': size,
+		tabindex: 0,
+		class: cssClass,
+		style,
 		...restProps
 	};
 </script>
 
-<button {...attributes} class={cssClass} bind:this={elementRef} on:click on:submit on:focus on:blur>
+<button bind:this={elementRef} {...attributes} on:click on:submit on:focus on:blur>
 	<slot />
 </button>
 
 <style lang="scss">
-	button.btn {
+	button.Button {
 		// CSS Vars
 		--button-min-width: calc(var(--space-5) * 2);
 		--button-width: unset;
@@ -102,7 +98,7 @@
 		}
 
 		// In group
-		&.btn-is-in-group {
+		&.Button-is-in-group {
 			border-radius: 0;
 
 			&:first-child {
@@ -116,7 +112,7 @@
 		}
 
 		// Sizes
-		&.btn-size-1 {
+		&.Button-size-1 {
 			--button-height: var(--space-5);
 			--button-min-width: calc(var(--space-5) * 2);
 			--button-padding: 0 var(--space-2);
@@ -127,14 +123,14 @@
 			--button-line-height: var(--line-height-1);
 			--button-letter-spacing: var(--letter-spacing-1);
 
-			&.btn-icon-only {
+			&.Button-icon-only {
 				--button-min-width: var(--space-5);
 				--button-width: var(--space-5);
 				--button-padding: var(--space-0);
 				--button-icon-height: 80%;
 			}
 		}
-		&.btn-size-2 {
+		&.Button-size-2 {
 			--button-height: var(--space-6);
 			--button-min-width: calc(var(--space-6) * 2);
 			--button-padding: 0 var(--space-2);
@@ -145,13 +141,13 @@
 			--button-line-height: var(--line-height-2);
 			--button-letter-spacing: var(--letter-spacing-2);
 
-			&.btn-icon-only {
+			&.Button-icon-only {
 				--button-min-width: var(--space-6);
 				--button-width: var(--space-6);
 				--button-padding: var(--space-0);
 			}
 		}
-		&.btn-size-3 {
+		&.Button-size-3 {
 			--button-height: var(--space-7);
 			--button-min-width: calc(var(--space-7) * 2);
 			--button-padding: 0 var(--space-3);
@@ -162,13 +158,13 @@
 			--button-line-height: var(--line-height-3);
 			--button-letter-spacing: var(--letter-spacing-3);
 
-			&.btn-icon-only {
+			&.Button-icon-only {
 				--button-min-width: var(--space-7);
 				--button-width: var(--space-7);
 				--button-padding: var(--space-1);
 			}
 		}
-		&.btn-size-4 {
+		&.Button-size-4 {
 			--button-height: var(--space-8);
 			--button-min-width: calc(var(--space-8) * 2);
 			--button-padding: 0 var(--space-4);
@@ -179,7 +175,7 @@
 			--button-line-height: var(--line-height-4);
 			--button-letter-spacing: var(--letter-spacing-4);
 
-			&.btn-icon-only {
+			&.Button-icon-only {
 				--button-min-width: var(--space-8);
 				--button-width: var(--space-8);
 				--button-padding: var(--space-1);
@@ -187,28 +183,28 @@
 		}
 
 		// Variants
-		&.btn-clear {
+		&.Button-clear {
 			--button-border: none;
 			--button-color: var(--accent-a12);
 			--button-background: transparent;
 			--button-background-hover: var(--accent-a6);
 			--button-background-active: var(--accent-a7);
 		}
-		&.btn-outline {
+		&.Button-outline {
 			--button-border: 1px solid var(--accent-9);
 			--button-color: var(--accent-a12);
 			--button-background: transparent;
 			--button-background-hover: var(--accent-a6);
 			--button-background-active: var(--accent-a7);
 		}
-		&.btn-soft {
+		&.Button-soft {
 			--button-border: none;
 			--button-color: var(--accent-a12);
 			--button-background: var(--accent-a6);
 			--button-background-hover: var(--accent-a7);
 			--button-background-active: var(--accent-a8);
 		}
-		&.btn-solid {
+		&.Button-solid {
 			--button-border: none;
 			--button-color: var(--contrast);
 			--button-background: var(--accent-9);
@@ -216,30 +212,26 @@
 			--button-background-active: var(--accent-11);
 		}
 
-		&.btn-icon-only {
-			&.btn-circle {
+		&.Button-icon-only {
+			&.Button-circle {
 				--button-border-radius: var(--radius-full);
-
-				:global(svg) {
-					height: 65%;
-				}
 			}
 		}
 
 		// Content
-		&.btn-align-start {
+		&.Button-align-start {
 			justify-content: flex-start;
 			text-align: start;
 		}
-		&.btn-align-center {
+		&.Button-align-center {
 			justify-content: center;
 			text-align: center;
 		}
-		&.btn-align-end {
+		&.Button-align-end {
 			justify-content: flex-end;
 			text-align: end;
 		}
-		&.btn-full-width {
+		&.Button-full-width {
 			width: 100%;
 		}
 
@@ -248,14 +240,14 @@
 			background: var(--button-background-hover);
 		}
 		&:active,
-		&.btn-active {
+		&.Button-active {
 			background: var(--button-background-active);
-		}
-		&:disabled {
-			@include disabled;
 		}
 		&:focus-visible {
 			@include input-box-shadow-focus;
+		}
+		&:disabled {
+			@include disabled;
 		}
 	}
 </style>

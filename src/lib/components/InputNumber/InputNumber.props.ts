@@ -1,7 +1,7 @@
 import { Sizes1To3, Colors } from '$lib/types';
 
-export type PropsInputNumber = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsInputNumber {
+	elementRef?: HTMLInputElement;
 	value?: number;
 	step?: number;
 	min?: number;
@@ -11,7 +11,7 @@ export type PropsInputNumber = {
 	disabled?: boolean;
 	required?: boolean;
 	readonly?: boolean;
-};
+}
 
 export const defaultPropsInputNumber: PropsInputNumber = {
 	elementRef: undefined,

@@ -9,10 +9,10 @@
 		type AccordionGroupContext
 	} from './Accordion.props';
 
-	export let multi: PropsAccordionGroup['multi'] = defaultPropsAccordionGroup.multi;
+	type $$Props = PropsAccordionGroup;
+	export let multi: $$Props['multi'] = defaultPropsAccordionGroup.multi;
 
 	const current = writable<AccordionStore | undefined>();
-
 	setContext<AccordionGroupContext>(contextKeyAccordionGroup, {
 		setCurrent: (value: AccordionStore) => {
 			if (!!$current && $current?.key !== value.key && !multi) {
