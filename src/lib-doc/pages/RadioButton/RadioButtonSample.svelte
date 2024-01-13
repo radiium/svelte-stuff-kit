@@ -1,54 +1,72 @@
 <script lang="ts">
 	import { Flexbox, RadioButton, Card } from '$lib/index';
-	import { sampleInCard, sampleColor, sampleDisabled, sampleSize, sampleWithoutLabel } from './index';
+	import { sampleInCard, sampleColor, sampleDisabled, sampleSize, sampleWithLabel } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
+	import Text from '$lib/components/Text/Text.svelte';
 
 	let groupSize;
 	let groupCard;
+	let groupDisabled = '2';
 </script>
 
 <Flexbox direction="column" alignItems="start" gap="5">
 	<DocBlocCode title="Size" code={sampleSize}>
-		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<RadioButton bind:group={groupSize} value="1" size="1">Size 1</RadioButton>
-			<RadioButton bind:group={groupSize} value="2" size="2">Size 2</RadioButton>
-			<RadioButton bind:group={groupSize} value="3" size="3">Size 3</RadioButton>
+		<Flexbox slot="demo" gap="3" alignItems="center">
+			<RadioButton bind:group={groupSize} value="1" size="1" />
+			<RadioButton bind:group={groupSize} value="2" size="2" />
+			<RadioButton bind:group={groupSize} value="3" size="3" />
 		</Flexbox>
 	</DocBlocCode>
 
 	<DocBlocCode title="Color" code={sampleColor}>
-		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<RadioButton color="neutral">Color neutral</RadioButton>
-			<RadioButton color="primary">Color primary</RadioButton>
-			<RadioButton color="info">Color info</RadioButton>
-			<RadioButton color="success">Color success</RadioButton>
-			<RadioButton color="warning">Color warning</RadioButton>
-			<RadioButton color="danger">Color danger</RadioButton>
+		<Flexbox slot="demo" gap="3" alignItems="center">
+			<RadioButton color="neutral" />
+			<RadioButton color="primary" />
+			<RadioButton color="info" />
+			<RadioButton color="success" />
+			<RadioButton color="warning" />
+			<RadioButton color="danger" />
 		</Flexbox>
 	</DocBlocCode>
 
-	<DocBlocCode title="Without label" code={sampleWithoutLabel}>
+	<DocBlocCode title="With label" code={sampleWithLabel}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<RadioButton />
+			<Flexbox as="label" gap="2" alignItems="center">
+				<RadioButton size="2" />
+				<Text size="2">label</Text>
+			</Flexbox>
 		</Flexbox>
 	</DocBlocCode>
 
 	<DocBlocCode title="In card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" asButton>
-				<RadioButton value={'1'} bind:group={groupCard}>Radio button in card 1</RadioButton>
+			<Card as="label" size="1">
+				<Flexbox gap="2" alignItems="center">
+					<RadioButton size="1" value={'2'} bind:group={groupCard} />
+					<Text size="1">Radio button in card 1</Text>
+				</Flexbox>
 			</Card>
 
-			<Card as="label" asButton>
-				<RadioButton value={'2'} bind:group={groupCard}>Radio button in card 2</RadioButton>
+			<Card as="label" size="3">
+				<Flexbox gap="2" alignItems="center">
+					<RadioButton size="3" value={'2'} bind:group={groupCard} />
+					<Text size="3">Radio button in card 2</Text>
+				</Flexbox>
 			</Card>
 		</Flexbox>
 	</DocBlocCode>
 
 	<DocBlocCode title="Disabled" code={sampleDisabled}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<RadioButton checked={false} disabled>Disabled</RadioButton>
-			<RadioButton checked disabled>Disabled checked</RadioButton>
+			<Flexbox as="label" gap="2" alignItems="center">
+				<RadioButton size="2" disabled bind:group={groupDisabled} value="1" />
+				<Text size="2" disabled>Disabled</Text>
+			</Flexbox>
+
+			<Flexbox as="label" gap="2" alignItems="center">
+				<RadioButton size="2" disabled bind:group={groupDisabled} value="2" />
+				<Text size="2" disabled>Disabled checked</Text>
+			</Flexbox>
 		</Flexbox>
 	</DocBlocCode>
 </Flexbox>

@@ -20,51 +20,70 @@ export const sampleSize = `<script lang="ts">
     import { Flexbox, RadioButton } from '${packageName}';
 </script>
 
-<Flexbox direction="column" gap="3" alignItems="start">
-    <RadioButton size="1">Size 1</RadioButton>
-    <RadioButton size="2">Size 2</RadioButton>
-    <RadioButton size="3">Size 3</RadioButton>
+<Flexbox gap="3" alignItems="center">
+    <RadioButton bind:group={groupSize} value="1" size="1" />
+    <RadioButton bind:group={groupSize} value="2" size="2" />
+    <RadioButton bind:group={groupSize} value="3" size="3" />
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
     import { Flexbox, RadioButton } from '${packageName}';
 </script>
 
-<Flexbox direction="column" gap="3" alignItems="start">
-    <RadioButton color="neutral">Color neutral</RadioButton>
-    <RadioButton color="primary">Color primary</RadioButton>
-    <RadioButton color="info">Color info</RadioButton>
-    <RadioButton color="success">Color success</RadioButton>
-    <RadioButton color="warning">Color warning</RadioButton>
-    <RadioButton color="danger">Color danger</RadioButton>
+<Flexbox gap="3" alignItems="center">
+    <RadioButton color="neutral" />
+    <RadioButton color="primary" />
+    <RadioButton color="info" />
+    <RadioButton color="success" />
+    <RadioButton color="warning" />
+    <RadioButton color="danger" />
 </Flexbox>`;
 
-export const sampleWithoutLabel = `<script lang="ts">
-    import { RadioButton } from '${packageName}';
-</script>
-
-<RadioButton/>
-`;
-
-export const sampleInCard = `<script lang="ts">
-    import { Flexbox, Card, RadioButton } from '${packageName}';
+export const sampleWithLabel = `<script lang="ts">
+    import { Flexbox, RadioButton, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
-    <Card as="label" role="button">
-        <RadioButton value={'1'} bind:group={group1}>Radio button in card 1</RadioButton>
+    <Flexbox as="label" gap="2" alignItems="center">
+        <RadioButton size="2" />
+        <Text size="2">label</Text>
+    </Flexbox>
+</Flexbox>`;
+
+export const sampleInCard = `<script lang="ts">
+    import { Flexbox, Card, RadioButton, Text } from '${packageName}';
+</script>
+
+<Flexbox direction="column" gap="3" alignItems="start">
+    <Card as="label" size="1">
+        <Flexbox gap="2" alignItems="center">
+            <RadioButton size="1" value={'2'} bind:group={groupCard} />
+            <Text size="1">Radio button in card 1</Text>
+        </Flexbox>
     </Card>
 
-    <Card as="label" role="button">
-        <RadioButton value={'2'} bind:group={group1}>Radio button in card 2</RadioButton>
+    <Card as="label" size="3">
+        <Flexbox gap="2" alignItems="center">
+            <RadioButton size="3" value={'2'} bind:group={groupCard} />
+            <Text size="3">Radio button in card 2</Text>
+        </Flexbox>
     </Card>
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, RadioButton } from '${packageName}';
+    import { Flexbox, RadioButton, Text } from '${packageName}';
+    
+    let groupDisabled = '2';
 </script>
 
-<Flexbox  direction="column"  gap="3"alignItems="start">
-    <RadioButton disabled />
-    <RadioButton checked disabled />
+<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
+    <Flexbox as="label" gap="2" alignItems="center">
+        <RadioButton size="2" disabled bind:group={groupDisabled} value="1" />
+        <Text size="2" disabled>Disabled</Text>
+    </Flexbox>
+
+    <Flexbox as="label" gap="2" alignItems="center">
+        <RadioButton size="2" disabled bind:group={groupDisabled} value="2" />
+        <Text size="2" disabled>Disabled checked</Text>
+    </Flexbox>
 </Flexbox>`;

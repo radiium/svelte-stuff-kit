@@ -20,51 +20,68 @@ export const sampleSize = `<script lang="ts">
     import { Flexbox, Switch } from '${packageName}';
 </script>
 
-<Flexbox direction="column" gap="3" alignItems="start">
-    <Switch size="1">Size 1</Switch>
-    <Switch size="2">Size 2</Switch>
-    <Switch size="3">Size 3</Switch>
+<Flexbox gap="3" alignItems="center">
+    <Switch size="1" />
+    <Switch size="2" />
+    <Switch size="3" />
 </Flexbox>`;
 
 export const sampleColor = `<script lang="ts">
     import { Flexbox, Switch } from '${packageName}';
 </script>
 
-<Flexbox direction="column" gap="3" alignItems="start">
-    <Switch checked color="neutral">Color neutral</Switch>
-    <Switch checked color="primary">Color primary</Switch>
-    <Switch checked color="info">Color info</Switch>
-    <Switch checked color="success">Color success</Switch>
-    <Switch checked color="warning">Color warning</Switch>
-    <Switch checked color="danger">Color danger</Switch>
+<Flexbox gap="3" alignItems="center">
+    <Switch checked color="neutral" />
+    <Switch checked color="primary" />
+    <Switch checked color="info" />
+    <Switch checked color="success" />
+    <Switch checked color="warning" />
+    <Switch checked color="danger" />
 </Flexbox>`;
 
-export const sampleWithoutLabel = `<script lang="ts">
-    import { Switch } from '${packageName}';
-</script>
-
-<Switch/>
-`;
-
-export const sampleInCard = `<script lang="ts">
-    import { Flexbox, Card, Switch } from '${packageName}';
+export const sampleWithLabel = `<script lang="ts">
+    import { Switch, Text } from '${packageName}';
 </script>
 
 <Flexbox direction="column" gap="3" alignItems="start">
-    <Card as="label" role="button">
-        <Switch value={'1'} bind:group={group1}>Radio button in card 1</Switch>
+    <Flexbox as="label" gap="2" alignItems="center">
+        <Switch />
+        <Text size="2">label</Text>
+    </Flexbox>
+</Flexbox>`;
+
+export const sampleInCard = `<script lang="ts">
+    import { Flexbox, Card, Switch, Text } from '${packageName}';
+</script>
+
+<Flexbox direction="column" gap="3" alignItems="start">
+    <Card as="label" size="1">
+        <Flexbox gap="2" alignItems="center">
+            <Switch size="1" />
+            <Text size="1">Switch in card 1</Text>
+        </Flexbox>
     </Card>
 
-    <Card as="label" role="button">
-        <Switch value={'2'} bind:group={group1}>Radio button in card 2</Switch>
+    <Card as="label" size="3">
+        <Flexbox gap="2" alignItems="center">
+            <Switch size="3" />
+            <Text size="3">Switch in card 2</Text>
+        </Flexbox>
     </Card>
 </Flexbox>`;
 
 export const sampleDisabled = `<script lang="ts">
-    import { Flexbox, Switch } from '${packageName}';
+    import { Flexbox, Switch, Text } from '${packageName}';
 </script>
 
-<Flexbox  direction="column"  gap="3"alignItems="start">
-    <Switch disabled />
-    <Switch checked disabled />
+<Flexbox direction="column" gap="3" alignItems="start">
+    <Flexbox as="label" gap="2" alignItems="center">
+        <Switch size="1" disabled />
+        <Text size="2" disabled>Disabled</Text>
+    </Flexbox>
+
+    <Flexbox as="label" gap="2" alignItems="center">
+        <Switch size="1" disabled checked />
+        <Text size="2" disabled>Disabled checked</Text>
+    </Flexbox>
 </Flexbox>`;

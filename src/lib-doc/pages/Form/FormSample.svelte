@@ -1,13 +1,8 @@
 <script lang="ts">
-	import IdentificationCard from 'phosphor-svelte/lib/IdentificationCard';
-	import { Checkbox, Flexbox, Input, Text, Switch, RadioButton, Card } from '$lib/index';
-	import Button from '$lib/components/Button/Button.svelte';
+	import { Checkbox, Flexbox, Input, Text, Switch, RadioButton, Card, Button, Textarea } from '$lib';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import Textarea from '$lib/components/Textarea/Textarea.svelte';
 
 	let radioOptions = ['opt1', 'opt2', 'opt3'];
-	let radioSelection;
-
 	let formData = {
 		firstname: '',
 		lastname: '',
@@ -24,9 +19,8 @@
 
 	$: data = JSON.stringify(formData, null, 2);
 
-	function formSubmit(event): void {
-		const formData = new FormData(event.target);
-		console.log('form submit', [...formData]);
+	function formSubmit(): void {
+		console.log('form submit', formData);
 	}
 </script>
 
@@ -36,16 +30,12 @@
 			<div class="row">
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>Firstname*</Text>
-					<Input type="text" placeholder="Firstname" fullWidth required bind:value={formData.firstname}>
-						<IdentificationCard slot="leading" />
-					</Input>
+					<Input type="text" placeholder="Firstname" fullWidth required bind:value={formData.firstname} />
 				</Flexbox>
 
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>Firstname*</Text>
-					<Input type="text" placeholder="Lastname" fullWidth required bind:value={formData.lastname}>
-						<IdentificationCard slot="trailing" />
-					</Input>
+					<Input type="text" placeholder="Lastname" fullWidth required bind:value={formData.lastname} />
 				</Flexbox>
 			</div>
 
@@ -94,7 +84,10 @@
 					<Text>Options 1</Text>
 					<Flexbox direction="column" gap="2">
 						{#each radioOptions as option}
-							<RadioButton value={option} bind:group={formData.option} color="primary">{option}</RadioButton>
+							<Flexbox as="label" gap="2" alignItems="center">
+								<RadioButton value={option} bind:group={formData.option} color="primary" />
+								<Text size="2">{option}</Text>
+							</Flexbox>
 						{/each}
 					</Flexbox>
 				</Flexbox>
@@ -102,8 +95,14 @@
 				<Flexbox direction="column" gap="2" grow="1">
 					<Text>Options 2</Text>
 					<Flexbox direction="column" gap="3">
-						<Switch bind:checked={formData.newsletter} color="primary">Newsletter</Switch>
-						<Checkbox bind:checked={formData.cgu} color="primary">Accept conditions</Checkbox>
+						<Flexbox as="label" gap="2" alignItems="center">
+							<Switch bind:checked={formData.newsletter} color="primary" />
+							<Text size="2">Newsletter</Text>
+						</Flexbox>
+						<Flexbox as="label" gap="2" alignItems="center">
+							<Checkbox bind:checked={formData.cgu} color="primary" />
+							<Text size="2">Accept conditions</Text>
+						</Flexbox>
 					</Flexbox>
 				</Flexbox>
 			</div>
