@@ -80,7 +80,6 @@
 	},
 	"dependencies": {
 		"@floating-ui/dom": "^1.5.4",
-		"phosphor-svelte": "1.4.2",
-		"svelte-stuff-kit": "github:radiium/svelte-stuff-kit"
+		"phosphor-svelte": "1.4.2"
 	}
 }
