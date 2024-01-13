@@ -3,14 +3,14 @@ import type { HTMLAnchorAttributes } from 'svelte/elements';
 
 export interface PropsLink extends HTMLAnchorAttributes {
 	elementRef?: HTMLAnchorElement;
-	size: (typeof Sizes1To4)[number];
-	variant: (typeof Variants)[number];
-	color: (typeof Colors)[number];
-	align: (typeof Aligns)[number];
-	active: boolean;
-	iconOnly: boolean;
-	circle: boolean;
-	fullWidth: boolean;
+	size?: (typeof Sizes1To4)[number];
+	variant?: (typeof Variants)[number];
+	color?: (typeof Colors)[number];
+	align?: (typeof Aligns)[number];
+	active?: boolean;
+	iconOnly?: boolean;
+	circle?: boolean;
+	fullWidth?: boolean;
 }
 
 export const defaultPropsLink: PropsLink = {
