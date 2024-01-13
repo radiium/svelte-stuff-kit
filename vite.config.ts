@@ -6,6 +6,9 @@ export default defineConfig({
 	optimizeDeps: {
 		exclude: ['phosphor-svelte']
 	},
+	build: { 
+        chunkSizeWarningLimit: 1300
+    },
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
