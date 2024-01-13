@@ -2,8 +2,6 @@
 	import { Flexbox } from '$lib/index';
 
 	const sampleText = 'Lorem ipsum dolor...';
-
-	let name = 'abc </script>';
 </script>
 
 <Flexbox direction="column" gap="3">
