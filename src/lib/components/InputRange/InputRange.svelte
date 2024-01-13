@@ -3,51 +3,44 @@
 	import { defaultPropsInputRange, type PropsInputRange } from './InputRange.props';
 
 	export let elementRef: PropsInputRange['elementRef'] = defaultPropsInputRange.elementRef;
-	export let value: PropsInputRange['value'] = defaultPropsInputRange.value;
-	export let step: PropsInputRange['step'] = defaultPropsInputRange.step;
-	export let min: PropsInputRange['min'] = defaultPropsInputRange.min;
-	export let max: PropsInputRange['max'] = defaultPropsInputRange.max;
 	export let size: PropsInputRange['size'] = defaultPropsInputRange.size;
 	export let color: PropsInputRange['color'] = defaultPropsInputRange.color;
-	export let disabled: PropsInputRange['disabled'] = defaultPropsInputRange.disabled;
-	export let required: PropsInputRange['required'] = defaultPropsInputRange.required;
 	export let error: PropsInputRange['error'] = defaultPropsInputRange.error;
 	export let fullWidth: PropsInputRange['fullWidth'] = defaultPropsInputRange.fullWidth;
-	let { class: _class, style, ...restProps } = $$restProps;
+	let { class: _class, style, step, min, max, value, required, disabled, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(
-		_class,
-		'input-wrapper',
-		`input-type-range`,
-		`input-size-${size}`,
-		`input-color-${color}`,
-		{
-			'input-disabled': disabled,
-			'input-required': required,
-			'input-error': error,
-			'input-full-width': fullWidth
-		}
-	);
+	$: cssClass = clsx(_class, 'InputRange', {
+		[`InputRange-size-${size}`]: size,
+		[`InputRange-color-${color}`]: color,
+		'InputRange-error': error,
+		'InputRange-full-width': fullWidth
+	});
 
 	$: attributes = {
 		style,
 		step,
 		min,
 		max,
-		disabled: disabled || undefined,
-		required: required || undefined,
 		autocomplete: 'off',
 		...restProps
 	};
 </script>
 
-<div class={cssClass} data-color={color}>
+<div
+	{style}
+	class={cssClass}
+	data-input-range
+	data-color={color}
+	data-value={value !== null && value !== undefined ? value : undefined}
+	data-required={required || undefined}
+	data-disabled={disabled || undefined}
+>
 	<input {...attributes} type="range" bind:value bind:this={elementRef} on:input on:change on:focus on:blur />
-	<div class="input-highlight" />
+	<div class="InputRange-highlight" />
 </div>
 
 <style lang="scss">
-	.input-wrapper {
+	.InputRange {
 		flex-shrink: 0;
 		box-sizing: border-box;
 		position: relative;
@@ -62,14 +55,8 @@
 		min-width: calc(var(--input-size-m) * 3);
 		padding: 0 var(--space-2);
 
-		&.input-full-width {
+		&.InputRange-full-width {
 			width: 100%;
-		}
-
-		&.input-disabled {
-			input {
-				@include disabled;
-			}
 		}
 
 		input {
@@ -101,8 +88,9 @@
 			}
 
 			// States
+
 			&:hover {
-				~ .input-highlight {
+				~ .InputRange-highlight {
 					@include input-box-shadow-hover;
 				}
 			}
@@ -110,7 +98,7 @@
 			&:active,
 			&:focus,
 			&:focus-visible {
-				~ .input-highlight {
+				~ .InputRange-highlight {
 					@include input-box-shadow-focus;
 				}
 			}
@@ -207,7 +195,12 @@
 			}
 		}
 
-		.input-highlight {
+		&[data-disabled] {
+			input {
+				@include disabled;
+			}
+		}
+		.InputRange-highlight {
 			z-index: 0;
 			position: absolute;
 			inset: 0 0 0 0;
