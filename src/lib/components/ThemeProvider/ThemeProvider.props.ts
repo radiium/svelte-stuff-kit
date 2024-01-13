@@ -29,3 +29,11 @@ export interface PropsThemeProvider {
 export const defaultPropsThemeProvider: PropsThemeProvider = {
 	strategy: undefined
 };
+
+export const docPropsThemeProvider = {
+	strategy: {
+		type: 'enum',
+		values: [ThemeStrategy.DARK, ThemeStrategy.LIGHT, ThemeStrategy.SYSTEM] as const,
+		default: defaultPropsThemeProvider.strategy
+	}
+};

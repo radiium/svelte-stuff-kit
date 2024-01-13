@@ -4,6 +4,8 @@
 	import { packageHomePage } from '../../constants';
 </script>
 
-<Button variant="outline" size="2" iconOnly href={packageHomePage}>
-	<GithubLogo weight="fill" />
+<Button variant="outline" size="2" iconOnly>
+	<a href={packageHomePage} target="_blank" rel="noreferrer">
+		<GithubLogo weight="fill" />
+	</a>
 </Button>

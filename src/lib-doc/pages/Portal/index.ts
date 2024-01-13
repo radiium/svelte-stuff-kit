@@ -1,3 +1,4 @@
+import { docPropsPortal } from '$lib/components/Portal/Portal.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import PortalSample from './PortalSample.svelte';
@@ -7,13 +8,7 @@ export const docPopover: DocPageData = {
 	title: 'Portal',
 	demoTitle: 'Examples',
 	demoComponent: PortalSample,
-	props: [
-		{
-			name: 'target',
-			type: 'HTMLElement | string',
-			defaultValue: '"body"'
-		}
-	],
+	props: docPropsPortal,
 	slots: [
 		{
 			default: true

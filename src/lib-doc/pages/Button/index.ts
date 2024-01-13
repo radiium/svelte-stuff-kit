@@ -9,7 +9,6 @@ export const docButton: DocPageData = {
 	description: 'Button component',
 	demoTitle: 'Examples',
 	demoComponent: ButtonSample,
-	demos: [ButtonSample],
 	props: docPropsButton,
 	slots: [{ default: true }]
 };
