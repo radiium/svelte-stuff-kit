@@ -29,4 +29,4 @@ export const Gaps = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 export const Grows = ['0', '1'] as const;
 export const Shrinks = ['0', '1'] as const;
 export const InputTypes = ['number', 'time', 'text', 'search', 'password', 'email', 'tel', 'url', 'date',	'datetime-local', 'month', 'week'] as const;
-export const TextTags = ["div" , "label" , "p" , "span"] as const;
+export const TextTags = ["div", "span", "label", "h1", "h2", "h3", "h4", "h5", "h6", "p"] as const;

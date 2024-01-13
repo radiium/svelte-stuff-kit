@@ -9,10 +9,10 @@
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 
-	export let props: DocProps;
+	export let props: DocProps | undefined = undefined;
 </script>
 
-{#if !Array.isArray(props)}
+{#if !Array.isArray(props) && props}
 	<Card noPadding>
 		<table>
 			<thead class="rt-TableHeader">

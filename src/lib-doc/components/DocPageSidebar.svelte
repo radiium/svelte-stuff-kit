@@ -35,7 +35,7 @@
 	</article>
 
 	<footer>
-		<Text as="small" color="neutral">Version: {version}</Text>
+		<Text size="2" color="neutral">Version: {version}</Text>
 	</footer>
 </div>
 

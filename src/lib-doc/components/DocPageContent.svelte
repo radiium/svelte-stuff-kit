@@ -18,7 +18,7 @@
 	<!-- Section Heading -->
 	<Flexbox as="section" direction="column">
 		{#if section.title}
-			<Text as="small" size="3" weight="bold" color="neutral">{section.title}</Text>
+			<Text size="2" weight="bold" color="neutral">{section.title}</Text>
 		{/if}
 		{#if page.title}
 			<Text as="h1" size="8" weight="bold">{page.title}</Text>
