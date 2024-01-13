@@ -149,10 +149,8 @@
 		}
 
 		&.Input-error {
-			.Input-highlight {
-				box-shadow: var(--tomato-9) 0px 0px 0px 1px !important;
-				background-color: var(--tomato-a2);
-			}
+			box-shadow: var(--tomato-9) 0px 0px 0px 1px !important;
+			background-color: var(--tomato-a2);
 		}
 	}
 	/* 
