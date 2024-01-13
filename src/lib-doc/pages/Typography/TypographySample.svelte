@@ -3,7 +3,7 @@
 
 	const sampleText = 'Lorem ipsum dolor...';
 
-	let name = 'abc <\/script>';
+	let name = 'abc </script>';
 </script>
 
 <Flexbox direction="column" gap="3">

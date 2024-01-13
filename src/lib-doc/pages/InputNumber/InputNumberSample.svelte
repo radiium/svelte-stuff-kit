@@ -7,7 +7,7 @@
 <Flexbox direction="column" alignItems="start" gap="5">
 	<DocBlocCode title="Size" code={sampleSize}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-            TODO...
+			TODO...
 			<Flexbox direction="column" alignItems="start" gap="2">
 				<Text>Size 1</Text>
 				<InputNumber size="1" />

@@ -1,4 +1,3 @@
-
 <table>
 	<caption>Table Caption</caption>
 

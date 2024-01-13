@@ -12,7 +12,7 @@ export const defaultPropsCard: PropsCard = {
 	elementRef: undefined,
 	as: 'div',
 	size: '3',
-	noPadding: false,
+	noPadding: false
 };
 
 export const docPropsCard = {
@@ -28,5 +28,5 @@ export const docPropsCard = {
 	noPadding: {
 		type: 'boolean',
 		default: defaultPropsCard.noPadding
-	},
+	}
 };
