@@ -3,97 +3,70 @@
 	import { type PropsSwitch, defaultPropsSwitch } from './Switch.props';
 
 	export let elementRef: PropsSwitch['elementRef'] = defaultPropsSwitch.elementRef;
-	export let value: PropsSwitch['value'] = defaultPropsSwitch.value;
-	export let checked: PropsSwitch['checked'] = defaultPropsSwitch.checked;
 	export let size: PropsSwitch['size'] = defaultPropsSwitch.size;
 	export let color: PropsSwitch['color'] = defaultPropsSwitch.color;
-	export let disabled: PropsSwitch['disabled'] = defaultPropsSwitch.disabled;
-	export let required: PropsSwitch['required'] = defaultPropsSwitch.required;
 	export let error: PropsSwitch['error'] = defaultPropsSwitch.error;
-	let { class: _class, style, ...restProps } = $$restProps;
+	let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(
-		_class,
-		'input-wrapper',
-		`input-type-switch`,
-		`input-size-${size}`,
-		`input-color-${color}`,
-		{
-			'input-checked': checked,
-			'input-disabled': disabled,
-			'input-required': required,
-			'input-error': error,
-			'input-with-label': $$slots.default
-		}
-	);
-
-	$: attributes = {
-		style,
-		disabled: disabled || undefined,
-		required: required || undefined,
-		...restProps
-	};
+	$: cssClass = clsx(_class, 'Switch', {
+		[`Switch-size-${size}`]: size,
+		[`Switch-color-${color}`]: color,
+		'Switch-error': error
+	});
 </script>
 
-<label class={cssClass} data-color={color} {...attributes}>
+<div
+	{style}
+	class={cssClass}
+	data-checkbox
+	data-color={color}
+	data-checked={checked || undefined}
+	data-required={required || undefined}
+	data-disabled={disabled || undefined}
+>
 	<input
 		type="checkbox"
 		autocomplete="off"
 		{value}
 		{required}
 		{disabled}
-		bind:checked
+		{...restProps}
 		bind:this={elementRef}
+		bind:checked
 		on:input
 		on:change
 		on:focus
 		on:blur
 	/>
 
-	<span class="input-checkmark" />
-
-	{#if $$slots.default}
-		<span class="input-label">
-			<slot />
-		</span>
-	{/if}
-</label>
+	<span class="Switch-indicator" />
+</div>
 
 <style lang="scss">
-	.input-wrapper {
+	.Switch {
 		position: relative;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: center;
-		cursor: pointer;
-		height: var(--line-height, var(--switch-height));
-
-		&:not(.input-with-label) {
-			width: var(--switch-width);
-		}
+		width: var(--switch-width);
+		height: var(--switch-height);
 
 		input {
-			cursor: pointer;
-			@include hidden;
 			width: var(--switch-width);
 			height: var(--switch-height);
+			opacity: 0;
+			margin: 0;
 		}
 
-		.input-checkmark {
-			box-sizing: border-box;
+		.Switch-indicator {
+			pointer-events: none;
 			position: absolute;
 			transform: translateY(-50%);
 			top: 50%;
 			left: 0;
 			height: var(--switch-height);
 			width: var(--switch-width);
-			padding: var(--switch-padding);
-			overflow: hidden;
 			border-radius: var(--radius-2);
-			background: var(--background);
+			background: var(--switch-background);
 			box-shadow: inset 0 0 0 1px var(--gray-8);
-			pointer-events: none;
+			padding: var(--switch-padding);
 			transition:
 				background-color ease 0.2s,
 				box-shadow ease 0.2s;
@@ -103,7 +76,7 @@
 				display: block;
 				height: var(--switch-thumb-size);
 				width: var(--switch-thumb-size);
-				background-color: var(--check-color);
+				background-color: var(--switch-check-color);
 				border-radius: var(--radius-1);
 				box-shadow: 0 0 0 1px var(--gray-a3);
 				transition:
@@ -112,100 +85,56 @@
 					transform ease 0.2s;
 			}
 		}
-		&.input-indeterminate {
-			.input-checkmark {
-				&:after {
-					transform: translate(-50%, -80%) rotate(0);
-					border-width: 0 0 2px 0;
-					width: calc(var(--space-4) / 2.5);
-				}
-			}
-		}
-
-		.input-label {
-			font-size: var(--font-size);
-			line-height: var(--line-height);
-			user-select: none;
-			padding-left: var(--label-padding);
-		}
 
 		// Colors
-		--background: var(--gray-a3);
-		--background-checked: var(--accent-9);
-		--check-color: white;
+		--switch-background: var(--gray-a3);
+		--switch-background-checked: var(--accent-9);
+		--switch-check-color: white;
 
 		// Sizes
-		&.input-size-1 {
+		&.Switch-size-1 {
 			--switch-padding: 3px;
 			--switch-height: var(--space-4);
 			--switch-width: calc(var(--switch-height) * 1.75);
 			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
 			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-
-			--label-padding: calc(var(--switch-width) + var(--space-2));
-			--font-size: var(--font-size-1);
-			--line-height: var(--line-height-1);
 		}
-		&.input-size-2 {
+		&.Switch-size-2 {
 			--switch-padding: 3px;
 			--switch-height: calc(var(--space-5) * 5 / 6);
 			--switch-width: calc(var(--switch-height) * 1.75);
 			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
 			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-
-			--label-padding: calc(var(--switch-width) + var(--space-2));
-			--font-size: var(--font-size-2);
-			--line-height: var(--line-height-2);
 		}
-		&.input-size-3 {
+		&.Switch-size-3 {
 			--switch-padding: 4px;
 			--switch-height: var(--space-5);
 			--switch-width: calc(var(--switch-height) * 1.75);
 			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
 			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-
-			--label-padding: calc(var(--switch-width) + var(--space-3));
-			--font-size: var(--font-size-3);
-			--line-height: var(--line-height-3);
 		}
 
 		// States
-		&:focus {
-			.input-checkmark {
-				@include input-box-shadow-focus;
-			}
-		}
-		input {
-			&:checked ~ .input-checkmark {
-				background-color: var(--background-checked);
+		&[data-checked] {
+			.Switch-indicator {
+				background-color: var(--switch-background-checked);
 				box-shadow: none;
 
 				&:after {
 					transform: translateX(var(--switch-thumb-translate));
-					box-shadow: none;
+					display: block;
 				}
 			}
+		}
 
-			&:focus-visible ~ .input-checkmark {
+		&[data-disabled] {
+			@include disabled;
+		}
+
+		input {
+			&:focus-visible ~ .Switch-indicator {
 				@include input-box-shadow-focus;
 			}
-		}
-		&.input-checked {
-			.input-checkmark {
-				background-color: var(--background-checked);
-				box-shadow: none;
-
-				&:after {
-					display: block;
-					box-shadow: none;
-				}
-			}
-		}
-		&.input-disabled {
-			cursor: default !important;
-			opacity: 0.5 !important;
-			outline: none !important;
-			pointer-events: none;
 		}
 	}
 </style>

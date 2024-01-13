@@ -1,29 +1,22 @@
 import { InputTypes, Sizes1To3, Aligns } from '$lib/types';
+import type { HTMLInputAttributes } from 'svelte/elements';
 
-export type PropsInput = {
-	elementRef?: HTMLInputElement | undefined;
+export interface PropsInput extends Omit<HTMLInputAttributes, 'size' | 'align'> {
+	elementRef?: HTMLInputElement;
 	value?: string;
-	placeholder?: string;
 	type?: (typeof InputTypes)[number];
 	size?: (typeof Sizes1To3)[number];
 	align?: (typeof Aligns)[number];
-	disabled?: boolean;
-	required?: boolean;
-	readonly?: boolean;
 	error?: boolean;
 	fullWidth?: boolean;
-};
+}
 
 export const defaultPropsInput: PropsInput = {
 	elementRef: undefined,
 	value: '',
-	placeholder: undefined,
 	type: 'text',
 	size: '2',
 	align: 'start',
-	disabled: false,
-	required: false,
-	readonly: false,
 	error: false,
 	fullWidth: false
 };
@@ -47,18 +40,6 @@ export const docPropsInput = {
 		type: 'enum',
 		values: Aligns,
 		default: defaultPropsInput.align
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultPropsInput.disabled
-	},
-	required: {
-		type: 'boolean',
-		default: defaultPropsInput.required
-	},
-	readonly: {
-		type: 'boolean',
-		default: defaultPropsInput.readonly
 	},
 	error: {
 		type: 'boolean',

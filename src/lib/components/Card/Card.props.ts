@@ -6,7 +6,6 @@ export interface PropsCard extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> 
 	as?: keyof SvelteHTMLElements;
 	size?: (typeof Sizes1To5)[number];
 	noPadding?: boolean;
-	asButton?: boolean;
 }
 
 export const defaultPropsCard: PropsCard = {
@@ -14,7 +13,6 @@ export const defaultPropsCard: PropsCard = {
 	as: 'div',
 	size: '3',
 	noPadding: false,
-	asButton: false
 };
 
 export const docPropsCard = {
@@ -31,8 +29,4 @@ export const docPropsCard = {
 		type: 'boolean',
 		default: defaultPropsCard.noPadding
 	},
-	asButton: {
-		type: 'boolean',
-		default: defaultPropsCard.asButton
-	}
 };

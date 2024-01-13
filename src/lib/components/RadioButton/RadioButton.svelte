@@ -3,86 +3,60 @@
 	import { defaultPropsRadioButton, type PropsRadioButton } from './RadioButton.props';
 
 	export let elementRef: PropsRadioButton['elementRef'] = defaultPropsRadioButton.elementRef;
-	export let value: PropsRadioButton['value'] = defaultPropsRadioButton.value;
-	export let checked: PropsRadioButton['checked'] = defaultPropsRadioButton.checked;
 	export let group: PropsRadioButton['group'] = defaultPropsRadioButton.group;
 	export let size: PropsRadioButton['size'] = defaultPropsRadioButton.size;
 	export let color: PropsRadioButton['color'] = defaultPropsRadioButton.color;
-	export let disabled: PropsRadioButton['disabled'] = defaultPropsRadioButton.disabled;
-	export let required: PropsRadioButton['required'] = defaultPropsRadioButton.required;
 	export let error: PropsRadioButton['error'] = defaultPropsRadioButton.error;
-	let { class: _class, style, ...restProps } = $$restProps;
+	let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
 
-	$: cssClass = clsx(
-		_class,
-		'input-wrapper',
-		`input-type-radio`,
-		`input-size-${size}`,
-		`input-color-${color}`,
-		{
-			'input-disabled': disabled,
-			'input-required': required,
-			'input-error': error,
-			'input-with-label': $$slots.default
-		}
-	);
-
-	$: attributes = {
-		style,
-		checked: checked,
-		disabled: disabled || undefined,
-		required: required || undefined,
-		...restProps
-	};
+	$: cssClass = clsx(_class, 'RadioButton', {
+		[`RadioButton-size-${size}`]: size,
+		[`RadioButton-color-${color}`]: color,
+		'RadioButton-error': error
+	});
 </script>
 
-<label class={cssClass} data-color={color} {...attributes}>
+<div
+	{style}
+	class={cssClass}
+	data-radio
+	data-color={color}
+	data-checked={checked || undefined}
+	data-required={required || undefined}
+	data-disabled={disabled || undefined}
+>
 	<input
-		{...attributes}
 		type="radio"
 		autocomplete="off"
-		{disabled}
-		{required}
-		{checked}
 		{value}
-		bind:group
+		{checked}
+		{required}
+		{disabled}
+		{...restProps}
 		bind:this={elementRef}
+		bind:group
 		on:input
 		on:change
 		on:focus
 		on:blur
 	/>
-	<span class="input-checkmark" />
-
-	{#if $$slots.default}
-		<span class="input-label">
-			<slot />
-		</span>
-	{/if}
-</label>
+	<span class="RadioButton-indicator" />
+</div>
 
 <style lang="scss">
-	.input-wrapper {
+	.RadioButton {
 		position: relative;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: center;
-		cursor: pointer;
-		height: var(--line-height, var(--radio-size));
-
-		&:not(.input-with-label) {
-			width: var(--radio-size);
-		}
+		width: var(--radio-size);
+		height: var(--radio-size);
 
 		input {
-			cursor: pointer;
-			@include hidden;
 			width: var(--radio-size);
 			height: var(--radio-size);
+			opacity: 0;
+			margin: 0;
 		}
 
-		.input-checkmark {
+		.RadioButton-indicator {
 			position: absolute;
 			transform: translateY(-50%);
 			top: 50%;
@@ -112,55 +86,50 @@
 			}
 		}
 
-		.input-label {
-			user-select: none;
-			font-size: var(--font-size);
-			line-height: var(--line-height);
-			padding-left: var(--label-padding);
-		}
-
 		// Colors
 		--radio-background: var(--gray-a3);
 		--radio-background-checked: var(--accent-9);
 		--check-color: white;
 
 		// Sizes
-		&.input-size-1 {
+		&.RadioButton-size-1 {
 			--radio-size: calc(var(--space-4) * 0.875);
 			--check-width: calc(var(--radio-size) / 3.5);
 			--check-height: calc(var(--radio-size) / 2.5);
-
-			--label-padding: calc(var(--radio-size) + var(--space-2));
-			--font-size: var(--font-size-1);
-			--line-height: var(--line-height-1);
 		}
-		&.input-size-2 {
+		&.RadioButton-size-2 {
 			--radio-size: var(--space-4);
 			--check-width: calc(var(--radio-size) / 3.5);
 			--check-height: calc(var(--radio-size) / 2.5);
-
-			--label-padding: calc(var(--radio-size) + var(--space-2));
-			--font-size: var(--font-size-2);
-			--line-height: var(--line-height-2);
 		}
-		&.input-size-3 {
+		&.RadioButton-size-3 {
 			--radio-size: calc(var(--space-4) * 1.25);
 			--check-width: calc(var(--radio-size) / 3.5);
 			--check-height: calc(var(--radio-size) / 2.5);
-
-			--label-padding: calc(var(--radio-size) + var(--space-3));
-			--font-size: var(--font-size-3);
-			--line-height: var(--line-height-3);
 		}
 
 		// States
+		&[data-checked] {
+			.Checkbox-indicator {
+				background-color: var(--checkbox-background-checked);
+				box-shadow: none;
+
+				&:after {
+					display: block;
+				}
+			}
+		}
+
+		&[data-disabled] {
+			@include disabled;
+		}
 		&:focus {
-			.input-checkmark {
+			.RadioButton-indicator {
 				@include input-box-shadow-focus;
 			}
 		}
 		input {
-			&:checked ~ .input-checkmark {
+			&:checked ~ .RadioButton-indicator {
 				background-color: var(--radio-background-checked);
 				box-shadow: none;
 
@@ -169,15 +138,9 @@
 				}
 			}
 
-			&:focus-visible ~ .input-checkmark {
+			&:focus-visible ~ .RadioButton-indicator {
 				@include input-box-shadow-focus;
 			}
-		}
-		&.input-disabled {
-			cursor: default !important;
-			opacity: 0.5 !important;
-			outline: none !important;
-			pointer-events: none;
 		}
 	}
 </style>

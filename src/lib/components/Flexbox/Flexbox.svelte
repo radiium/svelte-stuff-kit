@@ -15,9 +15,6 @@
 	export let shrink: $$Props['shrink'] = defaultPropsFlexbox.shrink;
 	let { class: _class, style, ...restProps } = $$restProps;
 
-	console.log('props', $$props);
-	console.log('restProps', $$restProps);
-
 	$: cssClass = clsx(_class, {
 		[`display-${display}`]: display,
 		[`flex-direction-${direction}`]: direction,

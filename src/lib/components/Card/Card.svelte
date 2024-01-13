@@ -7,22 +7,22 @@
 	export let as: $$Props['as'] = defaultPropsCard.as;
 	export let size: $$Props['size'] = defaultPropsCard.size;
 	export let noPadding: $$Props['noPadding'] = defaultPropsCard.noPadding;
-	export let asButton: $$Props['asButton'] = defaultPropsCard.asButton;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	$: cssClass = clsx(_class, 'Card', {
 		[`Card-size-${size}`]: size,
 		'Card-no-padding': noPadding,
-		'Card-as-button': isButton
+		'Card-as-button': as === 'button',
+		'Card-as-label': as === 'label'
 	});
 
-	$: isButton = asButton || as === 'button';
-	$: attributesButton = isButton
-		? {
-				role: 'button',
-				tabindex: 0
-			}
-		: {};
+	$: attributesButton =
+		as === 'button'
+			? {
+					role: 'button',
+					tabindex: 0
+				}
+			: {};
 
 	$: attributes = {
 		class: cssClass,
@@ -31,8 +31,6 @@
 		...restProps
 	};
 </script>
-
-<div role="button"></div>
 
 <svelte:element this={as} bind:this={elementRef} {...attributes}>
 	{#if $$slots.header}
@@ -55,7 +53,7 @@
 	<div class="Card-highlight" />
 </svelte:element>
 
-<style lang="scss">
+<style lang="scss" global>
 	.Card {
 		padding: var(--card-padding);
 		border-radius: var(--card-border-radius);
@@ -72,6 +70,7 @@
 
 		.content {
 			height: auto;
+			flex: 1 1 auto;
 		}
 
 		footer {
@@ -120,19 +119,31 @@
 			--card-padding: 0;
 		}
 
+		&.Card-as-label,
 		&.Card-as-button {
-			cursor: pointer;
-
 			&:focus-within {
 				.Card-highlight {
 					@include input-box-shadow-focus;
 				}
+				/* input[type='checkbox'],
+				input[type='radio'] {
+					&:focus-visible ~ .Checkbox-indicator {
+						border: 5px solid green;
+						@include input-box-shadow;
+					}
+				} */
 			}
 
 			&:active {
 				.Card-highlight {
 					@include input-box-shadow-focus;
 				}
+				/* input[type='checkbox'],
+				input[type='radio'] {
+					&:focus-visible ~ .Checkbox-indicator {
+						@include input-box-shadow;
+					}
+				} */
 			}
 		}
 	}
