@@ -1,22 +1,7 @@
-import type { HTMLAttributes, HTMLLabelAttributes } from 'svelte/elements';
-import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '$lib/types';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '$lib/constants';
+import type { TextProps } from './Text.types';
 
-export type PropsText = (
-	| HTMLAttributes<HTMLSpanElement>
-	| HTMLAttributes<HTMLDivElement>
-	| HTMLAttributes<HTMLParagraphElement>
-	| HTMLLabelAttributes
-) & {
-	elementRef?: HTMLSpanElement | HTMLDivElement | HTMLParagraphElement | HTMLLabelElement;
-	as?: (typeof TextTags)[number];
-	color?: (typeof Colors)[number];
-	size?: (typeof Sizes1To9)[number];
-	weight?: (typeof Weights)[number];
-	align?: (typeof Aligns)[number];
-	disabled?: boolean;
-};
-
-export const defaultPropsText: PropsText = {
+export const defaultTextProps: TextProps = {
 	elementRef: undefined,
 	as: 'span',
 	color: undefined,
@@ -26,29 +11,29 @@ export const defaultPropsText: PropsText = {
 	disabled: false
 };
 
-export const docPropsText = {
+export const docTextProps = {
 	as: {
 		type: 'keyof SvelteHTMLElements',
-		default: defaultPropsText.as
+		default: defaultTextProps.as
 	},
 	color: {
 		type: 'enum',
 		values: Colors,
-		default: defaultPropsText.color
+		default: defaultTextProps.color
 	},
 	size: {
 		type: 'enum',
 		values: Sizes1To9,
-		default: defaultPropsText.size
+		default: defaultTextProps.size
 	},
 	weight: {
 		type: 'enum',
 		values: Weights,
-		default: defaultPropsText.weight
+		default: defaultTextProps.weight
 	},
 	align: {
 		type: 'enum',
 		values: Aligns,
-		default: defaultPropsText.align
+		default: defaultTextProps.align
 	}
 };

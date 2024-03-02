@@ -1,32 +1,20 @@
-import { Sizes1To5 } from '$lib/types';
-import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
+import { Sizes1To5 } from '$lib/constants';
+import type { CardProps } from './Card.types';
 
-export interface PropsCard extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
-	elementRef?: HTMLElement;
-	as?: keyof SvelteHTMLElements;
-	size?: (typeof Sizes1To5)[number];
-	noPadding?: boolean;
-}
-
-export const defaultPropsCard: PropsCard = {
+export const defaultCardProps: CardProps = {
 	elementRef: undefined,
-	as: 'div',
 	size: '3',
 	noPadding: false
 };
 
-export const docPropsCard = {
+export const docCardProps = {
 	size: {
 		type: 'enum',
 		values: Sizes1To5,
-		default: defaultPropsCard.size
-	},
-	as: {
-		type: 'keyof SvelteHTMLElements',
-		default: defaultPropsCard.as
+		default: defaultCardProps.size
 	},
 	noPadding: {
 		type: 'boolean',
-		default: defaultPropsCard.noPadding
+		default: defaultCardProps.noPadding
 	}
 };

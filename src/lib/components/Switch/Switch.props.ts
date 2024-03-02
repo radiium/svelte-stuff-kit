@@ -1,33 +1,26 @@
-import { Sizes1To3, Colors } from '$lib/types';
-import type { HTMLInputAttributes } from 'svelte/elements';
+import { Sizes1To3, Colors } from '$lib/constants';
+import type { SwitchProps } from './Switch.types';
 
-export interface PropsSwitch extends Omit<HTMLInputAttributes, 'size'> {
-	elementRef?: HTMLInputElement;
-	size?: (typeof Sizes1To3)[number];
-	color?: (typeof Colors)[number];
-	error?: boolean;
-}
-
-export const defaultPropsSwitch: PropsSwitch = {
+export const defaultSwitchProps: SwitchProps = {
 	elementRef: undefined,
 	size: '2',
 	color: 'neutral',
 	error: false
 };
 
-export const docPropsSwitch = {
+export const docSwitchProps = {
 	size: {
 		type: 'enum',
 		values: Sizes1To3,
-		default: defaultPropsSwitch.size
+		default: defaultSwitchProps.size
 	},
 	color: {
 		type: 'enum',
 		values: Colors,
-		default: defaultPropsSwitch.color
+		default: defaultSwitchProps.color
 	},
 	error: {
 		type: 'boolean',
-		default: defaultPropsSwitch.error
+		default: defaultSwitchProps.error
 	}
 };

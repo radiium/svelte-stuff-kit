@@ -1,23 +1,27 @@
 <script lang="ts">
 	import { clsx } from '$lib';
 	import { longpress } from '../../actions/longpress';
-	import { defaultPropsInputNumber, type PropsInputNumber } from './InputNumber.props';
+	import { defaultInputNumberProps } from './InputNumber.props';
+	import type { InputNumberProps } from './InputNumber.types';
 
-	export let elementRef: PropsInputNumber['elementRef'] = defaultPropsInputNumber.elementRef;
-	export let value: PropsInputNumber['value'] = defaultPropsInputNumber.value;
-	export let step: PropsInputNumber['step'] = defaultPropsInputNumber.step;
-	export let min: PropsInputNumber['min'] = defaultPropsInputNumber.min;
-	export let max: PropsInputNumber['max'] = defaultPropsInputNumber.max;
-	export let size: PropsInputNumber['size'] = defaultPropsInputNumber.size;
-	export let color: PropsInputNumber['color'] = defaultPropsInputNumber.color;
-	export let disabled: PropsInputNumber['disabled'] = defaultPropsInputNumber.disabled;
-	export let required: PropsInputNumber['required'] = defaultPropsInputNumber.required;
-	export let readonly: PropsInputNumber['readonly'] = defaultPropsInputNumber.readonly;
+	type $$Props = InputNumberProps;
+	export let elementRef: $$Props['elementRef'] = defaultInputNumberProps.elementRef;
+	export let value: $$Props['value'] = defaultInputNumberProps.value;
+	export let step: $$Props['step'] = defaultInputNumberProps.step;
+	export let min: $$Props['min'] = defaultInputNumberProps.min;
+	export let max: $$Props['max'] = defaultInputNumberProps.max;
+	export let size: $$Props['size'] = defaultInputNumberProps.size;
+	export let color: $$Props['color'] = defaultInputNumberProps.color;
+	export let disabled: $$Props['disabled'] = defaultInputNumberProps.disabled;
+	export let required: $$Props['required'] = defaultInputNumberProps.required;
+	export let readonly: $$Props['readonly'] = defaultInputNumberProps.readonly;
 	let { class: _class, style, ...restProps } = $$restProps;
 
 	// Input css classes
 	let cssClass = '';
-	$: cssClass = clsx(_class, 'input-wrapper', `input-color-${color}`, `input-size-${size}`, {
+	$: cssClass = clsx($$restProps.class, 'InputNumber-wrapper', {
+		[`InputNumber-color-${color}`]: color,
+		[`InputNumber-size-${size}`]: size,
 		'input-disabled': disabled,
 		'input-required': required,
 		'input-readonly': readonly
@@ -130,7 +134,7 @@
 </div>
 
 <style lang="scss">
-	.input-wrapper {
+	.InputNumber {
 		height: var(--input-size-m);
 		width: calc(var(--input-size-m) * 4);
 		padding: 0;

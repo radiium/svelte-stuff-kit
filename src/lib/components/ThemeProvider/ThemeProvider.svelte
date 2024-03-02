@@ -11,14 +11,7 @@
 		THEME_CONTEXT_KEY,
 		THEME_STORAGE_KEY
 	} from './theme.utils';
-	import {
-		ThemeStrategy,
-		type ThemeSchemeType,
-		type ThemeStrategyType,
-		type ThemeContext,
-		type PropsThemeProvider,
-		defaultPropsThemeProvider
-	} from './ThemeProvider.props';
+	import { defaultThemeProviderProps } from './ThemeProvider.props';
 
 	const schemeSystemStore = writable<ThemeSchemeType>(resolveSchemeSystem());
 	const onSchemeSystemChange = () => {
@@ -29,8 +22,16 @@
 <script lang="ts">
 	import { hasContext, onMount, setContext } from 'svelte';
 	import { isBrowser } from '$lib/utils/is-browser';
+	import {
+		ThemeStrategy,
+		type ThemeProviderProps,
+		type ThemeSchemeType,
+		type ThemeStrategyType,
+		type ThemeContext
+	} from './ThemeProvider.types';
 
-	export let strategy: PropsThemeProvider['strategy'] = defaultPropsThemeProvider.strategy;
+	type $$Props = ThemeProviderProps;
+	export let strategy: $$Props['strategy'] = defaultThemeProviderProps.strategy;
 
 	let isRoot = !hasContext(THEME_CONTEXT_KEY);
 	const resolvedStrategy = resolveStrategy(strategy);

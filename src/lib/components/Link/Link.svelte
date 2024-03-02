@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsLink, type PropsLink } from './Link.props';
+	import { defaultLinkProps } from './Link.props';
+	import type { LinkProps } from './Link.types';
 
-	type $$Props = PropsLink;
-	export let elementRef: $$Props['elementRef'] = defaultPropsLink.elementRef;
-	export let href: $$Props['href'] = defaultPropsLink.href;
-	export let target: $$Props['target'] = defaultPropsLink.target;
-	export let rel: $$Props['rel'] = defaultPropsLink.rel;
-	export let size: $$Props['size'] = defaultPropsLink.size;
-	export let variant: $$Props['variant'] = defaultPropsLink.variant;
-	export let color: $$Props['color'] = defaultPropsLink.color;
-	export let align: $$Props['align'] = defaultPropsLink.align;
-	export let active: $$Props['active'] = defaultPropsLink.active;
-	export let iconOnly: $$Props['iconOnly'] = defaultPropsLink.iconOnly;
-	export let circle: $$Props['circle'] = defaultPropsLink.fullWidth;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsLink.fullWidth;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = LinkProps;
+	export let elementRef: $$Props['elementRef'] = defaultLinkProps.elementRef;
+	export let href: $$Props['href'] = defaultLinkProps.href;
+	export let target: $$Props['target'] = defaultLinkProps.target;
+	export let rel: $$Props['rel'] = defaultLinkProps.rel;
+	export let size: $$Props['size'] = defaultLinkProps.size;
+	export let variant: $$Props['variant'] = defaultLinkProps.variant;
+	export let color: $$Props['color'] = defaultLinkProps.color;
+	export let align: $$Props['align'] = defaultLinkProps.align;
+	export let active: $$Props['active'] = defaultLinkProps.active;
+	export let iconOnly: $$Props['iconOnly'] = defaultLinkProps.iconOnly;
+	export let circle: $$Props['circle'] = defaultLinkProps.fullWidth;
+	export let fullWidth: $$Props['fullWidth'] = defaultLinkProps.fullWidth;
 
-	$: cssClass = clsx(_class, 'Link', {
+	$: cssClass = clsx($$restProps.class, 'Link', {
 		[`Link-${variant}`]: variant,
 		[`Link-size-${size}`]: size,
 		[`Link-${color}`]: color,
@@ -27,18 +27,23 @@
 		'Link-icon-only': iconOnly,
 		'Link-circle': circle
 	});
-
-	$: attributes = {
-		'data-color': color,
-		'data-size': size,
-		tabindex: 0,
-		class: cssClass,
-		style,
-		...restProps
-	};
 </script>
 
-<a bind:this={elementRef} {...attributes} {href} {target} {rel} on:click on:focus on:blur>
+<a
+	tabindex="0"
+	{...$$restProps}
+	{href}
+	{target}
+	{rel}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+	on:click
+	on:focus
+	on:blur
+>
 	<slot />
 </a>
 

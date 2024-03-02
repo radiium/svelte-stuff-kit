@@ -1,32 +1,24 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsInput, type PropsInput } from './Input.props';
+	import { defaultInputProps } from './Input.props';
+	import type { InputProps } from './Input.types';
 
-	type $$Props = PropsInput;
-	export let elementRef: $$Props['elementRef'] = defaultPropsInput.elementRef;
-	export let value: $$Props['value'] = defaultPropsInput.value;
-	export let type: $$Props['type'] = defaultPropsInput.type;
-	export let size: $$Props['size'] = defaultPropsInput.size;
-	export let align: $$Props['align'] = defaultPropsInput.align;
-	export let error: $$Props['error'] = defaultPropsInput.error;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsInput.fullWidth;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = InputProps;
+	export let elementRef: $$Props['elementRef'] = defaultInputProps.elementRef;
+	export let value: $$Props['value'] = defaultInputProps.value;
+	export let type: $$Props['type'] = defaultInputProps.type;
+	export let size: $$Props['size'] = defaultInputProps.size;
+	export let align: $$Props['align'] = defaultInputProps.align;
+	export let error: $$Props['error'] = defaultInputProps.error;
+	export let fullWidth: $$Props['fullWidth'] = defaultInputProps.fullWidth;
 
-	$: cssClass = clsx(_class, 'Input', {
+	$: cssClass = clsx($$restProps.class, 'Input', {
 		[`Input-size-${size}`]: size,
 		[`Input-type-${type}`]: type,
 		[`Input-align-${align}`]: align,
 		'Input-full-width': fullWidth,
 		'Input-error': error
 	});
-
-	$: attributes = {
-		class: cssClass,
-		style,
-		spellcheck: false,
-		autocomplete: 'off',
-		...restProps
-	};
 
 	const setType = (node: HTMLInputElement) => {
 		if (type) {
@@ -36,6 +28,11 @@
 </script>
 
 <input
+	{...$$restProps}
+	spellcheck="false"
+	autocomplete="off"
+	class={cssClass}
+	style={$$restProps.style}
 	bind:this={elementRef}
 	bind:value
 	on:input
@@ -46,11 +43,10 @@
 	on:keypress
 	on:keyup
 	use:setType
-	{...attributes}
 />
 
 <style lang="scss">
-	input.Input {
+	.Input {
 		z-index: 1;
 		position: relative;
 		appearance: none;
@@ -153,26 +149,4 @@
 			background-color: var(--tomato-a2);
 		}
 	}
-	/* 
-	:root {
-        --border-color: unset;
-		--border-radius: unset;
-		--border-style: unset;
-		--border-width: unset;
-		--background: unset;
-		--color: unset;
-
-		--highlight-color-focused: unset;
-		--highlight-color-invalid: unset;
-		--highlight-color-valid: unset;
-
-		--padding-bottom: unset;
-		--padding-end: unset;
-		--padding-start: unset;
-		--padding-top: unset;
-		--placeholder-color: unset;
-		--placeholder-font-style: unset;
-		--placeholder-font-weight: unset;
-		--placeholder-opacity: unset;
-	} */
 </style>

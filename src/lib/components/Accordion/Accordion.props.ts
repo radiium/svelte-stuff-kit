@@ -1,45 +1,31 @@
 export const contextKeyAccordionGroup = 'AccordionGroup';
 
-export type AccordionStore = {
-	key: symbol;
-	readonly isOpen: boolean | undefined;
-	open: () => void;
-	close: () => void;
-	toggle: () => void;
-};
-
-export type AccordionGroupContext = {
-	setCurrent: (value: AccordionStore) => void;
-};
-
 /**
  * AccordionGroup
  */
-export interface PropsAccordionGroup {
-	multi?: boolean;
-}
-export const defaultPropsAccordionGroup: PropsAccordionGroup = {
+
+import type { AccordionGroupProps, AccordionItemProps } from './Accordion.types';
+
+export const defaultAccordionGroupProps: AccordionGroupProps = {
 	multi: false
 };
-export const docPropsAccordionGroup = {
+export const docAccordionGroupProps = {
 	multi: {
 		type: 'boolean',
-		default: defaultPropsAccordionGroup.multi
+		default: defaultAccordionGroupProps.multi
 	}
 };
 
 /**
  * PropsAccordionItem
  */
-export interface PropsAccordionItem {
-	isOpen?: boolean;
-}
-export const defaultPropsAccordionItem: PropsAccordionItem = {
+
+export const defaultAccordionItemProps: AccordionItemProps = {
 	isOpen: false
 };
-export const docPropsAccordionItem = {
+export const docAccordionItemProps = {
 	isOpen: {
 		type: 'boolean',
-		default: defaultPropsAccordionItem.isOpen
+		default: defaultAccordionItemProps.isOpen
 	}
 };

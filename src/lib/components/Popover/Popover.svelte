@@ -11,18 +11,20 @@
 	} from '@floating-ui/dom';
 	import { clickoutside } from '../../actions/clickoutside';
 	import { focusTrap } from '../../actions/focus-trap';
-	import { defaultPropsPopover, type PropsPopover } from './Popover.props';
+	import { defaultPopoverProps } from './Popover.props';
+	import type { PopoverProps } from './Popover.types';
 
-	export let isOpen: PropsPopover['isOpen'] = defaultPropsPopover.isOpen;
-	export let backdrop: PropsPopover['backdrop'] = defaultPropsPopover.backdrop;
-	export let arrow: PropsPopover['arrow'] = defaultPropsPopover.arrow;
-	export let strategy: PropsPopover['strategy'] = defaultPropsPopover.strategy;
-	export let placement: PropsPopover['placement'] = defaultPropsPopover.placement;
-	export let offset: PropsPopover['offset'] = defaultPropsPopover.offset;
-	export let flip: PropsPopover['flip'] = defaultPropsPopover.flip;
-	export let transitionOpacity: PropsPopover['transitionOpacity'] = defaultPropsPopover.transitionOpacity;
-	export let transitionY: PropsPopover['transitionY'] = defaultPropsPopover.transitionY;
-	export let transitionDuration: PropsPopover['transitionDuration'] = defaultPropsPopover.transitionDuration;
+	type $$Props = PopoverProps;
+	export let isOpen: $$Props['isOpen'] = defaultPopoverProps.isOpen;
+	export let backdrop: $$Props['backdrop'] = defaultPopoverProps.backdrop;
+	export let arrow: $$Props['arrow'] = defaultPopoverProps.arrow;
+	export let strategy: $$Props['strategy'] = defaultPopoverProps.strategy;
+	export let placement: $$Props['placement'] = defaultPopoverProps.placement;
+	export let offset: $$Props['offset'] = defaultPopoverProps.offset;
+	export let flip: $$Props['flip'] = defaultPopoverProps.flip;
+	export let transitionOpacity: $$Props['transitionOpacity'] = defaultPopoverProps.transitionOpacity;
+	export let transitionY: $$Props['transitionY'] = defaultPopoverProps.transitionY;
+	export let transitionDuration: $$Props['transitionDuration'] = defaultPopoverProps.transitionDuration;
 
 	let triggerRef: HTMLDivElement | undefined = undefined;
 	let arrowRef: HTMLDivElement | undefined = undefined;

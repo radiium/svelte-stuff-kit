@@ -1,15 +1,7 @@
-import { Sizes1To3, Colors } from '$lib/types';
-import type { HTMLInputAttributes } from 'svelte/elements';
+import { Sizes1To3, Colors } from '$lib/constants';
+import type { RadioButtonProps } from './RadioButton.types';
 
-export interface PropsRadioButton extends Omit<HTMLInputAttributes, 'size'> {
-	elementRef?: HTMLInputElement;
-	group?: any;
-	size?: (typeof Sizes1To3)[number];
-	color?: (typeof Colors)[number];
-	error?: boolean;
-}
-
-export const defaultPropsRadioButton: PropsRadioButton = {
+export const defaultRadioButtonProps: RadioButtonProps = {
 	elementRef: undefined,
 	group: undefined,
 	size: '2',
@@ -17,19 +9,19 @@ export const defaultPropsRadioButton: PropsRadioButton = {
 	error: false
 };
 
-export const docPropsRadioButton = {
+export const docRadioButtonProps = {
 	size: {
 		type: 'enum',
 		values: Sizes1To3,
-		default: defaultPropsRadioButton.size
+		default: defaultRadioButtonProps.size
 	},
 	color: {
 		type: 'enum',
 		values: Colors,
-		default: defaultPropsRadioButton.color
+		default: defaultRadioButtonProps.color
 	},
 	error: {
 		type: 'boolean',
-		default: defaultPropsRadioButton.error
+		default: defaultRadioButtonProps.error
 	}
 };

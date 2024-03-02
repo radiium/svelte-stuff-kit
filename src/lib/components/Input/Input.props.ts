@@ -1,17 +1,7 @@
-import { InputTypes, Sizes1To3, Aligns } from '$lib/types';
-import type { HTMLInputAttributes } from 'svelte/elements';
+import { Aligns, InputTypes, Sizes1To3 } from '$lib/constants';
+import type { InputProps } from './Input.types';
 
-export interface PropsInput extends Omit<HTMLInputAttributes, 'size' | 'align'> {
-	elementRef?: HTMLInputElement;
-	value?: string;
-	type?: (typeof InputTypes)[number];
-	size?: (typeof Sizes1To3)[number];
-	align?: (typeof Aligns)[number];
-	error?: boolean;
-	fullWidth?: boolean;
-}
-
-export const defaultPropsInput: PropsInput = {
+export const defaultInputProps: InputProps = {
 	elementRef: undefined,
 	value: '',
 	type: 'text',
@@ -21,32 +11,32 @@ export const defaultPropsInput: PropsInput = {
 	fullWidth: false
 };
 
-export const docPropsInput = {
+export const docInputProps = {
 	value: {
 		type: 'string',
-		default: defaultPropsInput.value
+		default: defaultInputProps.value
 	},
 	type: {
 		type: 'enum',
 		values: InputTypes,
-		default: defaultPropsInput.type
+		default: defaultInputProps.type
 	},
 	size: {
 		type: 'enum',
 		values: Sizes1To3,
-		default: defaultPropsInput.size
+		default: defaultInputProps.size
 	},
 	align: {
 		type: 'enum',
 		values: Aligns,
-		default: defaultPropsInput.align
+		default: defaultInputProps.align
 	},
 	error: {
 		type: 'boolean',
-		default: defaultPropsInput.error
+		default: defaultInputProps.error
 	},
 	fullWidth: {
 		type: 'boolean',
-		default: defaultPropsInput.fullWidth
+		default: defaultInputProps.fullWidth
 	}
 };

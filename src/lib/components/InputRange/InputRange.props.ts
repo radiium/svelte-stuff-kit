@@ -1,15 +1,7 @@
-import { Colors, Sizes1To3 } from '$lib/types';
-import type { HTMLInputAttributes } from 'svelte/elements';
+import { Colors, Sizes1To3 } from '$lib/constants';
+import type { InputRangeProps } from './InputRange.types';
 
-export interface PropsInputRange extends Omit<HTMLInputAttributes, 'size'> {
-	elementRef?: HTMLInputElement;
-	size?: (typeof Sizes1To3)[number];
-	color?: (typeof Colors)[number];
-	error?: boolean;
-	fullWidth?: boolean;
-}
-
-export const defaultPropsInputRange: PropsInputRange = {
+export const defaultInputRangeProps: InputRangeProps = {
 	elementRef: undefined,
 	size: '2',
 	color: 'neutral',
@@ -17,23 +9,23 @@ export const defaultPropsInputRange: PropsInputRange = {
 	fullWidth: false
 };
 
-export const docPropsInputRange = {
+export const docInputRangeProps = {
 	size: {
 		type: 'enum',
 		values: Sizes1To3,
-		default: defaultPropsInputRange.size
+		default: defaultInputRangeProps.size
 	},
 	color: {
 		type: 'enum',
 		values: Colors,
-		default: defaultPropsInputRange.color
+		default: defaultInputRangeProps.color
 	},
 	error: {
 		type: 'boolean',
-		default: defaultPropsInputRange.error
+		default: defaultInputRangeProps.error
 	},
 	fullWidth: {
 		type: 'boolean',
-		default: defaultPropsInputRange.fullWidth
+		default: defaultInputRangeProps.fullWidth
 	}
 };

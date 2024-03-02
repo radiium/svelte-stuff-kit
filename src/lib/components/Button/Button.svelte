@@ -1,24 +1,23 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { clsx } from '../../utils/clsx';
-	import { ButtonGroupContextKey, defaultPropsButton, type PropsButton } from './Button.props';
+	import { ButtonGroupContextKey, defaultButtonProps } from './Button.props';
+	import type { ButtonProps } from './Button.types';
 
-	type $$Props = PropsButton;
+	type $$Props = ButtonProps;
 	export let elementRef: $$Props['elementRef'] = undefined;
-	export let size: $$Props['size'] = defaultPropsButton.size;
-	export let variant: $$Props['variant'] = defaultPropsButton.variant;
-	export let color: $$Props['color'] = defaultPropsButton.color;
-	export let align: $$Props['align'] = defaultPropsButton.align;
-	export let active: $$Props['active'] = defaultPropsButton.active;
-	export let iconOnly: $$Props['iconOnly'] = defaultPropsButton.iconOnly;
-	export let circle: $$Props['circle'] = defaultPropsButton.fullWidth;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsButton.fullWidth;
-	let { class: _class, style, ...restProps } = $$restProps;
+	export let size: $$Props['size'] = defaultButtonProps.size;
+	export let variant: $$Props['variant'] = defaultButtonProps.variant;
+	export let color: $$Props['color'] = defaultButtonProps.color;
+	export let align: $$Props['align'] = defaultButtonProps.align;
+	export let active: $$Props['active'] = defaultButtonProps.active;
+	export let iconOnly: $$Props['iconOnly'] = defaultButtonProps.iconOnly;
+	export let circle: $$Props['circle'] = defaultButtonProps.fullWidth;
+	export let fullWidth: $$Props['fullWidth'] = defaultButtonProps.fullWidth;
 
 	const isInGroup = getContext<boolean | undefined>(ButtonGroupContextKey);
 
-	elementRef;
-	$: cssClass = clsx(_class, 'Button', {
+	$: cssClass = clsx($$restProps.class, 'Button', {
 		[`Button-${variant}`]: variant,
 		[`Button-size-${size}`]: size,
 		[`Button-${color}`]: color,
@@ -29,18 +28,21 @@
 		'Button-icon-only': iconOnly,
 		'Button-circle': circle
 	});
-
-	$: attributes = {
-		'data-color': color,
-		'data-size': size,
-		tabindex: 0,
-		class: cssClass,
-		style,
-		...restProps
-	};
 </script>
 
-<button bind:this={elementRef} {...attributes} on:click on:submit on:focus on:blur>
+<button
+	tabindex="0"
+	{...$$restProps}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+	on:click
+	on:submit
+	on:focus
+	on:blur
+>
 	<slot />
 </button>
 

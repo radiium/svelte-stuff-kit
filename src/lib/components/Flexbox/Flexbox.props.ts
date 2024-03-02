@@ -1,20 +1,7 @@
-import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
-import { Displays, Justifys, Directions, AlignItems, Wraps, Gaps, Grows, Shrinks } from '$lib/types';
+import { AlignItems, Directions, Displays, Gaps, Grows, Justifys, Shrinks, Wraps } from '$lib/constants';
+import type { FlexboxProps } from './Flexbox.types';
 
-export interface PropsFlexbox extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
-	elementRef?: HTMLElement;
-	as?: keyof SvelteHTMLElements;
-	display?: (typeof Displays)[number];
-	justify?: (typeof Justifys)[number];
-	direction?: (typeof Directions)[number];
-	alignItems?: (typeof AlignItems)[number];
-	wrap?: (typeof Wraps)[number];
-	gap?: (typeof Gaps)[number];
-	grow?: (typeof Grows)[number];
-	shrink?: (typeof Shrinks)[number];
-}
-
-export const defaultPropsFlexbox: PropsFlexbox = {
+export const defaultFlexboxProps: FlexboxProps = {
 	elementRef: undefined,
 	as: 'div',
 	display: 'flex',
@@ -27,49 +14,49 @@ export const defaultPropsFlexbox: PropsFlexbox = {
 	shrink: undefined
 };
 
-export const docPropsFlexbox = {
+export const docFlexboxProps = {
 	as: {
 		type: 'keyof SvelteHTMLElements',
-		default: defaultPropsFlexbox.as
+		default: defaultFlexboxProps.as
 	},
 	display: {
 		type: 'enum',
 		values: Displays,
-		default: defaultPropsFlexbox.display
+		default: defaultFlexboxProps.display
 	},
 	justify: {
 		type: 'enum',
 		values: Justifys,
-		default: defaultPropsFlexbox.justify
+		default: defaultFlexboxProps.justify
 	},
 	direction: {
 		type: 'enum',
 		values: Directions,
-		default: defaultPropsFlexbox.direction
+		default: defaultFlexboxProps.direction
 	},
 	alignItems: {
 		type: 'enum',
 		values: AlignItems,
-		default: defaultPropsFlexbox.alignItems
+		default: defaultFlexboxProps.alignItems
 	},
 	wrap: {
 		type: 'enum',
 		values: Wraps,
-		default: defaultPropsFlexbox.wrap
+		default: defaultFlexboxProps.wrap
 	},
 	gap: {
 		type: 'enum',
 		values: Gaps,
-		default: defaultPropsFlexbox.gap
+		default: defaultFlexboxProps.gap
 	},
 	grow: {
 		type: 'enum',
 		values: Grows,
-		default: defaultPropsFlexbox.grow
+		default: defaultFlexboxProps.grow
 	},
 	shrink: {
 		type: 'enum',
 		values: Shrinks,
-		default: defaultPropsFlexbox.shrink
+		default: defaultFlexboxProps.shrink
 	}
 };

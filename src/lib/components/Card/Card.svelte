@@ -1,66 +1,32 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsCard, type PropsCard } from './Card.props';
+	import { defaultCardProps } from './Card.props';
+	import type { CardProps } from './Card.types';
 
-	type $$Props = PropsCard;
-	export let elementRef: $$Props['elementRef'] = defaultPropsCard.elementRef;
-	export let as: $$Props['as'] = defaultPropsCard.as;
-	export let size: $$Props['size'] = defaultPropsCard.size;
-	export let noPadding: $$Props['noPadding'] = defaultPropsCard.noPadding;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = CardProps;
+	export let elementRef: $$Props['elementRef'] = defaultCardProps.elementRef;
+	export let size: $$Props['size'] = defaultCardProps.size;
+	export let noPadding: $$Props['noPadding'] = defaultCardProps.noPadding;
 
-	$: cssClass = clsx(_class, 'Card', {
+	$: cssClass = clsx($$restProps.class, 'Card', {
 		[`Card-size-${size}`]: size,
-		'Card-no-padding': noPadding,
-		'Card-as-button': as === 'button',
-		'Card-as-label': as === 'label'
+		'Card-no-padding': noPadding
 	});
-
-	$: attributesButton =
-		as === 'button'
-			? {
-					role: 'button',
-					tabindex: 0
-				}
-			: {};
-
-	$: attributes = {
-		class: cssClass,
-		style,
-		...attributesButton,
-		...restProps
-	};
 </script>
 
-<svelte:element this={as} bind:this={elementRef} {...attributes}>
-	{#if $$slots.header}
-		<header>
-			<slot name="header" />
-		</header>
-	{/if}
+<div {...$$restProps} class={cssClass} style={$$restProps.style} bind:this={elementRef}>
+	<slot />
+</div>
 
-	{#if $$slots.default}
-		<div class="content">
-			<slot />
-		</div>
-	{/if}
-
-	{#if $$slots.footer}
-		<footer>
-			<slot name="footer" />
-		</footer>
-	{/if}
-	<div class="Card-highlight" />
-</svelte:element>
-
-<style lang="scss" global>
+<style lang="scss">
 	.Card {
 		padding: var(--card-padding);
 		border-radius: var(--card-border-radius);
-		background-color: var(--background-level-1);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-4);
+		background-color: var(--background-level-2);
+		border: 1px solid var(--gray-5);
+		// display: flex;
+		// flex-direction: column;
+		// gap: var(--space-4);
 		position: relative;
 		overflow: visible;
 
@@ -126,12 +92,12 @@
 					@include input-box-shadow-focus;
 				}
 				/* input[type='checkbox'],
-				input[type='radio'] {
-					&:focus-visible ~ .Checkbox-indicator {
-						border: 5px solid green;
-						@include input-box-shadow;
-					}
-				} */
+            input[type='radio'] {
+                &:focus-visible ~ .Checkbox-indicator {
+                    border: 5px solid green;
+                    @include input-box-shadow;
+                }
+            } */
 			}
 
 			&:active {
@@ -139,11 +105,11 @@
 					@include input-box-shadow-focus;
 				}
 				/* input[type='checkbox'],
-				input[type='radio'] {
-					&:focus-visible ~ .Checkbox-indicator {
-						@include input-box-shadow;
-					}
-				} */
+                input[type='radio'] {
+                    &:focus-visible ~ .Checkbox-indicator {
+                        @include input-box-shadow;
+                    }
+                } */
 			}
 		}
 	}

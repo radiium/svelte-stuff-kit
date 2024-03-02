@@ -1,33 +1,36 @@
-import { Sizes1To3, Colors } from '$lib/types';
-import type { HTMLInputAttributes } from 'svelte/elements';
+import { Colors, Sizes1To3 } from '$lib/constants';
+import type { CheckboxProps } from './Chekbox.types';
 
-export interface PropsCheckbox extends Omit<HTMLInputAttributes, 'size'> {
-	elementRef?: HTMLInputElement;
-	size?: (typeof Sizes1To3)[number];
-	color?: (typeof Colors)[number];
-	error?: boolean;
-}
-
-export const defaultPropsCheckbox: PropsCheckbox = {
+export const defaultCheckboxProps: CheckboxProps = {
 	elementRef: undefined,
+	checked: false,
+	indeterminate: false,
 	size: '2',
 	color: 'neutral',
 	error: false
 };
 
-export const docPropsCheckbox = {
+export const docCheckboxProps = {
+	checked: {
+		type: 'boolean',
+		default: defaultCheckboxProps.checked
+	},
+	indeterminate: {
+		type: 'boolean',
+		default: defaultCheckboxProps.indeterminate
+	},
 	size: {
 		type: 'enum',
 		values: Sizes1To3,
-		default: defaultPropsCheckbox.size
+		default: defaultCheckboxProps.size
 	},
 	color: {
 		type: 'enum',
 		values: Colors,
-		default: defaultPropsCheckbox.color
+		default: defaultCheckboxProps.color
 	},
 	error: {
 		type: 'boolean',
-		default: defaultPropsCheckbox.error
+		default: defaultCheckboxProps.error
 	}
 };

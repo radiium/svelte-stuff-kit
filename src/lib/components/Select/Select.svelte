@@ -1,43 +1,63 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsSelect, type PropsSelect } from './Select.props';
+	import { defaultSelectProps } from './Select.props';
+	import type { SelectProps } from './Select.types';
 
-	type $$Props = PropsSelect;
-	export let elementRef: $$Props['elementRef'] = defaultPropsSelect.elementRef;
-	export let options: $$Props['options'] = defaultPropsSelect.options;
-	export let value: $$Props['value'] = defaultPropsSelect.value;
-	export let size: $$Props['size'] = defaultPropsSelect.size;
-	export let fullWidth: $$Props['fullWidth'] = defaultPropsSelect.fullWidth;
-	let { class: _class, style, multiple, ...restProps } = $$restProps;
+	type $$Props = SelectProps;
+	export let elementRef: $$Props['elementRef'] = defaultSelectProps.elementRef;
+	export let options: $$Props['options'] = defaultSelectProps.options;
+	export let value: $$Props['value'] = defaultSelectProps.value;
+	export let size: $$Props['size'] = defaultSelectProps.size;
+	export let fullWidth: $$Props['fullWidth'] = defaultSelectProps.fullWidth;
 
-	$: cssClass = clsx(_class, `Select`, {
+	$: cssClass = clsx($$restProps.class, `Select`, {
 		[`Select-size-${size}`]: size,
 		'Select-full-width': fullWidth
 	});
-
-	$: attributes = {
-		class: cssClass,
-		style,
-		multiple,
-		size: multiple ? 4 : undefined,
-		...restProps
-	};
 </script>
 
-{#if multiple}
+{#if $$restProps.multiple}
 	<!-- Select Multiple -->
-	<select bind:this={elementRef} bind:value {...attributes} on:input on:change on:focus on:blur>
-		{#each options as option, index}
+	<select
+		size={4}
+		{...$$restProps}
+		multiple
+		data-size={size}
+		class={cssClass}
+		style={$$restProps.style}
+		bind:this={elementRef}
+		bind:value
+		on:input
+		on:change
+		on:focus
+		on:blur
+		on:keydown
+		on:keypress
+		on:keyup
+	>
+		{#each options as option}
 			<option value={option.value}>
-				<slot {index} {option}>
-					{option.label}
-				</slot>
+				{option.label}
 			</option>
 		{/each}
 	</select>
 {:else}
 	<!-- Select Single -->
-	<select bind:this={elementRef} bind:value {...attributes} on:input on:change on:focus on:blur>
+	<select
+		{...$$restProps}
+		data-size={size}
+		class={cssClass}
+		style={$$restProps.style}
+		bind:this={elementRef}
+		bind:value
+		on:input
+		on:change
+		on:focus
+		on:blur
+		on:keydown
+		on:keypress
+		on:keyup
+	>
 		{#if !value}
 			<option value="" disabled selected>-- Select an option --</option>
 		{/if}
@@ -55,7 +75,7 @@
  -->
 
 <style lang="scss">
-	select.Select {
+	.Select {
 		border: none;
 		border-radius: var(--radius-3);
 		box-shadow: inset 0 0 0 1px var(--gray-8);
@@ -68,7 +88,7 @@
 
 		&[multiple] {
 			height: auto !important;
-			padding: 0;
+			padding: 0 !important;
 
 			option {
 				position: relative;

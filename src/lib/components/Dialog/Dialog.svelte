@@ -1,20 +1,20 @@
 <script context="module" lang="ts">
-	let allModal: HTMLDivElement[] = [];
+	let allDialog: HTMLDivElement[] = [];
 
-	const addModal = (modal: HTMLDivElement) => {
-		if (modal) {
-			allModal.push(modal);
+	const addDialog = (dialog: HTMLDivElement) => {
+		if (dialog) {
+			allDialog.push(dialog);
 		}
 	};
 
-	const removeModal = (modal: HTMLDivElement) => {
-		if (modal) {
-			allModal = allModal.filter((m: HTMLDivElement) => m !== modal);
+	const removeDialog = (dialog: HTMLDivElement) => {
+		if (dialog) {
+			allDialog = allDialog.filter((m: HTMLDivElement) => m !== dialog);
 		}
 	};
 
-	const lastModal = () => {
-		return allModal && allModal.length > 0 ? allModal[allModal.length - 1] : undefined;
+	const lastDialog = () => {
+		return allDialog && allDialog.length > 0 ? allDialog[allDialog.length - 1] : undefined;
 	};
 </script>
 
@@ -25,27 +25,27 @@
 	import { focusTrap } from '../../actions/focus-trap';
 	import { clsx } from '../../utils/clsx';
 	import Button from '../Button/Button.svelte';
-	import { defaultPropsModal, type PropsModal } from './Modal.props';
+	import { defaultDialogProps } from './Dialog.props';
+	import type { DialogProps } from './Dialog.types';
 
-	export let isOpen: PropsModal['isOpen'] = defaultPropsModal.isOpen;
-	export let size: PropsModal['size'] = defaultPropsModal.size;
-	export let closeOnBackdropClick: PropsModal['closeOnBackdropClick'] =
-		defaultPropsModal.closeOnBackdropClick;
-	export let closeOnEscape: PropsModal['closeOnEscape'] = defaultPropsModal.closeOnEscape;
-	export let showCloseButton: PropsModal['showCloseButton'] = defaultPropsModal.showCloseButton;
-	export let blockScroll: PropsModal['blockScroll'] = defaultPropsModal.blockScroll;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = DialogProps;
+	export let isOpen: $$Props['isOpen'] = defaultDialogProps.isOpen;
+	export let size: $$Props['size'] = defaultDialogProps.size;
+	export let closeOnBackdropClick: $$Props['closeOnBackdropClick'] = defaultDialogProps.closeOnBackdropClick;
+	export let closeOnEscape: $$Props['closeOnEscape'] = defaultDialogProps.closeOnEscape;
+	export let showCloseButton: $$Props['showCloseButton'] = defaultDialogProps.showCloseButton;
+	export let blockScroll: $$Props['blockScroll'] = defaultDialogProps.blockScroll;
 
-	let modalRef: HTMLDivElement;
+	let dialogRef: HTMLDivElement;
 
 	$: {
 		if (isOpen) {
-			addModal(modalRef);
+			addDialog(dialogRef);
 			if (blockScroll) {
 				disableScroll();
 			}
 		} else {
-			removeModal(modalRef);
+			removeDialog(dialogRef);
 			if (blockScroll) {
 				enableScroll();
 			}
@@ -61,17 +61,17 @@
 	};
 
 	const open = () => {
-		console.log('[Modal] open');
+		console.log('[Dialog] open');
 		isOpen = true;
 	};
 
 	const close = () => {
-		console.log('[Modal] close');
+		console.log('[Dialog] close');
 		isOpen = false;
 	};
 
 	const onBackdropClick = () => {
-		console.log('[Modal] onClickBackdrop');
+		console.log('[Dialog] onClickBackdrop');
 		if (closeOnBackdropClick) {
 			close();
 		}
@@ -99,16 +99,18 @@
 		}
 	}
 
-	$: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
+	$: cssClass = clsx($$restProps.class, `Dialog`, {
+		[`Dialog-size-${size}`]: size
+	});
 </script>
 
 <svelte:window on:keydown={handlekeydown} />
 
 {#if isOpen}
-	<div class={cssClass} bind:this={modalRef} id={modalRef?.id}>
+	<div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
 		<div
 			role="button"
-			class="backdrop"
+			class="Dialog-backdrop"
 			tabindex="-1"
 			on:click={onBackdropClick}
 			on:keydown={handlekeydown}
@@ -118,16 +120,16 @@
 		/>
 
 		<div
+			style={$$restProps.style}
 			role="dialog"
-			class="content-wrapper"
-			aria-modal="true"
+			class="Dialog-content"
 			active={isOpen}
+			use:focusTrap
 			transition:scale={{
 				start: 0.9,
 				duration: 200,
 				opacity: 0
 			}}
-			use:focusTrap
 		>
 			{#if showCloseButton}
 				<Button
@@ -135,7 +137,7 @@
 					circle
 					variant="clear"
 					size="1"
-					class="modal-close-btn"
+					class="Dialog-close-btn"
 					on:click={() => (isOpen = false)}
 				>
 					<X />
@@ -164,7 +166,7 @@
 {/if}
 
 <style lang="scss">
-	.modal-wrapper {
+	.Dialog {
 		z-index: 10000;
 		position: fixed;
 		overflow: auto;
@@ -176,7 +178,7 @@
 		align-items: center;
 		justify-content: center;
 
-		.backdrop {
+		.Dialog-backdrop {
 			z-index: 10001;
 			position: fixed;
 			overflow: hidden;
@@ -189,15 +191,15 @@
 			background: rgba(0, 0, 0, 0.4);
 		}
 
-		.content-wrapper {
+		.Dialog-content {
 			z-index: 10002;
 			min-width: 30rem;
 			max-width: 72vw;
 			position: relative;
 			color: var(--color);
 			background: var(--background-level-0);
-			border-radius: var(--modal-border-radius);
-			padding: var(--modal-padding);
+			border-radius: var(--dialog-border-radius);
+			padding: var(--dialog-padding);
 			margin: var(--space-8) auto;
 			display: flex;
 			flex-direction: column;
@@ -225,28 +227,28 @@
 			}
 		}
 
-		:global(.modal-close-btn) {
+		:global(.Dialog-close-btn) {
 			position: absolute;
 			top: var(--space-2);
 			right: var(--space-2);
 		}
 
 		// Sizes
-		&.modal-size-1 {
-			--modal-padding: var(--space-3);
-			--modal-border-radius: var(--radius-4);
+		&.Dialog-size-1 {
+			--dialog-padding: var(--space-3);
+			--dialog-border-radius: var(--radius-4);
 		}
-		&.modal-size-2 {
-			--modal-padding: var(--space-4);
-			--modal-border-radius: var(--radius-4);
+		&.Dialog-size-2 {
+			--dialog-padding: var(--space-4);
+			--dialog-border-radius: var(--radius-4);
 		}
-		&.modal-size-3 {
-			--modal-padding: var(--space-5);
-			--modal-border-radius: var(--radius-5);
+		&.Dialog-size-3 {
+			--dialog-padding: var(--space-5);
+			--dialog-border-radius: var(--radius-5);
 		}
-		&.modal-size-4 {
-			--modal-padding: var(--space-6);
-			--modal-border-radius: var(--radius-5);
+		&.Dialog-size-4 {
+			--dialog-padding: var(--space-6);
+			--dialog-border-radius: var(--radius-5);
 		}
 	}
 </style>

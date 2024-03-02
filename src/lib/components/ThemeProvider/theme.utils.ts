@@ -6,7 +6,7 @@ import {
 	type ThemeSchemeType,
 	type ThemeStrategyType,
 	type ThemeContext
-} from './ThemeProvider.props';
+} from './ThemeProvider.types';
 
 export const THEME_CONTEXT_KEY: string = 'THEME_CONTEXT';
 export const THEME_STORAGE_KEY: string = 'THEME_STATE';

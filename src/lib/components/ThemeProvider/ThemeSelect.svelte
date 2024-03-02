@@ -6,7 +6,7 @@
 	import Popover from '../Popover/Popover.svelte';
 	import Button from '../Button/Button.svelte';
 	import Flexbox from '../Flexbox/Flexbox.svelte';
-	import { ThemeStrategy } from './ThemeProvider.props';
+	import { ThemeStrategy } from './ThemeProvider.types';
 
 	const themeContext = useThemeContext();
 	const { strategy, updateStrategy = () => {} } = themeContext;

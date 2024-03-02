@@ -1,34 +1,35 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsText, type PropsText } from './Text.props';
+	import { defaultTextProps } from './Text.props';
+	import type { TextProps } from './Text.types';
 
-	type $$Props = PropsText;
-	export let elementRef: $$Props['elementRef'] = defaultPropsText.elementRef;
-	export let as: $$Props['as'] = defaultPropsText.as;
-	export let color: $$Props['color'] = defaultPropsText.color;
-	export let size: $$Props['size'] = defaultPropsText.size;
-	export let weight: $$Props['weight'] = defaultPropsText.weight;
-	export let align: $$Props['align'] = defaultPropsText.align;
-	export let disabled: $$Props['disabled'] = defaultPropsText.disabled;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = TextProps;
+	export let elementRef: $$Props['elementRef'] = defaultTextProps.elementRef;
+	export let as: $$Props['as'] = defaultTextProps.as;
+	export let color: $$Props['color'] = defaultTextProps.color;
+	export let size: $$Props['size'] = defaultTextProps.size;
+	export let weight: $$Props['weight'] = defaultTextProps.weight;
+	export let align: $$Props['align'] = defaultTextProps.align;
+	export let disabled: $$Props['disabled'] = defaultTextProps.disabled;
 
-	$: cssClass = clsx(_class, 'Text', {
+	$: cssClass = clsx($$restProps.class, 'Text', {
 		[`Text-size-${size}`]: size,
 		[`Text-weight-${weight}`]: weight,
 		[`Text-align-${align}`]: align,
 		[`Text-color-${color}`]: color,
 		'Text-disabled': disabled
 	});
-
-	$: attributes = {
-		'data-color': color,
-		class: cssClass,
-		style,
-		...restProps
-	};
 </script>
 
-<svelte:element this={as} bind:this={elementRef} {...attributes}>
+<svelte:element
+	this={as}
+	{...$$restProps}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+>
 	<slot />
 </svelte:element>
 

@@ -1,32 +1,30 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsTextarea, type PropsTextarea } from './Textarea.props';
+	import { defaultTextareaProps } from './Textarea.props';
+	import type { TextareaProps } from './Textarea.types';
 
-	export let elementRef: PropsTextarea['elementRef'] = defaultPropsTextarea.elementRef;
-	export let value: PropsTextarea['value'] = defaultPropsTextarea.value;
-	export let size: PropsTextarea['size'] = defaultPropsTextarea.size;
-	export let color: PropsTextarea['color'] = defaultPropsTextarea.color;
-	export let error: PropsTextarea['error'] = defaultPropsTextarea.error;
-	export let fullWidth: PropsTextarea['fullWidth'] = defaultPropsTextarea.fullWidth;
-	let { class: _class, style, ...restProps } = $$restProps;
+	type $$Props = TextareaProps;
+	export let elementRef: $$Props['elementRef'] = defaultTextareaProps.elementRef;
+	export let value: $$Props['value'] = defaultTextareaProps.value;
+	export let size: $$Props['size'] = defaultTextareaProps.size;
+	export let color: $$Props['color'] = defaultTextareaProps.color;
+	export let error: $$Props['error'] = defaultTextareaProps.error;
+	export let fullWidth: $$Props['fullWidth'] = defaultTextareaProps.fullWidth;
 
-	$: cssClass = clsx(_class, 'Textarea', {
+	$: cssClass = clsx($$restProps.class, 'Textarea', {
 		[`Textarea-color-${color}`]: color,
 		[`Textarea-size-${size}`]: size,
 		'Textarea-error': error,
 		'Textarea-full-width': fullWidth
 	});
-
-	$: attributes = {
-		class: cssClass,
-		style,
-		spellcheck: false,
-		rows: 3,
-		...restProps
-	};
 </script>
 
 <textarea
+	rows={3}
+	spellcheck={false}
+	{...$$restProps}
+	class={cssClass}
+	style={$$restProps.style}
 	bind:this={elementRef}
 	bind:value
 	on:input
@@ -36,7 +34,6 @@
 	on:keydown
 	on:keypress
 	on:keyup
-	{...attributes}
 />
 
 <style lang="scss">

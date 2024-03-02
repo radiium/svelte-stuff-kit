@@ -1,89 +1,97 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultPropsRadioButton, type PropsRadioButton } from './RadioButton.props';
+	import { defaultRadioButtonProps } from './RadioButton.props';
+	import type { RadioButtonProps } from './RadioButton.types';
 
-	export let elementRef: PropsRadioButton['elementRef'] = defaultPropsRadioButton.elementRef;
-	export let group: PropsRadioButton['group'] = defaultPropsRadioButton.group;
-	export let size: PropsRadioButton['size'] = defaultPropsRadioButton.size;
-	export let color: PropsRadioButton['color'] = defaultPropsRadioButton.color;
-	export let error: PropsRadioButton['error'] = defaultPropsRadioButton.error;
-	let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
+	type $$Props = RadioButtonProps;
+	export let elementRef: $$Props['elementRef'] = defaultRadioButtonProps.elementRef;
+	export let group: $$Props['group'] = defaultRadioButtonProps.group;
+	export let size: $$Props['size'] = defaultRadioButtonProps.size;
+	export let color: $$Props['color'] = defaultRadioButtonProps.color;
+	export let error: $$Props['error'] = defaultRadioButtonProps.error;
 
-	$: cssClass = clsx(_class, 'RadioButton', {
+	$: cssClass = clsx($$restProps.class, 'RadioButton', {
 		[`RadioButton-size-${size}`]: size,
 		[`RadioButton-color-${color}`]: color,
 		'RadioButton-error': error
 	});
 </script>
 
-<div
-	{style}
-	class={cssClass}
-	data-radio
+<input
+	{...$$restProps}
 	data-color={color}
-	data-checked={checked || undefined}
-	data-required={required || undefined}
-	data-disabled={disabled || undefined}
->
-	<input
-		type="radio"
-		autocomplete="off"
-		{value}
-		{checked}
-		{required}
-		{disabled}
-		{...restProps}
-		bind:this={elementRef}
-		bind:group
-		on:input
-		on:change
-		on:focus
-		on:blur
-	/>
-	<span class="RadioButton-indicator" />
-</div>
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	type="radio"
+	bind:this={elementRef}
+	bind:group
+	on:input
+	on:change
+	on:focus
+	on:blur
+	on:keydown
+	on:keypress
+	on:keyup
+/>
 
 <style lang="scss">
 	.RadioButton {
+		-webkit-appearance: none;
+		appearance: none;
+		outline: none;
+		border: none;
 		position: relative;
 		width: var(--radio-size);
 		height: var(--radio-size);
+		background: var(--radio--background);
+		box-shadow: inset 0 0 0 1px var(--gray-8);
+		border-radius: 100%;
+		pointer-events: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition:
+			background-color ease 0.2s,
+			box-shadow ease 0.2s;
 
-		input {
+		&:after {
 			width: var(--radio-size);
 			height: var(--radio-size);
-			opacity: 0;
-			margin: 0;
+			content: '';
+			transform: scale(0.4);
+			position: absolute;
+			border-radius: 100%;
+			background-color: transparent;
+			transition: background-color ease 0.2s;
 		}
 
-		.RadioButton-indicator {
-			position: absolute;
-			transform: translateY(-50%);
-			top: 50%;
-			left: 0;
-			height: var(--radio-size);
-			width: var(--radio-size);
-			background: var(--radio--background);
-			box-shadow: inset 0 0 0 1px var(--gray-8);
-			border-radius: 100%;
-			pointer-events: none;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			transition:
-				background-color ease 0.2s,
-				box-shadow ease 0.2s;
+		// States
+		&[data-checked] {
+			background-color: var(--checkbox-background-checked);
+			box-shadow: none;
 
 			&:after {
-				content: '';
-				height: 100%;
-				width: 100%;
-				transform: scale(0.4);
-				position: absolute;
-				border-radius: 100%;
-				background-color: transparent;
-				transition: background-color ease 0.2s;
+				display: block;
 			}
+		}
+
+		&[disabled] {
+			@include disabled;
+		}
+		&:checked {
+			background-color: var(--radio-background-checked);
+			box-shadow: none;
+
+			&:after {
+				background-color: var(--check-color);
+			}
+		}
+		&:focus {
+			@include input-box-shadow-focus;
+		}
+		&:focus-visible {
+			@include input-box-shadow-focus;
 		}
 
 		// Colors
@@ -108,39 +116,7 @@
 			--check-height: calc(var(--radio-size) / 2.5);
 		}
 
-		// States
-		&[data-checked] {
-			.Checkbox-indicator {
-				background-color: var(--checkbox-background-checked);
-				box-shadow: none;
-
-				&:after {
-					display: block;
-				}
-			}
-		}
-
-		&[data-disabled] {
-			@include disabled;
-		}
-		&:focus {
-			.RadioButton-indicator {
-				@include input-box-shadow-focus;
-			}
-		}
 		input {
-			&:checked ~ .RadioButton-indicator {
-				background-color: var(--radio-background-checked);
-				box-shadow: none;
-
-				&:after {
-					background-color: var(--check-color);
-				}
-			}
-
-			&:focus-visible ~ .RadioButton-indicator {
-				@include input-box-shadow-focus;
-			}
 		}
 	}
 </style>

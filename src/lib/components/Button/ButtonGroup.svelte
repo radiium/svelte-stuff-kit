@@ -5,21 +5,12 @@
 	import { ButtonGroupContextKey } from './Button.props';
 
 	type $$Props = HTMLAttributes<HTMLDivElement>;
-
-	let { class: _class, style, ...restProps } = $$restProps;
-
-	$: cssClass = clsx(_class, `ButtonGroup`);
-	$: attributes = {
-		class: cssClass,
-		style,
-		role: 'group',
-		...restProps
-	};
+	$: cssClass = clsx($$restProps.class, `ButtonGroup`);
 
 	setContext(ButtonGroupContextKey, true);
 </script>
 
-<div {...attributes}>
+<div {...$$restProps} role="group" class={cssClass} style={$$restProps.style}>
 	<slot />
 </div>
 

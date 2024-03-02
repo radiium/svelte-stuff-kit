@@ -4,15 +4,11 @@
 
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import {
-		type PropsAccordionItem,
-		defaultPropsAccordionItem,
-		type AccordionGroupContext,
-		contextKeyAccordionGroup
-	} from './Accordion.props';
+	import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props';
+	import type { AccordionGroupContext, AccordionItemProps } from './Accordion.types';
 
-	type $$Props = PropsAccordionItem;
-	export let isOpen: $$Props['isOpen'] = defaultPropsAccordionItem.isOpen;
+	type $$Props = AccordionItemProps;
+	export let isOpen: $$Props['isOpen'] = defaultAccordionItemProps.isOpen;
 
 	const accordionStore = {
 		key: Symbol('accordion-' + id++),
