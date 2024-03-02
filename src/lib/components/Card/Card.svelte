@@ -30,35 +30,6 @@
 		position: relative;
 		overflow: visible;
 
-		header {
-			width: 100%;
-		}
-
-		.content {
-			height: auto;
-			flex: 1 1 auto;
-		}
-
-		footer {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-			gap: var(--space-3);
-		}
-
-		.Card-highlight {
-			z-index: 0;
-			position: absolute;
-			inset: 0 0 0 0;
-			height: 100%;
-			width: 100%;
-			z-index: 0;
-			border-radius: var(--card-border-radius);
-			box-shadow: inset 0 0 0 1px var(--gray-8);
-			pointer-events: none;
-		}
-
 		// Sizes
 		&.Card-size-1 {
 			--card-padding: var(--space-3);
@@ -83,34 +54,6 @@
 
 		&.Card-no-padding {
 			--card-padding: 0;
-		}
-
-		&.Card-as-label,
-		&.Card-as-button {
-			&:focus-within {
-				.Card-highlight {
-					@include input-box-shadow-focus;
-				}
-				/* input[type='checkbox'],
-            input[type='radio'] {
-                &:focus-visible ~ .Checkbox-indicator {
-                    border: 5px solid green;
-                    @include input-box-shadow;
-                }
-            } */
-			}
-
-			&:active {
-				.Card-highlight {
-					@include input-box-shadow-focus;
-				}
-				/* input[type='checkbox'],
-                input[type='radio'] {
-                    &:focus-visible ~ .Checkbox-indicator {
-                        @include input-box-shadow;
-                    }
-                } */
-			}
 		}
 	}
 </style>
