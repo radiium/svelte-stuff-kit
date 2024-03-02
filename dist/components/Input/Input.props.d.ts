@@ -1,16 +1,6 @@
-import { InputTypes, Sizes1To3, Aligns } from '../../types';
-import type { HTMLInputAttributes } from 'svelte/elements';
-export interface PropsInput extends Omit<HTMLInputAttributes, 'size' | 'align'> {
-    elementRef?: HTMLInputElement;
-    value?: string;
-    type?: (typeof InputTypes)[number];
-    size?: (typeof Sizes1To3)[number];
-    align?: (typeof Aligns)[number];
-    error?: boolean;
-    fullWidth?: boolean;
-}
-export declare const defaultPropsInput: PropsInput;
-export declare const docPropsInput: {
+import type { InputProps } from './Input.types';
+export declare const defaultInputProps: InputProps;
+export declare const docInputProps: {
     value: {
         type: string;
         default: string | undefined;
@@ -18,7 +8,7 @@ export declare const docPropsInput: {
     type: {
         type: string;
         values: readonly ["number", "time", "text", "search", "password", "email", "tel", "url", "date", "datetime-local", "month", "week"];
-        default: "number" | "search" | "time" | "text" | "password" | "email" | "tel" | "url" | "date" | "datetime-local" | "month" | "week" | undefined;
+        default: "number" | "time" | "text" | "search" | "password" | "email" | "tel" | "url" | "date" | "datetime-local" | "month" | "week" | undefined;
     };
     size: {
         type: string;
@@ -28,7 +18,7 @@ export declare const docPropsInput: {
     align: {
         type: string;
         values: readonly ["start", "center", "end"];
-        default: "center" | "start" | "end" | undefined;
+        default: "start" | "center" | "end" | undefined;
     };
     error: {
         type: string;

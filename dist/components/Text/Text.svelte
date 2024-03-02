@@ -1,29 +1,30 @@
 <script>import { clsx } from '../../utils/clsx';
-import { defaultPropsText } from './Text.props';
-export let elementRef = defaultPropsText.elementRef;
-export let as = defaultPropsText.as;
-export let color = defaultPropsText.color;
-export let size = defaultPropsText.size;
-export let weight = defaultPropsText.weight;
-export let align = defaultPropsText.align;
-export let disabled = defaultPropsText.disabled;
-let { class: _class, style, ...restProps } = $$restProps;
-$: cssClass = clsx(_class, 'Text', {
+import { defaultTextProps } from './Text.props';
+export let elementRef = defaultTextProps.elementRef;
+export let as = defaultTextProps.as;
+export let color = defaultTextProps.color;
+export let size = defaultTextProps.size;
+export let weight = defaultTextProps.weight;
+export let align = defaultTextProps.align;
+export let disabled = defaultTextProps.disabled;
+$: cssClass = clsx($$restProps.class, 'Text', {
     [`Text-size-${size}`]: size,
     [`Text-weight-${weight}`]: weight,
     [`Text-align-${align}`]: align,
     [`Text-color-${color}`]: color,
     'Text-disabled': disabled
 });
-$: attributes = {
-    'data-color': color,
-    class: cssClass,
-    style,
-    ...restProps
-};
 </script>
 
-<svelte:element this={as} bind:this={elementRef} {...attributes}>
+<svelte:element
+	this={as}
+	{...$$restProps}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+>
 	<slot />
 </svelte:element>
 

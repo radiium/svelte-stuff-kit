@@ -1,18 +1,11 @@
 <script>import { clsx } from '../../utils/clsx';
 import { setContext } from 'svelte';
 import { ButtonGroupContextKey } from './Button.props';
-let { class: _class, style, ...restProps } = $$restProps;
-$: cssClass = clsx(_class, `ButtonGroup`);
-$: attributes = {
-    class: cssClass,
-    style,
-    role: 'group',
-    ...restProps
-};
+$: cssClass = clsx($$restProps.class, `ButtonGroup`);
 setContext(ButtonGroupContextKey, true);
 </script>
 
-<div {...attributes}>
+<div {...$$restProps} role="group" class={cssClass} style={$$restProps.style}>
 	<slot />
 </div>
 

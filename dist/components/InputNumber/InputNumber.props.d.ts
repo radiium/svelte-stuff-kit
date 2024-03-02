@@ -1,18 +1,6 @@
-import { Sizes1To3, Colors } from '../../types';
-export interface PropsInputNumber {
-    elementRef?: HTMLInputElement;
-    value?: number;
-    step?: number;
-    min?: number;
-    max?: number;
-    size?: (typeof Sizes1To3)[number];
-    color?: (typeof Colors)[number];
-    disabled?: boolean;
-    required?: boolean;
-    readonly?: boolean;
-}
-export declare const defaultPropsInputNumber: PropsInputNumber;
-export declare const docPropsInputNumber: {
+import type { InputNumberProps } from './InputNumber.types';
+export declare const defaultInputNumberProps: InputNumberProps;
+export declare const docInputNumberProps: {
     value: {
         type: string;
         default: number | undefined;
@@ -36,8 +24,8 @@ export declare const docPropsInputNumber: {
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     };
     disabled: {
         type: string;

@@ -1,8 +1,7 @@
 import { SvelteComponent } from "svelte";
-import type { PropsButtonIcon } from './Button.props';
-import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { ButtonIconProps } from './Button.types';
 declare const __propDef: {
-    props: PropsButtonIcon & HTMLButtonAttributes;
+    props: ButtonIconProps;
     events: {
         click: MouseEvent;
         submit: SubmitEvent;
@@ -15,9 +14,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type ButtonIconProps = typeof __propDef.props;
+type ButtonIconProps_ = typeof __propDef.props;
+export { ButtonIconProps_ as ButtonIconProps };
 export type ButtonIconEvents = typeof __propDef.events;
 export type ButtonIconSlots = typeof __propDef.slots;
-export default class ButtonIcon extends SvelteComponent<ButtonIconProps, ButtonIconEvents, ButtonIconSlots> {
+export default class ButtonIcon extends SvelteComponent<ButtonIconProps_, ButtonIconEvents, ButtonIconSlots> {
 }
-export {};

@@ -1,27 +1,23 @@
 import { SvelteComponent } from "svelte";
-import { type PropsInputRange } from './InputRange.props';
+import type { InputRangeProps } from './InputRange.types';
 declare const __propDef: {
-    props: {
-        [x: string]: any;
-        elementRef?: PropsInputRange['elementRef'];
-        size?: PropsInputRange['size'];
-        color?: PropsInputRange['color'];
-        error?: PropsInputRange['error'];
-        fullWidth?: PropsInputRange['fullWidth'];
-    };
+    props: InputRangeProps;
     events: {
         input: Event;
         change: Event;
         focus: FocusEvent;
         blur: FocusEvent;
+        keydown: KeyboardEvent;
+        keypress: KeyboardEvent;
+        keyup: KeyboardEvent;
     } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
 };
-export type InputRangeProps = typeof __propDef.props;
+type InputRangeProps_ = typeof __propDef.props;
+export { InputRangeProps_ as InputRangeProps };
 export type InputRangeEvents = typeof __propDef.events;
 export type InputRangeSlots = typeof __propDef.slots;
-export default class InputRange extends SvelteComponent<InputRangeProps, InputRangeEvents, InputRangeSlots> {
+export default class InputRange extends SvelteComponent<InputRangeProps_, InputRangeEvents, InputRangeSlots> {
 }
-export {};

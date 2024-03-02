@@ -1,24 +1,14 @@
-import type { HTMLAttributes, HTMLLabelAttributes } from 'svelte/elements';
-import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '../../types';
-export type PropsText = (HTMLAttributes<HTMLSpanElement> | HTMLAttributes<HTMLDivElement> | HTMLAttributes<HTMLParagraphElement> | HTMLLabelAttributes) & {
-    elementRef?: HTMLSpanElement | HTMLDivElement | HTMLParagraphElement | HTMLLabelElement;
-    as?: (typeof TextTags)[number];
-    color?: (typeof Colors)[number];
-    size?: (typeof Sizes1To9)[number];
-    weight?: (typeof Weights)[number];
-    align?: (typeof Aligns)[number];
-    disabled?: boolean;
-};
-export declare const defaultPropsText: PropsText;
-export declare const docPropsText: {
+import type { TextProps } from './Text.types';
+export declare const defaultTextProps: TextProps;
+export declare const docTextProps: {
     as: {
         type: string;
-        default: "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span" | undefined;
+        default: "p" | "div" | "span" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     };
     size: {
         type: string;
@@ -33,6 +23,6 @@ export declare const docPropsText: {
     align: {
         type: string;
         values: readonly ["start", "center", "end"];
-        default: "center" | "start" | "end" | undefined;
+        default: "start" | "center" | "end" | undefined;
     };
 };

@@ -1,5 +1,5 @@
-import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '../../types';
-export const defaultPropsText = {
+import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '../../constants';
+export const defaultTextProps = {
     elementRef: undefined,
     as: 'span',
     color: undefined,
@@ -8,29 +8,29 @@ export const defaultPropsText = {
     align: 'start',
     disabled: false
 };
-export const docPropsText = {
+export const docTextProps = {
     as: {
         type: 'keyof SvelteHTMLElements',
-        default: defaultPropsText.as
+        default: defaultTextProps.as
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsText.color
+        default: defaultTextProps.color
     },
     size: {
         type: 'enum',
         values: Sizes1To9,
-        default: defaultPropsText.size
+        default: defaultTextProps.size
     },
     weight: {
         type: 'enum',
         values: Weights,
-        default: defaultPropsText.weight
+        default: defaultTextProps.weight
     },
     align: {
         type: 'enum',
         values: Aligns,
-        default: defaultPropsText.align
+        default: defaultTextProps.align
     }
 };

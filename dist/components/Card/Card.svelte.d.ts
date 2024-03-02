@@ -1,19 +1,17 @@
 import { SvelteComponent } from "svelte";
-import { type PropsCard } from './Card.props';
+import type { CardProps } from './Card.types';
 declare const __propDef: {
-    props: PropsCard;
+    props: CardProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
-        header: {};
         default: {};
-        footer: {};
     };
 };
-export type CardProps = typeof __propDef.props;
+type CardProps_ = typeof __propDef.props;
+export { CardProps_ as CardProps };
 export type CardEvents = typeof __propDef.events;
 export type CardSlots = typeof __propDef.slots;
-export default class Card extends SvelteComponent<CardProps, CardEvents, CardSlots> {
+export default class Card extends SvelteComponent<CardProps_, CardEvents, CardSlots> {
 }
-export {};

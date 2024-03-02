@@ -1,15 +1,6 @@
-import { Sizes1To3, Colors } from '../../types';
-import type { HTMLTextareaAttributes } from 'svelte/elements';
-export interface PropsTextarea extends Omit<HTMLTextareaAttributes, 'size'> {
-    elementRef?: HTMLTextAreaElement;
-    value?: string;
-    size?: (typeof Sizes1To3)[number];
-    color: (typeof Colors)[number];
-    error?: boolean;
-    fullWidth?: boolean;
-}
-export declare const defaultPropsTextarea: PropsTextarea;
-export declare const docPropsTextarea: {
+import type { TextareaProps } from './Textarea.types';
+export declare const defaultTextareaProps: TextareaProps;
+export declare const docTextareaProps: {
     value: {
         type: string;
         default: string | undefined;
@@ -21,8 +12,8 @@ export declare const docPropsTextarea: {
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger";
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red";
     };
     error: {
         type: string;

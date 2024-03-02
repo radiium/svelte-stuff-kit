@@ -1,10 +1,8 @@
 import { SvelteComponent } from "svelte";
 import '../../style.scss';
-import { type PropsThemeProvider } from './ThemeProvider.props';
+import { type ThemeProviderProps } from './ThemeProvider.types';
 declare const __propDef: {
-    props: {
-        strategy?: PropsThemeProvider['strategy'];
-    };
+    props: ThemeProviderProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -12,9 +10,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type ThemeProviderProps = typeof __propDef.props;
+type ThemeProviderProps_ = typeof __propDef.props;
+export { ThemeProviderProps_ as ThemeProviderProps };
 export type ThemeProviderEvents = typeof __propDef.events;
 export type ThemeProviderSlots = typeof __propDef.slots;
-export default class ThemeProvider extends SvelteComponent<ThemeProviderProps, ThemeProviderEvents, ThemeProviderSlots> {
+export default class ThemeProvider extends SvelteComponent<ThemeProviderProps_, ThemeProviderEvents, ThemeProviderSlots> {
 }
-export {};

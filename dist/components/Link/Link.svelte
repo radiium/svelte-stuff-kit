@@ -1,19 +1,18 @@
 <script>import { clsx } from '../../utils/clsx';
-import { defaultPropsLink } from './Link.props';
-export let elementRef = defaultPropsLink.elementRef;
-export let href = defaultPropsLink.href;
-export let target = defaultPropsLink.target;
-export let rel = defaultPropsLink.rel;
-export let size = defaultPropsLink.size;
-export let variant = defaultPropsLink.variant;
-export let color = defaultPropsLink.color;
-export let align = defaultPropsLink.align;
-export let active = defaultPropsLink.active;
-export let iconOnly = defaultPropsLink.iconOnly;
-export let circle = defaultPropsLink.fullWidth;
-export let fullWidth = defaultPropsLink.fullWidth;
-let { class: _class, style, ...restProps } = $$restProps;
-$: cssClass = clsx(_class, 'Link', {
+import { defaultLinkProps } from './Link.props';
+export let elementRef = defaultLinkProps.elementRef;
+export let href = defaultLinkProps.href;
+export let target = defaultLinkProps.target;
+export let rel = defaultLinkProps.rel;
+export let size = defaultLinkProps.size;
+export let variant = defaultLinkProps.variant;
+export let color = defaultLinkProps.color;
+export let align = defaultLinkProps.align;
+export let active = defaultLinkProps.active;
+export let iconOnly = defaultLinkProps.iconOnly;
+export let circle = defaultLinkProps.fullWidth;
+export let fullWidth = defaultLinkProps.fullWidth;
+$: cssClass = clsx($$restProps.class, 'Link', {
     [`Link-${variant}`]: variant,
     [`Link-size-${size}`]: size,
     [`Link-${color}`]: color,
@@ -23,17 +22,23 @@ $: cssClass = clsx(_class, 'Link', {
     'Link-icon-only': iconOnly,
     'Link-circle': circle
 });
-$: attributes = {
-    'data-color': color,
-    'data-size': size,
-    tabindex: 0,
-    class: cssClass,
-    style,
-    ...restProps
-};
 </script>
 
-<a bind:this={elementRef} {...attributes} {href} {target} {rel} on:click on:focus on:blur>
+<a
+	tabindex="0"
+	{...$$restProps}
+	{href}
+	{target}
+	{rel}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+	on:click
+	on:focus
+	on:blur
+>
 	<slot />
 </a>
 

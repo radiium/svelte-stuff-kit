@@ -45,8 +45,8 @@ export function portal(el, target = 'body') {
 }
 </script>
 
-<script>import { defaultPropsPortal } from './Portal.props';
-export let target = defaultPropsPortal.target;
+<script>import { defaultPortalProps } from './Portal.props';
+export let target = defaultPortalProps.target;
 </script>
 
 <div use:portal={target} hidden>

@@ -1,7 +1,7 @@
 <script context="module">import '../../style.scss';
 import { derived, writable } from 'svelte/store';
 import { prefersColorSchemeDark, resolveStrategy, resolveScheme, resolveSchemeSystem, setThemeStorage, THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.utils';
-import { ThemeStrategy, defaultPropsThemeProvider } from './ThemeProvider.props';
+import { defaultThemeProviderProps } from './ThemeProvider.props';
 const schemeSystemStore = writable(resolveSchemeSystem());
 const onSchemeSystemChange = () => {
     schemeSystemStore.set(resolveSchemeSystem());
@@ -10,7 +10,8 @@ const onSchemeSystemChange = () => {
 
 <script>import { hasContext, onMount, setContext } from 'svelte';
 import { isBrowser } from '../../utils/is-browser';
-export let strategy = defaultPropsThemeProvider.strategy;
+import { ThemeStrategy } from './ThemeProvider.types';
+export let strategy = defaultThemeProviderProps.strategy;
 let isRoot = !hasContext(THEME_CONTEXT_KEY);
 const resolvedStrategy = resolveStrategy(strategy);
 const strategyStore = writable(resolvedStrategy);

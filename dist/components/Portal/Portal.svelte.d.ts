@@ -6,10 +6,9 @@ export declare function portal(el: HTMLElement, target?: HTMLElement | string): 
     update: (newTarget: any) => Promise<void>;
     destroy: () => void;
 };
+import type { PortalProps } from './Portal.types';
 declare const __propDef: {
-    props: {
-        target?: string | HTMLElement | undefined;
-    };
+    props: PortalProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -17,9 +16,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type PortalProps = typeof __propDef.props;
+type PortalProps_ = typeof __propDef.props;
+export { PortalProps_ as PortalProps };
 export type PortalEvents = typeof __propDef.events;
 export type PortalSlots = typeof __propDef.slots;
-export default class Portal extends SvelteComponent<PortalProps, PortalEvents, PortalSlots> {
+export default class Portal extends SvelteComponent<PortalProps_, PortalEvents, PortalSlots> {
 }
-export {};

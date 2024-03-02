@@ -1,14 +1,6 @@
-import { Sizes1To4 } from '../../types';
-export interface PropsModal {
-    isOpen?: boolean;
-    size?: (typeof Sizes1To4)[number];
-    closeOnBackdropClick?: boolean;
-    closeOnEscape?: boolean;
-    showCloseButton?: boolean;
-    blockScroll?: boolean;
-}
-export declare const defaultPropsModal: PropsModal;
-export declare const docPropsModal: {
+import type { DialogProps } from './Dialog.types';
+export declare const defaultDialogProps: DialogProps;
+export declare const docDialogProps: {
     isOpen: {
         type: string;
         default: boolean | undefined;

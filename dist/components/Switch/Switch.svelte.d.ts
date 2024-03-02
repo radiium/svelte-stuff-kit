@@ -1,26 +1,23 @@
 import { SvelteComponent } from "svelte";
-import { type PropsSwitch } from './Switch.props';
+import type { SwitchProps } from './Switch.types';
 declare const __propDef: {
-    props: {
-        [x: string]: any;
-        elementRef?: PropsSwitch['elementRef'];
-        size?: PropsSwitch['size'];
-        color?: PropsSwitch['color'];
-        error?: PropsSwitch['error'];
-    };
+    props: SwitchProps;
     events: {
         input: Event;
         change: Event;
         focus: FocusEvent;
         blur: FocusEvent;
+        keydown: KeyboardEvent;
+        keypress: KeyboardEvent;
+        keyup: KeyboardEvent;
     } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
 };
-export type SwitchProps = typeof __propDef.props;
+type SwitchProps_ = typeof __propDef.props;
+export { SwitchProps_ as SwitchProps };
 export type SwitchEvents = typeof __propDef.events;
 export type SwitchSlots = typeof __propDef.slots;
-export default class Switch extends SvelteComponent<SwitchProps, SwitchEvents, SwitchSlots> {
+export default class Switch extends SvelteComponent<SwitchProps_, SwitchEvents, SwitchSlots> {
 }
-export {};

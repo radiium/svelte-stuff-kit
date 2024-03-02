@@ -1,20 +1,7 @@
-import { Sizes1To4, Variants, Colors, Aligns } from '../../types';
-import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { ButtonProps } from './Button.types';
 export declare const ButtonGroupContextKey = "ButtonGroupContextKey";
-export interface PropsButton extends Omit<HTMLButtonAttributes, 'size'> {
-    elementRef?: HTMLButtonElement;
-    size?: (typeof Sizes1To4)[number];
-    variant?: (typeof Variants)[number];
-    color?: (typeof Colors)[number];
-    align?: (typeof Aligns)[number];
-    active?: boolean;
-    iconOnly?: boolean;
-    circle?: boolean;
-    fullWidth?: boolean;
-}
-export type PropsButtonIcon = Omit<PropsButton, 'iconOnly'>;
-export declare const defaultPropsButton: PropsButton;
-export declare const docPropsButton: {
+export declare const defaultButtonProps: ButtonProps;
+export declare const docButtonProps: {
     size: {
         type: string;
         values: readonly ["1", "2", "3", "4"];
@@ -27,13 +14,13 @@ export declare const docPropsButton: {
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     };
     align: {
         type: string;
         values: readonly ["start", "center", "end"];
-        default: "center" | "start" | "end" | undefined;
+        default: "start" | "center" | "end" | undefined;
     };
     active: {
         type: string;

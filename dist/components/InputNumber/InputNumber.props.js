@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '../../types';
-export const defaultPropsInputNumber = {
+import { Sizes1To3, Colors } from '../../constants';
+export const defaultInputNumberProps = {
     elementRef: undefined,
     value: undefined,
     step: 1,
@@ -11,43 +11,43 @@ export const defaultPropsInputNumber = {
     required: false,
     readonly: false
 };
-export const docPropsInputNumber = {
+export const docInputNumberProps = {
     value: {
         type: 'number',
-        default: defaultPropsInputNumber.value
+        default: defaultInputNumberProps.value
     },
     step: {
         type: 'number',
-        default: defaultPropsInputNumber.step
+        default: defaultInputNumberProps.step
     },
     min: {
         type: 'number',
-        default: defaultPropsInputNumber.min
+        default: defaultInputNumberProps.min
     },
     max: {
         type: 'number',
-        default: defaultPropsInputNumber.max
+        default: defaultInputNumberProps.max
     },
     size: {
         type: 'enum',
         values: Sizes1To3,
-        default: defaultPropsInputNumber.size
+        default: defaultInputNumberProps.size
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsInputNumber.color
+        default: defaultInputNumberProps.color
     },
     disabled: {
         type: 'boolean',
-        default: defaultPropsInputNumber.disabled
+        default: defaultInputNumberProps.disabled
     },
     required: {
         type: 'boolean',
-        default: defaultPropsInputNumber.required
+        default: defaultInputNumberProps.required
     },
     readonly: {
         type: 'boolean',
-        default: defaultPropsInputNumber.readonly
+        default: defaultInputNumberProps.readonly
     }
 };

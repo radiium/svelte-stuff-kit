@@ -1,5 +1,5 @@
-import { Sizes1To4 } from '../../types';
-export const defaultPropsModal = {
+import { Sizes1To4 } from '../../constants';
+export const defaultDialogProps = {
     isOpen: false,
     size: '3',
     closeOnBackdropClick: true,
@@ -7,30 +7,30 @@ export const defaultPropsModal = {
     showCloseButton: true,
     blockScroll: true
 };
-export const docPropsModal = {
+export const docDialogProps = {
     isOpen: {
         type: 'boolean',
-        default: defaultPropsModal.isOpen
+        default: defaultDialogProps.isOpen
     },
     size: {
         type: 'enum',
         values: Sizes1To4,
-        default: defaultPropsModal.size
+        default: defaultDialogProps.size
     },
     closeOnBackdropClick: {
         type: 'boolean',
-        default: defaultPropsModal.closeOnBackdropClick
+        default: defaultDialogProps.closeOnBackdropClick
     },
     closeOnEscape: {
         type: 'boolean',
-        default: defaultPropsModal.closeOnEscape
+        default: defaultDialogProps.closeOnEscape
     },
     showCloseButton: {
         type: 'boolean',
-        default: defaultPropsModal.showCloseButton
+        default: defaultDialogProps.showCloseButton
     },
     blockScroll: {
         type: 'boolean',
-        default: defaultPropsModal.blockScroll
+        default: defaultDialogProps.blockScroll
     }
 };

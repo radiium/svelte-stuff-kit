@@ -1,7 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsFlexbox } from './Flexbox.props';
+import type { FlexboxProps } from './Flexbox.types';
 declare const __propDef: {
-    props: PropsFlexbox;
+    props: FlexboxProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -9,9 +9,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type FlexboxProps = typeof __propDef.props;
+type FlexboxProps_ = typeof __propDef.props;
+export { FlexboxProps_ as FlexboxProps };
 export type FlexboxEvents = typeof __propDef.events;
 export type FlexboxSlots = typeof __propDef.slots;
-export default class Flexbox extends SvelteComponent<FlexboxProps, FlexboxEvents, FlexboxSlots> {
+export default class Flexbox extends SvelteComponent<FlexboxProps_, FlexboxEvents, FlexboxSlots> {
 }
-export {};

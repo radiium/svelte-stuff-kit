@@ -1,17 +1,16 @@
 <script>import { clsx } from '../../utils/clsx';
-import { defaultPropsFlexbox } from './Flexbox.props';
-export let elementRef = defaultPropsFlexbox.elementRef;
-export let as = defaultPropsFlexbox.as;
-export let display = defaultPropsFlexbox.display;
-export let direction = defaultPropsFlexbox.direction;
-export let justify = defaultPropsFlexbox.justify;
-export let alignItems = defaultPropsFlexbox.alignItems;
-export let wrap = defaultPropsFlexbox.wrap;
-export let gap = defaultPropsFlexbox.gap;
-export let grow = defaultPropsFlexbox.grow;
-export let shrink = defaultPropsFlexbox.shrink;
-let { class: _class, style, ...restProps } = $$restProps;
-$: cssClass = clsx(_class, {
+import { defaultFlexboxProps } from './Flexbox.props';
+export let elementRef = defaultFlexboxProps.elementRef;
+export let as = defaultFlexboxProps.as;
+export let display = defaultFlexboxProps.display;
+export let direction = defaultFlexboxProps.direction;
+export let justify = defaultFlexboxProps.justify;
+export let alignItems = defaultFlexboxProps.alignItems;
+export let wrap = defaultFlexboxProps.wrap;
+export let gap = defaultFlexboxProps.gap;
+export let grow = defaultFlexboxProps.grow;
+export let shrink = defaultFlexboxProps.shrink;
+$: cssClass = clsx($$restProps.class, {
     [`display-${display}`]: display,
     [`flex-direction-${direction}`]: direction,
     [`flex-align-items-${alignItems}`]: alignItems,
@@ -21,13 +20,8 @@ $: cssClass = clsx(_class, {
     [`grow-${grow}`]: grow === '0' || grow === '1',
     [`shrink-${shrink}`]: shrink === '0' || shrink === '1'
 });
-$: attributes = {
-    class: cssClass,
-    style,
-    ...restProps
-};
 </script>
 
-<svelte:element this={as} bind:this={elementRef} {...attributes}>
+<svelte:element this={as} {...$$restProps} class={cssClass} style={$$restProps.style} bind:this={elementRef}>
 	<slot />
 </svelte:element>

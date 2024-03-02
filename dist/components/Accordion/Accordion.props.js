@@ -1,19 +1,22 @@
 export const contextKeyAccordionGroup = 'AccordionGroup';
-export const defaultPropsAccordionGroup = {
+export const defaultAccordionGroupProps = {
     multi: false
 };
-export const docPropsAccordionGroup = {
+export const docAccordionGroupProps = {
     multi: {
         type: 'boolean',
-        default: defaultPropsAccordionGroup.multi
+        default: defaultAccordionGroupProps.multi
     }
 };
-export const defaultPropsAccordionItem = {
+/**
+ * PropsAccordionItem
+ */
+export const defaultAccordionItemProps = {
     isOpen: false
 };
-export const docPropsAccordionItem = {
+export const docAccordionItemProps = {
     isOpen: {
         type: 'boolean',
-        default: defaultPropsAccordionItem.isOpen
+        default: defaultAccordionItemProps.isOpen
     }
 };

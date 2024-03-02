@@ -1,6 +1,6 @@
-import { Sizes1To4, Variants, Colors, Aligns } from '../../types';
+import { Sizes1To4, Aligns, Colors, Variants } from '../../constants';
 export const ButtonGroupContextKey = 'ButtonGroupContextKey';
-export const defaultPropsButton = {
+export const defaultButtonProps = {
     size: '2',
     variant: 'solid',
     color: 'neutral',
@@ -10,41 +10,41 @@ export const defaultPropsButton = {
     circle: false,
     fullWidth: false
 };
-export const docPropsButton = {
+export const docButtonProps = {
     size: {
         type: 'enum',
         values: Sizes1To4,
-        default: defaultPropsButton.size
+        default: defaultButtonProps.size
     },
     variant: {
         type: 'enum',
         values: Variants,
-        default: defaultPropsButton.variant
+        default: defaultButtonProps.variant
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsButton.color
+        default: defaultButtonProps.color
     },
     align: {
         type: 'enum',
         values: Aligns,
-        default: defaultPropsButton.align
+        default: defaultButtonProps.align
     },
     active: {
         type: 'boolean',
-        default: defaultPropsButton.active
+        default: defaultButtonProps.active
     },
     iconOnly: {
         type: 'boolean',
-        default: defaultPropsButton.iconOnly
+        default: defaultButtonProps.iconOnly
     },
     circle: {
         type: 'boolean',
-        default: defaultPropsButton.circle
+        default: defaultButtonProps.circle
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsButton.fullWidth
+        default: defaultButtonProps.fullWidth
     }
 };

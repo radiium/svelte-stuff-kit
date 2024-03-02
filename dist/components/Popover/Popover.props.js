@@ -1,19 +1,5 @@
-export const Strategies = ['absolute', 'fixed'];
-export const Placements = [
-    'top',
-    'right',
-    'bottom',
-    'left',
-    'top-start',
-    'top-end',
-    'right-start',
-    'right-end',
-    'bottom-start',
-    'bottom-end',
-    'left-start',
-    'left-end'
-];
-export const defaultPropsPopover = {
+import { Strategies, Placements } from './Popover.types';
+export const defaultPopoverProps = {
     isOpen: false,
     backdrop: false,
     arrow: true,
@@ -25,47 +11,47 @@ export const defaultPropsPopover = {
     transitionY: 10,
     transitionDuration: 200
 };
-export const docPropsPopover = {
+export const docPopoverProps = {
     isOpen: {
         type: 'boolean',
-        default: defaultPropsPopover.isOpen
+        default: defaultPopoverProps.isOpen
     },
     backdrop: {
         type: 'boolean',
-        default: defaultPropsPopover.backdrop
+        default: defaultPopoverProps.backdrop
     },
     arrow: {
         type: 'boolean',
-        default: defaultPropsPopover.arrow
+        default: defaultPopoverProps.arrow
     },
     flip: {
         type: 'boolean',
-        default: defaultPropsPopover.flip
+        default: defaultPopoverProps.flip
     },
     strategy: {
         type: 'enum',
         values: Strategies,
-        default: defaultPropsPopover.strategy
+        default: defaultPopoverProps.strategy
     },
     placement: {
         type: 'enum',
         values: Placements,
-        default: defaultPropsPopover.placement
+        default: defaultPopoverProps.placement
     },
     offset: {
         type: 'number',
-        default: defaultPropsPopover.offset
+        default: defaultPopoverProps.offset
     },
     transitionOpacity: {
         type: 'number',
-        default: defaultPropsPopover.transitionOpacity
+        default: defaultPopoverProps.transitionOpacity
     },
     transitionY: {
         type: 'number',
-        default: defaultPropsPopover.transitionY
+        default: defaultPopoverProps.transitionY
     },
     transitionDuration: {
         type: 'number',
-        default: defaultPropsPopover.transitionDuration
+        default: defaultPopoverProps.transitionDuration
     }
 };

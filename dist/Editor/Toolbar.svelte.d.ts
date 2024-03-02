@@ -3,7 +3,7 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         direction?: "horizontal" | "vertical" | undefined;
-        size?: "small" | "medium" | "large" | undefined;
+        size?: "medium" | "small" | "large" | undefined;
     };
     events: {
         [evt: string]: CustomEvent<any>;

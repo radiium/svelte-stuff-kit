@@ -1,27 +1,27 @@
-import { Sizes1To3 } from '../../types';
-export const defaultPropsSelect = {
+import { Sizes1To3 } from '../../constants';
+export const defaultSelectProps = {
     elementRef: undefined,
     options: [],
     value: undefined,
     size: '2',
     fullWidth: false
 };
-export const docPropsSelect = {
+export const docSelectProps = {
     options: {
         type: 'Array',
-        default: defaultPropsSelect.options
+        default: defaultSelectProps.options
     },
     value: {
         type: 'string | number',
-        default: defaultPropsSelect.value
+        default: defaultSelectProps.value
     },
     size: {
         type: 'enum',
         values: Sizes1To3,
-        default: defaultPropsSelect.size
+        default: defaultSelectProps.size
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsSelect.fullWidth
+        default: defaultSelectProps.fullWidth
     }
 };

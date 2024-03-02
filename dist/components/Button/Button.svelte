@@ -1,19 +1,17 @@
 <script>import { getContext } from 'svelte';
 import { clsx } from '../../utils/clsx';
-import { ButtonGroupContextKey, defaultPropsButton } from './Button.props';
+import { ButtonGroupContextKey, defaultButtonProps } from './Button.props';
 export let elementRef = undefined;
-export let size = defaultPropsButton.size;
-export let variant = defaultPropsButton.variant;
-export let color = defaultPropsButton.color;
-export let align = defaultPropsButton.align;
-export let active = defaultPropsButton.active;
-export let iconOnly = defaultPropsButton.iconOnly;
-export let circle = defaultPropsButton.fullWidth;
-export let fullWidth = defaultPropsButton.fullWidth;
-let { class: _class, style, ...restProps } = $$restProps;
+export let size = defaultButtonProps.size;
+export let variant = defaultButtonProps.variant;
+export let color = defaultButtonProps.color;
+export let align = defaultButtonProps.align;
+export let active = defaultButtonProps.active;
+export let iconOnly = defaultButtonProps.iconOnly;
+export let circle = defaultButtonProps.fullWidth;
+export let fullWidth = defaultButtonProps.fullWidth;
 const isInGroup = getContext(ButtonGroupContextKey);
-elementRef;
-$: cssClass = clsx(_class, 'Button', {
+$: cssClass = clsx($$restProps.class, 'Button', {
     [`Button-${variant}`]: variant,
     [`Button-size-${size}`]: size,
     [`Button-${color}`]: color,
@@ -24,17 +22,21 @@ $: cssClass = clsx(_class, 'Button', {
     'Button-icon-only': iconOnly,
     'Button-circle': circle
 });
-$: attributes = {
-    'data-color': color,
-    'data-size': size,
-    tabindex: 0,
-    class: cssClass,
-    style,
-    ...restProps
-};
 </script>
 
-<button bind:this={elementRef} {...attributes} on:click on:submit on:focus on:blur>
+<button
+	tabindex="0"
+	{...$$restProps}
+	data-color={color}
+	data-size={size}
+	class={cssClass}
+	style={$$restProps.style}
+	bind:this={elementRef}
+	on:click
+	on:submit
+	on:focus
+	on:blur
+>
 	<slot />
 </button>
 

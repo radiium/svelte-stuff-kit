@@ -1,20 +1,22 @@
 <script>import { clsx } from '../..';
 import { longpress } from '../../actions/longpress';
-import { defaultPropsInputNumber } from './InputNumber.props';
-export let elementRef = defaultPropsInputNumber.elementRef;
-export let value = defaultPropsInputNumber.value;
-export let step = defaultPropsInputNumber.step;
-export let min = defaultPropsInputNumber.min;
-export let max = defaultPropsInputNumber.max;
-export let size = defaultPropsInputNumber.size;
-export let color = defaultPropsInputNumber.color;
-export let disabled = defaultPropsInputNumber.disabled;
-export let required = defaultPropsInputNumber.required;
-export let readonly = defaultPropsInputNumber.readonly;
+import { defaultInputNumberProps } from './InputNumber.props';
+export let elementRef = defaultInputNumberProps.elementRef;
+export let value = defaultInputNumberProps.value;
+export let step = defaultInputNumberProps.step;
+export let min = defaultInputNumberProps.min;
+export let max = defaultInputNumberProps.max;
+export let size = defaultInputNumberProps.size;
+export let color = defaultInputNumberProps.color;
+export let disabled = defaultInputNumberProps.disabled;
+export let required = defaultInputNumberProps.required;
+export let readonly = defaultInputNumberProps.readonly;
 let { class: _class, style, ...restProps } = $$restProps;
 // Input css classes
 let cssClass = '';
-$: cssClass = clsx(_class, 'input-wrapper', `input-color-${color}`, `input-size-${size}`, {
+$: cssClass = clsx($$restProps.class, 'InputNumber-wrapper', {
+    [`InputNumber-color-${color}`]: color,
+    [`InputNumber-size-${size}`]: size,
     'input-disabled': disabled,
     'input-required': required,
     'input-readonly': readonly
@@ -121,7 +123,7 @@ function clearIntervalId() {
 	>
 </div>
 
-<style>.input-wrapper {
+<style>.InputNumber {
   height: var(--input-size-m);
   width: calc(var(--input-size-m) * 4);
   padding: 0;
@@ -132,11 +134,11 @@ function clearIntervalId() {
   font-size: var(--font-size-3);
   letter-spacing: normal;
 }
-.input-wrapper:hover:not(.input-disabled) {
+.InputNumber:hover:not(.input-disabled) {
   box-shadow: var(--border-color-hover) 0px 0px 0px 1px;
   outline: none;
 }
-.input-wrapper button {
+.InputNumber button {
   height: var(--input-size-m);
   width: var(--input-size-m);
   margin: 0;
@@ -146,28 +148,28 @@ function clearIntervalId() {
   font-size: var(--font-size-5);
   cursor: pointer;
 }
-.input-wrapper button:last-child {
+.InputNumber button:last-child {
   border-top-right-radius: var(--radius-3);
   border-bottom-right-radius: var(--radius-3);
 }
-.input-wrapper button:first-child {
+.InputNumber button:first-child {
   border-top-left-radius: var(--radius-3);
   border-bottom-left-radius: var(--radius-3);
 }
-.input-wrapper button:disabled {
+.InputNumber button:disabled {
   cursor: default !important;
   opacity: 0.5 !important;
   outline: none !important;
   pointer-events: none;
 }
-.input-wrapper button:disabled:focus, .input-wrapper button:disabled:focus-within, .input-wrapper button:disabled:focus-visible {
+.InputNumber button:disabled:focus, .InputNumber button:disabled:focus-within, .InputNumber button:disabled:focus-visible {
   box-shadow: none !important;
   outline: none !important;
 }
-.input-wrapper button:hover {
+.InputNumber button:hover {
   background-color: rgba(var(--color-primary-contrast-rgb), 0.15);
 }
-.input-wrapper input {
+.InputNumber input {
   height: 100%;
   width: 50%;
   flex: 1 1 auto;
@@ -178,17 +180,17 @@ function clearIntervalId() {
   padding: 0 var(--space-3);
   text-align: right;
 }
-.input-wrapper input:disabled {
+.InputNumber input:disabled {
   cursor: default !important;
   opacity: 0.5 !important;
   outline: none !important;
   pointer-events: none;
 }
-.input-wrapper input:disabled:focus, .input-wrapper input:disabled:focus-within, .input-wrapper input:disabled:focus-visible {
+.InputNumber input:disabled:focus, .InputNumber input:disabled:focus-within, .InputNumber input:disabled:focus-visible {
   box-shadow: none !important;
   outline: none !important;
 }
-.input-wrapper input:focus-visible {
+.InputNumber input:focus-visible {
   box-shadow: var(--border-color-focus) 0px 0px 0px 1px;
   outline: none;
 }

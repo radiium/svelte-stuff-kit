@@ -1,9 +1,9 @@
-export const defaultPropsPortal = {
+export const defaultPortalProps = {
     target: 'body'
 };
-export const docPropsPortal = {
+export const docPortalProps = {
     target: {
         type: 'HTMLElement | string',
-        default: defaultPropsPortal.target
+        default: defaultPortalProps.target
     }
 };

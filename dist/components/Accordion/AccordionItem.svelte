@@ -3,8 +3,8 @@ let id = 0;
 </script>
 
 <script>import { getContext } from 'svelte';
-import { defaultPropsAccordionItem, contextKeyAccordionGroup } from './Accordion.props';
-export let isOpen = defaultPropsAccordionItem.isOpen;
+import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props';
+export let isOpen = defaultAccordionItemProps.isOpen;
 const accordionStore = {
     key: Symbol('accordion-' + id++),
     get isOpen() {

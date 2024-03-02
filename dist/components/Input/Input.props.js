@@ -1,5 +1,5 @@
-import { InputTypes, Sizes1To3, Aligns } from '../../types';
-export const defaultPropsInput = {
+import { Aligns, InputTypes, Sizes1To3 } from '../../constants';
+export const defaultInputProps = {
     elementRef: undefined,
     value: '',
     type: 'text',
@@ -8,32 +8,32 @@ export const defaultPropsInput = {
     error: false,
     fullWidth: false
 };
-export const docPropsInput = {
+export const docInputProps = {
     value: {
         type: 'string',
-        default: defaultPropsInput.value
+        default: defaultInputProps.value
     },
     type: {
         type: 'enum',
         values: InputTypes,
-        default: defaultPropsInput.type
+        default: defaultInputProps.type
     },
     size: {
         type: 'enum',
         values: Sizes1To3,
-        default: defaultPropsInput.size
+        default: defaultInputProps.size
     },
     align: {
         type: 'enum',
         values: Aligns,
-        default: defaultPropsInput.align
+        default: defaultInputProps.align
     },
     error: {
         type: 'boolean',
-        default: defaultPropsInput.error
+        default: defaultInputProps.error
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsInput.fullWidth
+        default: defaultInputProps.fullWidth
     }
 };

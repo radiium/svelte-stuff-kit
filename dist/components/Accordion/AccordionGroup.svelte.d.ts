@@ -1,7 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsAccordionGroup } from './Accordion.props';
+import type { AccordionGroupProps } from './Accordion.types';
 declare const __propDef: {
-    props: PropsAccordionGroup;
+    props: AccordionGroupProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -9,9 +9,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type AccordionGroupProps = typeof __propDef.props;
+type AccordionGroupProps_ = typeof __propDef.props;
+export { AccordionGroupProps_ as AccordionGroupProps };
 export type AccordionGroupEvents = typeof __propDef.events;
 export type AccordionGroupSlots = typeof __propDef.slots;
-export default class AccordionGroup extends SvelteComponent<AccordionGroupProps, AccordionGroupEvents, AccordionGroupSlots> {
+export default class AccordionGroup extends SvelteComponent<AccordionGroupProps_, AccordionGroupEvents, AccordionGroupSlots> {
 }
-export {};

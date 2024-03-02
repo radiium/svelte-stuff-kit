@@ -1,13 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsCheckbox } from './Chekbox.props';
+import type { CheckboxProps } from './Chekbox.types';
 declare const __propDef: {
-    props: {
-        [x: string]: any;
-        elementRef?: PropsCheckbox['elementRef'];
-        size?: PropsCheckbox['size'];
-        color?: PropsCheckbox['color'];
-        error?: PropsCheckbox['error'];
-    };
+    props: CheckboxProps;
     events: {
         input: Event;
         change: Event;
@@ -18,9 +12,9 @@ declare const __propDef: {
     };
     slots: {};
 };
-export type CheckboxProps = typeof __propDef.props;
+type CheckboxProps_ = typeof __propDef.props;
+export { CheckboxProps_ as CheckboxProps };
 export type CheckboxEvents = typeof __propDef.events;
 export type CheckboxSlots = typeof __propDef.slots;
-export default class Checkbox extends SvelteComponent<CheckboxProps, CheckboxEvents, CheckboxSlots> {
+export default class Checkbox extends SvelteComponent<CheckboxProps_, CheckboxEvents, CheckboxSlots> {
 }
-export {};

@@ -1,22 +1,10 @@
 export declare const contextKeyAccordionGroup = "AccordionGroup";
-export type AccordionStore = {
-    key: symbol;
-    readonly isOpen: boolean | undefined;
-    open: () => void;
-    close: () => void;
-    toggle: () => void;
-};
-export type AccordionGroupContext = {
-    setCurrent: (value: AccordionStore) => void;
-};
 /**
  * AccordionGroup
  */
-export interface PropsAccordionGroup {
-    multi?: boolean;
-}
-export declare const defaultPropsAccordionGroup: PropsAccordionGroup;
-export declare const docPropsAccordionGroup: {
+import type { AccordionGroupProps, AccordionItemProps } from './Accordion.types';
+export declare const defaultAccordionGroupProps: AccordionGroupProps;
+export declare const docAccordionGroupProps: {
     multi: {
         type: string;
         default: boolean | undefined;
@@ -25,11 +13,8 @@ export declare const docPropsAccordionGroup: {
 /**
  * PropsAccordionItem
  */
-export interface PropsAccordionItem {
-    isOpen?: boolean;
-}
-export declare const defaultPropsAccordionItem: PropsAccordionItem;
-export declare const docPropsAccordionItem: {
+export declare const defaultAccordionItemProps: AccordionItemProps;
+export declare const docAccordionItemProps: {
     isOpen: {
         type: string;
         default: boolean | undefined;

@@ -1,8 +1,6 @@
-export interface PropsPortal {
-    target: HTMLElement | string;
-}
-export declare const defaultPropsPortal: PropsPortal;
-export declare const docPropsPortal: {
+import type { PortalProps } from './Portal.types';
+export declare const defaultPortalProps: PortalProps;
+export declare const docPortalProps: {
     target: {
         type: string;
         default: string | HTMLElement;

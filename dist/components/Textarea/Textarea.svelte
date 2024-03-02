@@ -1,28 +1,25 @@
 <script>import { clsx } from '../../utils/clsx';
-import { defaultPropsTextarea } from './Textarea.props';
-export let elementRef = defaultPropsTextarea.elementRef;
-export let value = defaultPropsTextarea.value;
-export let size = defaultPropsTextarea.size;
-export let color = defaultPropsTextarea.color;
-export let error = defaultPropsTextarea.error;
-export let fullWidth = defaultPropsTextarea.fullWidth;
-let { class: _class, style, ...restProps } = $$restProps;
-$: cssClass = clsx(_class, 'Textarea', {
+import { defaultTextareaProps } from './Textarea.props';
+export let elementRef = defaultTextareaProps.elementRef;
+export let value = defaultTextareaProps.value;
+export let size = defaultTextareaProps.size;
+export let color = defaultTextareaProps.color;
+export let error = defaultTextareaProps.error;
+export let fullWidth = defaultTextareaProps.fullWidth;
+$: cssClass = clsx($$restProps.class, 'Textarea', {
     [`Textarea-color-${color}`]: color,
     [`Textarea-size-${size}`]: size,
     'Textarea-error': error,
     'Textarea-full-width': fullWidth
 });
-$: attributes = {
-    class: cssClass,
-    style,
-    spellcheck: false,
-    rows: 3,
-    ...restProps
-};
 </script>
 
 <textarea
+	rows={3}
+	spellcheck={false}
+	{...$$restProps}
+	class={cssClass}
+	style={$$restProps.style}
 	bind:this={elementRef}
 	bind:value
 	on:input
@@ -32,7 +29,6 @@ $: attributes = {
 	on:keydown
 	on:keypress
 	on:keyup
-	{...attributes}
 />
 
 <style>.Textarea {

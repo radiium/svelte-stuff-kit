@@ -1,4 +1,4 @@
-import { ThemeStrategy, type ThemeSchemeType, type ThemeStrategyType, type ThemeContext } from './ThemeProvider.props';
+import { ThemeStrategy, type ThemeSchemeType, type ThemeStrategyType, type ThemeContext } from './ThemeProvider.types';
 export declare const THEME_CONTEXT_KEY: string;
 export declare const THEME_STORAGE_KEY: string;
 export declare const DEFAULT_STRATEGY: ThemeStrategy;

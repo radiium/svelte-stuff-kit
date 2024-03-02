@@ -1,19 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsInputNumber } from './InputNumber.props';
+import type { InputNumberProps } from './InputNumber.types';
 declare const __propDef: {
-    props: {
-        [x: string]: any;
-        elementRef?: PropsInputNumber['elementRef'];
-        value?: PropsInputNumber['value'];
-        step?: PropsInputNumber['step'];
-        min?: PropsInputNumber['min'];
-        max?: PropsInputNumber['max'];
-        size?: PropsInputNumber['size'];
-        color?: PropsInputNumber['color'];
-        disabled?: PropsInputNumber['disabled'];
-        required?: PropsInputNumber['required'];
-        readonly?: PropsInputNumber['readonly'];
-    };
+    props: InputNumberProps;
     events: {
         input: Event;
         change: Event;
@@ -24,9 +12,9 @@ declare const __propDef: {
     };
     slots: {};
 };
-export type InputNumberProps = typeof __propDef.props;
+type InputNumberProps_ = typeof __propDef.props;
+export { InputNumberProps_ as InputNumberProps };
 export type InputNumberEvents = typeof __propDef.events;
 export type InputNumberSlots = typeof __propDef.slots;
-export default class InputNumber extends SvelteComponent<InputNumberProps, InputNumberEvents, InputNumberSlots> {
+export default class InputNumber extends SvelteComponent<InputNumberProps_, InputNumberEvents, InputNumberSlots> {
 }
-export {};

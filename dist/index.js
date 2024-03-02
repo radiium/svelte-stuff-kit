@@ -16,7 +16,7 @@ export { default as Input } from './components/Input/Input.svelte';
 export { default as InputNumber } from './components/InputNumber/InputNumber.svelte';
 export { default as InputRange } from './components/InputRange/InputRange.svelte';
 export { default as Link } from './components/Link/Link.svelte';
-export { default as Modal } from './components/Modal/Modal.svelte';
+export { default as Dialog } from './components/Dialog/Dialog.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
 export { default as Portal } from './components/Portal/Portal.svelte';
 export { default as RadioButton } from './components/RadioButton/RadioButton.svelte';
@@ -41,4 +41,4 @@ export * from './utils/is-browser';
 export * from './utils/storable';
 export * from './utils/listen';
 // Types
-export * from './types';
+export * from './constants';

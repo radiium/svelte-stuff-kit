@@ -1,5 +1,5 @@
-import { Displays, Justifys, Directions, AlignItems, Wraps, Gaps, Grows, Shrinks } from '../../types';
-export const defaultPropsFlexbox = {
+import { AlignItems, Directions, Displays, Gaps, Grows, Justifys, Shrinks, Wraps } from '../../constants';
+export const defaultFlexboxProps = {
     elementRef: undefined,
     as: 'div',
     display: 'flex',
@@ -11,49 +11,49 @@ export const defaultPropsFlexbox = {
     grow: undefined,
     shrink: undefined
 };
-export const docPropsFlexbox = {
+export const docFlexboxProps = {
     as: {
         type: 'keyof SvelteHTMLElements',
-        default: defaultPropsFlexbox.as
+        default: defaultFlexboxProps.as
     },
     display: {
         type: 'enum',
         values: Displays,
-        default: defaultPropsFlexbox.display
+        default: defaultFlexboxProps.display
     },
     justify: {
         type: 'enum',
         values: Justifys,
-        default: defaultPropsFlexbox.justify
+        default: defaultFlexboxProps.justify
     },
     direction: {
         type: 'enum',
         values: Directions,
-        default: defaultPropsFlexbox.direction
+        default: defaultFlexboxProps.direction
     },
     alignItems: {
         type: 'enum',
         values: AlignItems,
-        default: defaultPropsFlexbox.alignItems
+        default: defaultFlexboxProps.alignItems
     },
     wrap: {
         type: 'enum',
         values: Wraps,
-        default: defaultPropsFlexbox.wrap
+        default: defaultFlexboxProps.wrap
     },
     gap: {
         type: 'enum',
         values: Gaps,
-        default: defaultPropsFlexbox.gap
+        default: defaultFlexboxProps.gap
     },
     grow: {
         type: 'enum',
         values: Grows,
-        default: defaultPropsFlexbox.grow
+        default: defaultFlexboxProps.grow
     },
     shrink: {
         type: 'enum',
         values: Shrinks,
-        default: defaultPropsFlexbox.shrink
+        default: defaultFlexboxProps.shrink
     }
 };

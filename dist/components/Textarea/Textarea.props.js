@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '../../types';
-export const defaultPropsTextarea = {
+import { Sizes1To3, Colors } from '../../constants';
+export const defaultTextareaProps = {
     elementRef: undefined,
     value: undefined,
     size: '2',
@@ -7,27 +7,27 @@ export const defaultPropsTextarea = {
     error: false,
     fullWidth: false
 };
-export const docPropsTextarea = {
+export const docTextareaProps = {
     value: {
         type: 'string',
-        default: defaultPropsTextarea.value
+        default: defaultTextareaProps.value
     },
     size: {
         type: 'enum',
         values: Sizes1To3,
-        default: defaultPropsTextarea.size
+        default: defaultTextareaProps.size
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsTextarea.color
+        default: defaultTextareaProps.color
     },
     error: {
         type: 'boolean',
-        default: defaultPropsTextarea.error
+        default: defaultTextareaProps.error
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsTextarea.fullWidth
+        default: defaultTextareaProps.fullWidth
     }
 };

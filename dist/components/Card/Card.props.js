@@ -1,22 +1,17 @@
-import { Sizes1To5 } from '../../types';
-export const defaultPropsCard = {
+import { Sizes1To5 } from '../../constants';
+export const defaultCardProps = {
     elementRef: undefined,
-    as: 'div',
     size: '3',
     noPadding: false
 };
-export const docPropsCard = {
+export const docCardProps = {
     size: {
         type: 'enum',
         values: Sizes1To5,
-        default: defaultPropsCard.size
-    },
-    as: {
-        type: 'keyof SvelteHTMLElements',
-        default: defaultPropsCard.as
+        default: defaultCardProps.size
     },
     noPadding: {
         type: 'boolean',
-        default: defaultPropsCard.noPadding
+        default: defaultCardProps.noPadding
     }
 };

@@ -1,19 +1,6 @@
-import { Sizes1To3 } from '../../types';
-import type { HTMLSelectAttributes } from 'svelte/elements';
-export type SelectOption = {
-    label: string;
-    value: string | number;
-    disabled?: boolean | undefined;
-};
-export interface PropsSelect extends Omit<HTMLSelectAttributes, 'size'> {
-    elementRef?: HTMLSelectElement;
-    options: SelectOption[];
-    value?: unknown | undefined;
-    size?: (typeof Sizes1To3)[number];
-    fullWidth?: boolean;
-}
-export declare const defaultPropsSelect: PropsSelect;
-export declare const docPropsSelect: {
+import type { SelectOption, SelectProps } from './Select.types';
+export declare const defaultSelectProps: SelectProps;
+export declare const docSelectProps: {
     options: {
         type: string;
         default: SelectOption[];

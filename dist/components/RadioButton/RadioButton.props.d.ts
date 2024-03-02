@@ -1,14 +1,6 @@
-import { Sizes1To3, Colors } from '../../types';
-import type { HTMLInputAttributes } from 'svelte/elements';
-export interface PropsRadioButton extends Omit<HTMLInputAttributes, 'size'> {
-    elementRef?: HTMLInputElement;
-    group?: any;
-    size?: (typeof Sizes1To3)[number];
-    color?: (typeof Colors)[number];
-    error?: boolean;
-}
-export declare const defaultPropsRadioButton: PropsRadioButton;
-export declare const docPropsRadioButton: {
+import type { RadioButtonProps } from './RadioButton.types';
+export declare const defaultRadioButtonProps: RadioButtonProps;
+export declare const docRadioButtonProps: {
     size: {
         type: string;
         values: readonly ["1", "2", "3"];
@@ -16,8 +8,8 @@ export declare const docPropsRadioButton: {
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     };
     error: {
         type: string;

@@ -1,5 +1,5 @@
-import { Sizes1To4, Colors, Aligns, Variants } from '../../types';
-export const defaultPropsLink = {
+import { Sizes1To4, Colors, Aligns, Variants } from '../../constants';
+export const defaultLinkProps = {
     href: '',
     target: '_blank',
     rel: undefined,
@@ -12,53 +12,53 @@ export const defaultPropsLink = {
     circle: false,
     fullWidth: false
 };
-export const docPropsLink = {
+export const docLinkProps = {
     href: {
         type: 'string',
-        default: defaultPropsLink.href
+        default: defaultLinkProps.href
     },
     target: {
         type: 'string',
-        default: defaultPropsLink.target
+        default: defaultLinkProps.target
     },
     rel: {
         type: 'string',
-        default: defaultPropsLink.rel
+        default: defaultLinkProps.rel
     },
     size: {
         type: 'enum',
         values: Sizes1To4,
-        default: defaultPropsLink.size
+        default: defaultLinkProps.size
     },
     variant: {
         type: 'enum',
         values: Variants,
-        default: defaultPropsLink.variant
+        default: defaultLinkProps.variant
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsLink.color
+        default: defaultLinkProps.color
     },
     align: {
         type: 'enum',
         values: Aligns,
-        default: defaultPropsLink.align
+        default: defaultLinkProps.align
     },
     active: {
         type: 'boolean',
-        default: defaultPropsLink.active
+        default: defaultLinkProps.active
     },
     iconOnly: {
         type: 'boolean',
-        default: defaultPropsLink.iconOnly
+        default: defaultLinkProps.iconOnly
     },
     circle: {
         type: 'boolean',
-        default: defaultPropsLink.circle
+        default: defaultLinkProps.circle
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsLink.fullWidth
+        default: defaultLinkProps.fullWidth
     }
 };

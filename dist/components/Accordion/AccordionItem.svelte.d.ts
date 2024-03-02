@@ -1,7 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsAccordionItem } from './Accordion.props';
+import type { AccordionItemProps } from './Accordion.types';
 declare const __propDef: {
-    props: PropsAccordionItem;
+    props: AccordionItemProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -22,9 +22,9 @@ declare const __propDef: {
         };
     };
 };
-export type AccordionItemProps = typeof __propDef.props;
+type AccordionItemProps_ = typeof __propDef.props;
+export { AccordionItemProps_ as AccordionItemProps };
 export type AccordionItemEvents = typeof __propDef.events;
 export type AccordionItemSlots = typeof __propDef.slots;
-export default class AccordionItem extends SvelteComponent<AccordionItemProps, AccordionItemEvents, AccordionItemSlots> {
+export default class AccordionItem extends SvelteComponent<AccordionItemProps_, AccordionItemEvents, AccordionItemSlots> {
 }
-export {};

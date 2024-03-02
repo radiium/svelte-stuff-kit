@@ -1,17 +1,17 @@
 <script context="module">"use strict";
-let allModal = [];
-const addModal = (modal) => {
-    if (modal) {
-        allModal.push(modal);
+let allDialog = [];
+const addDialog = (dialog) => {
+    if (dialog) {
+        allDialog.push(dialog);
     }
 };
-const removeModal = (modal) => {
-    if (modal) {
-        allModal = allModal.filter((m) => m !== modal);
+const removeDialog = (dialog) => {
+    if (dialog) {
+        allDialog = allDialog.filter((m) => m !== dialog);
     }
 };
-const lastModal = () => {
-    return allModal && allModal.length > 0 ? allModal[allModal.length - 1] : undefined;
+const lastDialog = () => {
+    return allDialog && allDialog.length > 0 ? allDialog[allDialog.length - 1] : undefined;
 };
 </script>
 
@@ -21,24 +21,23 @@ import { isBrowser } from '../../utils/is-browser';
 import { focusTrap } from '../../actions/focus-trap';
 import { clsx } from '../../utils/clsx';
 import Button from '../Button/Button.svelte';
-import { defaultPropsModal } from './Modal.props';
-export let isOpen = defaultPropsModal.isOpen;
-export let size = defaultPropsModal.size;
-export let closeOnBackdropClick = defaultPropsModal.closeOnBackdropClick;
-export let closeOnEscape = defaultPropsModal.closeOnEscape;
-export let showCloseButton = defaultPropsModal.showCloseButton;
-export let blockScroll = defaultPropsModal.blockScroll;
-let { class: _class, style, ...restProps } = $$restProps;
-let modalRef;
+import { defaultDialogProps } from './Dialog.props';
+export let isOpen = defaultDialogProps.isOpen;
+export let size = defaultDialogProps.size;
+export let closeOnBackdropClick = defaultDialogProps.closeOnBackdropClick;
+export let closeOnEscape = defaultDialogProps.closeOnEscape;
+export let showCloseButton = defaultDialogProps.showCloseButton;
+export let blockScroll = defaultDialogProps.blockScroll;
+let dialogRef;
 $: {
     if (isOpen) {
-        addModal(modalRef);
+        addDialog(dialogRef);
         if (blockScroll) {
             disableScroll();
         }
     }
     else {
-        removeModal(modalRef);
+        removeDialog(dialogRef);
         if (blockScroll) {
             enableScroll();
         }
@@ -52,15 +51,15 @@ const handlekeydown = (event) => {
     }
 };
 const open = () => {
-    console.log('[Modal] open');
+    console.log('[Dialog] open');
     isOpen = true;
 };
 const close = () => {
-    console.log('[Modal] close');
+    console.log('[Dialog] close');
     isOpen = false;
 };
 const onBackdropClick = () => {
-    console.log('[Modal] onClickBackdrop');
+    console.log('[Dialog] onClickBackdrop');
     if (closeOnBackdropClick) {
         close();
     }
@@ -84,16 +83,18 @@ function enableScroll() {
         window.onscroll = function () { };
     }
 }
-$: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
+$: cssClass = clsx($$restProps.class, `Dialog`, {
+    [`Dialog-size-${size}`]: size
+});
 </script>
 
 <svelte:window on:keydown={handlekeydown} />
 
 {#if isOpen}
-	<div class={cssClass} bind:this={modalRef} id={modalRef?.id}>
+	<div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
 		<div
 			role="button"
-			class="backdrop"
+			class="Dialog-backdrop"
 			tabindex="-1"
 			on:click={onBackdropClick}
 			on:keydown={handlekeydown}
@@ -103,16 +104,16 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
 		/>
 
 		<div
+			style={$$restProps.style}
 			role="dialog"
-			class="content-wrapper"
-			aria-modal="true"
+			class="Dialog-content"
 			active={isOpen}
+			use:focusTrap
 			transition:scale={{
 				start: 0.9,
 				duration: 200,
 				opacity: 0
 			}}
-			use:focusTrap
 		>
 			{#if showCloseButton}
 				<Button
@@ -120,7 +121,7 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
 					circle
 					variant="clear"
 					size="1"
-					class="modal-close-btn"
+					class="Dialog-close-btn"
 					on:click={() => (isOpen = false)}
 				>
 					<X />
@@ -148,7 +149,7 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
 	</div>
 {/if}
 
-<style>.modal-wrapper {
+<style>.Dialog {
   z-index: 10000;
   position: fixed;
   overflow: auto;
@@ -160,7 +161,7 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
   align-items: center;
   justify-content: center;
 }
-.modal-wrapper .backdrop {
+.Dialog .Dialog-backdrop {
   z-index: 10001;
   position: fixed;
   overflow: hidden;
@@ -172,15 +173,15 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
   border: none;
   background: rgba(0, 0, 0, 0.4);
 }
-.modal-wrapper .content-wrapper {
+.Dialog .Dialog-content {
   z-index: 10002;
   min-width: 30rem;
   max-width: 72vw;
   position: relative;
   color: var(--color);
   background: var(--background-level-0);
-  border-radius: var(--modal-border-radius);
-  padding: var(--modal-padding);
+  border-radius: var(--dialog-border-radius);
+  padding: var(--dialog-padding);
   margin: var(--space-8) auto;
   display: flex;
   flex-direction: column;
@@ -190,39 +191,39 @@ $: cssClass = clsx(_class, `modal-wrapper`, `modal-size-${size}`);
   box-shadow: var(--border-color) 0px 0px 0px 1px;
   outline: none;
 }
-.modal-wrapper .content-wrapper header {
+.Dialog .Dialog-content header {
   width: 100%;
 }
-.modal-wrapper .content-wrapper .content {
+.Dialog .Dialog-content .content {
   width: 100%;
   max-height: 50vh;
   overflow: auto;
 }
-.modal-wrapper .content-wrapper footer {
+.Dialog .Dialog-content footer {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--space-3);
 }
-.modal-wrapper :global(.modal-close-btn) {
+.Dialog :global(.Dialog-close-btn) {
   position: absolute;
   top: var(--space-2);
   right: var(--space-2);
 }
-.modal-wrapper.modal-size-1 {
-  --modal-padding: var(--space-3);
-  --modal-border-radius: var(--radius-4);
+.Dialog.Dialog-size-1 {
+  --dialog-padding: var(--space-3);
+  --dialog-border-radius: var(--radius-4);
 }
-.modal-wrapper.modal-size-2 {
-  --modal-padding: var(--space-4);
-  --modal-border-radius: var(--radius-4);
+.Dialog.Dialog-size-2 {
+  --dialog-padding: var(--space-4);
+  --dialog-border-radius: var(--radius-4);
 }
-.modal-wrapper.modal-size-3 {
-  --modal-padding: var(--space-5);
-  --modal-border-radius: var(--radius-5);
+.Dialog.Dialog-size-3 {
+  --dialog-padding: var(--space-5);
+  --dialog-border-radius: var(--radius-5);
 }
-.modal-wrapper.modal-size-4 {
-  --modal-padding: var(--space-6);
-  --modal-border-radius: var(--radius-5);
+.Dialog.Dialog-size-4 {
+  --dialog-padding: var(--space-6);
+  --dialog-border-radius: var(--radius-5);
 }</style>

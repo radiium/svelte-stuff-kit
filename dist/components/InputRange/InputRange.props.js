@@ -1,28 +1,28 @@
-import { Colors, Sizes1To3 } from '../../types';
-export const defaultPropsInputRange = {
+import { Colors, Sizes1To3 } from '../../constants';
+export const defaultInputRangeProps = {
     elementRef: undefined,
     size: '2',
     color: 'neutral',
     error: false,
     fullWidth: false
 };
-export const docPropsInputRange = {
+export const docInputRangeProps = {
     size: {
         type: 'enum',
         values: Sizes1To3,
-        default: defaultPropsInputRange.size
+        default: defaultInputRangeProps.size
     },
     color: {
         type: 'enum',
         values: Colors,
-        default: defaultPropsInputRange.color
+        default: defaultInputRangeProps.color
     },
     error: {
         type: 'boolean',
-        default: defaultPropsInputRange.error
+        default: defaultInputRangeProps.error
     },
     fullWidth: {
         type: 'boolean',
-        default: defaultPropsInputRange.fullWidth
+        default: defaultInputRangeProps.fullWidth
     }
 };

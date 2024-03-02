@@ -1,7 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsLink } from './Link.props';
+import type { LinkProps } from './Link.types';
 declare const __propDef: {
-    props: PropsLink;
+    props: LinkProps;
     events: {
         click: MouseEvent;
         focus: FocusEvent;
@@ -13,9 +13,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type LinkProps = typeof __propDef.props;
+type LinkProps_ = typeof __propDef.props;
+export { LinkProps_ as LinkProps };
 export type LinkEvents = typeof __propDef.events;
 export type LinkSlots = typeof __propDef.slots;
-export default class Link extends SvelteComponent<LinkProps, LinkEvents, LinkSlots> {
+export default class Link extends SvelteComponent<LinkProps_, LinkEvents, LinkSlots> {
 }
-export {};

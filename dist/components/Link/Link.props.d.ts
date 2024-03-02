@@ -1,18 +1,6 @@
-import { Sizes1To4, Colors, Aligns, Variants } from '../../types';
-import type { HTMLAnchorAttributes } from 'svelte/elements';
-export interface PropsLink extends HTMLAnchorAttributes {
-    elementRef?: HTMLAnchorElement;
-    size?: (typeof Sizes1To4)[number];
-    variant?: (typeof Variants)[number];
-    color?: (typeof Colors)[number];
-    align?: (typeof Aligns)[number];
-    active?: boolean;
-    iconOnly?: boolean;
-    circle?: boolean;
-    fullWidth?: boolean;
-}
-export declare const defaultPropsLink: PropsLink;
-export declare const docPropsLink: {
+import type { LinkProps } from './Link.types';
+export declare const defaultLinkProps: LinkProps;
+export declare const docLinkProps: {
     href: {
         type: string;
         default: string | null | undefined;
@@ -37,13 +25,13 @@ export declare const docPropsLink: {
     };
     color: {
         type: string;
-        values: readonly ["neutral", "primary", "info", "success", "warning", "danger"];
-        default: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
+        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
+        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     };
     align: {
         type: string;
         values: readonly ["start", "center", "end"];
-        default: "center" | "start" | "end" | undefined;
+        default: "start" | "center" | "end" | undefined;
     };
     active: {
         type: string;

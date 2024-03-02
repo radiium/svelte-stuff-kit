@@ -1,7 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsText } from './Text.props';
+import type { TextProps } from './Text.types';
 declare const __propDef: {
-    props: PropsText;
+    props: TextProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -9,9 +9,9 @@ declare const __propDef: {
         default: {};
     };
 };
-export type TextProps = typeof __propDef.props;
+type TextProps_ = typeof __propDef.props;
+export { TextProps_ as TextProps };
 export type TextEvents = typeof __propDef.events;
 export type TextSlots = typeof __propDef.slots;
-export default class Text extends SvelteComponent<TextProps, TextEvents, TextSlots> {
+export default class Text extends SvelteComponent<TextProps_, TextEvents, TextSlots> {
 }
-export {};

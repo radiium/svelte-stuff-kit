@@ -1,15 +1,7 @@
 import { SvelteComponent } from "svelte";
-import { type PropsTextarea } from './Textarea.props';
+import type { TextareaProps } from './Textarea.types';
 declare const __propDef: {
-    props: {
-        [x: string]: any;
-        elementRef?: PropsTextarea['elementRef'];
-        value?: PropsTextarea['value'];
-        size?: PropsTextarea['size'];
-        color?: "neutral" | "primary" | "info" | "success" | "warning" | "danger" | undefined;
-        error?: PropsTextarea['error'];
-        fullWidth?: PropsTextarea['fullWidth'];
-    };
+    props: TextareaProps;
     events: {
         input: Event;
         change: Event;
@@ -23,9 +15,9 @@ declare const __propDef: {
     };
     slots: {};
 };
-export type TextareaProps = typeof __propDef.props;
+type TextareaProps_ = typeof __propDef.props;
+export { TextareaProps_ as TextareaProps };
 export type TextareaEvents = typeof __propDef.events;
 export type TextareaSlots = typeof __propDef.slots;
-export default class Textarea extends SvelteComponent<TextareaProps, TextareaEvents, TextareaSlots> {
+export default class Textarea extends SvelteComponent<TextareaProps_, TextareaEvents, TextareaSlots> {
 }
-export {};
