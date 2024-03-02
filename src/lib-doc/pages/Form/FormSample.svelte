@@ -108,7 +108,7 @@
 			</div>
 
 			<Flexbox justify="end" class="mt-5" gap="3">
-				<Button color="warning" variant="outline">cancel</Button>
+				<Button color="blue" variant="outline">cancel</Button>
 				<Button color="primary" type="submit">Submit</Button>
 			</Flexbox>
 		</Flexbox>

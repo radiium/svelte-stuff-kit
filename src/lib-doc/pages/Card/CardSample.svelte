@@ -12,33 +12,37 @@
 		</Card>
 	{/each}
 
-	<Card>
-		<h2 slot="header">Login</h2>
-
-		<Flexbox direction="column" gap="3">
-			<Flexbox direction="column" gap="2">
-				<Text>Email</Text>
-				<Input size="1" placeholder="email" />
+	<Card size="3" style="min-width: 300px">
+		<Flexbox direction="column" gap="6">
+			<header>
+				<h3>Login</h3>
+			</header>
+			<Flexbox direction="column" gap="3">
+				<Flexbox direction="column" gap="2">
+					<Text>Email</Text>
+					<Input size="3" placeholder="email" />
+				</Flexbox>
+				<Flexbox direction="column" gap="2">
+					<Text>Password</Text>
+					<Input size="3" placeholder="password" type="password" />
+				</Flexbox>
 			</Flexbox>
-			<Flexbox direction="column" gap="2">
-				<Text>Password</Text>
-				<Input size="1" placeholder="password" type="password" />
+
+			<Flexbox as="footer" justify="end" gap="3">
+				<Button size="3" color="red">Cancel</Button>
+				<Button size="3" color="green">Cancel</Button>
 			</Flexbox>
 		</Flexbox>
-
-		<svelte:fragment slot="footer">
-			<Button color="danger">Cancel</Button>
-			<Button color="success">Cancel</Button>
-		</svelte:fragment>
 	</Card>
 
-	<Card>
-		<p>Without header</p>
-
-		<svelte:fragment slot="footer">
-			<Button color="danger">Cancel</Button>
-			<Button color="success">Cancel</Button>
-		</svelte:fragment>
+	<Card style="min-width: 300px">
+		<Flexbox direction="column" gap="6">
+			<p>Without header</p>
+			<Flexbox as="footer" justify="end" gap="3">
+				<Button color="red">Cancel</Button>
+				<Button color="green">Cancel</Button>
+			</Flexbox>
+		</Flexbox>
 	</Card>
 
 	<Card>

@@ -1,4 +1,4 @@
-import { docPropsSwitch } from '$lib/components/Switch/Switch.props';
+import { docSwitchProps } from '$lib/components/Switch/Switch.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import SwitchSample from './SwitchSample.svelte';
@@ -8,7 +8,7 @@ export const docSwitch: DocPageData = {
 	title: 'Switch',
 	demoTitle: 'Examples',
 	demoComponent: SwitchSample,
-	props: docPropsSwitch,
+	props: docSwitchProps,
 	slots: [
 		{
 			default: true
@@ -33,10 +33,11 @@ export const sampleColor = `<script lang="ts">
 <Flexbox gap="3" alignItems="center">
     <Switch checked color="neutral" />
     <Switch checked color="primary" />
-    <Switch checked color="info" />
-    <Switch checked color="success" />
-    <Switch checked color="warning" />
-    <Switch checked color="danger" />
+    <Switch checked color="blue" />
+    <Switch checked color="green" />
+    <Switch checked color="yellow" />
+    <Switch checked color="orange" />
+    <Switch checked color="red" />
 </Flexbox>`;
 
 export const sampleWithLabel = `<script lang="ts">

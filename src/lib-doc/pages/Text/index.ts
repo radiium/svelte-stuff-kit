@@ -1,4 +1,4 @@
-import { docPropsText } from '$lib/components/Text/Text.props';
+import { docTextProps } from '$lib/components/Text/Text.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextSample from './TextSample.svelte';
@@ -9,7 +9,7 @@ export const docText: DocPageData = {
 	description: 'Common text element',
 	demoTitle: 'Examples',
 	demoComponent: TextSample,
-	props: docPropsText,
+	props: docTextProps,
 	slots: [
 		{
 			default: true
@@ -42,10 +42,11 @@ export const sampleColor = `<script lang="ts">
     <Text>Super long text (color undefined)</Text>
     <Text color="neutral">Super long text (color neutral)</Text>
     <Text color="primary">Super long text (color primary)</Text>
-    <Text color="info">Super long text (color info)</Text>
-    <Text color="success">Super long text (color success)</Text>
-    <Text color="warning">Super long text (color warning)</Text>
-    <Text color="danger">Super long text (color danger)</Text>
+    <Text color="blue">Super long text (color info)</Text>
+    <Text color="green">Super long text (color blue)</Text>
+    <Text color="yellow">Super long text (color yellow)</Text>
+    <Text color="orange">Super long text (color orange)</Text>
+    <Text color="red">Super long text (color red)</Text>
 </div>
 `;
 

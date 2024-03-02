@@ -1,4 +1,4 @@
-import { docPropsButton } from '$lib/components/Button/Button.props';
+import { docButtonProps } from '$lib/components/Button/Button.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import ButtonSample from './ButtonSample.svelte';
@@ -9,7 +9,7 @@ export const docButton: DocPageData = {
 	description: 'Button component',
 	demoTitle: 'Examples',
 	demoComponent: ButtonSample,
-	props: docPropsButton,
+	props: docButtonProps,
 	slots: [{ default: true }]
 };
 
@@ -48,10 +48,11 @@ export const sampleColor = `<script lang="ts">
 <Flexbox gap="3"> 
     <Button color="neutral">button</Button>
     <Button color="primary">button</Button>
-    <Button color="info">button</Button>
-    <Button color="success">button</Button>
-    <Button color="warning">button</Button>
-    <Button color="danger">button</Button>
+    <Button color="blue">button</Button>
+    <Button color="green">button</Button>
+    <Button color="yellow">button</Button>
+    <Button color="orange">button</Button>
+    <Button color="red">button</Button>
 </Flexbox>`;
 
 export const sampleIcon = `<script lang="ts">
@@ -68,13 +69,13 @@ export const sampleIcon = `<script lang="ts">
         button
         <MagnifyingGlass />
     </Button>
-	<Button color="info" variant="soft" iconOnly>
+	<Button color="blue" variant="soft" iconOnly>
         <MagnifyingGlass />
     </Button>
 	<Button color="primary" iconOnly>
         <MagnifyingGlass />
     </Button>
-	<Button color="danger" iconOnly circle>
+	<Button color="red" iconOnly circle>
         <Trash />
     </Button>
 </Flexbox>`;

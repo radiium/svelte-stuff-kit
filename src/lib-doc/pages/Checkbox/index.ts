@@ -1,4 +1,4 @@
-import { docPropsCheckbox } from '$lib/components/Checkbox/Chekbox.props';
+import { docCheckboxProps } from '$lib/components/Checkbox/Chekbox.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import CheckBoxSample from './CheckBoxSample.svelte';
@@ -9,7 +9,7 @@ export const docCheckbox: DocPageData = {
 	description: '',
 	demoTitle: 'Examples',
 	demoComponent: CheckBoxSample,
-	props: docPropsCheckbox,
+	props: docCheckboxProps,
 	slots: [
 		{
 			default: true
@@ -32,12 +32,13 @@ export const sampleColor = `<script lang="ts">
 </script>
 
 <Flexbox gap="3" alignItems="center">
-    <Checkbox checked color="neutral"/>
-    <Checkbox checked color="primary"/>
-    <Checkbox checked color="info"/>
-    <Checkbox checked color="success"/>
-    <Checkbox checked color="warning"/>
-    <Checkbox checked color="danger"/>
+    <Checkbox checked color="neutral" />
+    <Checkbox checked color="primary" />
+    <Checkbox checked color="blue" />
+    <Checkbox checked color="green" />
+    <Checkbox checked color="yellow" />
+    <Checkbox checked color="orange" />
+    <Checkbox checked color="red" />
 </Flexbox>`;
 
 export const sampleWithLabel = `<script lang="ts">

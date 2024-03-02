@@ -163,10 +163,10 @@
 				</Button>
 
 				<Flexbox slot="content" direction="column" gap="1" let:close>
-					<Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 1</Button>
-					<Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 2</Button>
-					<Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 3</Button>
-					<Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 4</Button>
+					<Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 1</Button>
+					<Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 2</Button>
+					<Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 3</Button>
+					<Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 4</Button>
 				</Flexbox>
 			</Popover>
 		</Flexbox>

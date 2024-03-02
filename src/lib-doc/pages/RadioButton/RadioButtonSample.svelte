@@ -20,12 +20,13 @@
 
 	<DocBlocCode title="Color" code={sampleColor}>
 		<Flexbox slot="demo" gap="3" alignItems="center">
-			<RadioButton color="neutral" />
-			<RadioButton color="primary" />
-			<RadioButton color="info" />
-			<RadioButton color="success" />
-			<RadioButton color="warning" />
-			<RadioButton color="danger" />
+            <RadioButton color="neutral" />
+            <RadioButton color="primary" />
+            <RadioButton color="blue" />
+            <RadioButton color="green" />
+            <RadioButton color="yellow" />
+            <RadioButton color="orange" />
+            <RadioButton color="red" />
 		</Flexbox>
 	</DocBlocCode>
 
@@ -40,19 +41,23 @@
 
 	<DocBlocCode title="In card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" size="1">
-				<Flexbox gap="2" alignItems="center">
-					<RadioButton size="1" value={'2'} bind:group={groupCard} />
-					<Text size="1">Radio button in card 1</Text>
-				</Flexbox>
-			</Card>
+			<label for="rad1">
+                <Card size="1">
+                    <Flexbox gap="2" alignItems="center">
+                        <RadioButton id="rad1" size="1" value={'2'} bind:group={groupCard} />
+                        <Text size="1">Radio button in card 1</Text>
+                    </Flexbox>
+                </Card>
+            </label>
 
-			<Card as="label" size="3">
-				<Flexbox gap="2" alignItems="center">
-					<RadioButton size="3" value={'2'} bind:group={groupCard} />
-					<Text size="3">Radio button in card 2</Text>
-				</Flexbox>
-			</Card>
+			<label for="rad2">
+                <Card size="3">
+                    <Flexbox gap="2" alignItems="center">
+                        <RadioButton id="rad2" size="3" value={'2'} bind:group={groupCard} />
+                        <Text size="3">Radio button in card 2</Text>
+                    </Flexbox>
+                </Card>
+            </label>
 		</Flexbox>
 	</DocBlocCode>
 

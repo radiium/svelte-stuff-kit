@@ -1,4 +1,4 @@
-import { docPropsCard } from '$lib/components/Card/Card.props';
+import { docCardProps } from '$lib/components/Card/Card.props';
 import type { DocPageData } from '../../types';
 import CardSample from './CardSample.svelte';
 
@@ -8,7 +8,7 @@ export const docCard: DocPageData = {
 	description: '',
 	demoTitle: 'Examples',
 	demoComponent: CardSample,
-	props: docPropsCard,
+	props: docCardProps,
 	slots: [
 		{
 			default: true

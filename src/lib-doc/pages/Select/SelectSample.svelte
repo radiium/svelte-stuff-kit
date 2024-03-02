@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Flexbox, Text, Select } from '$lib/index';
+	import { Flexbox, Text, Select, Checkbox } from '$lib/index';
 	import { sampleDisabled, sampleMultiple, sampleSize } from './index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
 
@@ -9,6 +9,8 @@
 		{ label: 'opt 3', value: 'opt 3' },
 		{ label: 'opt 4', value: 'opt 4' }
 	];
+
+	let isDisabled: boolean = false;
 </script>
 
 <Flexbox direction="column" alignItems="start" gap="5">
@@ -40,8 +42,14 @@
 	<DocBlocCode title="Disabled" code={sampleDisabled}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
 			<Flexbox direction="column" gap="2" alignItems="start">
+				<Text>Toggle disabled</Text>
+				<Checkbox bind:checked={isDisabled} />
+			</Flexbox>
+			{isDisabled}
+
+			<Flexbox direction="column" gap="2" alignItems="start">
 				<Text>Disabled</Text>
-				<Select {options} disabled />
+				<Select {options} disabled={isDisabled} />
 			</Flexbox>
 
 			<Flexbox direction="column" gap="2" alignItems="start">

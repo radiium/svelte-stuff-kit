@@ -1,4 +1,4 @@
-import { docPropsRadioButton } from '$lib/components/RadioButton/RadioButton.props';
+import { docRadioButtonProps } from '$lib/components/RadioButton/RadioButton.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import RadioButtonSample from './RadioButtonSample.svelte';
@@ -8,7 +8,7 @@ export const docRadioButton: DocPageData = {
 	title: 'Radio Button',
 	demoTitle: 'Examples',
 	demoComponent: RadioButtonSample,
-	props: docPropsRadioButton,
+	props: docRadioButtonProps,
 	slots: [
 		{
 			default: true
@@ -33,10 +33,11 @@ export const sampleColor = `<script lang="ts">
 <Flexbox gap="3" alignItems="center">
     <RadioButton color="neutral" />
     <RadioButton color="primary" />
-    <RadioButton color="info" />
-    <RadioButton color="success" />
-    <RadioButton color="warning" />
-    <RadioButton color="danger" />
+    <RadioButton color="blue" />
+    <RadioButton color="green" />
+    <RadioButton color="yellow" />
+    <RadioButton color="orange" />
+    <RadioButton color="red" />
 </Flexbox>`;
 
 export const sampleWithLabel = `<script lang="ts">

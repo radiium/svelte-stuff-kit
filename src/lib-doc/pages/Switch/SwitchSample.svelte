@@ -18,10 +18,11 @@
 		<Flexbox slot="demo" gap="3" alignItems="center">
 			<Switch checked color="neutral" />
 			<Switch checked color="primary" />
-			<Switch checked color="info" />
-			<Switch checked color="success" />
-			<Switch checked color="warning" />
-			<Switch checked color="danger" />
+			<Switch checked color="blue" />
+			<Switch checked color="green" />
+			<Switch checked color="yellow" />
+			<Switch checked color="orange" />
+			<Switch checked color="red" />
 		</Flexbox>
 	</DocBlocCode>
 
@@ -36,19 +37,23 @@
 
 	<DocBlocCode title="As card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" size="1">
-				<Flexbox gap="2" alignItems="center">
-					<Switch size="1" />
-					<Text size="1">Switch in card 1</Text>
-				</Flexbox>
-			</Card>
+			<label for="switch1">
+				<Card size="1">
+					<Flexbox gap="2" alignItems="center">
+						<Switch id="switch1" size="1" />
+						<Text size="1">Switch in card 1</Text>
+					</Flexbox>
+				</Card>
+			</label>
 
-			<Card as="label" size="3">
-				<Flexbox gap="2" alignItems="center">
-					<Switch size="3" />
-					<Text size="3">Switch in card 2</Text>
-				</Flexbox>
-			</Card>
+			<label for="switch2">
+				<Card size="3">
+					<Flexbox gap="2" alignItems="center">
+						<Switch id="switch2" size="3" />
+						<Text size="3">Switch in card 2</Text>
+					</Flexbox>
+				</Card>
+			</label>
 		</Flexbox>
 	</DocBlocCode>
 

@@ -9,7 +9,7 @@ import { docInputNumber } from './pages/InputNumber/index';
 import { docInputRange } from './pages/InputRange/index';
 import { docInstallation } from './pages/Installation/index';
 import { docList } from './pages/List/index';
-import { docModal } from './pages/Modal/index';
+import { docDialog } from './pages/Dialog/index';
 import { docPopover } from './pages/Popover/index';
 import { docRadioButton } from './pages/RadioButton/index';
 import { docSelect } from './pages/Select/index';
@@ -45,7 +45,7 @@ export const allDocs: DocNavSection[] = [
 			docInput,
 			docInputNumber,
 			docInputRange,
-			docModal,
+			docDialog,
 			docPopover,
 			docRadioButton,
 			docSelect,

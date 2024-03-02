@@ -23,10 +23,11 @@
 		<Text>Super long text (color undefined)</Text>
 		<Text color="neutral">Super long text (color neutral)</Text>
 		<Text color="primary">Super long text (color primary)</Text>
-		<Text color="info">Super long text (color info)</Text>
-		<Text color="success">Super long text (color success)</Text>
-		<Text color="warning">Super long text (color warning)</Text>
-		<Text color="danger">Super long text (color danger)</Text>
+		<Text color="blue">Super long text (color info)</Text>
+		<Text color="green">Super long text (color blue)</Text>
+		<Text color="yellow">Super long text (color yellow)</Text>
+		<Text color="orange">Super long text (color orange)</Text>
+		<Text color="red">Super long text (color red)</Text>
 	</Flexbox>
 </DocBlocCode>
 

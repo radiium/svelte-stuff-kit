@@ -1,4 +1,4 @@
-import { docPropsThemeProvider } from '$lib/components/ThemeProvider/ThemeProvider.props';
+import { docThemeProviderProps } from '$lib/components/ThemeProvider/ThemeProvider.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import ThemeSample from './ThemeSample.svelte';
@@ -9,7 +9,7 @@ export const docTheme: DocPageData = {
 	description: 'Theme wrapper',
 	demoTitle: 'Examples',
 	demoComponent: ThemeSample,
-	props: docPropsThemeProvider,
+	props: docThemeProviderProps,
 	slots: [
 		{
 			default: true

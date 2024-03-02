@@ -1,4 +1,4 @@
-import { docPropsAccordionGroup, docPropsAccordionItem } from '$lib/components/Accordion/Accordion.props';
+import { docAccordionGroupProps, docAccordionItemProps } from '$lib/components/Accordion/Accordion.props';
 import type { DocPageData } from '../../types';
 import AccordionSample from './AccordionSample.svelte';
 
@@ -7,7 +7,7 @@ export const docAccordionGroup: DocPageData = {
 	title: 'AccordionGroup',
 	demoTitle: 'Examples',
 	demoComponent: AccordionSample,
-	props: docPropsAccordionGroup
+	props: docAccordionGroupProps
 };
 
 export const docAccordionItem: DocPageData = {
@@ -15,5 +15,5 @@ export const docAccordionItem: DocPageData = {
 	title: 'AccordionItem',
 	demoTitle: 'Examples',
 	demoComponent: AccordionSample,
-	props: docPropsAccordionItem
+	props: docAccordionItemProps
 };

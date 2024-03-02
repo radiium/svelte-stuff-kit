@@ -1,4 +1,4 @@
-import { docPropsTextarea } from '$lib/components/Textarea/Textarea.props';
+import { docTextareaProps } from '$lib/components/Textarea/Textarea.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import TextareaSample from './TextareaSample.svelte';
@@ -8,7 +8,7 @@ export const docTextarea: DocPageData = {
 	title: 'Textarea',
 	demoTitle: 'Examples',
 	demoComponent: TextareaSample,
-	props: docPropsTextarea
+	props: docTextareaProps
 };
 
 export const sampleSize = `<script lang="ts">

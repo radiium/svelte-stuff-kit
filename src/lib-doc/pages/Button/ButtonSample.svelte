@@ -45,10 +45,11 @@
 		<Flexbox slot="demo" alignItems="center" gap="3">
 			<Button color="neutral">button</Button>
 			<Button color="primary">button</Button>
-			<Button color="info">button</Button>
-			<Button color="success">button</Button>
-			<Button color="warning">button</Button>
-			<Button color="danger">button</Button>
+			<Button color="blue">button</Button>
+			<Button color="green">button</Button>
+			<Button color="yellow">button</Button>
+			<Button color="orange">button</Button>
+			<Button color="red">button</Button>
 		</Flexbox>
 	</DocBlocCode>
 
@@ -63,13 +64,13 @@
 				<MagnifyingGlass />
 			</Button>
 
-			<Button size="1" color="info" iconOnly>
+			<Button size="1" color="blue" iconOnly>
 				<MagnifyingGlass />
 			</Button>
-			<Button size="3" color="warning" variant="soft" iconOnly circle>
+			<Button size="3" color="yellow" variant="soft" iconOnly circle>
 				<MagnifyingGlass />
 			</Button>
-			<Button size="4" color="danger" iconOnly circle>
+			<Button size="4" color="red" iconOnly circle>
 				<Trash />
 			</Button>
 		</Flexbox>

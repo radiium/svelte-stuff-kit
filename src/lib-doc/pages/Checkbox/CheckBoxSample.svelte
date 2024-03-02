@@ -18,10 +18,11 @@
 		<Flexbox slot="demo" gap="3" alignItems="center">
 			<Checkbox checked color="neutral" />
 			<Checkbox checked color="primary" />
-			<Checkbox checked color="info" />
-			<Checkbox checked color="success" />
-			<Checkbox checked color="warning" />
-			<Checkbox checked color="danger" />
+			<Checkbox checked color="blue" />
+			<Checkbox checked color="green" />
+			<Checkbox checked color="yellow" />
+			<Checkbox checked color="orange" />
+			<Checkbox checked color="red" />
 		</Flexbox>
 	</DocBlocCode>
 
@@ -36,19 +37,23 @@
 
 	<DocBlocCode title="In card" code={sampleInCard}>
 		<Flexbox slot="demo" direction="column" gap="3" alignItems="start">
-			<Card as="label" size="1">
-				<Flexbox gap="2" alignItems="center">
-					<Checkbox size="1" />
-					<Text size="1">option</Text>
-				</Flexbox>
-			</Card>
+			<label for="chec1">
+				<Card size="1">
+					<Flexbox gap="2" alignItems="center">
+						<Checkbox id="chec1" size="1" />
+						<Text size="1">option</Text>
+					</Flexbox>
+				</Card>
+			</label>
 
-			<Card as="label" size="3">
-				<Flexbox gap="2" alignItems="center">
-					<Checkbox size="3" />
-					<Text size="3">option</Text>
-				</Flexbox>
-			</Card>
+			<label for="chec2">
+				<Card size="3">
+					<Flexbox gap="2" alignItems="center">
+						<Checkbox id="chec2" size="3" />
+						<Text size="3">option</Text>
+					</Flexbox>
+				</Card>
+			</label>
 		</Flexbox>
 	</DocBlocCode>
 

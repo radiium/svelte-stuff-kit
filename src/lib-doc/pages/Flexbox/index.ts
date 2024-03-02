@@ -1,4 +1,4 @@
-import { docPropsFlexbox } from '$lib/components/Flexbox/Flexbox.props';
+import { docFlexboxProps } from '$lib/components/Flexbox/Flexbox.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import FlexboxSample from './FlexboxSample.svelte';
@@ -8,7 +8,7 @@ export const docFlexbox: DocPageData = {
 	title: 'Flexbox',
 	demoTitle: 'Examples',
 	demoComponent: FlexboxSample,
-	props: docPropsFlexbox,
+	props: docFlexboxProps,
 	slots: [
 		{
 			default: true

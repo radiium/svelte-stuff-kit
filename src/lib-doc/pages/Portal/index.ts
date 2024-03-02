@@ -1,4 +1,4 @@
-import { docPropsPortal } from '$lib/components/Portal/Portal.props';
+import { docPortalProps } from '$lib/components/Portal/Portal.props';
 import { packageName } from '../../../constants';
 import type { DocPageData } from '../../types';
 import PortalSample from './PortalSample.svelte';
@@ -8,7 +8,7 @@ export const docPopover: DocPageData = {
 	title: 'Portal',
 	demoTitle: 'Examples',
 	demoComponent: PortalSample,
-	props: docPropsPortal,
+	props: docPortalProps,
 	slots: [
 		{
 			default: true
@@ -173,9 +173,9 @@ export const sampleMenu = `<script lang="ts">
     </Button>
 
     <Flexbox slot="content" direction="column" gap="1" let:close>
-        <Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 1</Button>
-        <Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 2</Button>
-        <Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 3</Button>
-        <Button size="2" variant="clear" color="info" fullWidth on:click={close}>Menu item 4</Button>
+        <Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 1</Button>
+        <Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 2</Button>
+        <Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 3</Button>
+        <Button size="2" variant="clear" color="blue" fullWidth on:click={close}>Menu item 4</Button>
     </Flexbox>
 </Popover>`;
