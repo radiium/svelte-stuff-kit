@@ -36,7 +36,10 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"major": "npm version major --git-tag-version=false --allow-same-version=true --workspaces-update=false",
+		"minor": "npm version minor --git-tag-version=false --allow-same-version=true --workspaces-update=false",
+		"patch": "npm version patch --git-tag-version=false --allow-same-version=true --workspaces-update=false"
 	},
 	"exports": {
 		".": {
