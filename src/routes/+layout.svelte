@@ -4,6 +4,14 @@
 	import DocLayout from '../lib-doc/components/DocLayout.svelte';
 	import DocPageHeader from '../lib-doc/components/DocPageHeader.svelte';
 	import DocPageSidebar from '../lib-doc/components/DocPageSidebar.svelte';
+	import { navigating } from '$app/stores';
+
+	let mainRef: HTMLDivElement | null;
+	$: {
+		if ($navigating) {
+			mainRef?.scrollTo({ top: 0, behavior: 'instant' });
+		}
+	}
 </script>
 
 <ThemeProvider>
@@ -11,7 +19,7 @@
 		<DocLayout>
 			<DocPageHeader slot="header" />
 			<DocPageSidebar slot="aside" />
-			<div slot="main" class="content">
+			<div bind:this={mainRef} slot="main" class="content">
 				<slot />
 			</div>
 		</DocLayout>
