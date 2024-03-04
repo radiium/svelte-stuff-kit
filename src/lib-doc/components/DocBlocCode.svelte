@@ -17,7 +17,7 @@
 	$: highlighted = hljs.highlight(code, { language: 'svelte' }).value;
 
 	let isCopied: boolean = false;
-	let timeoutId: number;
+	let timeoutId: NodeJS.Timeout;
 	const copyCode = () => {
 		if (isCopied) {
 			return;
