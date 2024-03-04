@@ -62,12 +62,10 @@
 	{#if page.demoComponent}
 		<hr />
 		<Flexbox as="section" direction="column" gap="5">
-			<Flexbox direction="column" gap="3">
-				{#if page.demoTitle}
-					<DocSectionLink text={page.demoTitle}></DocSectionLink>
-				{/if}
-				<svelte:component this={page.demoComponent} />
-			</Flexbox>
+			{#if page.demoTitle}
+				<DocSectionLink text={page.demoTitle}></DocSectionLink>
+			{/if}
+			<svelte:component this={page.demoComponent} />
 		</Flexbox>
 	{/if}
 </Flexbox>
