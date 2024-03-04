@@ -24,11 +24,8 @@
 		border-radius: var(--card-border-radius);
 		background-color: var(--background-level-2);
 		border: 1px solid var(--gray-5);
-		// display: flex;
-		// flex-direction: column;
-		// gap: var(--space-4);
 		position: relative;
-		overflow: visible;
+		overflow: hidden;
 
 		// Sizes
 		&.Card-size-1 {
