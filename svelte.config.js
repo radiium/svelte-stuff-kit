@@ -19,8 +19,10 @@ const config = {
             scss: {
                 prependData: "@use './src/lib/scss/mixins.scss' as *;"
             }
-        })
+		}),
+		mdsvex(mdsvexConfig)
     ],
+
     kit: {
         // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
         // If your environment is not supported or you settled on a specific environment, switch out the adapter.
