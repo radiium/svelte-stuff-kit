@@ -11,5 +11,11 @@ export default defineConfig({
 	},
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
+	},
+	resolve: {
+		alias: {
+			'$lib-doc': path.resolve('./src/lib-doc'),
+			'svelte-basic': path.resolve('./src/lib')
+		}
 	}
 });

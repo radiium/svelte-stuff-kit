@@ -11,6 +11,11 @@
 		"sourceMap": true,
 		"strict": true,
 		"module": "NodeNext",
-		"moduleResolution": "Bundler"
+		"moduleResolution": "Bundler",
+        "paths": {
+			"$lib/*": ["./src/lib/*"],
+			"$lib-doc": ["./src/lib-doc/*"],
+			"svelte-basic": ["./src/lib/index"]
+		}
 	}
 }
