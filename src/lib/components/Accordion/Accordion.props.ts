@@ -9,11 +9,17 @@ import type { AccordionGroupProps, AccordionItemProps } from './Accordion.types'
 export const defaultAccordionGroupProps: AccordionGroupProps = {
 	multi: false
 };
-export const docAccordionGroupProps = {
-	multi: {
-		type: 'boolean',
-		default: defaultAccordionGroupProps.multi
-	}
+
+export const docAccordionGroupPropsDefs = {
+	props: [
+		{
+			name: 'multi',
+			type: 'boolean',
+			default: defaultAccordionGroupProps.multi
+		}
+	],
+	slots: [],
+	events: []
 };
 
 /**
@@ -23,9 +29,15 @@ export const docAccordionGroupProps = {
 export const defaultAccordionItemProps: AccordionItemProps = {
 	isOpen: false
 };
-export const docAccordionItemProps = {
-	isOpen: {
-		type: 'boolean',
-		default: defaultAccordionItemProps.isOpen
-	}
+
+export const docAccordionItemPropsDefs = {
+	props: [
+		{
+			name: 'isOpen',
+			type: 'boolean',
+			default: defaultAccordionItemProps.isOpen
+		}
+	],
+	slots: [],
+	events: []
 };

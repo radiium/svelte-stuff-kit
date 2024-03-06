@@ -14,49 +14,66 @@ export const defaultFlexboxProps: FlexboxProps = {
 	shrink: undefined
 };
 
-export const docFlexboxProps = {
-	as: {
-		type: 'keyof SvelteHTMLElements',
-		default: defaultFlexboxProps.as
-	},
-	display: {
-		type: 'enum',
-		values: Displays,
-		default: defaultFlexboxProps.display
-	},
-	justify: {
-		type: 'enum',
-		values: Justifys,
-		default: defaultFlexboxProps.justify
-	},
-	direction: {
-		type: 'enum',
-		values: Directions,
-		default: defaultFlexboxProps.direction
-	},
-	alignItems: {
-		type: 'enum',
-		values: AlignItems,
-		default: defaultFlexboxProps.alignItems
-	},
-	wrap: {
-		type: 'enum',
-		values: Wraps,
-		default: defaultFlexboxProps.wrap
-	},
-	gap: {
-		type: 'enum',
-		values: Gaps,
-		default: defaultFlexboxProps.gap
-	},
-	grow: {
-		type: 'enum',
-		values: Grows,
-		default: defaultFlexboxProps.grow
-	},
-	shrink: {
-		type: 'enum',
-		values: Shrinks,
-		default: defaultFlexboxProps.shrink
-	}
+export const docFlexboxPropsDefs = {
+	props: [
+		{
+			name: 'elementRef',
+			type: 'HTMLElement'
+		},
+		{
+			name: 'as',
+			type: 'keyof SvelteHTMLElements',
+			default: defaultFlexboxProps.as
+		},
+		{
+			name: 'display',
+			type: 'enum',
+			values: Displays,
+			default: defaultFlexboxProps.display
+		},
+		{
+			name: 'justify',
+			type: 'enum',
+			values: Justifys,
+			default: defaultFlexboxProps.justify
+		},
+		{
+			name: 'direction',
+			type: 'enum',
+			values: Directions,
+			default: defaultFlexboxProps.direction
+		},
+		{
+			name: 'alignItems',
+			type: 'enum',
+			values: AlignItems,
+			default: defaultFlexboxProps.alignItems
+		},
+		{
+			name: 'wrap',
+			type: 'enum',
+			values: Wraps,
+			default: defaultFlexboxProps.wrap
+		},
+		{
+			name: 'gap',
+			type: 'enum',
+			values: Gaps,
+			default: defaultFlexboxProps.gap
+		},
+		{
+			name: 'grow',
+			type: 'enum',
+			values: Grows,
+			default: defaultFlexboxProps.grow
+		},
+		{
+			name: 'shrink',
+			type: 'enum',
+			values: Shrinks,
+			default: defaultFlexboxProps.shrink
+		}
+	],
+	slots: [],
+	events: []
 };

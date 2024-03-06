@@ -8,19 +8,31 @@ export const defaultSwitchProps: SwitchProps = {
 	error: false
 };
 
-export const docSwitchProps = {
-	size: {
-		type: 'enum',
-		values: Sizes1To3,
-		default: defaultSwitchProps.size
-	},
-	color: {
-		type: 'enum',
-		values: Colors,
-		default: defaultSwitchProps.color
-	},
-	error: {
-		type: 'boolean',
-		default: defaultSwitchProps.error
-	}
+export const docSwitchPropsDefs = {
+	title: 'Switch',
+	props: [
+		{
+			name: 'elementRef',
+			type: 'HTMLInputElement'
+		},
+		{
+			name: 'size',
+			type: 'enum',
+			values: Sizes1To3,
+			default: defaultSwitchProps.size
+		},
+		{
+			name: 'color',
+			type: 'enum',
+			values: Colors,
+			default: defaultSwitchProps.color
+		},
+		{
+			name: 'error',
+			type: 'boolean',
+			default: defaultSwitchProps.error
+		}
+	],
+	slots: [],
+	events: []
 };

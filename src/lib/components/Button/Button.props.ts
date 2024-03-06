@@ -14,41 +14,61 @@ export const defaultButtonProps: ButtonProps = {
 	fullWidth: false
 };
 
-export const docButtonProps = {
-	size: {
-		type: 'enum',
-		values: Sizes1To4,
-		default: defaultButtonProps.size
-	},
-	variant: {
-		type: 'enum',
-		values: Variants,
-		default: defaultButtonProps.variant
-	},
-	color: {
-		type: 'enum',
-		values: Colors,
-		default: defaultButtonProps.color
-	},
-	align: {
-		type: 'enum',
-		values: Aligns,
-		default: defaultButtonProps.align
-	},
-	active: {
-		type: 'boolean',
-		default: defaultButtonProps.active
-	},
-	iconOnly: {
-		type: 'boolean',
-		default: defaultButtonProps.iconOnly
-	},
-	circle: {
-		type: 'boolean',
-		default: defaultButtonProps.circle
-	},
-	fullWidth: {
-		type: 'boolean',
-		default: defaultButtonProps.fullWidth
-	}
+export const docButtonPropsDefs = {
+	props: [
+		{
+			name: 'elementRef',
+			type: 'HTMLButtonElement'
+		},
+		{
+			name: 'size',
+			type: 'enum',
+			values: Sizes1To4,
+			default: defaultButtonProps.size
+		},
+		{
+			name: 'variant',
+			type: 'enum',
+			values: Variants,
+			default: defaultButtonProps.variant
+		},
+		{
+			name: 'color',
+			type: 'enum',
+			values: Colors,
+			default: defaultButtonProps.color
+		},
+		{
+			name: 'align',
+			type: 'enum',
+			values: Aligns,
+			default: defaultButtonProps.align
+		},
+		{
+			name: 'active',
+			type: 'boolean',
+			default: defaultButtonProps.active
+		},
+		{
+			name: 'iconOnly',
+			type: 'boolean',
+			default: defaultButtonProps.iconOnly
+		},
+		{
+			name: 'circle',
+			type: 'boolean',
+			default: defaultButtonProps.circle
+		},
+		{
+			name: 'fullWidth',
+			type: 'boolean',
+			default: defaultButtonProps.fullWidth
+		}
+	],
+	slots: [
+		{
+			default: true
+		}
+	],
+	events: []
 };

@@ -11,32 +11,46 @@ export const defaultInputProps: InputProps = {
 	fullWidth: false
 };
 
-export const docInputProps = {
-	value: {
-		type: 'string',
-		default: defaultInputProps.value
-	},
-	type: {
-		type: 'enum',
-		values: InputTypes,
-		default: defaultInputProps.type
-	},
-	size: {
-		type: 'enum',
-		values: Sizes1To3,
-		default: defaultInputProps.size
-	},
-	align: {
-		type: 'enum',
-		values: Aligns,
-		default: defaultInputProps.align
-	},
-	error: {
-		type: 'boolean',
-		default: defaultInputProps.error
-	},
-	fullWidth: {
-		type: 'boolean',
-		default: defaultInputProps.fullWidth
-	}
+export const docInputPropsDefs = {
+	props: [
+		{
+			name: 'elementRef',
+			type: 'HTMLInputElement'
+		},
+		{
+			name: 'value',
+			type: 'string',
+			default: defaultInputProps.value
+		},
+		{
+			name: 'type',
+			type: 'enum',
+			values: InputTypes,
+			default: defaultInputProps.type
+		},
+		{
+			name: 'size',
+			type: 'enum',
+			values: Sizes1To3,
+			default: defaultInputProps.size
+		},
+		{
+			name: 'align',
+			type: 'enum',
+			values: Aligns,
+			default: defaultInputProps.align
+		},
+		{
+			name: 'error',
+			type: 'boolean',
+			default: defaultInputProps.error
+		},
+		{
+			name: 'fullWidth',
+			type: 'boolean',
+			default: defaultInputProps.fullWidth
+		}
+	],
+	slots: [],
+	events: []
 };

@@ -4,10 +4,16 @@ export const defaultThemeProviderProps: ThemeProviderProps = {
 	strategy: undefined
 };
 
-export const docThemeProviderProps = {
-	strategy: {
-		type: 'enum',
-		values: [ThemeStrategy.DARK, ThemeStrategy.LIGHT, ThemeStrategy.SYSTEM] as const,
-		default: defaultThemeProviderProps.strategy
-	}
+export const docThemeProviderPropsDefs = {
+	title: 'ThemeProviders',
+	props: [
+		{
+			name: 'strategy',
+			type: 'enum',
+			values: [ThemeStrategy.DARK, ThemeStrategy.LIGHT, ThemeStrategy.SYSTEM] as const,
+			default: defaultThemeProviderProps.strategy
+		}
+	],
+	slots: [],
+	events: []
 };

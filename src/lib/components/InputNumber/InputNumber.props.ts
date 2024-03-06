@@ -14,43 +14,60 @@ export const defaultInputNumberProps: InputNumberProps = {
 	readonly: false
 };
 
-export const docInputNumberProps = {
-	value: {
-		type: 'number',
-		default: defaultInputNumberProps.value
-	},
-	step: {
-		type: 'number',
-		default: defaultInputNumberProps.step
-	},
-	min: {
-		type: 'number',
-		default: defaultInputNumberProps.min
-	},
-	max: {
-		type: 'number',
-		default: defaultInputNumberProps.max
-	},
-	size: {
-		type: 'enum',
-		values: Sizes1To3,
-		default: defaultInputNumberProps.size
-	},
-	color: {
-		type: 'enum',
-		values: Colors,
-		default: defaultInputNumberProps.color
-	},
-	disabled: {
-		type: 'boolean',
-		default: defaultInputNumberProps.disabled
-	},
-	required: {
-		type: 'boolean',
-		default: defaultInputNumberProps.required
-	},
-	readonly: {
-		type: 'boolean',
-		default: defaultInputNumberProps.readonly
-	}
+export const docInputNumberPropsDefs = {
+	props: [
+		{
+			name: 'elementRef',
+			type: 'HTMLInputElement'
+		},
+		{
+			name: 'value',
+			type: 'number',
+			default: defaultInputNumberProps.value
+		},
+		{
+			name: 'step',
+			type: 'number',
+			default: defaultInputNumberProps.step
+		},
+		{
+			name: 'min',
+			type: 'number',
+			default: defaultInputNumberProps.min
+		},
+		{
+			name: 'max',
+			type: 'number',
+			default: defaultInputNumberProps.max
+		},
+		{
+			name: 'size',
+			type: 'enum',
+			values: Sizes1To3,
+			default: defaultInputNumberProps.size
+		},
+		{
+			name: 'color',
+			type: 'enum',
+			values: Colors,
+			default: defaultInputNumberProps.color
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			default: defaultInputNumberProps.disabled
+		},
+		{
+			name: 'required',
+			type: 'boolean',
+			default: defaultInputNumberProps.required
+		},
+		{
+			name: 'readonly',
+			type: 'boolean',
+			default: defaultInputNumberProps.readonly
+		}
+	],
+	slots: [],
+	events: []
 };
