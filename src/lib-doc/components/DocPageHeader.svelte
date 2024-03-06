@@ -47,12 +47,4 @@
 			}
 		}
 	}
-
-	:global(.doc-header-wrapper .title) {
-		flex: 1 1 auto;
-	}
-
-	:global(.doc-header-wrapper .side) {
-		position: relative;
-	}
 </style>

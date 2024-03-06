@@ -3,27 +3,82 @@
 	import Trash from 'phosphor-svelte/lib/Trash';
 	import { Button, Colors, Flexbox, Sizes1To4, Variants } from '$lib/index';
 	import DocBlocCode from '../../components/DocBlocCode.svelte';
-	import {
-		sample1,
-		sampleAlign,
-		sampleColor,
-		sampleFullWidth,
-		sampleIcon,
-		sampleMode,
-		sampleSize
-	} from './index';
+	// import {
+	// 	sample1,
+	// 	sampleAlign,
+	// 	sampleColor,
+	// 	sampleFullWidth,
+	// 	sampleIcon,
+	// 	sampleMode,
+	// 	sampleSize
+	// } from './index';
 
 	const variants = Variants;
 	const sizes = Sizes1To4;
 	const colors = Colors;
+
+	const sample1 = `<Button>button</Button>`;
+
+	const sampleSize = `<Button size="4">button</Button>
+<Button size="3">button</Button>
+<Button size="2">button</Button>
+<Button size="1">button</Button>
+`;
+
+	const sampleMode = `
+
+    <Button variant="solid">button</Button>
+    <Button variant="soft">button</Button>
+    <Button variant="outline">button</Button>
+    <Button variant="clear">button</Button>
+`;
+
+	const sampleColor = `
+    <Button color="neutral">button</Button>
+    <Button color="primary">button</Button>
+    <Button color="blue">button</Button>
+    <Button color="green">button</Button>
+    <Button color="yellow">button</Button>
+    <Button color="orange">button</Button>
+    <Button color="red">button</Button>
+`;
+
+	const sampleIcon = `
+    <Button variant="clear">
+        <MagnifyingGlass />
+        button
+    </Button>
+    <Button color="primary">
+        button
+        <MagnifyingGlass />
+    </Button>
+	<Button color="blue" variant="soft" iconOnly>
+        <MagnifyingGlass />
+    </Button>
+	<Button color="primary" iconOnly>
+        <MagnifyingGlass />
+    </Button>
+	<Button color="red" iconOnly circle>
+        <Trash />
+    </Button>
+`;
+
+	const sampleFullWidth = `
+<Button fullWidth>Button</Button>
+`;
+	const sampleAlign = `
+<Button align="start">Button</Button>
+<Button align="center">Button</Button>
+<Button align="end">Button</Button>
+`;
 </script>
 
 <Flexbox direction="column" gap="5">
-	<DocBlocCode title="Simple" code={sample1}>
+	<DocBlocCode title="Simple" code={sample1} language="svelte">
 		<Button slot="demo" type="reset">Button</Button>
 	</DocBlocCode>
 
-	<DocBlocCode title="Size" code={sampleSize}>
+	<DocBlocCode title="Size" code={sampleSize} language="svelte">
 		<Flexbox slot="demo" alignItems="center" gap="3">
 			<Button size="4">button</Button>
 			<Button size="3">button</Button>

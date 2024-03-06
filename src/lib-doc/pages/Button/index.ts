@@ -1,17 +1,21 @@
-import { docButtonProps } from '$lib/components/Button/Button.props';
+import { docButtonPropsDefs } from '$lib/components/Button/Button.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import { type DocPage } from '../../types';
+import { PageBuilder, SectionBuilder } from '../../utils/builder';
 import ButtonSample from './ButtonSample.svelte';
 
-export const docButton: DocPageData = {
-	id: 'button',
-	title: 'Button',
-	description: 'Button component',
-	demoTitle: 'Examples',
-	demoComponent: ButtonSample,
-	props: docButtonProps,
-	slots: [{ default: true }]
-};
+const sectionApi = SectionBuilder.create('Api reference') //
+	.addApi(docButtonPropsDefs)
+	.get();
+
+const sectionDemo = SectionBuilder.create('Examples') //
+	.addDemo(ButtonSample)
+	.get();
+
+export const docPageButton: DocPage = PageBuilder.create('Button') //
+	.addSection(sectionApi)
+	.addSection(sectionDemo)
+	.get();
 
 export const sample1 = `<script lang="ts">
     import { Button } from '${packageName}';

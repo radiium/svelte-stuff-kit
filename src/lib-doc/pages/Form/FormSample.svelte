@@ -76,7 +76,7 @@
 
 			<Flexbox direction="column" gap="2">
 				<Text>Comment</Text>
-				<Textarea type="text" placeholder="Comment" rows="8" fullWidth bind:value={formData.coment} />
+				<Textarea placeholder="Comment" rows={8} fullWidth bind:value={formData.coment} />
 			</Flexbox>
 
 			<div class="row">

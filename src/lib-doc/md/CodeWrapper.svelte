@@ -1,0 +1,111 @@
+<script lang="ts">
+	import Clipboard from 'phosphor-svelte/lib/Clipboard';
+	import Check from 'phosphor-svelte/lib/Check';
+	import { Flexbox, Card, Button } from '$lib';
+
+	export let src: string | undefined = undefined;
+	export let meta: Record<string, unknown> = {};
+
+	console.group('CodeWrapper');
+	console.log('src', src);
+	console.log('meta', meta);
+	console.groupEnd();
+
+	let isCopied = false;
+	let timeoutId;
+	const copyCode = () => {
+		if (isCopied || !src) {
+			return;
+		}
+
+		navigator.clipboard
+			.writeText(src)
+			.then(() => {
+				isCopied = true;
+				clearTimeout(timeoutId);
+				timeoutId = setTimeout(() => {
+					isCopied = false;
+				}, 1800);
+			})
+			.catch((err) => {
+				console.error('Async: Could not copy text: ', err);
+			});
+	};
+</script>
+
+<Flexbox direction="column" gap="4">
+	{#if meta.title}
+		<h4>{meta.title}</h4>
+	{/if}
+
+	{#if meta.description}
+		<p>{meta.description}</p>
+	{/if}
+
+	<Card size="1" noPadding class="doc-code-wrapper {$$slots.example ? 'has-demo' : ''}">
+		<Flexbox direction="column">
+			{#if $$slots.example}
+				<section class="demo-block px-4 py-4">
+					<slot name="example" />
+				</section>
+			{/if}
+
+			{#if $$slots.code}
+				<section class="code-block">
+					<div class="display-flex px-5 py-4">
+						<pre class="language-svelte"><slot name="code" /></pre>
+					</div>
+
+					<Button size="2" class="copy-btn mt-2 mr-2" variant="soft" iconOnly on:click={copyCode}>
+						{#if isCopied}
+							<Check />
+						{:else}
+							<Clipboard />
+						{/if}
+					</Button>
+				</section>
+			{/if}
+		</Flexbox>
+	</Card>
+</Flexbox>
+
+<style lang="scss">
+	section {
+		&.demo-block {
+			border-bottom: 1px solid var(--gray-8);
+		}
+
+		&.code-block {
+			overflow: hidden;
+			position: relative;
+			background: var(--background-level-2) !important;
+
+			> div {
+				overflow-x: auto;
+			}
+			pre {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+
+				code {
+					font-size: 16px;
+					background: var(--background-level-2) !important;
+				}
+			}
+
+			:global(.copy-btn) {
+				opacity: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			&:hover {
+				:global(.copy-btn) {
+					opacity: 1;
+				}
+			}
+		}
+	}
+</style>

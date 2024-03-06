@@ -34,7 +34,9 @@
 		<slot name="aside" />
 	</aside>
 	<main>
-		<slot name="main" />
+		<div class="content">
+			<slot name="main" />
+		</div>
 	</main>
 </div>
 
@@ -105,6 +107,13 @@
 			background: var(--background-level-0);
 			position: relative;
 			overflow: hidden;
+
+			.content {
+				max-width: 900px;
+				height: 100%;
+				margin: 0 auto;
+				overflow: auto;
+			}
 		}
 	}
 

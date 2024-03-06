@@ -1,20 +1,15 @@
-import { docTextProps } from '$lib/components/Text/Text.props';
+import { docTextPropsDefs } from '$lib/components/Text/Text.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import TextSample from './TextSample.svelte';
 
-export const docText: DocPageData = {
+export const docText: DocPage = {
 	id: 'text',
 	title: 'Text',
 	description: 'Common text element',
 	demoTitle: 'Examples',
 	demoComponent: TextSample,
-	props: docTextProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docTextPropsDefs]
 };
 
 export const sampleSize = `<script>

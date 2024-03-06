@@ -9,10 +9,10 @@
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 	import Text from '$lib/components/Text/Text.svelte';
 
-	export let props: DocProps | undefined = undefined;
+	export let props: DocProps[] = [];
 </script>
 
-{#if !Array.isArray(props) && props}
+{#if Array.isArray(props) && props}
 	<Card noPadding>
 		<table>
 			<thead class="rt-TableHeader">
@@ -23,15 +23,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each Object.keys(props) as key}
+				{#each props as prop}
 					<tr>
 						<td data-color="primary">
-							<code class="name">{key}</code>
+							<code class="name">{prop.name}</code>
 						</td>
 						<td data-color="neutral">
 							<Flexbox alignItems="center" justify="start" gap="1">
-								<code class="type">{props[key].type}</code>
-								{#if props[key].values}
+								<code class="type">{prop.type}</code>
+								{#if prop.values}
 									<Popover arrow={false}>
 										<Button
 											size="1"
@@ -46,7 +46,7 @@
 											<Info size="32" />
 										</Button>
 										<div slot="content">
-											{@const values = props[key].values}
+											{@const values = prop.values}
 											{#if values}
 												{#each values as value, i}
 													<Text color="neutral">"{value}"</Text>
@@ -61,9 +61,9 @@
 							</Flexbox>
 						</td>
 						<td data-color="neutral">
-							{#if props[key].default !== undefined}
+							{#if prop.default !== undefined}
 								<code class="default">
-									{props[key].default}
+									{prop.default}
 								</code>
 							{:else}
 								<Minus color="var(--accent-a11)" size="15" />

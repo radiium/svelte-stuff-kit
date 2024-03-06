@@ -1,0 +1,111 @@
+<script lang="ts" context="module">
+</script>
+
+<script lang="ts">
+	import Clipboard from 'phosphor-svelte/lib/Clipboard';
+	import Check from 'phosphor-svelte/lib/Check';
+	import { Flexbox, Card, Button } from '$lib';
+
+	export let title: string | undefined = undefined;
+	export let description: string | undefined = undefined;
+
+	let isCopied: boolean = false;
+	let timeoutId: NodeJS.Timeout;
+	const copyCode = () => {
+		if (isCopied) {
+			return;
+		}
+
+		// navigator.clipboard
+		// 	.writeText(code)
+		// 	.then(() => {
+		// 		isCopied = true;
+		// 		clearTimeout(timeoutId);
+		// 		timeoutId = setTimeout(() => {
+		// 			isCopied = false;
+		// 		}, 1800);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error('Async: Could not copy text: ', err);
+		// 	});
+	};
+</script>
+
+<Flexbox direction="column" gap="4">
+	{#if title}
+		<h4>{title}</h4>
+	{/if}
+
+	{#if description}
+		<p>{description}</p>
+	{/if}
+
+	<Card size="1" noPadding class="doc-code-wrapper {$$slots.demo ? 'has-demo' : ''}">
+		<Flexbox direction="column">
+			{#if $$slots.demo}
+				<section class="demo-block px-4 py-4">
+					<slot name="demo" />
+				</section>
+			{/if}
+
+			{#if $$slots.default}
+				<section class="code-block">
+					<div class="display-flex px-5 py-4">
+						<slot />
+					</div>
+
+					<Button size="2" class="copy-btn mt-2 mr-2" variant="soft" iconOnly on:click={copyCode}>
+						{#if isCopied}
+							<Check />
+						{:else}
+							<Clipboard />
+						{/if}
+					</Button>
+				</section>
+			{/if}
+		</Flexbox>
+	</Card>
+</Flexbox>
+
+<style lang="scss">
+	:global(.doc-code-wrapper) {
+		overflow: hidden;
+	}
+
+	section {
+		&.demo-block {
+			border-bottom: 1px solid var(--gray-8);
+		}
+
+		&.code-block {
+			overflow: hidden;
+			position: relative;
+			background: var(--background-level-2) !important;
+
+			> div {
+				overflow-x: auto;
+			}
+			pre {
+				margin: 0;
+
+				code {
+					font-size: 16px;
+					background: var(--background-level-2) !important;
+				}
+			}
+
+			:global(.copy-btn) {
+				opacity: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			&:hover {
+				:global(.copy-btn) {
+					opacity: 1;
+				}
+			}
+		}
+	}
+</style>

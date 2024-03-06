@@ -1,9 +1,10 @@
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import TableSample from './TableSample.svelte';
 
-export const docTable: DocPageData = {
+export const docTable: DocPage = {
 	id: 'table',
 	title: 'Table',
 	demoTitle: 'Examples',
-	demoComponent: TableSample
+	demoComponent: TableSample,
+    sections:[]
 };

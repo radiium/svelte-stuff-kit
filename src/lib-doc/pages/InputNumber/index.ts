@@ -1,15 +1,14 @@
-import { docInputNumberProps } from '$lib/components/InputNumber/InputNumber.props';
+import { docInputNumberPropsDefs } from '$lib/components/InputNumber/InputNumber.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import InputNumberSample from './InputNumberSample.svelte';
 
-export const docInputNumber: DocPageData = {
+export const docInputNumber: DocPage = {
 	id: 'input-number',
 	title: 'Input Number',
 	demoTitle: 'Examples',
 	demoComponent: InputNumberSample,
-	props: docInputNumberProps,
-	slots: []
+	sections: [docInputNumberPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

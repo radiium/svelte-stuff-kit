@@ -1,20 +1,15 @@
-import { docCheckboxProps } from '$lib/components/Checkbox/Chekbox.props';
+import { docCheckbosPropsDefs } from '$lib/components/Checkbox/Chekbox.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import CheckBoxSample from './CheckBoxSample.svelte';
 
-export const docCheckbox: DocPageData = {
+export const docCheckbox: DocPage = {
 	id: 'checkbox',
 	title: 'Checkbox',
 	description: '',
 	demoTitle: 'Examples',
 	demoComponent: CheckBoxSample,
-	props: docCheckboxProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docCheckbosPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

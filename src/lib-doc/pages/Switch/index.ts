@@ -1,19 +1,14 @@
-import { docSwitchProps } from '$lib/components/Switch/Switch.props';
+import { docSwitchPropsDefs } from '$lib/components/Switch/Switch.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import SwitchSample from './SwitchSample.svelte';
 
-export const docSwitch: DocPageData = {
+export const docSwitch: DocPage = {
 	id: 'switch',
 	title: 'Switch',
 	demoTitle: 'Examples',
 	demoComponent: SwitchSample,
-	props: docSwitchProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docSwitchPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

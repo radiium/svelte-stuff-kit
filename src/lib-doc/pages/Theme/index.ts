@@ -1,20 +1,15 @@
-import { docThemeProviderProps } from '$lib/components/ThemeProvider/ThemeProvider.props';
+import { docThemeProviderPropsDefs } from '$lib/components/ThemeProvider/ThemeProvider.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import ThemeSample from './ThemeSample.svelte';
 
-export const docTheme: DocPageData = {
+export const docTheme: DocPage = {
 	id: 'theme',
 	title: 'Theme',
 	description: 'Theme wrapper',
 	demoTitle: 'Examples',
 	demoComponent: ThemeSample,
-	props: docThemeProviderProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docThemeProviderPropsDefs]
 };
 
 export const sampleNestedTheme = `<script lang="ts">

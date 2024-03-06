@@ -1,20 +1,15 @@
 <script lang="ts">
 	import { Flexbox, Text } from '$lib/index';
-	import DocBlocPropsTable from './DocBlocPropsTable.svelte';
-	import DocBlocSlotsTable from './DocBlocSlotsTable.svelte';
-	import type { DocPageData, DocNavSection } from '../types';
+	import { type DocPage, type DocNavSection, DocBlocType } from '../types';
 	import DocSectionLink from './DocSectionLink.svelte';
+	import DocSectionPropsDefs from './DocSectionPropsDefs.svelte';
+	import DocSectionText from './DocSectionText.svelte';
 
 	export let section: DocNavSection;
-	export let page: DocPageData;
-
-	$: hasPropsBloc = page.props;
-	$: hasSlotsBloc = page.slots && page.slots.length > 0;
-	$: hasEventsBloc = page.events && page.events.length > 0;
-	$: hasApiSection = hasPropsBloc || hasSlotsBloc || hasEventsBloc;
+	export let page: DocPage;
 </script>
 
-<Flexbox direction="column" gap="7" class="p-9 page-content">
+<Flexbox direction="column" gap="9" class="p-9">
 	<!-- Section Heading -->
 	<Flexbox as="section" direction="column">
 		{#if section.title}
@@ -30,33 +25,41 @@
 		{/if}
 	</Flexbox>
 
-	<!-- Section API reference -->
-	{#if hasApiSection}
-		<hr />
-		<Flexbox as="section" direction="column" gap="5">
-			<DocSectionLink text="API Reference"></DocSectionLink>
-
-			{#if hasPropsBloc}
-				<Flexbox direction="column" gap="4" id="#props">
-					<Text as="h4" size="6" weight="bold">Props</Text>
-					<DocBlocPropsTable props={page.props} />
-				</Flexbox>
-			{/if}
-
-			{#if hasSlotsBloc}
-				<Flexbox direction="column" gap="3">
-					<Text as="h4" size="6" weight="bold">Slots</Text>
-					<DocBlocSlotsTable slots={page.slots} />
-				</Flexbox>
-			{/if}
-
-			{#if hasEventsBloc}
-				<Flexbox direction="column" gap="3">
-					<Text as="h4" size="6" weight="bold">Events</Text>
-				</Flexbox>
-			{/if}
-		</Flexbox>
-	{/if}
+	<!-- Sections -->
+	{#each page.sections as section}
+		{#if section.length > 0}
+			<Flexbox as="section" direction="column" gap="5">
+				{#each section as block}
+					{#if block.type === DocBlocType.h1}
+						<Text as="h1" size="6" weight="bold">
+							{block.text}
+						</Text>
+					{:else if block.type === DocBlocType.h2}
+						<DocSectionLink text={block.text} />
+					{:else if block.type === DocBlocType.h3}
+						<Text as="h3" size="5" weight="bold">
+							{block.text}
+						</Text>
+					{:else if block.type === DocBlocType.h4}
+						<Text as="h4" size="4" weight="bold">
+							{block.text}
+						</Text>
+					{:else if block.type === DocBlocType.p}
+						<Text as="p" size="3">
+							{block.text}
+						</Text>
+					{:else if block.type === DocBlocType.hr}
+						<hr />
+					{:else if block.type === DocBlocType.api}
+						<DocSectionPropsDefs data={block} />
+					{:else if block.type === DocBlocType.demo}
+						{block.component}
+						<svelte:component this={block.component} />
+					{/if}
+				{/each}
+			</Flexbox>
+		{/if}
+	{/each}
 
 	<!-- Section Examples -->
 	{#if page.demoComponent}
@@ -69,10 +72,3 @@
 		</Flexbox>
 	{/if}
 </Flexbox>
-
-<style lang="scss">
-	:global(.page-content) {
-		max-width: 900px;
-		margin: 0 auto;
-	}
-</style>

@@ -1,20 +1,24 @@
+<script lang="ts" context="module">
+	import hljs from 'highlight.js';
+	import { hljsDefineSvelte } from './highlight-svelte.config';
+	import 'highlight.js/scss/atom-one-dark.scss';
+
+	hljs.registerLanguage('svelte', hljsDefineSvelte);
+</script>
+
 <script lang="ts">
 	import Clipboard from 'phosphor-svelte/lib/Clipboard';
 	import Check from 'phosphor-svelte/lib/Check';
 	import Card from '$lib/components/Card/Card.svelte';
 	import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 	import { Button } from '$lib/index';
-	import hljs from 'highlight.js';
-	import { hljsDefineSvelte } from './highlight-svelte.config';
-	import 'highlight.js/scss/atom-one-dark.scss';
-
-	hljs.registerLanguage('svelte', hljsDefineSvelte);
 
 	export let title: string | undefined = undefined;
 	export let description: string | undefined = undefined;
 	export let code: string;
+	export let language: string = 'svelte';
 
-	$: highlighted = hljs.highlight(code, { language: 'svelte' }).value;
+	$: highlighted = hljs.highlight(code, { language }).value;
 
 	let isCopied: boolean = false;
 	let timeoutId: NodeJS.Timeout;

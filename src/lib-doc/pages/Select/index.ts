@@ -1,14 +1,14 @@
-import { docSelectProps } from '$lib/components/Select/Select.props';
+import { docSelectPropsDefs } from '$lib/components/Select/Select.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import SelectSample from './SelectSample.svelte';
 
-export const docSelect: DocPageData = {
+export const docSelect: DocPage = {
 	id: 'select',
 	title: 'Select',
 	demoTitle: 'Examples',
 	demoComponent: SelectSample,
-	props: docSelectProps
+	sections: [docSelectPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

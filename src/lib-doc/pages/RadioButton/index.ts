@@ -1,19 +1,14 @@
-import { docRadioButtonProps } from '$lib/components/RadioButton/RadioButton.props';
+import { docRadioButtonPropsDefs } from '$lib/components/RadioButton/RadioButton.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import RadioButtonSample from './RadioButtonSample.svelte';
 
-export const docRadioButton: DocPageData = {
+export const docRadioButton: DocPage = {
 	id: 'radio-button',
 	title: 'Radio Button',
 	demoTitle: 'Examples',
 	demoComponent: RadioButtonSample,
-	props: docRadioButtonProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docRadioButtonPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

@@ -1,24 +1,14 @@
-import { docInputProps } from '$lib/components/Input/Input.props';
+import { docInputPropsDefs } from '$lib/components/Input/Input.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import InputSample from './InputSample.svelte';
 
-export const docInput: DocPageData = {
+export const docInput: DocPage = {
 	id: 'input',
 	title: 'Input',
 	demoTitle: 'Examples',
 	demoComponent: InputSample,
-	props: docInputProps,
-	slots: [
-		{
-			name: 'leading',
-			default: false
-		},
-		{
-			name: 'trailing',
-			default: false
-		}
-	]
+	sections: [docInputPropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

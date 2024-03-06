@@ -1,15 +1,14 @@
-import { docInputRangeProps } from '$lib/components/InputRange/InputRange.props';
+import { docInputRangePropsDefs } from '$lib/components/InputRange/InputRange.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import InputRangeSample from './InputRangeSample.svelte';
 
-export const docInputRange: DocPageData = {
+export const docInputRange: DocPage = {
 	id: 'input-range',
 	title: 'Input Range',
 	demoTitle: 'Examples',
 	demoComponent: InputRangeSample,
-	props: docInputRangeProps,
-	slots: []
+	sections: [docInputRangePropsDefs]
 };
 
 export const sampleSize = `<script lang="ts">

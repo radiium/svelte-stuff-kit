@@ -1,19 +1,14 @@
-import { docPortalProps } from '$lib/components/Portal/Portal.props';
+import { docPortalPropsDefs } from '$lib/components/Portal/Portal.props';
 import { packageName } from '../../../constants';
-import type { DocPageData } from '../../types';
+import type { DocPage } from '../../types';
 import PortalSample from './PortalSample.svelte';
 
-export const docPopover: DocPageData = {
+export const docPopover: DocPage = {
 	id: 'portal',
 	title: 'Portal',
 	demoTitle: 'Examples',
 	demoComponent: PortalSample,
-	props: docPortalProps,
-	slots: [
-		{
-			default: true
-		}
-	]
+	sections: [docPortalPropsDefs]
 };
 
 export const sampleBasic = `<script lang="ts">

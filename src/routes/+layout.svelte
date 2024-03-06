@@ -5,7 +5,7 @@
 	import DocPageHeader from '../lib-doc/components/DocPageHeader.svelte';
 	import DocPageSidebar from '../lib-doc/components/DocPageSidebar.svelte';
 	import { navigating } from '$app/stores';
-
+    import '../lib-doc/prism.js.scss'
 	let mainRef: HTMLDivElement | null;
 	$: {
 		if ($navigating) {

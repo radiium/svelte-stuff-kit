@@ -1,19 +1,23 @@
-import { docAccordionGroupProps, docAccordionItemProps } from '$lib/components/Accordion/Accordion.props';
-import type { DocPageData } from '../../types';
+import {
+	docAccordionGroupPropsDefs,
+	docAccordionItemPropsDefs
+} from '$lib/components/Accordion/Accordion.props';
+import { type DocPage } from '../../types';
+import { SectionBuilder, PageBuilder } from '../../utils/builder';
 import AccordionSample from './AccordionSample.svelte';
 
-export const docAccordionGroup: DocPageData = {
-	id: 'accordion-group',
-	title: 'AccordionGroup',
-	demoTitle: 'Examples',
-	demoComponent: AccordionSample,
-	props: docAccordionGroupProps
-};
+const sectionApi = SectionBuilder.create('Api reference') //
+	.addH3('AccordionGroup')
+	.addApi(docAccordionGroupPropsDefs)
+	.addH3('AccordionItem')
+	.addApi(docAccordionItemPropsDefs)
+	.get();
 
-export const docAccordionItem: DocPageData = {
-	id: 'accordion-item',
-	title: 'AccordionItem',
-	demoTitle: 'Examples',
-	demoComponent: AccordionSample,
-	props: docAccordionItemProps
-};
+const sectionDemo = SectionBuilder.create('Examples') //
+	.addDemo(AccordionSample)
+	.get();
+
+export const docPageAccordion: DocPage = PageBuilder.create('Accordion') //
+	.addSection(sectionApi)
+	.addSection(sectionDemo)
+	.get();
