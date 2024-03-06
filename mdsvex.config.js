@@ -1,14 +1,22 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
-import highlighter from './mdsvex.highlighter.mjs';
+import examples from 'mdsvexamples'
 
-
+const mdsvexExtensions = ['.svelte.md', '.md', '.svx'];
 const config = defineConfig({
-    extensions: ['.svelte.md', '.md', '.svx'],
-    highlight: {
-        highlighter
-    }
+    extensions: mdsvexExtensions,
+    layout: './src/lib-doc/md/Layout.svelte',
+    remarkPlugins: [
+        [
+            examples,
+            {
+                defaults: {
+                    Wrapper: '/src/lib-doc/md/CodeWrapper.svelte',
+                }
+            }
+        ]
+    ],
+    rehypePlugins: []
 });
 
 export default config;
+export { mdsvexExtensions }
