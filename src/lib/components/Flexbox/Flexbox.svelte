@@ -22,8 +22,8 @@
 		[`flex-justify-content-${justify}`]: justify,
 		[`flex-wrap-${wrap}`]: wrap,
 		[`gap-${gap}`]: gap,
-		[`grow-${grow}`]: grow === '0' || grow === '1',
-		[`shrink-${shrink}`]: shrink === '0' || shrink === '1'
+		[`flex-grow-${grow}`]: grow === '0' || grow === '1',
+		[`flex-shrink-${shrink}`]: shrink === '0' || shrink === '1'
 	});
 </script>
 
