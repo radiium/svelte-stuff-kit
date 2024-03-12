@@ -13,6 +13,7 @@
 		"module": "NodeNext",
 		"moduleResolution": "Bundler",
         "paths": {
+            "$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"],
 			"$lib-doc": ["./src/lib-doc/*"],
 			"svelte-basic": ["./src/lib/index"]
