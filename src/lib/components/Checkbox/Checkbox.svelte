@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { clsx } from '../../utils/clsx';
-	import { defaultCheckboxProps } from './Chekbox.props';
-	import type { CheckboxProps } from './Chekbox.types';
+	import { defaultCheckboxProps } from './Checkbox.props';
+	import type { CheckboxProps } from './Checkbox.types';
 
 	type $$Props = CheckboxProps;
 	export let elementRef: $$Props['elementRef'] = defaultCheckboxProps.elementRef;

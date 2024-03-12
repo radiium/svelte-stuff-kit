@@ -10,7 +10,7 @@ export const defaultCheckboxProps: CheckboxProps = {
 	error: false
 };
 
-export const docCheckbosPropsDefs = {
+export const docCheckboxPropsDefs = {
 	props: [
 		{
 			name: 'elementRef',
