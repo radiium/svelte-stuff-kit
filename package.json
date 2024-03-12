@@ -35,8 +35,9 @@
         "!dist/**/*.test.*",
         "!dist/**/*.spec.*"
     ],
-    "peerDependencies": {
-        "svelte": "^4.2.12"
+    "engines": {
+        "node": ">=20",
+        "pnpm": ">=8"
     },
     "scripts": {
         "dev": "vite dev",
@@ -54,6 +55,9 @@
         "major": "npm version major --git-tag-version=false --allow-same-version=true --workspaces-update=false",
         "minor": "npm version minor --git-tag-version=false --allow-same-version=true --workspaces-update=false",
         "patch": "npm version patch --git-tag-version=false --allow-same-version=true --workspaces-update=false"
+    },
+    "peerDependencies": {
+        "svelte": "^4.2.12"
     },
     "dependencies": {
         "@floating-ui/dom": "^1.6.3",
