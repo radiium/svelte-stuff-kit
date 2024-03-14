@@ -4,9 +4,7 @@
     "singleQuote": true,
     "trailingComma": "none",
     "printWidth": 110,
-    "plugins": [
-        "prettier-plugin-svelte"
-    ],
+    "plugins": ["prettier-plugin-svelte"],
     "overrides": [
         {
             "files": "*.svelte",
@@ -15,11 +13,7 @@
             }
         },
         {
-            "files": [
-                ".svelte.md",
-                ".md",
-                ".svx"
-            ],
+            "files": [".svelte.md", ".md", ".svx"],
             "options": {
                 "parser": "markdown",
                 "tabWidth": 2

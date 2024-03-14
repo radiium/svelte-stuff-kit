@@ -1,116 +1,116 @@
 <script lang="ts">
-	import { clsx } from '../../utils/clsx';
-	import { defaultSwitchProps } from './Switch.props';
-	import type { SwitchProps } from './Switch.types';
+    import { clsx } from '../../utils/clsx';
+    import { defaultSwitchProps } from './Switch.props';
+    import type { SwitchProps } from './Switch.types';
 
-	type $$Props = SwitchProps;
-	export let elementRef: $$Props['elementRef'] = defaultSwitchProps.elementRef;
-	export let size: $$Props['size'] = defaultSwitchProps.size;
-	export let color: $$Props['color'] = defaultSwitchProps.color;
-	export let error: $$Props['error'] = defaultSwitchProps.error;
-	let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
+    type $$Props = SwitchProps;
+    export let elementRef: $$Props['elementRef'] = defaultSwitchProps.elementRef;
+    export let size: $$Props['size'] = defaultSwitchProps.size;
+    export let color: $$Props['color'] = defaultSwitchProps.color;
+    export let error: $$Props['error'] = defaultSwitchProps.error;
+    let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
 
-	$: cssClass = clsx($$restProps.class, 'Switch', {
-		[`Switch-size-${size}`]: size,
-		[`Switch-color-${color}`]: color,
-		'Switch-error': error
-	});
+    $: cssClass = clsx($$restProps.class, 'Switch', {
+        [`Switch-size-${size}`]: size,
+        [`Switch-color-${color}`]: color,
+        'Switch-error': error
+    });
 </script>
 
 <input
-	{...restProps}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	type="checkbox"
-	bind:checked
-	bind:this={elementRef}
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
+    {...restProps}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    type="checkbox"
+    bind:checked
+    bind:this={elementRef}
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
 />
 
 <style lang="scss">
-	.Switch {
-		-webkit-appearance: none;
-		appearance: none;
-		outline: none;
-		border: none;
-		position: relative;
-		width: var(--switch-width);
-		height: var(--switch-height);
-		border-radius: var(--radius-2);
-		background: var(--switch-background);
-		box-shadow: inset 0 0 0 1px var(--gray-8);
-		padding: var(--switch-padding);
-		transition:
-			background-color ease 0.2s,
-			box-shadow ease 0.2s;
+    .Switch {
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border: none;
+        position: relative;
+        width: var(--switch-width);
+        height: var(--switch-height);
+        border-radius: var(--radius-2);
+        background: var(--switch-background);
+        box-shadow: inset 0 0 0 1px var(--gray-8);
+        padding: var(--switch-padding);
+        transition:
+            background-color ease 0.2s,
+            box-shadow ease 0.2s;
 
-		&:after {
-			content: '';
-			display: block;
-			height: var(--switch-thumb-size);
-			width: var(--switch-thumb-size);
-			background-color: var(--switch-check-color);
-			border-radius: var(--radius-1);
-			box-shadow: 0 0 0 1px var(--gray-a3);
-			transition:
-				background-color ease 0.2s,
-				box-shadow ease 0.2s,
-				transform ease 0.2s;
-		}
+        &:after {
+            content: '';
+            display: block;
+            height: var(--switch-thumb-size);
+            width: var(--switch-thumb-size);
+            background-color: var(--switch-check-color);
+            border-radius: var(--radius-1);
+            box-shadow: 0 0 0 1px var(--gray-a3);
+            transition:
+                background-color ease 0.2s,
+                box-shadow ease 0.2s,
+                transform ease 0.2s;
+        }
 
-		// States
-		&:checked {
-			background-color: var(--switch-background-checked);
-			box-shadow: none;
+        // States
+        &:checked {
+            background-color: var(--switch-background-checked);
+            box-shadow: none;
 
-			&:after {
-				transform: translateX(var(--switch-thumb-translate));
-				display: block;
-			}
-		}
+            &:after {
+                transform: translateX(var(--switch-thumb-translate));
+                display: block;
+            }
+        }
 
-		&[disabled] {
-			@include disabled;
-		}
+        &[disabled] {
+            @include disabled;
+        }
 
-		&:focus-visible {
-			@include input-box-shadow-focus;
-		}
+        &:focus-visible {
+            @include input-box-shadow-focus;
+        }
 
-		// Colors
-		--switch-background: var(--gray-a3);
-		--switch-background-checked: var(--accent-9);
-		--switch-check-color: white;
+        // Colors
+        --switch-background: var(--gray-a3);
+        --switch-background-checked: var(--accent-9);
+        --switch-check-color: white;
 
-		// Sizes
-		&.Switch-size-1 {
-			--switch-padding: 3px;
-			--switch-height: var(--space-4);
-			--switch-width: calc(var(--switch-height) * 1.75);
-			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
-			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-		}
-		&.Switch-size-2 {
-			--switch-padding: 3px;
-			--switch-height: calc(var(--space-5) * 5 / 6);
-			--switch-width: calc(var(--switch-height) * 1.75);
-			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
-			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-		}
-		&.Switch-size-3 {
-			--switch-padding: 4px;
-			--switch-height: var(--space-5);
-			--switch-width: calc(var(--switch-height) * 1.75);
-			--switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
-			--switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
-		}
-	}
+        // Sizes
+        &.Switch-size-1 {
+            --switch-padding: 3px;
+            --switch-height: var(--space-4);
+            --switch-width: calc(var(--switch-height) * 1.75);
+            --switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
+            --switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
+        }
+        &.Switch-size-2 {
+            --switch-padding: 3px;
+            --switch-height: calc(var(--space-5) * 5 / 6);
+            --switch-width: calc(var(--switch-height) * 1.75);
+            --switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
+            --switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
+        }
+        &.Switch-size-3 {
+            --switch-padding: 4px;
+            --switch-height: var(--space-5);
+            --switch-width: calc(var(--switch-height) * 1.75);
+            --switch-thumb-size: calc(var(--switch-height) - var(--switch-padding) * 2);
+            --switch-thumb-translate: calc(var(--switch-width) - var(--switch-height));
+        }
+    }
 </style>

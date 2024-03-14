@@ -2,11 +2,11 @@ import { listen } from '$lib/utils/listen';
 import type { ActionReturn } from 'svelte/action';
 
 type Parameters = {
-	duration: number;
+    duration: number;
 };
 type Attributes = {
-	'on:startlongpress': (e: CustomEvent<void>) => void;
-	'on:endlongpress': (e: CustomEvent<void>) => void;
+    'on:startlongpress': (e: CustomEvent<void>) => void;
+    'on:endlongpress': (e: CustomEvent<void>) => void;
 };
 
 /**
@@ -17,35 +17,35 @@ type Attributes = {
  * @returns
  */
 export function longpress(node: HTMLElement, params: Parameters): ActionReturn<Parameters, Attributes> {
-	let timer: number;
+    let timer: number;
 
-	function handlePress(): void {
-		timer = window.setTimeout(() => {
-			node.dispatchEvent(new CustomEvent('startlongpress'));
-		}, params.duration);
-	}
+    function handlePress(): void {
+        timer = window.setTimeout(() => {
+            node.dispatchEvent(new CustomEvent('startlongpress'));
+        }, params.duration);
+    }
 
-	function handleRelease(): void {
-		clearTimeout(timer);
-		node.dispatchEvent(new CustomEvent('endlongpress'));
-	}
+    function handleRelease(): void {
+        clearTimeout(timer);
+        node.dispatchEvent(new CustomEvent('endlongpress'));
+    }
 
-	const mousedownListener = listen(node, 'mousedown', handlePress);
-	const mouseupListener = listen(node, 'mouseup', handleRelease);
-	const touchstartListener = listen(node, 'touchstart', handlePress);
-	const touchendListener = listen(node, 'touchend', handleRelease);
+    const mousedownListener = listen(node, 'mousedown', handlePress);
+    const mouseupListener = listen(node, 'mouseup', handleRelease);
+    const touchstartListener = listen(node, 'touchstart', handlePress);
+    const touchendListener = listen(node, 'touchend', handleRelease);
 
-	return {
-		update(newParams: Parameters): void {
-			handleRelease();
-			params = newParams;
-		},
-		destroy(): void {
-			handleRelease();
-			mousedownListener();
-			mouseupListener();
-			touchstartListener();
-			touchendListener();
-		}
-	};
+    return {
+        update(newParams: Parameters): void {
+            handleRelease();
+            params = newParams;
+        },
+        destroy(): void {
+            handleRelease();
+            mousedownListener();
+            mouseupListener();
+            touchstartListener();
+            touchendListener();
+        }
+    };
 }

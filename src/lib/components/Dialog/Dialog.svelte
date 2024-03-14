@@ -1,254 +1,255 @@
 <script context="module" lang="ts">
-	let allDialog: HTMLDivElement[] = [];
+    let allDialog: HTMLDivElement[] = [];
 
-	const addDialog = (dialog: HTMLDivElement) => {
-		if (dialog) {
-			allDialog.push(dialog);
-		}
-	};
+    const addDialog = (dialog: HTMLDivElement) => {
+        if (dialog) {
+            allDialog.push(dialog);
+        }
+    };
 
-	const removeDialog = (dialog: HTMLDivElement) => {
-		if (dialog) {
-			allDialog = allDialog.filter((m: HTMLDivElement) => m !== dialog);
-		}
-	};
+    const removeDialog = (dialog: HTMLDivElement) => {
+        if (dialog) {
+            allDialog = allDialog.filter((m: HTMLDivElement) => m !== dialog);
+        }
+    };
 
-	const lastDialog = () => {
-		return allDialog && allDialog.length > 0 ? allDialog[allDialog.length - 1] : undefined;
-	};
+    const lastDialog = () => {
+        return allDialog && allDialog.length > 0 ? allDialog[allDialog.length - 1] : undefined;
+    };
 </script>
 
 <script lang="ts">
-	import X from 'phosphor-svelte/lib/X';
-	import { fade, scale } from 'svelte/transition';
-	import { isBrowser } from '../../utils/is-browser';
-	import { focusTrap } from '../../actions/focus-trap';
-	import { clsx } from '../../utils/clsx';
-	import Button from '../Button/Button.svelte';
-	import { defaultDialogProps } from './Dialog.props';
-	import type { DialogProps } from './Dialog.types';
+    import X from 'phosphor-svelte/lib/X';
+    import { fade, scale } from 'svelte/transition';
+    import { isBrowser } from '../../utils/is-browser';
+    import { focusTrap } from '../../actions/focus-trap';
+    import { clsx } from '../../utils/clsx';
+    import Button from '../Button/Button.svelte';
+    import { defaultDialogProps } from './Dialog.props';
+    import type { DialogProps } from './Dialog.types';
 
-	type $$Props = DialogProps;
-	export let isOpen: $$Props['isOpen'] = defaultDialogProps.isOpen;
-	export let size: $$Props['size'] = defaultDialogProps.size;
-	export let closeOnBackdropClick: $$Props['closeOnBackdropClick'] = defaultDialogProps.closeOnBackdropClick;
-	export let closeOnEscape: $$Props['closeOnEscape'] = defaultDialogProps.closeOnEscape;
-	export let showCloseButton: $$Props['showCloseButton'] = defaultDialogProps.showCloseButton;
-	export let blockScroll: $$Props['blockScroll'] = defaultDialogProps.blockScroll;
+    type $$Props = DialogProps;
+    export let isOpen: $$Props['isOpen'] = defaultDialogProps.isOpen;
+    export let size: $$Props['size'] = defaultDialogProps.size;
+    export let closeOnBackdropClick: $$Props['closeOnBackdropClick'] =
+        defaultDialogProps.closeOnBackdropClick;
+    export let closeOnEscape: $$Props['closeOnEscape'] = defaultDialogProps.closeOnEscape;
+    export let showCloseButton: $$Props['showCloseButton'] = defaultDialogProps.showCloseButton;
+    export let blockScroll: $$Props['blockScroll'] = defaultDialogProps.blockScroll;
 
-	let dialogRef: HTMLDivElement;
+    let dialogRef: HTMLDivElement;
 
-	$: {
-		if (isOpen) {
-			addDialog(dialogRef);
-			if (blockScroll) {
-				disableScroll();
-			}
-		} else {
-			removeDialog(dialogRef);
-			if (blockScroll) {
-				enableScroll();
-			}
-		}
-	}
+    $: {
+        if (isOpen) {
+            addDialog(dialogRef);
+            if (blockScroll) {
+                disableScroll();
+            }
+        } else {
+            removeDialog(dialogRef);
+            if (blockScroll) {
+                enableScroll();
+            }
+        }
+    }
 
-	const handlekeydown = (event: KeyboardEvent) => {
-		if (closeOnEscape) {
-			if (event.key === 'Escape') {
-				close();
-			}
-		}
-	};
+    const handlekeydown = (event: KeyboardEvent) => {
+        if (closeOnEscape) {
+            if (event.key === 'Escape') {
+                close();
+            }
+        }
+    };
 
-	const open = () => {
-		console.log('[Dialog] open');
-		isOpen = true;
-	};
+    const open = () => {
+        console.log('[Dialog] open');
+        isOpen = true;
+    };
 
-	const close = () => {
-		console.log('[Dialog] close');
-		isOpen = false;
-	};
+    const close = () => {
+        console.log('[Dialog] close');
+        isOpen = false;
+    };
 
-	const onBackdropClick = () => {
-		console.log('[Dialog] onClickBackdrop');
-		if (closeOnBackdropClick) {
-			close();
-		}
-	};
+    const onBackdropClick = () => {
+        console.log('[Dialog] onClickBackdrop');
+        if (closeOnBackdropClick) {
+            close();
+        }
+    };
 
-	let scrollTop: number | undefined;
-	let scrollLeft: number | undefined;
+    let scrollTop: number | undefined;
+    let scrollLeft: number | undefined;
 
-	function disableScroll() {
-		if (isBrowser()) {
-			scrollTop = window.scrollY || window.document.documentElement.scrollTop;
-			(scrollLeft = window.scrollX || window.document.documentElement.scrollLeft),
-				(window.onscroll = function () {
-					window.scrollTo({
-						left: scrollLeft,
-						top: scrollTop
-					});
-				});
-		}
-	}
+    function disableScroll() {
+        if (isBrowser()) {
+            scrollTop = window.scrollY || window.document.documentElement.scrollTop;
+            (scrollLeft = window.scrollX || window.document.documentElement.scrollLeft),
+                (window.onscroll = function () {
+                    window.scrollTo({
+                        left: scrollLeft,
+                        top: scrollTop
+                    });
+                });
+        }
+    }
 
-	function enableScroll() {
-		if (isBrowser()) {
-			window.onscroll = function () {};
-		}
-	}
+    function enableScroll() {
+        if (isBrowser()) {
+            window.onscroll = function () {};
+        }
+    }
 
-	$: cssClass = clsx($$restProps.class, `Dialog`, {
-		[`Dialog-size-${size}`]: size
-	});
+    $: cssClass = clsx($$restProps.class, `Dialog`, {
+        [`Dialog-size-${size}`]: size
+    });
 </script>
 
 <svelte:window on:keydown={handlekeydown} />
 
 {#if isOpen}
-	<div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
-		<div
-			role="button"
-			class="Dialog-backdrop"
-			tabindex="-1"
-			on:click={onBackdropClick}
-			on:keydown={handlekeydown}
-			transition:fade={{
-				duration: 250
-			}}
-		/>
+    <div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
+        <div
+            role="button"
+            class="Dialog-backdrop"
+            tabindex="-1"
+            on:click={onBackdropClick}
+            on:keydown={handlekeydown}
+            transition:fade={{
+                duration: 250
+            }}
+        />
 
-		<div
-			style={$$restProps.style}
-			role="dialog"
-			class="Dialog-content"
-			active={isOpen}
-			use:focusTrap
-			transition:scale={{
-				start: 0.9,
-				duration: 200,
-				opacity: 0
-			}}
-		>
-			{#if showCloseButton}
-				<Button
-					iconOnly
-					circle
-					variant="clear"
-					size="1"
-					class="Dialog-close-btn"
-					on:click={() => (isOpen = false)}
-				>
-					<X />
-				</Button>
-			{/if}
+        <div
+            style={$$restProps.style}
+            role="dialog"
+            class="Dialog-content"
+            active={isOpen}
+            use:focusTrap
+            transition:scale={{
+                start: 0.9,
+                duration: 200,
+                opacity: 0
+            }}
+        >
+            {#if showCloseButton}
+                <Button
+                    iconOnly
+                    circle
+                    variant="clear"
+                    size="1"
+                    class="Dialog-close-btn"
+                    on:click={() => (isOpen = false)}
+                >
+                    <X />
+                </Button>
+            {/if}
 
-			{#if $$slots.header}
-				<header>
-					<slot name="header" />
-				</header>
-			{/if}
+            {#if $$slots.header}
+                <header>
+                    <slot name="header" />
+                </header>
+            {/if}
 
-			{#if $$slots.content}
-				<div class="content">
-					<slot name="content" />
-				</div>
-			{/if}
+            {#if $$slots.content}
+                <div class="content">
+                    <slot name="content" />
+                </div>
+            {/if}
 
-			{#if $$slots.footer}
-				<footer>
-					<slot name="footer" />
-				</footer>
-			{/if}
-		</div>
-	</div>
+            {#if $$slots.footer}
+                <footer>
+                    <slot name="footer" />
+                </footer>
+            {/if}
+        </div>
+    </div>
 {/if}
 
 <style lang="scss">
-	.Dialog {
-		z-index: 10000;
-		position: fixed;
-		overflow: auto;
-		width: 100%;
-		height: 100%;
-		inset: 0px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+    .Dialog {
+        z-index: 10000;
+        position: fixed;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+        inset: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-		.Dialog-backdrop {
-			z-index: 10001;
-			position: fixed;
-			overflow: hidden;
-			height: 100%;
-			width: 100%;
-			padding: 0;
-			margin: 0;
-			inset: 0px;
-			border: none;
-			background: rgba(0, 0, 0, 0.4);
-		}
+        .Dialog-backdrop {
+            z-index: 10001;
+            position: fixed;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            inset: 0px;
+            border: none;
+            background: rgba(0, 0, 0, 0.4);
+        }
 
-		.Dialog-content {
-			z-index: 10002;
-			min-width: 30rem;
-			max-width: 72vw;
-			position: relative;
-			color: var(--color);
-			background: var(--background-level-0);
-			border-radius: var(--dialog-border-radius);
-			padding: var(--dialog-padding);
-			margin: var(--space-8) auto;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: var(--space-3);
-			@include input-box-shadow;
+        .Dialog-content {
+            z-index: 10002;
+            min-width: 30rem;
+            max-width: 72vw;
+            position: relative;
+            color: var(--color);
+            background: var(--background-level-0);
+            border-radius: var(--dialog-border-radius);
+            padding: var(--dialog-padding);
+            margin: var(--space-8) auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-3);
+            @include input-box-shadow;
 
-			header {
-				width: 100%;
-			}
+            header {
+                width: 100%;
+            }
 
-			.content {
-				width: 100%;
-				max-height: 50vh;
-				overflow: auto;
-			}
+            .content {
+                width: 100%;
+                max-height: 50vh;
+                overflow: auto;
+            }
 
-			footer {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: flex-end;
-				gap: var(--space-3);
-			}
-		}
+            footer {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: var(--space-3);
+            }
+        }
 
-		:global(.Dialog-close-btn) {
-			position: absolute;
-			top: var(--space-2);
-			right: var(--space-2);
-		}
+        :global(.Dialog-close-btn) {
+            position: absolute;
+            top: var(--space-2);
+            right: var(--space-2);
+        }
 
-		// Sizes
-		&.Dialog-size-1 {
-			--dialog-padding: var(--space-3);
-			--dialog-border-radius: var(--radius-4);
-		}
-		&.Dialog-size-2 {
-			--dialog-padding: var(--space-4);
-			--dialog-border-radius: var(--radius-4);
-		}
-		&.Dialog-size-3 {
-			--dialog-padding: var(--space-5);
-			--dialog-border-radius: var(--radius-5);
-		}
-		&.Dialog-size-4 {
-			--dialog-padding: var(--space-6);
-			--dialog-border-radius: var(--radius-5);
-		}
-	}
+        // Sizes
+        &.Dialog-size-1 {
+            --dialog-padding: var(--space-3);
+            --dialog-border-radius: var(--radius-4);
+        }
+        &.Dialog-size-2 {
+            --dialog-padding: var(--space-4);
+            --dialog-border-radius: var(--radius-4);
+        }
+        &.Dialog-size-3 {
+            --dialog-padding: var(--space-5);
+            --dialog-border-radius: var(--radius-5);
+        }
+        &.Dialog-size-4 {
+            --dialog-padding: var(--space-6);
+            --dialog-border-radius: var(--radius-5);
+        }
+    }
 </style>

@@ -217,7 +217,7 @@
         &.Button-icon-only {
             justify-content: center;
             text-align: center;
-            
+
             &.Button-circle {
                 --button-border-radius: var(--radius-full);
             }

@@ -3,7 +3,7 @@ import type { ActionReturn } from 'svelte/action';
 
 type Parameters = void;
 type Attributes = {
-	'on:clickoutside': (e: CustomEvent<HTMLElement>) => void;
+    'on:clickoutside': (e: CustomEvent<HTMLElement>) => void;
 };
 
 /**
@@ -13,17 +13,19 @@ type Attributes = {
  * @returns
  */
 export function clickoutside(node: HTMLElement): ActionReturn<Parameters, Attributes> {
-	function handleClick(event: MouseEvent) {
-		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
-			node.dispatchEvent(new CustomEvent<HTMLElement>('clickoutside', node as CustomEventInit<HTMLElement>));
-		}
-	}
+    function handleClick(event: MouseEvent) {
+        if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+            node.dispatchEvent(
+                new CustomEvent<HTMLElement>('clickoutside', node as CustomEventInit<HTMLElement>)
+            );
+        }
+    }
 
-	const clickListener = listen(document, 'click', handleClick, true);
+    const clickListener = listen(document, 'click', handleClick, true);
 
-	return {
-		destroy() {
-			clickListener();
-		}
-	};
+    return {
+        destroy() {
+            clickListener();
+        }
+    };
 }

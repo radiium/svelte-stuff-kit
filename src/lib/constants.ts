@@ -126,7 +126,7 @@ export function extractLayoutProps<T extends LayoutProps>(props: T) {
         right,
         shrink,
         grow,
-        rest,
+        rest
     };
 }
 

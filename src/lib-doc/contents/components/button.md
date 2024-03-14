@@ -35,8 +35,6 @@ Button
 import { Button } from '$lib';
 ```
 
-
-
 ### Demo
 
 ```bash example
@@ -52,6 +50,7 @@ import { Button } from 'svxui';
 ```
 
 ##### Basic
+
 ```svelte example
 <script lang="ts">
     import { Button } from 'svxui';
@@ -61,6 +60,7 @@ import { Button } from 'svxui';
 ```
 
 ##### Size
+
 ```svelte example hideScript
 <script lang="ts">
     import { Button } from 'svxui';
@@ -73,6 +73,7 @@ import { Button } from 'svxui';
 ```
 
 ##### Variant
+
 ```svelte example hideScript
 <script lang="ts">
     import { Button } from 'svxui';
@@ -85,6 +86,7 @@ import { Button } from 'svxui';
 ```
 
 ##### Color
+
 ```svelte example hideScript
 <script lang="ts">
     import { Button } from 'svxui';

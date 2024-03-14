@@ -1,3 +1,3 @@
 export interface PortalProps {
-	target: HTMLElement | string;
+    target: HTMLElement | string;
 }

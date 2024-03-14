@@ -17,7 +17,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '$lib-doc': path.resolve('./src/lib-doc'),
-            'svxui': path.resolve('./src/lib')
+            svxui: path.resolve('./src/lib')
         }
     }
 });

@@ -10,7 +10,7 @@
     import type { Placements } from '../Popover/Popover.types';
 
     export let placement: (typeof Placements)[number] = 'bottom';
-    
+
     const themeContext = useThemeContext();
     const { strategy, updateStrategy = () => {} } = themeContext;
     const themeOptions = [

@@ -2,25 +2,25 @@ import { Sizes1To4, Colors, Aligns, Variants } from '$lib/constants';
 import type { LinkProps } from './Link.types';
 
 export const defaultLinkProps: LinkProps = {
-	href: '',
-	target: '_blank',
-	rel: undefined,
-	size: '2',
-	variant: 'solid',
-	color: 'neutral',
-	align: 'center',
-	active: false,
-	iconOnly: false,
-	circle: false,
-	fullWidth: false
+    href: '',
+    target: '_blank',
+    rel: undefined,
+    size: '2',
+    variant: 'solid',
+    color: 'neutral',
+    align: 'center',
+    active: false,
+    iconOnly: false,
+    circle: false,
+    fullWidth: false
 };
 
 export const docLinkPropsDefs = {
-	props: [
-		{
-			name: 'elementRef',
-			type: 'HTMLAnchorElement'
-		},
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLAnchorElement'
+        },
         {
             name: 'href',
             type: 'string',
@@ -80,10 +80,7 @@ export const docLinkPropsDefs = {
             type: 'boolean',
             default: defaultLinkProps.fullWidth
         }
-	],
-	slots: [],
-	events: []
+    ],
+    slots: [],
+    events: []
 };
-
-
-

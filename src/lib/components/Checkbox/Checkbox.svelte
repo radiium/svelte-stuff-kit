@@ -1,116 +1,116 @@
 <script lang="ts">
-	import { clsx } from '../../utils/clsx';
-	import { defaultCheckboxProps } from './Checkbox.props';
-	import type { CheckboxProps } from './Checkbox.types';
+    import { clsx } from '../../utils/clsx';
+    import { defaultCheckboxProps } from './Checkbox.props';
+    import type { CheckboxProps } from './Checkbox.types';
 
-	type $$Props = CheckboxProps;
-	export let elementRef: $$Props['elementRef'] = defaultCheckboxProps.elementRef;
-	export let checked: $$Props['checked'] = defaultCheckboxProps.checked;
-	export let indeterminate: $$Props['indeterminate'] = defaultCheckboxProps.indeterminate;
-	export let size: $$Props['size'] = defaultCheckboxProps.size;
-	export let color: $$Props['color'] = defaultCheckboxProps.color;
-	export let error: $$Props['error'] = defaultCheckboxProps.error;
+    type $$Props = CheckboxProps;
+    export let elementRef: $$Props['elementRef'] = defaultCheckboxProps.elementRef;
+    export let checked: $$Props['checked'] = defaultCheckboxProps.checked;
+    export let indeterminate: $$Props['indeterminate'] = defaultCheckboxProps.indeterminate;
+    export let size: $$Props['size'] = defaultCheckboxProps.size;
+    export let color: $$Props['color'] = defaultCheckboxProps.color;
+    export let error: $$Props['error'] = defaultCheckboxProps.error;
 
-	$: required = $$restProps.required;
-	$: disabled = $$restProps.disabled;
+    $: required = $$restProps.required;
+    $: disabled = $$restProps.disabled;
 
-	$: cssClass = clsx($$restProps.class, 'Checkbox', {
-		[`Checkbox-size-${size}`]: size,
-		[`Checkbox-color-${color}`]: color,
-		'Checkbox-error': error
-	});
+    $: cssClass = clsx($$restProps.class, 'Checkbox', {
+        [`Checkbox-size-${size}`]: size,
+        [`Checkbox-color-${color}`]: color,
+        'Checkbox-error': error
+    });
 </script>
 
 <input
-	class={cssClass}
-	{...$$restProps}
-	data-color={color}
-	data-size={size}
-	data-checked={checked || undefined}
-	data-indeterminate={indeterminate || undefined}
-	type="checkbox"
-	autocomplete="off"
-	{required}
-	{disabled}
-	bind:checked
-	bind:indeterminate
-	bind:this={elementRef}
-	on:input
-	on:change
-	on:focus
-	on:blur
+    class={cssClass}
+    {...$$restProps}
+    data-color={color}
+    data-size={size}
+    data-checked={checked || undefined}
+    data-indeterminate={indeterminate || undefined}
+    type="checkbox"
+    autocomplete="off"
+    {required}
+    {disabled}
+    bind:checked
+    bind:indeterminate
+    bind:this={elementRef}
+    on:input
+    on:change
+    on:focus
+    on:blur
 />
 
 <style lang="scss">
-	.Checkbox {
-		-webkit-appearance: none;
-		appearance: none;
-		outline: none;
-		border: none;
-		height: var(--checkbox-size);
-		width: var(--checkbox-size);
-		border-radius: calc(var(--radius-3) / 1.5);
-		background-color: var(--checkbox-background);
-		box-shadow: inset 0 0 0 1px var(--gray-8);
-		position: relative;
+    .Checkbox {
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border: none;
+        height: var(--checkbox-size);
+        width: var(--checkbox-size);
+        border-radius: calc(var(--radius-3) / 1.5);
+        background-color: var(--checkbox-background);
+        box-shadow: inset 0 0 0 1px var(--gray-8);
+        position: relative;
 
-		&:after {
-			display: none;
-			position: absolute;
-			content: '';
-			width: var(--check-width);
-			height: var(--check-height);
-			top: 50%;
-			left: 50%;
-			border: solid var(--check-color);
-			transform: translate(-50%, -60%) rotate(45deg);
-			border-width: 0 2px 2px 0;
-		}
+        &:after {
+            display: none;
+            position: absolute;
+            content: '';
+            width: var(--check-width);
+            height: var(--check-height);
+            top: 50%;
+            left: 50%;
+            border: solid var(--check-color);
+            transform: translate(-50%, -60%) rotate(45deg);
+            border-width: 0 2px 2px 0;
+        }
 
-		&:checked {
-			background-color: var(--checkbox-background-checked);
-			box-shadow: none;
+        &:checked {
+            background-color: var(--checkbox-background-checked);
+            box-shadow: none;
 
-			&:after {
-				display: block;
-			}
+            &:after {
+                display: block;
+            }
 
-			&[data-indeterminate] {
-				&:after {
-					transform: translate(-50%, -80%) rotate(0);
-					border-width: 0 0 2px 0;
-					width: calc(var(--space-4) / 2.5);
-				}
-			}
-		}
+            &[data-indeterminate] {
+                &:after {
+                    transform: translate(-50%, -80%) rotate(0);
+                    border-width: 0 0 2px 0;
+                    width: calc(var(--space-4) / 2.5);
+                }
+            }
+        }
 
-		&[disabled] {
-			@include disabled;
-		}
+        &[disabled] {
+            @include disabled;
+        }
 
-		&:focus-visible {
-			@include input-box-shadow-focus;
-		}
+        &:focus-visible {
+            @include input-box-shadow-focus;
+        }
 
-		// Color
-		--checkbox-background: var(--gray-a3);
-		--checkbox-background-checked: var(--accent-9);
-		--check-color: var(--contrast);
-		// Sizes
-		&.Checkbox-size-1 {
-			--checkbox-size: calc(var(--space-4) * 0.875); // var(--space-4);
-			--check-width: calc(var(--checkbox-size) / 3.5);
-			--check-height: calc(var(--checkbox-size) / 2.5);
-		}
-		&.Checkbox-size-2 {
-			--checkbox-size: var(--space-4); // var(--space-5);
-			--check-width: calc(var(--checkbox-size) / 3.5);
-			--check-height: calc(var(--checkbox-size) / 2.5);
-		}
-		&.Checkbox-size-3 {
-			--checkbox-size: calc(var(--space-4) * 1.25); // var(--space-6);
-			--check-width: calc(var(--checkbox-size) / 3.5);
-			--check-height: calc(var(--checkbox-size) / 2.5);
-		}
-	}
+        // Color
+        --checkbox-background: var(--gray-a3);
+        --checkbox-background-checked: var(--accent-9);
+        --check-color: var(--contrast);
+        // Sizes
+        &.Checkbox-size-1 {
+            --checkbox-size: calc(var(--space-4) * 0.875); // var(--space-4);
+            --check-width: calc(var(--checkbox-size) / 3.5);
+            --check-height: calc(var(--checkbox-size) / 2.5);
+        }
+        &.Checkbox-size-2 {
+            --checkbox-size: var(--space-4); // var(--space-5);
+            --check-width: calc(var(--checkbox-size) / 3.5);
+            --check-height: calc(var(--checkbox-size) / 2.5);
+        }
+        &.Checkbox-size-3 {
+            --checkbox-size: calc(var(--space-4) * 1.25); // var(--space-6);
+            --check-width: calc(var(--checkbox-size) / 3.5);
+            --check-height: calc(var(--checkbox-size) / 2.5);
+        }
+    }
 </style>

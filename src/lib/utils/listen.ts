@@ -8,11 +8,11 @@
  * @returns
  */
 export function listen<T>(
-	node: EventTarget,
-	type: string,
-	callback: any, // EventListenerOrEventListenerObject | null, // TODO fix type
-	options?: AddEventListenerOptions | boolean
+    node: EventTarget,
+    type: string,
+    callback: any, // EventListenerOrEventListenerObject | null, // TODO fix type
+    options?: AddEventListenerOptions | boolean
 ): () => void {
-	node.addEventListener(type, callback, options);
-	return () => node.removeEventListener(type, callback, options);
+    node.addEventListener(type, callback, options);
+    return () => node.removeEventListener(type, callback, options);
 }
