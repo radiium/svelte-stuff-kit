@@ -5,6 +5,7 @@ export const defaultPopoverProps: PopoverProps = {
 	backdrop: false,
 	arrow: true,
 	flip: true,
+	shift: true,
 	strategy: 'absolute',
 	placement: 'top',
 	offset: 0,
@@ -34,6 +35,11 @@ export const docPopoverPropsDefs = {
 			name: 'flip',
 			type: 'boolean',
 			default: defaultPopoverProps.flip
+		},
+        {
+			name: 'shift',
+			type: 'boolean',
+			default: defaultPopoverProps.shift
 		},
 		{
 			name: 'strategy',
