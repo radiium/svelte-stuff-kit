@@ -1,9 +1,9 @@
 {
-    "name": "svelte-stuff-kit",
+    "name": "svxui",
     "description": "Svelte ui components and other stuff",
     "version": "0.0.10",
     "license": "MIT",
-    "homepage": "https://github.com/radiium/svelte-stuff-kit",
+    "homepage": "https://github.com/radiium/svxui",
     "keywords": [
         "svelte",
         "sveltekit",
@@ -19,7 +19,7 @@
         "url": "https://github.com/radiium"
     },
     "bugs": {
-        "url": "https://github.com/radiium/svelte-stuff-kit/issues"
+        "url": "https://github.com/radiium/svxui/issues"
     },
     "svelte": "./dist/index.js",
     "types": "./dist/index.d.ts",
