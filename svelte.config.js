@@ -8,6 +8,10 @@ import { phosphorSvelteOptimize } from 'phosphor-svelte/preprocessor';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
+process.env.PUBLIC_PKG_VERSION = process.env.npm_package_version;
+process.env.PUBLIC_PKG_NAME = process.env.npm_package_name;
+process.env.PUBLIC_PKG_HOMEPAGE = process.env.npm_package_homepage;
+
 const path = fileURLToPath(new URL('package.json', import.meta.url));
 const pkg = JSON.parse(readFileSync(path, 'utf8'));
 

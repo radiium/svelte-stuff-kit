@@ -33,7 +33,7 @@ function parseMeta(meta) {
 const mdsvexExtensions = ['.svelte.md', '.md', '.svx'];
 const config = defineConfig({
     extensions: mdsvexExtensions,
-    layout: './src/lib-doc/md/Layout.svelte',
+    layout: './src/lib-doc/components/ContentLayout.svelte',
     highlight: {
         highlighter: (code, lang, meta) => {
             const highlighted = code_highlighter(code, lang, meta);
@@ -49,7 +49,7 @@ const config = defineConfig({
             examples,
             {
                 defaults: {
-                    Wrapper: '/src/lib-doc/md/CodeWrapper.svelte',
+                    Wrapper: '/src/lib-doc/components/CodeWrapper.svelte',
                     hideScript: true,
                     hideStyle: true
                 }

@@ -1,0 +1,148 @@
+---
+title: Button
+description: Button component
+---
+
+<script lang="ts">
+    import {Button} from '$lib';
+    import {docButtonPropsDefs} from '$lib/components/Button/Button.props';
+    import ApiReference from '$lib-doc/components/ApiReference.svelte';
+    import Playground from '$lib-doc/components/Playground.svelte';
+    import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
+
+    let props = {}
+</script>
+
+### API Reference
+
+<ApiReference data={docButtonPropsDefs}></ApiReference>
+
+<Playground bind:props schema={docButtonPropsDefs}>
+<Button {...props} slot="component">
+{#if props['iconOnly']}
+<MagnifyingGlass />
+{:else}
+Button
+{/if}
+</Button>
+</Playground>
+
+### Usage
+
+#### Import
+
+```typescript example
+import { Button } from '$lib';
+```
+
+
+
+### Demo
+
+```bash example
+npm install svxui
+```
+
+```typescript
+const test: string = 'laal';
+```
+
+```typescript example
+import { Button } from 'svxui';
+```
+
+##### Basic
+```svelte example
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button>button</Button>
+```
+
+##### Size
+```svelte example hideScript
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button size="4">button</Button>
+<Button size="3">button</Button>
+<Button size="2">button</Button>
+<Button size="1">button</Button>
+```
+
+##### Variant
+```svelte example hideScript
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button variant="solid">button</Button>
+<Button variant="soft">button</Button>
+<Button variant="outline">button</Button>
+<Button variant="clear">button</Button>
+```
+
+##### Color
+```svelte example hideScript
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button color="neutral">button</Button>
+<Button color="primary">button</Button>
+<Button color="blue">button</Button>
+<Button color="green">button</Button>
+<Button color="yellow">button</Button>
+<Button color="orange">button</Button>
+<Button color="red">button</Button>
+```
+
+```svelte example hideScript
+<script lang="ts">
+    import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
+    import Trash from 'phosphor-svelte/lib/Trash';
+    import { Button } from 'svxui';
+</script>
+
+<Button variant="clear">
+    <MagnifyingGlass />
+    button
+</Button>
+
+<Button color="primary">
+    button
+    <MagnifyingGlass />
+</Button>
+
+<Button color="blue" variant="soft" iconOnly>
+    <MagnifyingGlass />
+</Button>
+
+<Button color="primary" iconOnly>
+    <MagnifyingGlass />
+</Button>
+
+<Button color="red" iconOnly circle>
+    <Trash />
+</Button>
+```
+
+```svelte example hideScript
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button fullWidth>Button</Button>
+```
+
+```svelte example hideScript column
+<script lang="ts">
+    import { Button } from 'svxui';
+</script>
+
+<Button align="start">Button</Button>
+<Button align="center">Button</Button>
+<Button align="end">Button</Button>
+```

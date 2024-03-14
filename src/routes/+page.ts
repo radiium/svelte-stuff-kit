@@ -1,8 +1,9 @@
-import type { PageLoad } from './$types';
-import { allDocs } from '../lib-doc/index';
 import { redirect } from '@sveltejs/kit';
+import type { PageData } from './$types';
 
-export const load: PageLoad = ({ params }) => {
-	const section = allDocs[0];
-	redirect(302, ['/', section.id, '/', section.pages[0].id].join(''));
+export const prerender = false;
+export const ssr = false;
+
+export const load: PageData = async ({ params }) => {
+    redirect(303, '/docs');
 };
