@@ -76,19 +76,6 @@
 </Flexbox>
 
 <style lang="scss">
-    .code-wrapper {
-        pre {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-
-            code {
-                font-size: 16px;
-                background: var(--background-level-2) !important;
-            }
-        }
-    }
-
     section {
         &.demo-block {
             display: flex;

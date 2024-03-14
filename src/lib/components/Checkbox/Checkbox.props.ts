@@ -1,5 +1,5 @@
 import { Colors, Sizes1To3 } from '$lib/constants';
-import type { CheckboxProps } from './Chekbox.types';
+import type { CheckboxProps } from './Checkbox.types';
 
 export const defaultCheckboxProps: CheckboxProps = {
 	elementRef: undefined,

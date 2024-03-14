@@ -115,8 +115,5 @@
 			--check-width: calc(var(--radio-size) / 3.5);
 			--check-height: calc(var(--radio-size) / 2.5);
 		}
-
-		input {
-		}
 	}
 </style>
