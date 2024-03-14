@@ -1,42 +1,32 @@
 import type { InputNumberProps } from './InputNumber.types';
 export declare const defaultInputNumberProps: InputNumberProps;
-export declare const docInputNumberProps: {
-    value: {
+export declare const docInputNumberPropsDefs: {
+    props: ({
+        name: string;
+        type: string;
+        default?: undefined;
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         default: number | undefined;
-    };
-    step: {
-        type: string;
-        default: number | undefined;
-    };
-    min: {
-        type: string;
-        default: number | undefined;
-    };
-    max: {
-        type: string;
-        default: number | undefined;
-    };
-    size: {
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["1", "2", "3"];
         default: "1" | "2" | "3" | undefined;
-    };
-    color: {
+    } | {
+        name: string;
         type: string;
         values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
         default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
-    };
-    disabled: {
+    } | {
+        name: string;
         type: string;
         default: boolean | undefined;
-    };
-    required: {
-        type: string;
-        default: boolean | undefined;
-    };
-    readonly: {
-        type: string;
-        default: boolean | undefined;
-    };
+        values?: undefined;
+    })[];
+    slots: never[];
+    events: never[];
 };

@@ -2,5 +2,5 @@
 </script>
 
 <Button {...$$props} {...$$restProps} iconOnly on:click on:submit on:focus on:blur>
-	<slot />
+    <slot />
 </Button>

@@ -13,21 +13,21 @@ $: cssClass = clsx($$restProps.class, 'RadioButton', {
 </script>
 
 <input
-	{...$$restProps}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	type="radio"
-	bind:this={elementRef}
-	bind:group
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
+    {...$$restProps}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    type="radio"
+    bind:this={elementRef}
+    bind:group
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
 />
 
 <style>.RadioButton {

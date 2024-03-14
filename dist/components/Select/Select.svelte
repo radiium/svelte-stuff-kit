@@ -12,56 +12,56 @@ $: cssClass = clsx($$restProps.class, `Select`, {
 </script>
 
 {#if $$restProps.multiple}
-	<!-- Select Multiple -->
-	<select
-		size={4}
-		{...$$restProps}
-		multiple
-		data-size={size}
-		class={cssClass}
-		style={$$restProps.style}
-		bind:this={elementRef}
-		bind:value
-		on:input
-		on:change
-		on:focus
-		on:blur
-		on:keydown
-		on:keypress
-		on:keyup
-	>
-		{#each options as option}
-			<option value={option.value}>
-				{option.label}
-			</option>
-		{/each}
-	</select>
+    <!-- Select Multiple -->
+    <select
+        size={4}
+        {...$$restProps}
+        multiple
+        data-size={size}
+        class={cssClass}
+        style={$$restProps.style}
+        bind:this={elementRef}
+        bind:value
+        on:input
+        on:change
+        on:focus
+        on:blur
+        on:keydown
+        on:keypress
+        on:keyup
+    >
+        {#each options as option}
+            <option value={option.value}>
+                {option.label}
+            </option>
+        {/each}
+    </select>
 {:else}
-	<!-- Select Single -->
-	<select
-		{...$$restProps}
-		data-size={size}
-		class={cssClass}
-		style={$$restProps.style}
-		bind:this={elementRef}
-		bind:value
-		on:input
-		on:change
-		on:focus
-		on:blur
-		on:keydown
-		on:keypress
-		on:keyup
-	>
-		{#if !value}
-			<option value="" disabled selected>-- Select an option --</option>
-		{/if}
-		{#each options as option}
-			<option value={option.value}>
-				{option.label}
-			</option>
-		{/each}
-	</select>
+    <!-- Select Single -->
+    <select
+        {...$$restProps}
+        data-size={size}
+        class={cssClass}
+        style={$$restProps.style}
+        bind:this={elementRef}
+        bind:value
+        on:input
+        on:change
+        on:focus
+        on:blur
+        on:keydown
+        on:keypress
+        on:keyup
+    >
+        {#if !value}
+            <option value="" disabled selected>-- Select an option --</option>
+        {/if}
+        {#each options as option}
+            <option value={option.value}>
+                {option.label}
+            </option>
+        {/each}
+    </select>
 {/if}
 
 <!-- 

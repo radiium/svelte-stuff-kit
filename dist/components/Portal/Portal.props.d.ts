@@ -1,8 +1,10 @@
 import type { PortalProps } from './Portal.types';
 export declare const defaultPortalProps: PortalProps;
-export declare const docPortalProps: {
-    target: {
+export declare const docPortalPropsDefs: {
+    props: {
+        name: string;
         type: string;
-        default: string | HTMLElement;
-    };
+    }[];
+    slots: never[];
+    events: never[];
 };

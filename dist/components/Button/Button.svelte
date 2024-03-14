@@ -20,24 +20,24 @@ $: cssClass = clsx($$restProps.class, 'Button', {
     'Button-full-width': fullWidth,
     'Button-active': active,
     'Button-icon-only': iconOnly,
-    'Button-circle': circle
+    'Button-circle': iconOnly && circle
 });
 </script>
 
 <button
-	tabindex="0"
-	{...$$restProps}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
-	on:click
-	on:submit
-	on:focus
-	on:blur
+    tabindex="0"
+    {...$$restProps}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
+    on:click
+    on:submit
+    on:focus
+    on:blur
 >
-	<slot />
+    <slot />
 </button>
 
 <style>button.Button {
@@ -186,22 +186,26 @@ button.Button.Button-solid {
   --button-background-hover: var(--accent-10);
   --button-background-active: var(--accent-11);
 }
-button.Button.Button-icon-only.Button-circle {
-  --button-border-radius: var(--radius-full);
-}
-button.Button.Button-align-start {
-  justify-content: flex-start;
-  text-align: start;
-}
-button.Button.Button-align-center {
+button.Button.Button-icon-only {
   justify-content: center;
   text-align: center;
 }
-button.Button.Button-align-end {
+button.Button.Button-icon-only.Button-circle {
+  --button-border-radius: var(--radius-full);
+}
+button.Button:not(.Button-icon-only).Button-align-start {
+  justify-content: flex-start;
+  text-align: start;
+}
+button.Button:not(.Button-icon-only).Button-align-center {
+  justify-content: center;
+  text-align: center;
+}
+button.Button:not(.Button-icon-only).Button-align-end {
   justify-content: flex-end;
   text-align: end;
 }
-button.Button.Button-full-width {
+button.Button:not(.Button-icon-only).Button-full-width {
   width: 100%;
 }
 button.Button:hover {

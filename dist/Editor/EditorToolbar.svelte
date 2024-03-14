@@ -19,62 +19,62 @@ export let currentMode = EditorMode.default;
 </script>
 
 <Toolbar slot="toolbar" direction="vertical" size="large">
-	<svelte:fragment slot="center">
-		<Button
-			color="neutral"
-			variant="clear"
-			size="3"
-			iconOnly
-			on:click={() => (currentMode = EditorMode.default)}
-			active={currentMode === EditorMode.default}
-		>
-			<Cursor size={24} />
-		</Button>
-		<Button
-			color="neutral"
-			variant="clear"
-			size="3"
-			iconOnly
-			on:click={() => (currentMode = EditorMode.move)}
-			active={currentMode === EditorMode.move}
-		>
-			<Hand size={24} />
-		</Button>
-		<Button
-			color="neutral"
-			variant="clear"
-			size="3"
-			iconOnly
-			on:click={() => (currentMode = EditorMode.draw)}
-			active={currentMode === EditorMode.draw}
-		>
-			<LineSegment size={24} />
-		</Button>
-		<Button
-			color="neutral"
-			variant="clear"
-			size="3"
-			iconOnly
-			on:click={() => (currentMode = EditorMode.zoom)}
-			active={currentMode === EditorMode.zoom}
-		>
-			<MagnifyingGlass size={24} />
-		</Button>
+    <svelte:fragment slot="center">
+        <Button
+            color="neutral"
+            variant="clear"
+            size="3"
+            iconOnly
+            on:click={() => (currentMode = EditorMode.default)}
+            active={currentMode === EditorMode.default}
+        >
+            <Cursor size={24} />
+        </Button>
+        <Button
+            color="neutral"
+            variant="clear"
+            size="3"
+            iconOnly
+            on:click={() => (currentMode = EditorMode.move)}
+            active={currentMode === EditorMode.move}
+        >
+            <Hand size={24} />
+        </Button>
+        <Button
+            color="neutral"
+            variant="clear"
+            size="3"
+            iconOnly
+            on:click={() => (currentMode = EditorMode.draw)}
+            active={currentMode === EditorMode.draw}
+        >
+            <LineSegment size={24} />
+        </Button>
+        <Button
+            color="neutral"
+            variant="clear"
+            size="3"
+            iconOnly
+            on:click={() => (currentMode = EditorMode.zoom)}
+            active={currentMode === EditorMode.zoom}
+        >
+            <MagnifyingGlass size={24} />
+        </Button>
 
-		<hr />
+        <hr />
 
-		<Button color="neutral" variant="clear" iconOnly size="3">
-			<ArrowsInCardinal size={24} />
-		</Button>
-		<Button color="neutral" variant="clear" iconOnly size="3">
-			<ArrowArcLeft size={24} />
-		</Button>
-		<Button color="neutral" variant="clear" iconOnly size="3">
-			<ArrowArcRight size={24} />
-		</Button>
-	</svelte:fragment>
+        <Button color="neutral" variant="clear" iconOnly size="3">
+            <ArrowsInCardinal size={24} />
+        </Button>
+        <Button color="neutral" variant="clear" iconOnly size="3">
+            <ArrowArcLeft size={24} />
+        </Button>
+        <Button color="neutral" variant="clear" iconOnly size="3">
+            <ArrowArcRight size={24} />
+        </Button>
+    </svelte:fragment>
 
-	<svelte:fragment slot="end">
-		<EditorMenu />
-	</svelte:fragment>
+    <svelte:fragment slot="end">
+        <EditorMenu />
+    </svelte:fragment>
 </Toolbar>

@@ -7,30 +7,40 @@ export const defaultDialogProps = {
     showCloseButton: true,
     blockScroll: true
 };
-export const docDialogProps = {
-    isOpen: {
-        type: 'boolean',
-        default: defaultDialogProps.isOpen
-    },
-    size: {
-        type: 'enum',
-        values: Sizes1To4,
-        default: defaultDialogProps.size
-    },
-    closeOnBackdropClick: {
-        type: 'boolean',
-        default: defaultDialogProps.closeOnBackdropClick
-    },
-    closeOnEscape: {
-        type: 'boolean',
-        default: defaultDialogProps.closeOnEscape
-    },
-    showCloseButton: {
-        type: 'boolean',
-        default: defaultDialogProps.showCloseButton
-    },
-    blockScroll: {
-        type: 'boolean',
-        default: defaultDialogProps.blockScroll
-    }
+export const docDialogPropsDefs = {
+    props: [
+        {
+            name: 'isOpen',
+            type: 'boolean',
+            default: defaultDialogProps.isOpen
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To4,
+            default: defaultDialogProps.size
+        },
+        {
+            name: 'closeOnBackdropClick',
+            type: 'boolean',
+            default: defaultDialogProps.closeOnBackdropClick
+        },
+        {
+            name: 'closeOnEscape',
+            type: 'boolean',
+            default: defaultDialogProps.closeOnEscape
+        },
+        {
+            name: 'showCloseButton',
+            type: 'boolean',
+            default: defaultDialogProps.showCloseButton
+        },
+        {
+            name: 'blockScroll',
+            type: 'boolean',
+            default: defaultDialogProps.blockScroll
+        }
+    ],
+    slots: [],
+    events: []
 };

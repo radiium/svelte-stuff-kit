@@ -6,19 +6,36 @@ export const defaultRadioButtonProps = {
     color: 'neutral',
     error: false
 };
-export const docRadioButtonProps = {
-    size: {
-        type: 'enum',
-        values: Sizes1To3,
-        default: defaultRadioButtonProps.size
-    },
-    color: {
-        type: 'enum',
-        values: Colors,
-        default: defaultRadioButtonProps.color
-    },
-    error: {
-        type: 'boolean',
-        default: defaultRadioButtonProps.error
-    }
+export const docRadioButtonPropsDefs = {
+    title: 'RadioButton',
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLInputElement'
+        },
+        {
+            name: 'group',
+            type: 'any',
+            default: defaultRadioButtonProps.group
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To3,
+            default: defaultRadioButtonProps.size
+        },
+        {
+            name: 'color',
+            type: 'enum',
+            values: Colors,
+            default: defaultRadioButtonProps.color
+        },
+        {
+            name: 'error',
+            type: 'boolean',
+            default: defaultRadioButtonProps.error
+        }
+    ],
+    slots: [],
+    events: []
 };

@@ -6,10 +6,10 @@ setContext(ButtonGroupContextKey, true);
 </script>
 
 <div {...$$restProps} role="group" class={cssClass} style={$$restProps.style}>
-	<slot />
+    <slot />
 </div>
 
-<style>div.ButtonGroup {
+<style>.ButtonGroup {
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
@@ -23,5 +23,5 @@ setContext(ButtonGroupContextKey, true);
   font-weight: bold;
   transition: background-color linear 80ms;
   border-radius: var(--radius-3);
-  border: 1px solid white;
+  box-shadow: inset 0 0 0 1px var(--gray-8);
 }</style>

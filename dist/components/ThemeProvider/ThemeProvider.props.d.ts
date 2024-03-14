@@ -1,9 +1,13 @@
 import { ThemeStrategy, type ThemeProviderProps } from './ThemeProvider.types';
 export declare const defaultThemeProviderProps: ThemeProviderProps;
-export declare const docThemeProviderProps: {
-    strategy: {
+export declare const docThemeProviderPropsDefs: {
+    title: string;
+    props: {
+        name: string;
         type: string;
         values: readonly [ThemeStrategy.DARK, ThemeStrategy.LIGHT, ThemeStrategy.SYSTEM];
         default: "light" | "system" | "dark" | undefined;
-    };
+    }[];
+    slots: never[];
+    events: never[];
 };

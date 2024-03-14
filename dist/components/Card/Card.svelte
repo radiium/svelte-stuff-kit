@@ -10,7 +10,7 @@ $: cssClass = clsx($$restProps.class, 'Card', {
 </script>
 
 <div {...$$restProps} class={cssClass} style={$$restProps.style} bind:this={elementRef}>
-	<slot />
+    <slot />
 </div>
 
 <style>.Card {
@@ -19,7 +19,7 @@ $: cssClass = clsx($$restProps.class, 'Card', {
   background-color: var(--background-level-2);
   border: 1px solid var(--gray-5);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 .Card.Card-size-1 {
   --card-padding: var(--space-3);

@@ -7,7 +7,6 @@
         offset as offsetMiddleware,
         arrow as arrowMiddleware,
         shift as shiftMiddleware,
-        limitShift,
         type Side,
         type Alignment
     } from '@floating-ui/dom';

@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { CheckboxProps } from './Chekbox.types';
+import type { CheckboxProps } from './Checkbox.types';
 declare const __propDef: {
     props: CheckboxProps;
     events: {

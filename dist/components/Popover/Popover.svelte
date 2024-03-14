@@ -1,6 +1,6 @@
 <script>import { afterUpdate } from 'svelte';
 import { fade, fly } from 'svelte/transition';
-import { computePosition, flip as flipMiddleware, offset as offsetMiddleware, arrow as arrowMiddleware } from '@floating-ui/dom';
+import { computePosition, flip as flipMiddleware, offset as offsetMiddleware, arrow as arrowMiddleware, shift as shiftMiddleware } from '@floating-ui/dom';
 import { clickoutside } from '../../actions/clickoutside';
 import { focusTrap } from '../../actions/focus-trap';
 import { defaultPopoverProps } from './Popover.props';
@@ -11,6 +11,7 @@ export let strategy = defaultPopoverProps.strategy;
 export let placement = defaultPopoverProps.placement;
 export let offset = defaultPopoverProps.offset;
 export let flip = defaultPopoverProps.flip;
+export let shift = defaultPopoverProps.shift;
 export let transitionOpacity = defaultPopoverProps.transitionOpacity;
 export let transitionY = defaultPopoverProps.transitionY;
 export let transitionDuration = defaultPopoverProps.transitionDuration;
@@ -38,7 +39,8 @@ afterUpdate(async () => {
             middleware: [
                 offsetMiddleware(offset ?? 0),
                 flip && flipMiddleware(),
-                arrow && arrowRef && arrowMiddleware({ element: arrowRef })
+                arrow && arrowRef && arrowMiddleware({ element: arrowRef }),
+                shift && shiftMiddleware({ padding: 10 })
             ]
         });
         side = response.placement.split('-')[0];
@@ -71,44 +73,44 @@ afterUpdate(async () => {
 <svelte:window on:keydown={handlekeydown} />
 
 <div class="trigger-wrapper" bind:this={triggerRef}>
-	<slot name="trigger" {isOpen} {open} {close} />
+    <slot name="trigger" {isOpen} {open} {close} />
 </div>
 
 {#if isOpen}
-	{#if backdrop}
-		<div
-			role="button"
-			class="backdrop"
-			tabindex="-1"
-			in:fade={{ duration: 200 }}
-			out:fade={{ duration: 0 }}
-			on:click|self={close}
-			on:keydown={handlekeydown}
-		/>
-	{/if}
-	<div
-		use:clickoutside
-		use:focusTrap
-		on:clickoutside={close}
-		transition:fly={{
-			opacity: transitionOpacity,
-			y: transitionY,
-			duration: transitionDuration
-		}}
-		bind:this={popoverRef}
-		role="dialog"
-		class="popover"
-		active={isOpen}
-		data-popover
-		data-state={isOpen ? 'open' : 'close'}
-		data-side={side}
-		data-align={align}
-	>
-		{#if arrow}
-			<div bind:this={arrowRef} class="popover-arrow {side}" />
-		{/if}
-		<slot name="content" {isOpen} {open} {close} />
-	</div>
+    {#if backdrop}
+        <div
+            role="button"
+            class="backdrop"
+            tabindex="-1"
+            in:fade={{ duration: 200 }}
+            out:fade={{ duration: 0 }}
+            on:click|self={close}
+            on:keydown={handlekeydown}
+        />
+    {/if}
+    <div
+        use:clickoutside
+        use:focusTrap
+        on:clickoutside={close}
+        transition:fly={{
+            opacity: transitionOpacity,
+            y: transitionY,
+            duration: transitionDuration
+        }}
+        bind:this={popoverRef}
+        role="dialog"
+        class="popover"
+        active={isOpen}
+        data-popover
+        data-state={isOpen ? 'open' : 'close'}
+        data-side={side}
+        data-align={align}
+    >
+        {#if arrow}
+            <div bind:this={arrowRef} class="popover-arrow {side}" />
+        {/if}
+        <slot name="content" {isOpen} {open} {close} />
+    </div>
 {/if}
 
 <style>[data-popover] {

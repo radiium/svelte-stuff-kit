@@ -1,46 +1,27 @@
 import { type PopoverProps } from './Popover.types';
 export declare const defaultPopoverProps: PopoverProps;
-export declare const docPopoverProps: {
-    isOpen: {
+export declare const docPopoverPropsDefs: {
+    props: ({
+        name: string;
         type: string;
         default: boolean | undefined;
-    };
-    backdrop: {
-        type: string;
-        default: boolean | undefined;
-    };
-    arrow: {
-        type: string;
-        default: boolean | undefined;
-    };
-    flip: {
-        type: string;
-        default: boolean | undefined;
-    };
-    strategy: {
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["absolute", "fixed"];
-        default: import("@floating-ui/utils").Strategy | undefined;
-    };
-    placement: {
+        default: "absolute" | "fixed" | undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["top", "right", "bottom", "left", "top-start", "top-end", "right-start", "right-end", "bottom-start", "bottom-end", "left-start", "left-end"];
-        default: import("@floating-ui/utils").Placement | undefined;
-    };
-    offset: {
+        default: "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end" | undefined;
+    } | {
+        name: string;
         type: string;
         default: number | undefined;
-    };
-    transitionOpacity: {
-        type: string;
-        default: number | undefined;
-    };
-    transitionY: {
-        type: string;
-        default: number | undefined;
-    };
-    transitionDuration: {
-        type: string;
-        default: number | undefined;
-    };
+        values?: undefined;
+    })[];
+    slots: never[];
+    events: never[];
 };

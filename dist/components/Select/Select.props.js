@@ -6,22 +6,35 @@ export const defaultSelectProps = {
     size: '2',
     fullWidth: false
 };
-export const docSelectProps = {
-    options: {
-        type: 'Array',
-        default: defaultSelectProps.options
-    },
-    value: {
-        type: 'string | number',
-        default: defaultSelectProps.value
-    },
-    size: {
-        type: 'enum',
-        values: Sizes1To3,
-        default: defaultSelectProps.size
-    },
-    fullWidth: {
-        type: 'boolean',
-        default: defaultSelectProps.fullWidth
-    }
+export const docSelectPropsDefs = {
+    title: 'Select',
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLSelectElement'
+        },
+        {
+            name: 'options',
+            type: 'Array',
+            default: defaultSelectProps.options
+        },
+        {
+            name: 'value',
+            type: 'string | number',
+            default: defaultSelectProps.value
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To3,
+            default: defaultSelectProps.size
+        },
+        {
+            name: 'fullWidth',
+            type: 'boolean',
+            default: defaultSelectProps.fullWidth
+        }
+    ],
+    slots: [],
+    events: []
 };

@@ -1,31 +1,37 @@
 import type { InputProps } from './Input.types';
 export declare const defaultInputProps: InputProps;
-export declare const docInputProps: {
-    value: {
+export declare const docInputPropsDefs: {
+    props: ({
+        name: string;
+        type: string;
+        default?: undefined;
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         default: string | undefined;
-    };
-    type: {
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["number", "time", "text", "search", "password", "email", "tel", "url", "date", "datetime-local", "month", "week"];
         default: "number" | "time" | "text" | "search" | "password" | "email" | "tel" | "url" | "date" | "datetime-local" | "month" | "week" | undefined;
-    };
-    size: {
+    } | {
+        name: string;
         type: string;
         values: readonly ["1", "2", "3"];
         default: "1" | "2" | "3" | undefined;
-    };
-    align: {
+    } | {
+        name: string;
         type: string;
         values: readonly ["start", "center", "end"];
         default: "start" | "center" | "end" | undefined;
-    };
-    error: {
+    } | {
+        name: string;
         type: string;
         default: boolean | undefined;
-    };
-    fullWidth: {
-        type: string;
-        default: boolean | undefined;
-    };
+        values?: undefined;
+    })[];
+    slots: never[];
+    events: never[];
 };

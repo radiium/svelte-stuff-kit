@@ -13,21 +13,21 @@ $: cssClass = clsx($$restProps.class, 'Switch', {
 </script>
 
 <input
-	{...restProps}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	type="checkbox"
-	bind:checked
-	bind:this={elementRef}
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
+    {...restProps}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    type="checkbox"
+    bind:checked
+    bind:this={elementRef}
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
 />
 
 <style>.Switch {

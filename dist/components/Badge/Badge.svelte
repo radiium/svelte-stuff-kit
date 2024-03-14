@@ -13,8 +13,15 @@ $: cssClass = clsx($$restProps.class, 'Badge', {
 });
 </script>
 
-<span {...$$restProps} data-color={color} data-size={size} class={cssClass} style={$$restProps.style}>
-	<slot />
+<span
+    {...$$restProps}
+    bind:this={elementRef}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+>
+    <slot />
 </span>
 
 <style>.Badge {

@@ -80,7 +80,7 @@ export function extractLayoutProps(props) {
         right,
         shrink,
         grow,
-        rest,
+        rest
     };
 }
 export function cleanProps(props) {

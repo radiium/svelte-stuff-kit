@@ -1,6 +1,8 @@
 import { SvelteComponent } from "svelte";
 declare const __propDef: {
-    props: Record<string, never>;
+    props: {
+        placement?: "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end" | "right-start" | "right-end" | undefined;
+    };
     events: {
         [evt: string]: CustomEvent<any>;
     };

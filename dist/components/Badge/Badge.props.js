@@ -5,20 +5,40 @@ export const defaultBadgeProps = {
     variant: 'soft',
     disabled: false
 };
-export const docBadgeProps = {
-    color: {
-        type: 'enum',
-        values: Colors,
-        default: defaultBadgeProps.color
-    },
-    size: {
-        type: 'enum',
-        values: Sizes1To2,
-        default: defaultBadgeProps.size
-    },
-    variant: {
-        type: 'enum',
-        values: VariantsBadge,
-        default: defaultBadgeProps.variant
-    }
+export const docBadgePropsDefs = {
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLSpanElement'
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To2,
+            default: defaultBadgeProps.size
+        },
+        {
+            name: 'variant',
+            type: 'enum',
+            values: VariantsBadge,
+            default: defaultBadgeProps.variant
+        },
+        {
+            name: 'color',
+            type: 'enum',
+            values: Colors,
+            default: defaultBadgeProps.color
+        },
+        {
+            name: 'disabled',
+            type: 'boolean',
+            default: defaultBadgeProps.disabled
+        }
+    ],
+    slots: [
+        {
+            default: true
+        }
+    ],
+    events: []
 };

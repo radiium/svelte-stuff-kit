@@ -17,11 +17,11 @@ $: cssClass = clsx($$restProps.class, {
     [`flex-justify-content-${justify}`]: justify,
     [`flex-wrap-${wrap}`]: wrap,
     [`gap-${gap}`]: gap,
-    [`grow-${grow}`]: grow === '0' || grow === '1',
-    [`shrink-${shrink}`]: shrink === '0' || shrink === '1'
+    [`flex-grow-${grow}`]: grow === '0' || grow === '1',
+    [`flex-shrink-${shrink}`]: shrink === '0' || shrink === '1'
 });
 </script>
 
 <svelte:element this={as} {...$$restProps} class={cssClass} style={$$restProps.style} bind:this={elementRef}>
-	<slot />
+    <slot />
 </svelte:element>

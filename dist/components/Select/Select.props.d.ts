@@ -1,21 +1,23 @@
-import type { SelectOption, SelectProps } from './Select.types';
+import type { SelectProps } from './Select.types';
 export declare const defaultSelectProps: SelectProps;
-export declare const docSelectProps: {
-    options: {
+export declare const docSelectPropsDefs: {
+    title: string;
+    props: ({
+        name: string;
         type: string;
-        default: SelectOption[];
-    };
-    value: {
+        default?: undefined;
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         default: unknown;
-    };
-    size: {
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["1", "2", "3"];
         default: "1" | "2" | "3" | undefined;
-    };
-    fullWidth: {
-        type: string;
-        default: boolean | undefined;
-    };
+    })[];
+    slots: never[];
+    events: never[];
 };

@@ -7,27 +7,41 @@ export const defaultTextareaProps = {
     error: false,
     fullWidth: false
 };
-export const docTextareaProps = {
-    value: {
-        type: 'string',
-        default: defaultTextareaProps.value
-    },
-    size: {
-        type: 'enum',
-        values: Sizes1To3,
-        default: defaultTextareaProps.size
-    },
-    color: {
-        type: 'enum',
-        values: Colors,
-        default: defaultTextareaProps.color
-    },
-    error: {
-        type: 'boolean',
-        default: defaultTextareaProps.error
-    },
-    fullWidth: {
-        type: 'boolean',
-        default: defaultTextareaProps.fullWidth
-    }
+export const docTextareaPropsDefs = {
+    title: 'Textarea',
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLTextAreaElement'
+        },
+        {
+            name: 'value',
+            type: 'string',
+            default: defaultTextareaProps.value
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To3,
+            default: defaultTextareaProps.size
+        },
+        {
+            name: 'color',
+            type: 'enum',
+            values: Colors,
+            default: defaultTextareaProps.color
+        },
+        {
+            name: 'error',
+            type: 'boolean',
+            default: defaultTextareaProps.error
+        },
+        {
+            name: 'fullWidth',
+            type: 'boolean',
+            default: defaultTextareaProps.fullWidth
+        }
+    ],
+    slots: [],
+    events: []
 };

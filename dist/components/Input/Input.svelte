@@ -22,21 +22,21 @@ const setType = (node) => {
 </script>
 
 <input
-	{...$$restProps}
-	spellcheck="false"
-	autocomplete="off"
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
-	bind:value
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
-	use:setType
+    {...$$restProps}
+    spellcheck="false"
+    autocomplete="off"
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
+    bind:value
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
+    use:setType
 />
 
 <style>.Input {

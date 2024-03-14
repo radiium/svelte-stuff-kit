@@ -91,62 +91,62 @@ $: cssClass = clsx($$restProps.class, `Dialog`, {
 <svelte:window on:keydown={handlekeydown} />
 
 {#if isOpen}
-	<div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
-		<div
-			role="button"
-			class="Dialog-backdrop"
-			tabindex="-1"
-			on:click={onBackdropClick}
-			on:keydown={handlekeydown}
-			transition:fade={{
-				duration: 250
-			}}
-		/>
+    <div id={dialogRef?.id} class={cssClass} bind:this={dialogRef}>
+        <div
+            role="button"
+            class="Dialog-backdrop"
+            tabindex="-1"
+            on:click={onBackdropClick}
+            on:keydown={handlekeydown}
+            transition:fade={{
+                duration: 250
+            }}
+        />
 
-		<div
-			style={$$restProps.style}
-			role="dialog"
-			class="Dialog-content"
-			active={isOpen}
-			use:focusTrap
-			transition:scale={{
-				start: 0.9,
-				duration: 200,
-				opacity: 0
-			}}
-		>
-			{#if showCloseButton}
-				<Button
-					iconOnly
-					circle
-					variant="clear"
-					size="1"
-					class="Dialog-close-btn"
-					on:click={() => (isOpen = false)}
-				>
-					<X />
-				</Button>
-			{/if}
+        <div
+            style={$$restProps.style}
+            role="dialog"
+            class="Dialog-content"
+            active={isOpen}
+            use:focusTrap
+            transition:scale={{
+                start: 0.9,
+                duration: 200,
+                opacity: 0
+            }}
+        >
+            {#if showCloseButton}
+                <Button
+                    iconOnly
+                    circle
+                    variant="clear"
+                    size="1"
+                    class="Dialog-close-btn"
+                    on:click={() => (isOpen = false)}
+                >
+                    <X />
+                </Button>
+            {/if}
 
-			{#if $$slots.header}
-				<header>
-					<slot name="header" />
-				</header>
-			{/if}
+            {#if $$slots.header}
+                <header>
+                    <slot name="header" />
+                </header>
+            {/if}
 
-			{#if $$slots.content}
-				<div class="content">
-					<slot name="content" />
-				</div>
-			{/if}
+            {#if $$slots.content}
+                <div class="content">
+                    <slot name="content" />
+                </div>
+            {/if}
 
-			{#if $$slots.footer}
-				<footer>
-					<slot name="footer" />
-				</footer>
-			{/if}
-		</div>
-	</div>
+            {#if $$slots.footer}
+                <footer>
+                    <slot name="footer" />
+                </footer>
+            {/if}
+        </div>
+    </div>
 {/if}
 
 <style>.Dialog {

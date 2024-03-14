@@ -17,15 +17,15 @@ $: cssClass = clsx($$restProps.class, 'Text', {
 </script>
 
 <svelte:element
-	this={as}
-	{...$$restProps}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
+    this={as}
+    {...$$restProps}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
 >
-	<slot />
+    <slot />
 </svelte:element>
 
 <style>.Text {

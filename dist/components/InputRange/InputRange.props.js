@@ -6,23 +6,35 @@ export const defaultInputRangeProps = {
     error: false,
     fullWidth: false
 };
-export const docInputRangeProps = {
-    size: {
-        type: 'enum',
-        values: Sizes1To3,
-        default: defaultInputRangeProps.size
-    },
-    color: {
-        type: 'enum',
-        values: Colors,
-        default: defaultInputRangeProps.color
-    },
-    error: {
-        type: 'boolean',
-        default: defaultInputRangeProps.error
-    },
-    fullWidth: {
-        type: 'boolean',
-        default: defaultInputRangeProps.fullWidth
-    }
+export const docInputRangePropsDefs = {
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLInputElement'
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To3,
+            default: defaultInputRangeProps.size
+        },
+        {
+            name: 'color',
+            type: 'enum',
+            values: Colors,
+            default: defaultInputRangeProps.color
+        },
+        {
+            name: 'error',
+            type: 'boolean',
+            default: defaultInputRangeProps.error
+        },
+        {
+            name: 'fullWidth',
+            type: 'boolean',
+            default: defaultInputRangeProps.fullWidth
+        }
+    ],
+    slots: [],
+    events: []
 };

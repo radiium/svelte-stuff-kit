@@ -3,17 +3,17 @@ export let size = 'medium';
 </script>
 
 <div class="toolbar {direction} {size} {$$restProps.class || ''}">
-	<div class="start">
-		<slot name="start" />
-	</div>
+    <div class="start">
+        <slot name="start" />
+    </div>
 
-	<div class="center">
-		<slot name="center" />
-	</div>
+    <div class="center">
+        <slot name="center" />
+    </div>
 
-	<div class="end">
-		<slot name="end" />
-	</div>
+    <div class="end">
+        <slot name="end" />
+    </div>
 </div>
 
 <style>.toolbar {

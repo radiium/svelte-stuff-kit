@@ -15,20 +15,20 @@ $: cssClass = clsx($$restProps.class, 'Textarea', {
 </script>
 
 <textarea
-	rows={3}
-	spellcheck={false}
-	{...$$restProps}
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
-	bind:value
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
+    rows={3}
+    spellcheck={false}
+    {...$$restProps}
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
+    bind:value
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
 />
 
 <style>.Textarea {

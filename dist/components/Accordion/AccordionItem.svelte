@@ -25,5 +25,5 @@ $: {
 <slot name="header" {...accordionStore} />
 
 {#if isOpen}
-	<slot {...accordionStore} />
+    <slot {...accordionStore} />
 {/if}

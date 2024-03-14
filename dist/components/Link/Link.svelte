@@ -25,21 +25,21 @@ $: cssClass = clsx($$restProps.class, 'Link', {
 </script>
 
 <a
-	tabindex="0"
-	{...$$restProps}
-	{href}
-	{target}
-	{rel}
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
-	on:click
-	on:focus
-	on:blur
+    tabindex="0"
+    {...$$restProps}
+    {href}
+    {target}
+    {rel}
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
+    on:click
+    on:focus
+    on:blur
 >
-	<slot />
+    <slot />
 </a>
 
 <style>a.Link {

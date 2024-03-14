@@ -73,45 +73,45 @@ onMount(() => {
 
 <!-- Reference button -->
 <div use:referenceAction class="reference">
-	<slot name="trigger" isOpen={$isOpen} {open} {close} />
+    <slot name="trigger" isOpen={$isOpen} {open} {close} />
 </div>
 
 {#if $isOpen}
-	<!-- Backfrop -->
-	{#if backdrop}
-		<div
-			role="button"
-			class="backdrop"
-			tabindex="-1"
-			in:fade={{ duration: 200 }}
-			out:fade={{ duration: 0 }}
-			on:click|self={close}
-			on:keydown={handlekeydown}
-		/>
-	{/if}
+    <!-- Backfrop -->
+    {#if backdrop}
+        <div
+            role="button"
+            class="backdrop"
+            tabindex="-1"
+            in:fade={{ duration: 200 }}
+            out:fade={{ duration: 0 }}
+            on:click|self={close}
+            on:keydown={handlekeydown}
+        />
+    {/if}
 
-	<!-- 	
+    <!-- 	
 		transition:fly={transition}
 		transition:scale={transitionScale} 
 		in:fly2={transitionIn} out:fly2={transitionOut}
 	-->
-	<!-- Floating -->
-	<div class="floating-wrapper" transition:fade={transition}>
-		<div
-			use:floatingAction
-			use:clickoutside
-			style={floatingStyle}
-			on:clickoutside={close}
-			role="dialog"
-			class="floating"
-		>
-			<slot name="content" />
+    <!-- Floating -->
+    <div class="floating-wrapper" transition:fade={transition}>
+        <div
+            use:floatingAction
+            use:clickoutside
+            style={floatingStyle}
+            on:clickoutside={close}
+            role="dialog"
+            class="floating"
+        >
+            <slot name="content" />
 
-			{#if arrow}
-				<div use:arrowAction style={arrowStyle} class="popover-arrow {side}" />
-			{/if}
-		</div>
-	</div>
+            {#if arrow}
+                <div use:arrowAction style={arrowStyle} class="popover-arrow {side}" />
+            {/if}
+        </div>
+    </div>
 {/if}
 
 <style>.backdrop {

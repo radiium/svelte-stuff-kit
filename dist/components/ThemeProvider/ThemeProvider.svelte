@@ -53,5 +53,5 @@ onMount(() => {
 
 <!--  data-radius={$themeStore.radius} -->
 <div class="radiium-svelte-ui" data-theme={$schemeStore} data-theme-root={isRoot}>
-	<slot />
+    <slot />
 </div>

@@ -1,5 +1,5 @@
 <script>import { clsx } from '../../utils/clsx';
-import { defaultCheckboxProps } from './Chekbox.props';
+import { defaultCheckboxProps } from './Checkbox.props';
 export let elementRef = defaultCheckboxProps.elementRef;
 export let checked = defaultCheckboxProps.checked;
 export let indeterminate = defaultCheckboxProps.indeterminate;
@@ -16,23 +16,23 @@ $: cssClass = clsx($$restProps.class, 'Checkbox', {
 </script>
 
 <input
-	class={cssClass}
-	{...$$restProps}
-	data-color={color}
-	data-size={size}
-	data-checked={checked || undefined}
-	data-indeterminate={indeterminate || undefined}
-	type="checkbox"
-	autocomplete="off"
-	{required}
-	{disabled}
-	bind:checked
-	bind:indeterminate
-	bind:this={elementRef}
-	on:input
-	on:change
-	on:focus
-	on:blur
+    class={cssClass}
+    {...$$restProps}
+    data-color={color}
+    data-size={size}
+    data-checked={checked || undefined}
+    data-indeterminate={indeterminate || undefined}
+    type="checkbox"
+    autocomplete="off"
+    {required}
+    {disabled}
+    bind:checked
+    bind:indeterminate
+    bind:this={elementRef}
+    on:input
+    on:change
+    on:focus
+    on:blur
 />
 
 <style>.Checkbox {

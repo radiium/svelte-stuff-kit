@@ -24,6 +24,8 @@ export { default as Select } from './components/Select/Select.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Text } from './components/Text/Text.svelte';
 export { default as Textarea } from './components/Textarea/Textarea.svelte';
+// Theme
+export { useThemeContext } from './components/ThemeProvider/theme.utils';
 export { default as ThemeProvider } from './components/ThemeProvider/ThemeProvider.svelte';
 export { default as ThemeSelect } from './components/ThemeProvider/ThemeSelect.svelte';
 // Editor

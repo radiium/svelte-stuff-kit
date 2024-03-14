@@ -14,20 +14,20 @@ $: cssClass = clsx($$restProps.class, 'InputRange', {
 </script>
 
 <input
-	{...$$restProps}
-	type="range"
-	data-color={color}
-	data-size={size}
-	class={cssClass}
-	style={$$restProps.style}
-	bind:this={elementRef}
-	on:input
-	on:change
-	on:focus
-	on:blur
-	on:keydown
-	on:keypress
-	on:keyup
+    {...$$restProps}
+    type="range"
+    data-color={color}
+    data-size={size}
+    class={cssClass}
+    style={$$restProps.style}
+    bind:this={elementRef}
+    on:input
+    on:change
+    on:focus
+    on:blur
+    on:keydown
+    on:keypress
+    on:keyup
 />
 
 <style>.InputRange {

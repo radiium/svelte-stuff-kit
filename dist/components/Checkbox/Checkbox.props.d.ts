@@ -1,26 +1,27 @@
-import type { CheckboxProps } from './Chekbox.types';
+import type { CheckboxProps } from './Checkbox.types';
 export declare const defaultCheckboxProps: CheckboxProps;
-export declare const docCheckboxProps: {
-    checked: {
+export declare const docCheckboxPropsDefs: {
+    props: ({
+        name: string;
+        type: string;
+        default?: undefined;
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         default: boolean | undefined;
-    };
-    indeterminate: {
-        type: string;
-        default: boolean | undefined;
-    };
-    size: {
+        values?: undefined;
+    } | {
+        name: string;
         type: string;
         values: readonly ["1", "2", "3"];
         default: "1" | "2" | "3" | undefined;
-    };
-    color: {
+    } | {
+        name: string;
         type: string;
         values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
         default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
-    };
-    error: {
-        type: string;
-        default: boolean | undefined;
-    };
+    })[];
+    slots: never[];
+    events: never[];
 };

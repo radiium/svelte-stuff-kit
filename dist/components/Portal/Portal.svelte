@@ -50,5 +50,5 @@ export let target = defaultPortalProps.target;
 </script>
 
 <div use:portal={target} hidden>
-	<slot />
+    <slot />
 </div>

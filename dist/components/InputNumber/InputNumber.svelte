@@ -84,43 +84,43 @@ function clearIntervalId() {
 </script>
 
 <div class={cssClass}>
-	<button
-		tabindex="-1"
-		use:longpress={{ duration: 600 }}
-		on:startlongpress={decrementMouseDown}
-		on:endlongpress={mouseUp}
-		on:click={decrement}
-		{disabled}>-</button
-	>
-	<input
-		type="number"
-		inputmode="numeric"
-		class:disabled
-		class:required
-		class:readonly
-		{disabled}
-		{required}
-		{readonly}
-		{...attributes}
-		{step}
-		{min}
-		{max}
-		bind:value
-		bind:this={elementRef}
-		on:input
-		on:change
-		on:focus
-		on:blur
-	/>
+    <button
+        tabindex="-1"
+        use:longpress={{ duration: 600 }}
+        on:startlongpress={decrementMouseDown}
+        on:endlongpress={mouseUp}
+        on:click={decrement}
+        {disabled}>-</button
+    >
+    <input
+        type="number"
+        inputmode="numeric"
+        class:disabled
+        class:required
+        class:readonly
+        {disabled}
+        {required}
+        {readonly}
+        {...attributes}
+        {step}
+        {min}
+        {max}
+        bind:value
+        bind:this={elementRef}
+        on:input
+        on:change
+        on:focus
+        on:blur
+    />
 
-	<button
-		tabindex="-1"
-		use:longpress={{ duration: 600 }}
-		on:startlongpress={incrementMouseDown}
-		on:endlongpress={mouseUp}
-		on:click={increment}
-		{disabled}>+</button
-	>
+    <button
+        tabindex="-1"
+        use:longpress={{ duration: 600 }}
+        on:startlongpress={incrementMouseDown}
+        on:endlongpress={mouseUp}
+        on:click={increment}
+        {disabled}>+</button
+    >
 </div>
 
 <style>.InputNumber {

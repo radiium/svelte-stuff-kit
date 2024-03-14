@@ -6,93 +6,97 @@ import Toolbar from './Toolbar.svelte';
 
 <!-- class:has-header={$$slots.header} -->
 <div
-	class="wrapper"
-	class:has-footer={$$slots.footer}
-	class:has-toolbar={$$slots.toolbar}
-	class:has-left={$$slots.panelLeft}
-	class:has-right={$$slots.panelRight}
-	class:is-left-open={$editorLayoutStore.isPanelLeftOpen}
-	class:is-right-open={$editorLayoutStore.isPanelRightOpen}
+    class="wrapper"
+    class:has-footer={$$slots.footer}
+    class:has-toolbar={$$slots.toolbar}
+    class:has-left={$$slots.panelLeft}
+    class:has-right={$$slots.panelRight}
+    class:is-left-open={$editorLayoutStore.isPanelLeftOpen}
+    class:is-right-open={$editorLayoutStore.isPanelRightOpen}
 >
-	<header>
-		<!-- <slot name="header">Header</slot> -->
-		<Toolbar size="small">
-			<svelte:fragment slot="start">
-				<slot name="start" />
-			</svelte:fragment>
+    <header>
+        <!-- <slot name="header">Header</slot> -->
+        <Toolbar size="small">
+            <svelte:fragment slot="start">
+                <slot name="start" />
+            </svelte:fragment>
 
-			<svelte:fragment slot="center">
-				<slot name="title" />
-			</svelte:fragment>
+            <svelte:fragment slot="center">
+                <slot name="title" />
+            </svelte:fragment>
 
-			<svelte:fragment slot="end">
-				<slot name="end" />
-				{#if $$slots.panelLeft}
-					<Button
-						class="panel-btn"
-						size="1"
-						color="neutral"
-						variant="clear"
-						iconOnly
-						on:click={editorLayoutStore.toggleLeft}
-					>
-						<SidebarSimple size={24} weight={$editorLayoutStore.isPanelLeftOpen ? 'fill' : 'regular'} />
-					</Button>
-				{/if}
+            <svelte:fragment slot="end">
+                <slot name="end" />
+                {#if $$slots.panelLeft}
+                    <Button
+                        class="panel-btn"
+                        size="1"
+                        color="neutral"
+                        variant="clear"
+                        iconOnly
+                        on:click={editorLayoutStore.toggleLeft}
+                    >
+                        <SidebarSimple
+                            size={24}
+                            weight={$editorLayoutStore.isPanelLeftOpen ? 'fill' : 'regular'}
+                        />
+                    </Button>
+                {/if}
 
-				{#if $$slots.panelRight}
-					<Button
-						class="panel-btn"
-						size="1"
-						color="neutral"
-						variant="clear"
-						iconOnly
-						on:click={editorLayoutStore.toggleRight}
-					>
-						<SidebarSimple
-							size={24}
-							weight={$editorLayoutStore.isPanelRightOpen ? 'fill' : 'regular'}
-							mirrored
-						/>
-					</Button>
-				{/if}
-			</svelte:fragment>
-		</Toolbar>
-	</header>
+                {#if $$slots.panelRight}
+                    <Button
+                        class="panel-btn"
+                        size="1"
+                        color="neutral"
+                        variant="clear"
+                        iconOnly
+                        on:click={editorLayoutStore.toggleRight}
+                    >
+                        <SidebarSimple
+                            size={24}
+                            weight={$editorLayoutStore.isPanelRightOpen ? 'fill' : 'regular'}
+                            mirrored
+                        />
+                    </Button>
+                {/if}
+            </svelte:fragment>
+        </Toolbar>
+    </header>
 
-	<main>
-		{#if $$slots.toolbar}
-			<aside class="toolbar">
-				<slot name="toolbar">Toolbar</slot>
-			</aside>
-		{/if}
+    <main>
+        {#if $$slots.toolbar}
+            <aside class="toolbar">
+                <slot name="toolbar">Toolbar</slot>
+            </aside>
+        {/if}
 
-		{#if $$slots.panelLeft}
-			<aside class="left">
-				<div class="panel-content">
-					<slot name="panelLeft" isPanelLeftOpen={$editorLayoutStore.isPanelLeftOpen}>Left</slot>
-				</div>
-			</aside>
-		{/if}
+        {#if $$slots.panelLeft}
+            <aside class="left">
+                <div class="panel-content">
+                    <slot name="panelLeft" isPanelLeftOpen={$editorLayoutStore.isPanelLeftOpen}>Left</slot>
+                </div>
+            </aside>
+        {/if}
 
-		<section class="content">
-			<slot name="content">Content</slot>
-		</section>
+        <section class="content">
+            <slot name="content">Content</slot>
+        </section>
 
-		{#if $$slots.panelRight}
-			<aside class="right">
-				<div class="panel-content">
-					<slot name="panelRight" isPanelRightOpen={$editorLayoutStore.isPanelRightOpen}>Right</slot>
-				</div>
-			</aside>
-		{/if}
-	</main>
+        {#if $$slots.panelRight}
+            <aside class="right">
+                <div class="panel-content">
+                    <slot name="panelRight" isPanelRightOpen={$editorLayoutStore.isPanelRightOpen}>Right</slot
+                    >
+                </div>
+            </aside>
+        {/if}
+    </main>
 
-	{#if $$slots.footer}
-		<footer>
-			<slot name="footer" />
-		</footer>
-	{/if}
+    {#if $$slots.footer}
+        <footer>
+            <slot name="footer" />
+        </footer>
+    {/if}
 </div>
 
 <style>:root {

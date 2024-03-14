@@ -4,7 +4,7 @@
 <svelte:window on:resize={() => {}} />
 
 <div class="wrapper">
-	<slot />
+    <slot />
 </div>
 
 <div class="guides"></div>

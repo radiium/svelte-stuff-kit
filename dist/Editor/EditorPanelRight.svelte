@@ -2,7 +2,7 @@
 </script>
 
 <Flexbox direction="column" class="p-2">
-	<slot>Editor panel right</slot>
+    <slot>Editor panel right</slot>
 </Flexbox>
 
 <style></style>

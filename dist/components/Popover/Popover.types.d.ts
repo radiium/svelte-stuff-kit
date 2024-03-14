@@ -1,4 +1,3 @@
-import type { Placement, Strategy } from '@floating-ui/dom';
 export type PopoverStore = {
     readonly isOpen: boolean;
     open: () => void;
@@ -11,8 +10,9 @@ export interface PopoverProps {
     backdrop?: boolean;
     arrow?: boolean;
     flip?: boolean;
-    strategy?: Strategy;
-    placement?: Placement;
+    shift?: boolean;
+    strategy?: (typeof Strategies)[number];
+    placement?: (typeof Placements)[number];
     offset?: number;
     transitionOpacity?: number;
     transitionY?: number;

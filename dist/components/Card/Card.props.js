@@ -4,14 +4,28 @@ export const defaultCardProps = {
     size: '3',
     noPadding: false
 };
-export const docCardProps = {
-    size: {
-        type: 'enum',
-        values: Sizes1To5,
-        default: defaultCardProps.size
-    },
-    noPadding: {
-        type: 'boolean',
-        default: defaultCardProps.noPadding
-    }
+export const docCardPropsDefs = {
+    props: [
+        {
+            name: 'elementRef',
+            type: 'HTMLDivElement'
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To5,
+            default: defaultCardProps.size
+        },
+        {
+            name: 'noPadding',
+            type: 'boolean',
+            default: defaultCardProps.noPadding
+        }
+    ],
+    slots: [
+        {
+            default: true
+        }
+    ],
+    events: []
 };
