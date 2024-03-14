@@ -1,14 +1,15 @@
 <script lang="ts">
-    import { PUBLIC_PKG_NAME, PUBLIC_PKG_VERSION } from '$env/static/public';
+    import { PUBLIC_PKG_NAME } from '$env/static/public';
     import { version } from '$app/environment';
     import { ThemeSelect, Text } from '$lib';
     import GithubLink from './GithubLink.svelte';
+    import Badge from '$lib/components/Badge/Badge.svelte';
 </script>
 
 <div class="container pl-3 pr-3">
-    <div class="side start" style="display: flex; flex-direction: column;">
-        <Text size="5">{PUBLIC_PKG_NAME}</Text>
-        <Text size="1" color="neutral">v{version}</Text>
+    <div class="side start">
+        <Text size="7" class="mb-2">{PUBLIC_PKG_NAME}</Text>
+        <Badge>v{version}</Badge>
     </div>
     <div class="side end">
         <GithubLink />

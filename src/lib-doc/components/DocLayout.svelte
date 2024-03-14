@@ -8,15 +8,33 @@
     export function closeMenu() {
         isMobileMenuOpen.set(false);
     }
+    const handlekeydown = (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    };
 </script>
 
 <script lang="ts">
     import { Button } from '$lib';
     import List from 'phosphor-svelte/lib/List';
     import X from 'phosphor-svelte/lib/X';
+    import { fade } from 'svelte/transition';
 </script>
 
 <div class="wrapper">
+    {#if $isMobileMenuOpen}
+        <div
+            class="backdrop"
+            role="button"
+            tabindex="-1"
+            on:click={closeMenu}
+            on:keydown={handlekeydown}
+            transition:fade={{
+                duration: 250
+            }}
+        ></div>
+    {/if}
     <div id="mobile-menu-btn">
         <Button variant="clear" iconOnly on:click={toggleMenu}>
             {#if $isMobileMenuOpen}
@@ -42,7 +60,7 @@
 
 <style lang="scss">
     .wrapper {
-        --header-height: 48px;
+        --header-height: 56px;
         --header-width: 100%;
 
         --aside-height: 100%;
@@ -52,8 +70,8 @@
         --main-width: 100%;
 
         display: grid;
-        grid-template-columns: 250px 1fr;
-        grid-template-rows: 48px 1fr;
+        grid-template-columns: var(--aside-width) 1fr;
+        grid-template-rows: var(--header-height) 1fr;
         gap: 0px 0px;
         grid-template-areas:
             'header header'
@@ -65,6 +83,11 @@
         overflow: hidden;
         background-color: var(--background-level-0);
         color: var(--color);
+
+        .backdrop {
+            display: none;
+            z-index: 101;
+        }
 
         header,
         aside,
@@ -83,6 +106,7 @@
             background: var(--background-level-2);
             position: relative;
             overflow: visible;
+            z-index: 110;
         }
 
         aside {
@@ -95,6 +119,7 @@
             background: var(--background-level-1);
             position: relative;
             overflow: hidden;
+            z-index: 120;
         }
 
         main {
@@ -107,6 +132,7 @@
             background: var(--background-level-0);
             position: relative;
             overflow: hidden;
+            z-index: 100;
 
             .content {
                 max-width: 900px;
@@ -130,9 +156,23 @@
             left: 10px;
         }
 
+        .backdrop {
+            display: inherit !important;
+            z-index: 1;
+            position: fixed;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            inset: 0px;
+            border: none;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
         .wrapper {
             grid-template-columns: 1fr;
-            grid-template-rows: 48px 1fr;
+            grid-template-rows: var(--header-height) 1fr;
             grid-template-areas:
                 'header'
                 'main';
@@ -143,13 +183,12 @@
 
             aside {
                 grid-area: unset;
-                z-index: 99998;
                 position: fixed;
-                top: 48px;
+                top: var(--header-height);
                 bottom: 0;
                 left: 0;
                 transition: transform linear 0.3s;
-                transform: translateX(-250px);
+                transform: translateX(calc(var(--aside-width) * -1));
 
                 &.is-open {
                     transform: translateX(0);
