@@ -67,7 +67,8 @@
             border-width: 0 2px 2px 0;
         }
 
-        &:checked {
+        &:checked,
+        &[data-checked="true"] {
             background-color: var(--checkbox-background-checked);
             box-shadow: none;
 
@@ -75,7 +76,7 @@
                 display: block;
             }
 
-            &[data-indeterminate] {
+            &[data-indeterminate="true"] {
                 &:after {
                     transform: translate(-50%, -80%) rotate(0);
                     border-width: 0 0 2px 0;
