@@ -17,16 +17,6 @@ export const docCheckboxPropsDefs = {
             type: 'HTMLInputElement'
         },
         {
-            name: 'checked',
-            type: 'boolean',
-            default: defaultCheckboxProps.checked
-        },
-        {
-            name: 'indeterminate',
-            type: 'boolean',
-            default: defaultCheckboxProps.indeterminate
-        },
-        {
             name: 'size',
             type: 'enum',
             values: Sizes1To3,
@@ -38,6 +28,17 @@ export const docCheckboxPropsDefs = {
             values: Colors,
             default: defaultCheckboxProps.color
         },
+        {
+            name: 'checked',
+            type: 'boolean',
+            default: defaultCheckboxProps.checked
+        },
+        {
+            name: 'indeterminate',
+            type: 'boolean',
+            default: defaultCheckboxProps.indeterminate
+        },
+
         {
             name: 'error',
             type: 'boolean',

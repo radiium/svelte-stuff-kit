@@ -22,26 +22,6 @@ export const docPopoverPropsDefs = {
             default: defaultPopoverProps.isOpen
         },
         {
-            name: 'backdrop',
-            type: 'boolean',
-            default: defaultPopoverProps.backdrop
-        },
-        {
-            name: 'arrow',
-            type: 'boolean',
-            default: defaultPopoverProps.arrow
-        },
-        {
-            name: 'flip',
-            type: 'boolean',
-            default: defaultPopoverProps.flip
-        },
-        {
-            name: 'shift',
-            type: 'boolean',
-            default: defaultPopoverProps.shift
-        },
-        {
             name: 'strategy',
             type: 'enum',
             values: Strategies,
@@ -72,7 +52,27 @@ export const docPopoverPropsDefs = {
             name: 'transitionDuration',
             type: 'number',
             default: defaultPopoverProps.transitionDuration
-        }
+        },
+        {
+            name: 'backdrop',
+            type: 'boolean',
+            default: defaultPopoverProps.backdrop
+        },
+        {
+            name: 'arrow',
+            type: 'boolean',
+            default: defaultPopoverProps.arrow
+        },
+        {
+            name: 'flip',
+            type: 'boolean',
+            default: defaultPopoverProps.flip
+        },
+        {
+            name: 'shift',
+            type: 'boolean',
+            default: defaultPopoverProps.shift
+        },
     ],
     slots: [],
     events: []

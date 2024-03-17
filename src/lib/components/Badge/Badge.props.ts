@@ -15,16 +15,16 @@ export const docBadgePropsDefs = {
             type: 'HTMLSpanElement'
         },
         {
-            name: 'size',
-            type: 'enum',
-            values: Sizes1To2,
-            default: defaultBadgeProps.size
-        },
-        {
             name: 'variant',
             type: 'enum',
             values: VariantsBadge,
             default: defaultBadgeProps.variant
+        },
+        {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To2,
+            default: defaultBadgeProps.size
         },
         {
             name: 'color',
