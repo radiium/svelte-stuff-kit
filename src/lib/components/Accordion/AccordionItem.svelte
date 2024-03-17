@@ -3,18 +3,20 @@
 </script>
 
 <script lang="ts">
-    import { getContext } from 'svelte';
+    import { getContext, afterUpdate } from 'svelte';
     import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props';
     import type { AccordionGroupContext, AccordionItemProps } from './Accordion.types';
 
     type $$Props = AccordionItemProps;
     export let isOpen: $$Props['isOpen'] = defaultAccordionItemProps.isOpen;
 
+    afterUpdate(() => {
+        accordionStore.isOpen = isOpen;
+    });
+    
     const accordionStore = {
         key: Symbol('accordion-' + id++),
-        get isOpen() {
-            return isOpen;
-        },
+        isOpen,
         open: () => (isOpen = true),
         close: () => (isOpen = false),
         toggle: () => (isOpen = !isOpen)
