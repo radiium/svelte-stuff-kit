@@ -7,6 +7,7 @@ export * from './actions/create-floating';
 // Components
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
+export { default as Badge } from './components/Badge/Badge.svelte';
 export { default as Button } from './components/Button/Button.svelte';
 export { default as ButtonGroup } from './components/Button/ButtonGroup.svelte';
 export { default as ButtonIcon } from './components/Button/ButtonIcon.svelte';
