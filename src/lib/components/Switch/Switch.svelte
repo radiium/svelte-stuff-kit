@@ -5,10 +5,10 @@
 
     type $$Props = SwitchProps;
     export let elementRef: $$Props['elementRef'] = defaultSwitchProps.elementRef;
+    export let checked: $$Props['checked'] = defaultSwitchProps.checked;
     export let size: $$Props['size'] = defaultSwitchProps.size;
     export let color: $$Props['color'] = defaultSwitchProps.color;
     export let error: $$Props['error'] = defaultSwitchProps.error;
-    let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
 
     $: cssClass = clsx($$restProps.class, 'Switch', {
         [`Switch-size-${size}`]: size,
@@ -18,7 +18,7 @@
 </script>
 
 <input
-    {...restProps}
+    {...$$restProps}
     data-color={color}
     data-size={size}
     class={cssClass}
