@@ -19,7 +19,7 @@
 
     // Input css classes
     let cssClass = '';
-    $: cssClass = clsx($$restProps.class, 'InputNumber-wrapper', {
+    $: cssClass = clsx($$restProps.class, 'InputNumber', {
         [`InputNumber-color-${color}`]: color,
         [`InputNumber-size-${size}`]: size,
         'input-disabled': disabled,
