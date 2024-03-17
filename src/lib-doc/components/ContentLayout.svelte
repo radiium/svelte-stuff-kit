@@ -1,9 +1,16 @@
 <script lang="ts" context="module">
-    export { default as pre } from './pre.svelte';
+    import pre from './pre.svelte';
+    import h1 from './h1.svelte';
+    import h2 from './h2.svelte';
+    import h3 from './h3.svelte';
+    import h4 from './h4.svelte';
+    import p from './p.svelte';
+
+    export { pre, h1, h2, h3, h4, p };
 </script>
 
 <script>
-    import { Flexbox, Text } from '$lib';
+    import { Flexbox } from '$lib';
     /** @type {string} */
     export let title;
     /** @type {string} */
@@ -11,14 +18,17 @@
 </script>
 
 <Flexbox direction="column" class="content-wrapper">
-    <Flexbox as="header" direction="column" class="pb-9">
+    <!-- Headers -->
+    <Flexbox as="header" direction="column">
         {#if title}
-            <Text as="h1" size="8" weight="bold">{title}</Text>
+            <svelte:component this={h1}>{title}</svelte:component>
         {/if}
         {#if description}
-            <Text as="p" size="3">{description}</Text>
+            <svelte:component this={p}>{description}</svelte:component>
         {/if}
     </Flexbox>
+
+    <!-- Content Markdown -->
     <slot />
 </Flexbox>
 

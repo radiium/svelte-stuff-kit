@@ -59,6 +59,15 @@
 </div>
 
 <style lang="scss">
+    :global(.Card) {
+        /* margin-top: var(--space-3);
+        margin-bottom: var(--space-3); */
+    }
+    /* 
+    :global(h3) {
+        margin: inherit;
+    } */
+
     .wrapper {
         --header-height: 56px;
         --header-width: 100%;

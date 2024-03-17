@@ -1,96 +1,38 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { Flexbox, Card, ButtonGroup, Button, Checkbox, Select, Text } from '$lib';
-    import { docButtonPropsDefs } from '$lib/components/Button/Button.props';
-
-    export let schema = docButtonPropsDefs;
-    export let propsString = '';
-    export let props = {};
-
-    onMount(() => {
-        if (schema) {
-            props = schema?.props?.reduce((acc, next) => {
-                if (next.default !== undefined) {
-                    acc[next.name] = next.default;
-                }
-                return acc;
-            }, {});
-        }
-    });
-
-    $: propsString = schema.props
-        .filter((prop) => prop.name !== 'elementRef')
-        .map((prop) => {
-            if (prop.type === 'boolean') {
-                if (props[prop.name] === true) {
-                    return prop.name;
-                } else if (props[prop.name] === false && prop.default === true) {
-                    return `${prop.name}={false}`;
-                }
-            } else if (props[prop.name] !== undefined && props[prop.name] !== prop.default) {
-                return `${prop.name}="${props[prop.name]}"`;
-            }
-        })
-        .join(' ');
+    import { Flexbox, Card } from '$lib';
 </script>
 
-{#if schema && props}
-    {propsString}
-    <hr />
-    {JSON.stringify(props)}
-    <Card size="1" noPadding>
-        <Flexbox>
-            <Flexbox as="section" class="p-9" alignItems="center" justify="center" grow="1">
-                <slot name="component" />
-            </Flexbox>
-            <div class="separator"></div>
-            <Flexbox direction="column" as="section" alignItems="start" gap="3" class="p-3">
-                {#each schema.props as prop}
-                    {#if prop.type === 'enum' && prop.values}
-                        {#if prop.values?.length > 4}
-                            <Flexbox direction="column" gap="1">
-                                <Text size="2">{prop.name}</Text>
-                                <Select
-                                    size="2"
-                                    bind:value={props[prop.name]}
-                                    options={prop.values?.map((value) => ({ label: value, value })) ?? []}
-                                ></Select>
-                            </Flexbox>
-                        {:else}
-                            <Flexbox direction="column" gap="1">
-                                <Text size="2">{prop.name}</Text>
-                                <ButtonGroup>
-                                    {#each prop.values ?? [] as value}
-                                        <Button
-                                            variant="soft"
-                                            active={props[prop.name] === value}
-                                            on:click={() => (props[prop.name] = value)}>{value}</Button
-                                        >
-                                    {/each}
-                                </ButtonGroup>
-                            </Flexbox>
-                        {/if}
-                    {/if}
-
-                    {#if prop.type === 'boolean'}
-                        <Flexbox direction="column" gap="1">
-                            <Text size="2">{prop.name}</Text>
-                            <Flexbox as="label" gap="2" alignItems="center">
-                                <Checkbox color="primary" bind:checked={props[prop.name]} />
-                                <Text size="1">{props[prop.name]}</Text>
-                            </Flexbox>
-                        </Flexbox>
-                    {/if}
-                {/each}
-            </Flexbox>
+<Card noPadding class="mt-3 mb-5 playground">
+    <Flexbox alignItems="stretch" class="playground-content">
+        <Flexbox as="section" class="p-9" alignItems="center" justify="center" grow="1">
+            <slot name="component" />
         </Flexbox>
-    </Card>
-{/if}
+        <div class="separator"></div>
+        <Flexbox direction="column" as="section" alignItems="start" gap="3" class="playground-form p-3">
+            <slot name="form" />
+        </Flexbox>
+    </Flexbox>
+</Card>
 
 <style lang="scss">
+    :global(.playground) {
+        min-height: 260px;
+        min-width: 350px;
+    }
+    :global(.playground-content) {
+        min-height: 260px;
+        min-width: 350px;
+    }
+
+    :global(.playground-form) {
+        overflow-x: auto;
+        min-width: 40%;
+    }
+
     .separator {
         width: 1px;
         min-height: 100%;
         background-color: var(--gray-5);
+        flex-shrink: 0;
     }
 </style>

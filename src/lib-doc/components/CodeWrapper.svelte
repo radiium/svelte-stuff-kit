@@ -35,45 +35,35 @@
     // $: console.log(src ? src.replace(/<pre.*?>.*?<\/pre>/gi, '') : 'no src');
 </script>
 
-<Flexbox direction="column" gap="4">
-    {#if meta.title}
-        <h4>{meta.title}</h4>
-    {/if}
+<Card size="1" noPadding class="doc-code-wrapper mt-3 mb-5 {$$slots.example ? 'has-demo' : ''}">
+    <Flexbox direction="column">
+        {#if $$slots.example}
+            <section class="demo-block px-4 py-4" class:column={meta.column}>
+                <slot name="example" />
+            </section>
+        {/if}
 
-    {#if meta.description}
-        <p>{meta.description}</p>
-    {/if}
+        {#if $$slots.code}
+            <section class="code-block">
+                <div class="display-flex px-5 py-4">
+                    {#if !!meta.Wrapper && meta.example}
+                        <pre class="language-svelte"><slot name="code" /></pre>
+                    {:else}
+                        <slot name="code" />
+                    {/if}
+                </div>
 
-    <Card size="1" noPadding class="doc-code-wrapper {$$slots.example ? 'has-demo' : ''}">
-        <Flexbox direction="column">
-            {#if $$slots.example}
-                <section class="demo-block px-4 py-4" class:column={meta.column}>
-                    <slot name="example" />
-                </section>
-            {/if}
-
-            {#if $$slots.code}
-                <section class="code-block">
-                    <div class="display-flex px-5 py-4">
-                        {#if !!meta.Wrapper && meta.example}
-                            <pre class="language-svelte"><slot name="code" /></pre>
-                        {:else}
-                            <slot name="code" />
-                        {/if}
-                    </div>
-
-                    <Button size="2" class="copy-btn mt-2 mr-2" variant="soft" iconOnly on:click={copyCode}>
-                        {#if isCopied}
-                            <Check />
-                        {:else}
-                            <Clipboard />
-                        {/if}
-                    </Button>
-                </section>
-            {/if}
-        </Flexbox>
-    </Card>
-</Flexbox>
+                <Button size="2" class="copy-btn mt-2 mr-2" variant="soft" iconOnly on:click={copyCode}>
+                    {#if isCopied}
+                        <Check />
+                    {:else}
+                        <Clipboard />
+                    {/if}
+                </Button>
+            </section>
+        {/if}
+    </Flexbox>
+</Card>
 
 <style lang="scss">
     section {

@@ -1,7 +1,6 @@
 <script lang="ts">
     import Minus from 'phosphor-svelte/lib/Minus';
     import Info from 'phosphor-svelte/lib/Info';
-
     import type { DocProps } from '../types';
     import Card from '$lib/components/Card/Card.svelte';
     import Popover from '$lib/components/Popover/Popover.svelte';
@@ -9,11 +8,11 @@
     import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
     import Text from '$lib/components/Text/Text.svelte';
 
-    export let props: DocProps[] = [];
+export let props: DocProps[] = [];
 </script>
 
 {#if Array.isArray(props) && props}
-    <Card noPadding>
+    <Card noPadding class="mt-3 mb-5">
         <table>
             <thead class="rt-TableHeader">
                 <tr class="rt-TableRow">
