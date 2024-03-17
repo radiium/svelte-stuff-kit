@@ -145,23 +145,9 @@
                 </Button>
             {/if}
 
-            {#if $$slots.header}
-                <header>
-                    <slot name="header" />
-                </header>
-            {/if}
-
-            {#if $$slots.content}
-                <div class="content">
-                    <slot name="content" />
-                </div>
-            {/if}
-
-            {#if $$slots.footer}
-                <footer>
-                    <slot name="footer" />
-                </footer>
-            {/if}
+            <div class="Dialog-content-inner">
+                <slot />
+            </div>
         </div>
     </div>
 {/if}
@@ -208,23 +194,10 @@
             justify-content: center;
             gap: var(--space-3);
             @include input-box-shadow;
-
-            header {
-                width: 100%;
-            }
-
-            .content {
+            .Dialog-content-inner {
                 width: 100%;
                 max-height: 50vh;
                 overflow: auto;
-            }
-
-            footer {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                gap: var(--space-3);
             }
         }
 
