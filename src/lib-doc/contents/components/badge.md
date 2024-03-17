@@ -1,11 +1,11 @@
 ---
-title: Card
-description: Card component
+title: Badge
+description: Badge component
 ---
 
 <script lang="ts">
-    import {Card} from '$lib';
-    import {docCardPropsDefs} from '$lib/components/Card/Card.props';
+    import {Badge} from '$lib';
+    import {docBadgePropsDefs} from '$lib/components/Badge/Badge.props';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';
@@ -16,10 +16,10 @@ description: Card component
 ## Playground
 
 <Playground >
-<Card {...props} slot="component">Card content</Card>
-<PlaygroundForm bind:props schema={docCardPropsDefs} slot="form" />
+<Badge {...props} slot="component">badge</Badge>
+<PlaygroundForm bind:props schema={docBadgePropsDefs} slot="form" />
 </Playground>
 
 ## API Reference
 
-<ApiReference data={docCardPropsDefs}></ApiReference>
+<ApiReference data={docBadgePropsDefs}></ApiReference>

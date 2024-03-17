@@ -8,6 +8,6 @@ description: Portal component
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
 </script>
 
-### API Reference
+## API Reference
 
 <ApiReference data={docPortalPropsDefs}></ApiReference>

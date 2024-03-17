@@ -4,52 +4,39 @@ description: Button component
 ---
 
 <script lang="ts">
+    import { onMount, tick } from 'svelte';
     import {Button} from '$lib';
     import {docButtonPropsDefs} from '$lib/components/Button/Button.props';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
+    import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';
     import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass';
 
     let props = {}
 </script>
 
-### API Reference
+## Playground
+
+<Playground>
+    <Button slot="component" {...props}>
+        {#if props['iconOnly']}
+            <MagnifyingGlass />
+        {:else}
+            Button
+        {/if}
+    </Button>
+    <PlaygroundForm slot="form" bind:props schema={docButtonPropsDefs} />
+</Playground>
+
+## API Reference
+
+Extend HTMLButtonAttributes
 
 <ApiReference data={docButtonPropsDefs}></ApiReference>
 
-<Playground bind:props schema={docButtonPropsDefs}>
-<Button {...props} slot="component">
-{#if props['iconOnly']}
-<MagnifyingGlass />
-{:else}
-Button
-{/if}
-</Button>
-</Playground>
+## Demo
 
-### Usage
-
-#### Import
-
-```typescript example
-import { Button } from '$lib';
-```
-
-### Demo
-
-```bash example
-npm install svxui
-```
-
-```typescript
-const test: string = 'laal';
-```
-
-```typescript example
-import { Button } from 'svxui';
-```
-
-##### Basic
+#### Basic
 
 ```svelte example
 <script lang="ts">
@@ -59,7 +46,7 @@ import { Button } from 'svxui';
 <Button>button</Button>
 ```
 
-##### Size
+#### Size
 
 ```svelte example hideScript
 <script lang="ts">
@@ -72,7 +59,7 @@ import { Button } from 'svxui';
 <Button size="1">button</Button>
 ```
 
-##### Variant
+#### Variant
 
 ```svelte example hideScript
 <script lang="ts">
@@ -85,7 +72,7 @@ import { Button } from 'svxui';
 <Button variant="clear">button</Button>
 ```
 
-##### Color
+#### Color
 
 ```svelte example hideScript
 <script lang="ts">
@@ -100,6 +87,8 @@ import { Button } from 'svxui';
 <Button color="orange">button</Button>
 <Button color="red">button</Button>
 ```
+
+#### Icon
 
 ```svelte example hideScript
 <script lang="ts">
@@ -131,6 +120,8 @@ import { Button } from 'svxui';
 </Button>
 ```
 
+#### Full width
+
 ```svelte example hideScript
 <script lang="ts">
     import { Button } from 'svxui';
@@ -138,6 +129,8 @@ import { Button } from 'svxui';
 
 <Button fullWidth>Button</Button>
 ```
+
+#### Alignment
 
 ```svelte example hideScript column
 <script lang="ts">
@@ -147,4 +140,26 @@ import { Button } from 'svxui';
 <Button align="start">Button</Button>
 <Button align="center">Button</Button>
 <Button align="end">Button</Button>
+```
+
+<hr/>
+
+### Usage
+
+#### Import
+
+```typescript example
+import { Button } from '$lib';
+```
+
+```bash example
+npm install svxui
+```
+
+```typescript
+const test: string = 'laal';
+```
+
+```typescript example
+import { Button } from 'svxui';
 ```
