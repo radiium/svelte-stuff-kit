@@ -78,6 +78,6 @@
 <!-- <svelte:body class={$themeStore.theme} style={`color-scheme: ${$themeStore.theme};`} /> -->
 
 <!--  data-radius={$themeStore.radius} -->
-<div class="radiium-svelte-ui" data-theme={$schemeStore} data-theme-root={isRoot}>
+<div class="svxui" data-theme={$schemeStore} data-theme-root={isRoot}>
     <slot />
 </div>

@@ -9,12 +9,11 @@ html {
         touch-action: manipulation;
         -webkit-user-drag: none;
         -ms-content-zooming: none;
-        // overscroll-behavior-y: none;
         overscroll-behavior: none;
     }
 }
 
-.radiium-svelte-ui {
+.svxui {
     word-wrap: break-word;
     overflow-wrap: break-word;
     color: var(--color);
@@ -27,6 +26,7 @@ html {
     text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
 }
 
 // @media (max-width: 684px) {
@@ -40,9 +40,3 @@ html {
 //         font-size: calc(var(--default-font-size-base) * 0.75);
 //     }
 // }
-
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
