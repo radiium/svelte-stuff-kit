@@ -6,6 +6,7 @@
     type $$Props = RadioButtonProps;
     export let elementRef: $$Props['elementRef'] = defaultRadioButtonProps.elementRef;
     export let group: $$Props['group'] = defaultRadioButtonProps.group;
+    export let value: $$Props['value'] = defaultRadioButtonProps.value;
     export let size: $$Props['size'] = defaultRadioButtonProps.size;
     export let color: $$Props['color'] = defaultRadioButtonProps.color;
     export let error: $$Props['error'] = defaultRadioButtonProps.error;
@@ -24,8 +25,9 @@
     class={cssClass}
     style={$$restProps.style}
     type="radio"
-    bind:this={elementRef}
+    {value}
     bind:group
+    bind:this={elementRef}
     on:input
     on:change
     on:focus

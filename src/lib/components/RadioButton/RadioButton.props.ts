@@ -4,6 +4,7 @@ import type { RadioButtonProps } from './RadioButton.types';
 export const defaultRadioButtonProps: RadioButtonProps = {
     elementRef: undefined,
     group: undefined,
+    value: undefined,
     size: '2',
     color: 'gray',
     error: false
@@ -20,6 +21,11 @@ export const docRadioButtonPropsDefs = {
             name: 'group',
             type: 'any',
             default: defaultRadioButtonProps.group
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultRadioButtonProps.value
         },
         {
             name: 'size',
