@@ -5,7 +5,7 @@ export const defaultRadioButtonProps: RadioButtonProps = {
     elementRef: undefined,
     group: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 

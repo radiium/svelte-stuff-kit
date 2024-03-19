@@ -21,7 +21,7 @@
                             href={page.href}
                             on:click={closeMenu}
                             data-sveltekit-preload-data="tap"
-                            data-color="neutral"
+                            data-color="gray"
                         >
                             {page.metadata.title}
                         </a>

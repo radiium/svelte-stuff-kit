@@ -4,7 +4,7 @@ import type { SwitchProps } from './Switch.types';
 export const defaultSwitchProps: SwitchProps = {
     elementRef: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 

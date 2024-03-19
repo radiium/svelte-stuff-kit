@@ -5,7 +5,7 @@ export const defaultTextareaProps: TextareaProps = {
     elementRef: undefined,
     value: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false,
     fullWidth: false
 };

@@ -6,7 +6,7 @@ export const defaultCheckboxProps: CheckboxProps = {
     checked: false,
     indeterminate: false,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 

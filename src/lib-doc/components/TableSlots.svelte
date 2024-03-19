@@ -17,14 +17,14 @@
         <tbody>
             {#each slots as slot}
                 <tr>
-                    <td data-color={slot.default ? 'neutral' : 'primary'}>
+                    <td data-color={slot.default ? 'gray' : 'primary'}>
                         {#if slot.default}
                             <Minus color="var(--accent-a11)" size="15" />
                         {:else}
                             <code class="name">{slot.name}</code>
                         {/if}
                     </td>
-                    <td data-color="neutral">
+                    <td data-color="gray">
                         {#if slot.default}
                             <code class="default">
                                 {slot.default}

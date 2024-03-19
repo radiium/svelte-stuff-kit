@@ -27,7 +27,7 @@ export let props: DocProps[] = [];
                         <td data-color="primary">
                             <code class="name">{prop.name}</code>
                         </td>
-                        <td data-color="neutral">
+                        <td data-color="gray">
                             <Flexbox alignItems="center" justify="start" gap="1">
                                 <code class="type">{prop.type}</code>
                                 {#if prop.values}
@@ -35,7 +35,7 @@ export let props: DocProps[] = [];
                                         <Button
                                             size="1"
                                             iconOnly
-                                            color="neutral"
+                                            color="gray"
                                             variant="clear"
                                             slot="trigger"
                                             let:open
@@ -48,7 +48,7 @@ export let props: DocProps[] = [];
                                             {@const values = prop.values}
                                             {#if values}
                                                 {#each values as value, i}
-                                                    <Text color="neutral">"{value}"</Text>
+                                                    <Text color="gray">"{value}"</Text>
                                                     {#if values.length - 1 > i}
                                                         <span> | </span>
                                                     {/if}
@@ -59,7 +59,7 @@ export let props: DocProps[] = [];
                                 {/if}
                             </Flexbox>
                         </td>
-                        <td data-color="neutral">
+                        <td data-color="gray">
                             {#if prop.default !== undefined}
                                 <code class="default">
                                     {prop.default}

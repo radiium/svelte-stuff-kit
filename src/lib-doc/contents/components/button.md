@@ -79,7 +79,7 @@ Extend HTMLButtonAttributes
     import { Button } from 'svxui';
 </script>
 
-<Button color="neutral">button</Button>
+<Button color="gray">button</Button>
 <Button color="primary">button</Button>
 <Button color="blue">button</Button>
 <Button color="green">button</Button>

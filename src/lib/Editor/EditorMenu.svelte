@@ -19,7 +19,7 @@
         on:click={open}
         active={isOpen}
         size="3"
-        color="neutral"
+        color="gray"
         variant="clear"
         iconOnly
     >

@@ -2,7 +2,7 @@ import { Colors, Sizes1To2, VariantsBadge } from '$lib/constants';
 import type { BadgeProps } from './Badge.types';
 
 export const defaultBadgeProps: BadgeProps = {
-    color: 'neutral',
+    color: 'gray',
     size: '1',
     variant: 'soft',
     disabled: false

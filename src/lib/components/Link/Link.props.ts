@@ -7,7 +7,7 @@ export const defaultLinkProps: LinkProps = {
     rel: undefined,
     size: '2',
     variant: 'solid',
-    color: 'neutral',
+    color: 'gray',
     align: 'center',
     active: false,
     iconOnly: false,

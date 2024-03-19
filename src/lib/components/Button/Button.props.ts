@@ -6,7 +6,7 @@ export const ButtonGroupContextKey = 'ButtonGroupContextKey';
 export const defaultButtonProps: ButtonProps = {
     size: '2',
     variant: 'solid',
-    color: 'neutral',
+    color: 'gray',
     align: 'center',
     active: false,
     iconOnly: false,

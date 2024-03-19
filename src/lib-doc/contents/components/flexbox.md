@@ -19,7 +19,7 @@ description: Switch component
     <Card slot="component" size="1" style="width: 100%; height: 100%;">
         <Flexbox {...props}  style="width: 100%; height: 100%;">
             {#each [1, 2, 3] as n}
-            <div style="width: 50px; height: 50px; background: var(--accent-9); border-radius: 6px; display: flex; align-items: center; justify-content: center;" data-color="neutral">{n}</div>
+            <div style="width: 50px; height: 50px; background: var(--accent-9); border-radius: 6px; display: flex; align-items: center; justify-content: center;" data-color="gray">{n}</div>
             {/each}
         </Flexbox>
     </Card>

@@ -35,7 +35,7 @@
         on:click={open}
         active={isOpen}
         size="2"
-        color="neutral"
+        color="gray"
         variant="outline"
         iconOnly={false}
     >

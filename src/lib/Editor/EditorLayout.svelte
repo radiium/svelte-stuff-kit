@@ -32,7 +32,7 @@
                     <Button
                         class="panel-btn"
                         size="1"
-                        color="neutral"
+                        color="gray"
                         variant="clear"
                         iconOnly
                         on:click={editorLayoutStore.toggleLeft}
@@ -48,7 +48,7 @@
                     <Button
                         class="panel-btn"
                         size="1"
-                        color="neutral"
+                        color="gray"
                         variant="clear"
                         iconOnly
                         on:click={editorLayoutStore.toggleRight}

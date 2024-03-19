@@ -8,7 +8,7 @@ export const defaultInputNumberProps: InputNumberProps = {
     min: undefined,
     max: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     disabled: false,
     required: false,
     readonly: false

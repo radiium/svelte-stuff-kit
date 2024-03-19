@@ -22,7 +22,7 @@
 <Toolbar slot="toolbar" direction="vertical" size="large">
     <svelte:fragment slot="center">
         <Button
-            color="neutral"
+            color="gray"
             variant="clear"
             size="3"
             iconOnly
@@ -32,7 +32,7 @@
             <Cursor size={24} />
         </Button>
         <Button
-            color="neutral"
+            color="gray"
             variant="clear"
             size="3"
             iconOnly
@@ -42,7 +42,7 @@
             <Hand size={24} />
         </Button>
         <Button
-            color="neutral"
+            color="gray"
             variant="clear"
             size="3"
             iconOnly
@@ -52,7 +52,7 @@
             <LineSegment size={24} />
         </Button>
         <Button
-            color="neutral"
+            color="gray"
             variant="clear"
             size="3"
             iconOnly
@@ -64,13 +64,13 @@
 
         <hr />
 
-        <Button color="neutral" variant="clear" iconOnly size="3">
+        <Button color="gray" variant="clear" iconOnly size="3">
             <ArrowsInCardinal size={24} />
         </Button>
-        <Button color="neutral" variant="clear" iconOnly size="3">
+        <Button color="gray" variant="clear" iconOnly size="3">
             <ArrowArcLeft size={24} />
         </Button>
-        <Button color="neutral" variant="clear" iconOnly size="3">
+        <Button color="gray" variant="clear" iconOnly size="3">
             <ArrowArcRight size={24} />
         </Button>
     </svelte:fragment>
