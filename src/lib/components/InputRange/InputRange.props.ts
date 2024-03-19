@@ -3,6 +3,7 @@ import type { InputRangeProps } from './InputRange.types';
 
 export const defaultInputRangeProps: InputRangeProps = {
     elementRef: undefined,
+    value: undefined,
     size: '2',
     color: 'gray',
     error: false,
@@ -14,6 +15,11 @@ export const docInputRangePropsDefs = {
         {
             name: 'elementRef',
             type: 'HTMLInputElement'
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultInputRangeProps.value
         },
         {
             name: 'size',

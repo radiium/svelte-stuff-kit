@@ -5,6 +5,7 @@
 
     type $$Props = InputRangeProps;
     export let elementRef: $$Props['elementRef'] = defaultInputRangeProps.elementRef;
+    export let value: $$Props['value'] = defaultInputRangeProps.value;
     export let size: $$Props['size'] = defaultInputRangeProps.size;
     export let color: $$Props['color'] = defaultInputRangeProps.color;
     export let error: $$Props['error'] = defaultInputRangeProps.error;
@@ -26,6 +27,7 @@
     class={cssClass}
     style={$$restProps.style}
     bind:this={elementRef}
+    bind:value
     on:input
     on:change
     on:focus
