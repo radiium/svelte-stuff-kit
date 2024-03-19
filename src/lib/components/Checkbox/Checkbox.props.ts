@@ -3,6 +3,8 @@ import type { CheckboxProps } from './Checkbox.types';
 
 export const defaultCheckboxProps: CheckboxProps = {
     elementRef: undefined,
+    group: [],
+    value: undefined,
     checked: false,
     indeterminate: false,
     size: '2',
@@ -17,6 +19,21 @@ export const docCheckboxPropsDefs = {
             type: 'HTMLInputElement'
         },
         {
+            name: 'group',
+            type: 'any',
+            default: defaultCheckboxProps.group
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultCheckboxProps.value
+        },
+        {
+            name: 'checked',
+            type: 'boolean',
+            default: defaultCheckboxProps.checked
+        },
+        {
             name: 'size',
             type: 'enum',
             values: Sizes1To3,
@@ -27,11 +44,6 @@ export const docCheckboxPropsDefs = {
             type: 'enum',
             values: Colors,
             default: defaultCheckboxProps.color
-        },
-        {
-            name: 'checked',
-            type: 'boolean',
-            default: defaultCheckboxProps.checked
         },
         {
             name: 'indeterminate',
