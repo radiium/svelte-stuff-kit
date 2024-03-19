@@ -85,6 +85,9 @@
         font-size: var(--font-size-3);
         letter-spacing: normal;
         appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        position: relative;
 
         &[multiple] {
             height: auto !important;
