@@ -49,7 +49,7 @@
         slot="content"
         direction="column"
         gap="1"
-        class="no-p no-m"
+        class="p-0 m-0"
         style="position: relative;"
         let:close
     >

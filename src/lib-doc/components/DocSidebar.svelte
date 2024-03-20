@@ -9,13 +9,13 @@
 
 <nav class="p-4">
     {#each nav as section, i}
-        <section class="no-p mb-5">
+        <section class="p-0 mb-5">
             {#if section.title}
                 <Text as="div" disabled weight="bold" size="2" class="pb-2">{section.title}</Text>
             {/if}
-            <ul class="no-m no-p">
+            <ul class="m-0 p-0">
                 {#each section.pages as page, i}
-                    <li class="no-m no-p">
+                    <li class="m-0 p-0">
                         <a
                             class:active={page.slug === slug}
                             href={page.href}

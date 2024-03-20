@@ -28,9 +28,9 @@
 
     <Flexbox as="div" direction="column" gap="3" slot="content">
         <header>
-            <h1 class="no-mt">Settings</h1>
+            <h1 class="mt-0">Settings</h1>
         </header>
-        <ul style="list-style: none;" class="no-p no-m">
+        <ul style="list-style: none;" class="p-0 m-0">
             <li>
                 <ThemeSelect />
             </li>

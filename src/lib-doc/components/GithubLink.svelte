@@ -4,7 +4,7 @@
 </script>
 
 <a href={PUBLIC_PKG_HOMEPAGE} target="_blank" rel="noreferrer">
-    <Button variant="outline" size="2" iconOnly class="no-p">
+    <Button variant="outline" size="2" iconOnly class="p-0">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

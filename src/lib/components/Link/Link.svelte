@@ -128,7 +128,7 @@
             &.Link-icon-only {
                 --button-min-width: var(--space-5);
                 --button-width: var(--space-5);
-                --button-padding: var(--space-0);
+                --button-padding: calc(var(--space-1) / 2);
             }
         }
         &.Link-size-2 {
@@ -145,7 +145,7 @@
             &.Link-icon-only {
                 --button-min-width: var(--space-6);
                 --button-width: var(--space-6);
-                --button-padding: var(--space-0);
+                --button-padding: calc(var(--space-1) / 2);
             }
         }
         &.Link-size-3 {
