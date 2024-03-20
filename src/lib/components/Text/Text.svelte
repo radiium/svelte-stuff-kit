@@ -9,14 +9,16 @@
     export let color: $$Props['color'] = defaultTextProps.color;
     export let size: $$Props['size'] = defaultTextProps.size;
     export let weight: $$Props['weight'] = defaultTextProps.weight;
+    export let transform: $$Props['transform'] = defaultTextProps.transform;
     export let align: $$Props['align'] = defaultTextProps.align;
     export let disabled: $$Props['disabled'] = defaultTextProps.disabled;
 
     $: cssClass = clsx($$restProps.class, 'Text', {
         [`Text-size-${size}`]: size,
+        [`Text-color-${color}`]: color,
         [`Text-weight-${weight}`]: weight,
         [`Text-align-${align}`]: align,
-        [`Text-color-${color}`]: color,
+        [`Text-transform-${transform}`]: transform,
         'Text-disabled': disabled
     });
 </script>
@@ -97,6 +99,17 @@
         }
         &.Text-weight-bold {
             font-weight: var(--font-weight-bold);
+        }
+
+        // Transform
+        &.Text-transform-lowercase {
+            text-transform: lowercase;
+        }
+        &.Text-transform-uppercase {
+            text-transform: uppercase;
+        }
+        &.Text-transform-capitalize {
+            text-transform: capitalize;
         }
 
         // Alignement
