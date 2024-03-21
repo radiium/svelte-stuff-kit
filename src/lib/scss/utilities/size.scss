@@ -17,13 +17,14 @@ $sizes: (
     '7': var(--space-7),
     '8': var(--space-8),
     '9': var(--space-9),
-    '100': 100%
+    '50\%': 50%,
+    '100\%': 100%
 ) !default;
 
 /// WIDTHS
 
 @each $sizeKey, $sizeValue in $sizes {
-    .w-#{$sizeKey} {
+    .width-#{$sizeKey} {
         width: $sizeValue;
     }
 }
@@ -31,7 +32,7 @@ $sizes: (
 /// HEIGHTS
 
 @each $sizeKey, $sizeValue in $sizes {
-    .h-#{$sizeKey} {
+    .height-#{$sizeKey} {
         height: $sizeValue;
     }
 }
