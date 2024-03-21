@@ -1,4 +1,4 @@
-import { AlignItems, Directions, Displays, Gaps, Grows, Justifys, Shrinks, Wraps } from '$lib/constants';
+import { AlignItems, Directions, FlexDisplays, Gaps, Grows, Justifys, Shrinks, Wraps } from '$lib/constants';
 import type { FlexboxProps } from './Flexbox.types';
 
 export const defaultFlexboxProps: FlexboxProps = {
@@ -28,7 +28,7 @@ export const docFlexboxPropsDefs = {
         {
             name: 'display',
             type: 'enum',
-            values: Displays,
+            values: FlexDisplays,
             default: defaultFlexboxProps.display
         },
         {

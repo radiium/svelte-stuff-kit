@@ -1,26 +1,19 @@
 import type {
     AlignItems,
     Directions,
-    Displays,
+    FlexDisplays,
     Gaps,
     Grows,
     Justifys,
     Shrinks,
-    Wraps,
-    PaddingProps,
-    MarginProps,
-    LayoutProps
+    Wraps
 } from '$lib/constants';
 import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
 
-export interface FlexboxProps
-    extends LayoutProps,
-        MarginProps,
-        PaddingProps,
-        Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
+export interface FlexboxProps extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
     elementRef?: HTMLElement;
     as?: keyof SvelteHTMLElements;
-    display?: (typeof Displays)[number];
+    display?: (typeof FlexDisplays)[number];
     justify?: (typeof Justifys)[number];
     direction?: (typeof Directions)[number];
     alignItems?: (typeof AlignItems)[number];
