@@ -1,5 +1,5 @@
 import { writable, type Updater, type Writable, type StartStopNotifier } from 'svelte/store';
-import { isBrowser } from './is-browser';
+import { isBrowser } from './is-browser.js';
 
 export enum StorableStorageType {
     local = 'local',

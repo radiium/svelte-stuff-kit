@@ -5,7 +5,7 @@ description: Badge component
 
 <script lang="ts">
     import {Badge} from '$lib';
-    import {docBadgePropsDefs} from '$lib/components/Badge/Badge.props';
+    import {docBadgePropsDefs} from '$lib/components/Badge/Badge.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';

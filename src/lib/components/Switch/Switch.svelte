@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultSwitchProps } from './Switch.props';
-    import type { SwitchProps } from './Switch.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultSwitchProps } from './Switch.props.js';
+    import type { SwitchProps } from './Switch.types.js';
 
     type $$Props = SwitchProps;
     export let elementRef: $$Props['elementRef'] = defaultSwitchProps.elementRef;

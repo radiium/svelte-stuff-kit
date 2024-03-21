@@ -10,8 +10,8 @@
         setThemeStorage,
         THEME_CONTEXT_KEY,
         THEME_STORAGE_KEY
-    } from './theme.utils';
-    import { defaultThemeProviderProps } from './ThemeProvider.props';
+    } from './theme.utils.js';
+    import { defaultThemeProviderProps } from './ThemeProvider.props.js';
 
     const schemeSystemStore = writable<ThemeSchemeType>(resolveSchemeSystem());
     const onSchemeSystemChange = () => {
@@ -21,14 +21,14 @@
 
 <script lang="ts">
     import { hasContext, onMount, setContext } from 'svelte';
-    import { isBrowser } from '$lib/utils/is-browser';
+    import { isBrowser } from '$lib/utils/is-browser.js';
     import {
         ThemeStrategy,
         type ThemeProviderProps,
         type ThemeSchemeType,
         type ThemeStrategyType,
         type ThemeContext
-    } from './ThemeProvider.types';
+    } from './ThemeProvider.types.js';
 
     type $$Props = ThemeProviderProps;
     export let strategy: $$Props['strategy'] = defaultThemeProviderProps.strategy;

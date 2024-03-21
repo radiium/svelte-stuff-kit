@@ -1,5 +1,5 @@
-import { Colors, Sizes1To2, VariantsBadge } from '$lib/constants';
-import type { BadgeProps } from './Badge.types';
+import { Colors, Sizes1To2, VariantsBadge } from '$lib/constants.js';
+import type { BadgeProps } from './Badge.types.js';
 
 export const defaultBadgeProps: BadgeProps = {
     color: 'gray',

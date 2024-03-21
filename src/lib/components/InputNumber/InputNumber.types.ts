@@ -1,4 +1,4 @@
-import type { Sizes1To3, Colors } from '$lib/constants';
+import type { Sizes1To3, Colors } from '$lib/constants.js';
 
 export interface InputNumberProps {
     elementRef?: HTMLInputElement;

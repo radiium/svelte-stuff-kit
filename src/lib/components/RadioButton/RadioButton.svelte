@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultRadioButtonProps } from './RadioButton.props';
-    import type { RadioButtonProps } from './RadioButton.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultRadioButtonProps } from './RadioButton.props.js';
+    import type { RadioButtonProps } from './RadioButton.types.js';
 
     type $$Props = RadioButtonProps;
     export let elementRef: $$Props['elementRef'] = defaultRadioButtonProps.elementRef;

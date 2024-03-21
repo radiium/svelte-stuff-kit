@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultBoxProps } from './Box.props';
-    import type { BoxProps } from './Box.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultBoxProps } from './Box.props.js';
+    import type { BoxProps } from './Box.types.js';
 
     type $$Props = BoxProps;
     export let elementRef: $$Props['elementRef'] = defaultBoxProps.elementRef;

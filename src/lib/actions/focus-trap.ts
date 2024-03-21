@@ -1,6 +1,6 @@
 // credit: https://github.com/henrygd/trap-focus-svelte/blob/main/index.ts
 
-import { listen } from '$lib/utils/listen';
+import { listen } from '$lib/utils/listen.js';
 import type { ActionReturn } from 'svelte/action';
 
 type Parameters = boolean;

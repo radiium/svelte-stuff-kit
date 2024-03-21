@@ -1,4 +1,4 @@
-import type { Colors, Sizes1To3 } from '$lib/constants';
+import type { Colors, Sizes1To3 } from '$lib/constants.js';
 import type { HTMLInputAttributes } from 'svelte/elements';
 
 export interface InputRangeProps extends Omit<HTMLInputAttributes, 'size'> {

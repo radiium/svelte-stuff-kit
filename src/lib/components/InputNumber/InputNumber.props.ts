@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '$lib/constants';
-import type { InputNumberProps } from './InputNumber.types';
+import { Sizes1To3, Colors } from '$lib/constants.js';
+import type { InputNumberProps } from './InputNumber.types.js';
 
 export const defaultInputNumberProps: InputNumberProps = {
     elementRef: undefined,

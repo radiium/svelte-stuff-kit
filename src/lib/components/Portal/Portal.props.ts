@@ -1,4 +1,4 @@
-import type { PortalProps } from './Portal.types';
+import type { PortalProps } from './Portal.types.js';
 
 export const defaultPortalProps: PortalProps = {
     target: 'body'

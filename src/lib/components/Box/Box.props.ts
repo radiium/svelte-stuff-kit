@@ -1,5 +1,5 @@
-import { BlockDisplays } from '$lib';
-import type { BoxProps } from './Box.types';
+import { BlockDisplays } from '$lib/constants.js';
+import type { BoxProps } from './Box.types.js';
 
 export const defaultBoxProps: BoxProps = {
     elementRef: undefined,

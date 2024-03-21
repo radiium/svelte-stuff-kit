@@ -1,7 +1,7 @@
 <script lang="ts">
     import { fade, fly, scale, type FlyParams, type ScaleParams } from 'svelte/transition';
-    import { clickoutside } from '../../actions/clickoutside';
-    import { createFloating, type FloatingState } from '../../actions/create-floating';
+    import { clickoutside } from '../../actions/clickoutside.js';
+    import { createFloating, type FloatingState } from '../../actions/create-floating.js';
     import type { Placement, Side } from '@floating-ui/dom';
     import { afterUpdate, onMount } from 'svelte';
     import { expoOut } from 'svelte/easing';

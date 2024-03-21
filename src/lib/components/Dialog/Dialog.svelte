@@ -21,12 +21,12 @@
 <script lang="ts">
     import X from 'phosphor-svelte/lib/X';
     import { fade, scale } from 'svelte/transition';
-    import { isBrowser } from '../../utils/is-browser';
-    import { focusTrap } from '../../actions/focus-trap';
-    import { clsx } from '../../utils/clsx';
+    import { isBrowser } from '../../utils/is-browser.js';
+    import { focusTrap } from '../../actions/focus-trap.js';
+    import { clsx } from '../../utils/clsx.js';
     import Button from '../Button/Button.svelte';
-    import { defaultDialogProps } from './Dialog.props';
-    import type { DialogProps } from './Dialog.types';
+    import { defaultDialogProps } from './Dialog.props.js';
+    import type { DialogProps } from './Dialog.types.js';
 
     type $$Props = DialogProps;
     export let isOpen: $$Props['isOpen'] = defaultDialogProps.isOpen;

@@ -6,7 +6,7 @@ description: Button component
 <script lang="ts">
     import { onMount, tick } from 'svelte';
     import {Button} from '$lib';
-    import {docButtonPropsDefs} from '$lib/components/Button/Button.props';
+    import {docButtonPropsDefs} from '$lib/components/Button/Button.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';

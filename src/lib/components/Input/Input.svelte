@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultInputProps } from './Input.props';
-    import type { InputProps } from './Input.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultInputProps } from './Input.props.js';
+    import type { InputProps } from './Input.types.js';
 
     type $$Props = InputProps;
     export let elementRef: $$Props['elementRef'] = defaultInputProps.elementRef;

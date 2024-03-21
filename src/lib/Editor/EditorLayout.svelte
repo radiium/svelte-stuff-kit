@@ -1,7 +1,7 @@
 <script lang="ts">
     import SidebarSimple from 'phosphor-svelte/lib/SidebarSimple';
     import Button from '../components/Button/Button.svelte';
-    import { editorLayoutStore } from './editor-layout.store';
+    import { editorLayoutStore } from './editor-layout.store.js';
     import Toolbar from './Toolbar.svelte';
 </script>
 

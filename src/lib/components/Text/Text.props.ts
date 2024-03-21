@@ -1,5 +1,5 @@
-import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms } from '$lib/constants';
-import type { TextProps } from './Text.types';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms } from '$lib/constants.js';
+import type { TextProps } from './Text.types.js';
 
 export const defaultTextProps: TextProps = {
     elementRef: undefined,

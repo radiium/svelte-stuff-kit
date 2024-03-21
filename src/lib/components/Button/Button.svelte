@@ -1,8 +1,8 @@
 <script lang="ts">
     import { getContext } from 'svelte';
-    import { clsx } from '../../utils/clsx';
-    import { ButtonGroupContextKey, defaultButtonProps } from './Button.props';
-    import type { ButtonProps } from './Button.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { ButtonGroupContextKey, defaultButtonProps } from './Button.props.js';
+    import type { ButtonProps } from './Button.types.js';
 
     type $$Props = ButtonProps;
     export let elementRef: $$Props['elementRef'] = undefined;

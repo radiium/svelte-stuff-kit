@@ -1,5 +1,5 @@
-import { Sizes1To4, Colors, Aligns, Variants } from '$lib/constants';
-import type { LinkProps } from './Link.types';
+import { Sizes1To4, Colors, Aligns, Variants } from '$lib/constants.js';
+import type { LinkProps } from './Link.types.js';
 
 export const defaultLinkProps: LinkProps = {
     href: '',

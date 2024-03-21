@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultInputRangeProps } from './InputRange.props';
-    import type { InputRangeProps } from './InputRange.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultInputRangeProps } from './InputRange.props.js';
+    import type { InputRangeProps } from './InputRange.types.js';
 
     type $$Props = InputRangeProps;
     export let elementRef: $$Props['elementRef'] = defaultInputRangeProps.elementRef;

@@ -1,6 +1,6 @@
-import { layoutKeys, type LayoutKey, type LayoutProps } from './layout.props';
-import { marginKeys, type MarginKey, type MarginProps } from './margin.props';
-import { paddingKeys, type PaddingKey, type PaddingProps } from './padding.props';
+import { layoutKeys, type LayoutKey, type LayoutProps } from './layout.props.js';
+import { marginKeys, type MarginKey, type MarginProps } from './margin.props.js';
+import { paddingKeys, type PaddingKey, type PaddingProps } from './padding.props.js';
 
 // type ExtractProps = Partial<LayoutProps> | Partial<MarginProps> | Partial<PaddingProps>;
 type ExtractProps = LayoutProps & MarginProps & PaddingProps;

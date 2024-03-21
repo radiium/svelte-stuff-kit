@@ -1,4 +1,4 @@
-import type { Colors, Sizes1To2, VariantsBadge } from '$lib/constants';
+import type { Colors, Sizes1To2, VariantsBadge } from '$lib/constants.js';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'size' | 'align'> {

@@ -4,8 +4,8 @@
 
 <script lang="ts">
     import { getContext, afterUpdate } from 'svelte';
-    import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props';
-    import type { AccordionGroupContext, AccordionItemProps } from './Accordion.types';
+    import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props.js';
+    import type { AccordionGroupContext, AccordionItemProps } from './Accordion.types.js';
 
     type $$Props = AccordionItemProps;
     export let isOpen: $$Props['isOpen'] = defaultAccordionItemProps.isOpen;

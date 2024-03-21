@@ -1,8 +1,8 @@
 <script lang="ts">
     import { setContext } from 'svelte';
     import { writable } from 'svelte/store';
-    import { defaultAccordionGroupProps, contextKeyAccordionGroup } from './Accordion.props';
-    import type { AccordionGroupContext, AccordionGroupProps, AccordionStore } from './Accordion.types';
+    import { defaultAccordionGroupProps, contextKeyAccordionGroup } from './Accordion.props.js';
+    import type { AccordionGroupContext, AccordionGroupProps, AccordionStore } from './Accordion.types.js';
 
     type $$Props = AccordionGroupProps;
     export let multi: $$Props['multi'] = defaultAccordionGroupProps.multi;

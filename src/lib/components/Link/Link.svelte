@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultLinkProps } from './Link.props';
-    import type { LinkProps } from './Link.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultLinkProps } from './Link.props.js';
+    import type { LinkProps } from './Link.types.js';
 
     type $$Props = LinkProps;
     export let elementRef: $$Props['elementRef'] = defaultLinkProps.elementRef;

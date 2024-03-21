@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultCardProps } from './Card.props';
-    import type { CardProps } from './Card.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultCardProps } from './Card.props.js';
+    import type { CardProps } from './Card.types.js';
 
     type $$Props = CardProps;
     export let elementRef: $$Props['elementRef'] = defaultCardProps.elementRef;

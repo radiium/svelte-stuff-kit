@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultTextProps } from './Text.props';
-    import type { TextProps } from './Text.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultTextProps } from './Text.props.js';
+    import type { TextProps } from './Text.types.js';
 
     type $$Props = TextProps;
     export let elementRef: $$Props['elementRef'] = defaultTextProps.elementRef;

@@ -1,4 +1,4 @@
-import type { Sizes1To3, Colors } from '$lib/constants';
+import type { Sizes1To3, Colors } from '$lib/constants.js';
 import type { HTMLTextareaAttributes } from 'svelte/elements';
 
 export interface TextareaProps extends Omit<HTMLTextareaAttributes, 'size'> {

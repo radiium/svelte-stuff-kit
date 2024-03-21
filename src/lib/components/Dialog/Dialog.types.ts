@@ -1,4 +1,4 @@
-import type { Sizes1To4 } from '$lib/constants';
+import type { Sizes1To4 } from '$lib/constants.js';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {

@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '$lib/constants';
-import type { TextareaProps } from './Textarea.types';
+import { Sizes1To3, Colors } from '$lib/constants.js';
+import type { TextareaProps } from './Textarea.types.js';
 
 export const defaultTextareaProps: TextareaProps = {
     elementRef: undefined,

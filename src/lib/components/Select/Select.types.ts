@@ -1,4 +1,4 @@
-import type { Sizes1To3 } from '$lib/constants';
+import type { Sizes1To3 } from '$lib/constants.js';
 import type { HTMLSelectAttributes } from 'svelte/elements';
 
 export type SelectOption = {

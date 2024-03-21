@@ -1,5 +1,5 @@
-import { Sizes1To3 } from '$lib/constants';
-import type { SelectOption, SelectProps } from './Select.types';
+import { Sizes1To3 } from '$lib/constants.js';
+import type { SelectOption, SelectProps } from './Select.types.js';
 
 export const defaultSelectProps: SelectProps = {
     elementRef: undefined,

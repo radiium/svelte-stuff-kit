@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultFlexboxProps } from './Flexbox.props';
-    import type { FlexboxProps } from './Flexbox.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultFlexboxProps } from './Flexbox.props.js';
+    import type { FlexboxProps } from './Flexbox.types.js';
 
     type $$Props = FlexboxProps;
     export let elementRef: $$Props['elementRef'] = defaultFlexboxProps.elementRef;

@@ -5,7 +5,7 @@ description: Card component
 
 <script lang="ts">
     import {Card} from '$lib';
-    import {docCardPropsDefs} from '$lib/components/Card/Card.props';
+    import {docCardPropsDefs} from '$lib/components/Card/Card.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';

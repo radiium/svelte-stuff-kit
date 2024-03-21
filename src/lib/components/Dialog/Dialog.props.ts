@@ -1,5 +1,5 @@
-import { Sizes1To4 } from '$lib/constants';
-import type { DialogProps } from './Dialog.types';
+import { Sizes1To4 } from '$lib/constants.js';
+import type { DialogProps } from './Dialog.types.js';
 
 export const defaultDialogProps: DialogProps = {
     isOpen: false,

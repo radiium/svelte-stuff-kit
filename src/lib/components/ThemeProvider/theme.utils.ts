@@ -1,12 +1,12 @@
 import { getContext } from 'svelte';
-import { isBrowser } from '$lib/utils/is-browser';
+import { isBrowser } from '$lib/utils/is-browser.js';
 import {
     ThemeScheme,
     ThemeStrategy,
     type ThemeSchemeType,
     type ThemeStrategyType,
     type ThemeContext
-} from './ThemeProvider.types';
+} from './ThemeProvider.types.js';
 
 export const THEME_CONTEXT_KEY: string = 'THEME_CONTEXT';
 export const THEME_STORAGE_KEY: string = 'THEME_STATE';

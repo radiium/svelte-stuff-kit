@@ -5,7 +5,7 @@ description: Switch component
 
 <script lang="ts">
     import {Card, Flexbox} from '$lib';
-    import {docFlexboxPropsDefs} from '$lib/components/Flexbox/Flexbox.props';
+    import {docFlexboxPropsDefs} from '$lib/components/Flexbox/Flexbox.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';

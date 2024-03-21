@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultSelectProps } from './Select.props';
-    import type { SelectProps } from './Select.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultSelectProps } from './Select.props.js';
+    import type { SelectProps } from './Select.types.js';
 
     type $$Props = SelectProps;
     export let elementRef: $$Props['elementRef'] = defaultSelectProps.elementRef;

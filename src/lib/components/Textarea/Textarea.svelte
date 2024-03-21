@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultTextareaProps } from './Textarea.props';
-    import type { TextareaProps } from './Textarea.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultTextareaProps } from './Textarea.props.js';
+    import type { TextareaProps } from './Textarea.types.js';
 
     type $$Props = TextareaProps;
     export let elementRef: $$Props['elementRef'] = defaultTextareaProps.elementRef;

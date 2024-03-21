@@ -1,5 +1,5 @@
-import { Sizes1To5 } from '$lib/constants';
-import type { CardProps } from './Card.types';
+import { Sizes1To5 } from '$lib/constants.js';
+import type { CardProps } from './Card.types.js';
 
 export const defaultCardProps: CardProps = {
     elementRef: undefined,

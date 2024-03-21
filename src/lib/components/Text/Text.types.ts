@@ -1,5 +1,5 @@
-import type { HTMLAttributes, HTMLLabelAttributes } from 'svelte/elements';
-import type { Sizes1To9, Colors, Weights, Aligns, Transforms, TextTags } from '$lib/constants';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { Sizes1To9, Colors, Weights, Aligns, Transforms, TextTags } from '$lib/constants.js';
 
 export interface TextProps extends Omit<HTMLAttributes<HTMLElement>, 'size' | 'align'> {
     elementRef?: HTMLElement;

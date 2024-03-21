@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { HTMLAttributes } from 'svelte/elements';
-    import { clsx } from '../../utils/clsx';
+    import { clsx } from '../../utils/clsx.js';
     import { setContext } from 'svelte';
-    import { ButtonGroupContextKey } from './Button.props';
+    import { ButtonGroupContextKey } from './Button.props.js';
 
     type $$Props = HTMLAttributes<HTMLDivElement>;
     $: cssClass = clsx($$restProps.class, `ButtonGroup`);

@@ -1,4 +1,4 @@
-import { Strategies, type PopoverProps, Placements } from './Popover.types';
+import { Strategies, type PopoverProps, Placements } from './Popover.types.js';
 
 export const defaultPopoverProps: PopoverProps = {
     isOpen: false,

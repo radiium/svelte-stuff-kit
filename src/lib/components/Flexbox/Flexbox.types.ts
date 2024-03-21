@@ -7,7 +7,7 @@ import type {
     Justifys,
     Shrinks,
     Wraps
-} from '$lib/constants';
+} from '$lib/constants.js';
 import type { HTMLAttributes, SvelteHTMLElements } from 'svelte/elements';
 
 export interface FlexboxProps extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {

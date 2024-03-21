@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '$lib/constants';
-import type { SwitchProps } from './Switch.types';
+import { Sizes1To3, Colors } from '$lib/constants.js';
+import type { SwitchProps } from './Switch.types.js';
 
 export const defaultSwitchProps: SwitchProps = {
     elementRef: undefined,

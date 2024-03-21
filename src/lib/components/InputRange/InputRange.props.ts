@@ -1,5 +1,5 @@
-import { Colors, Sizes1To3 } from '$lib/constants';
-import type { InputRangeProps } from './InputRange.types';
+import { Colors, Sizes1To3 } from '$lib/constants.js';
+import type { InputRangeProps } from './InputRange.types.js';
 
 export const defaultInputRangeProps: InputRangeProps = {
     elementRef: undefined,

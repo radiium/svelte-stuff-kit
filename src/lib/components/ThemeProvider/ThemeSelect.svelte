@@ -2,12 +2,12 @@
     import AppWindow from 'phosphor-svelte/lib/AppWindow';
     import Moon from 'phosphor-svelte/lib/Moon';
     import Sun from 'phosphor-svelte/lib/Sun';
-    import { useThemeContext } from './theme.utils';
+    import { useThemeContext } from './theme.utils.js';
     import Popover from '../Popover/Popover.svelte';
     import Button from '../Button/Button.svelte';
     import Flexbox from '../Flexbox/Flexbox.svelte';
-    import { ThemeStrategy } from './ThemeProvider.types';
-    import type { Placements } from '../Popover/Popover.types';
+    import { ThemeStrategy } from './ThemeProvider.types.js';
+    import type { Placements } from '../Popover/Popover.types.js';
 
     export let placement: (typeof Placements)[number] = 'bottom';
 

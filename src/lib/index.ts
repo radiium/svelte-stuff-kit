@@ -1,8 +1,8 @@
 // Actions
-export * from './actions/clickoutside';
-export * from './actions/focus-trap';
-export * from './actions/longpress';
-export * from './actions/create-floating';
+export * from './actions/clickoutside.js';
+export * from './actions/focus-trap.js';
+export * from './actions/longpress.js';
+export * from './actions/create-floating.js';
 
 // Components
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
@@ -29,7 +29,7 @@ export { default as Text } from './components/Text/Text.svelte';
 export { default as Textarea } from './components/Textarea/Textarea.svelte';
 
 // Theme
-export { useThemeContext } from './components/ThemeProvider/theme.utils';
+export { useThemeContext } from './components/ThemeProvider/theme.utils.js';
 export { default as ThemeProvider } from './components/ThemeProvider/ThemeProvider.svelte';
 export { default as ThemeSelect } from './components/ThemeProvider/ThemeSelect.svelte';
 
@@ -41,13 +41,13 @@ export { default as EditorPanelRight } from './Editor/EditorPanelRight.svelte';
 export { default as EditorPanelLeft } from './Editor/EditorPanelLeft.svelte';
 export { default as EditorToolbar } from './Editor/EditorToolbar.svelte';
 export { default as Toolbar } from './Editor/Toolbar.svelte';
-export * from './Editor/editor-layout.store';
+export * from './Editor/editor-layout.store.js';
 
 // Utils
-export * from './utils/clsx';
-export * from './utils/is-browser';
-export * from './utils/storable';
-export * from './utils/listen';
+export * from './utils/clsx.js';
+export * from './utils/is-browser.js';
+export * from './utils/storable.js';
+export * from './utils/listen.js';
 
 // Types
-export * from './constants';
+export * from './constants.js';

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { clsx } from '../../utils/clsx';
-    import { defaultBadgeProps } from './Badge.props';
-    import type { BadgeProps } from './Badge.types';
+    import { clsx } from '../../utils/clsx.js';
+    import { defaultBadgeProps } from './Badge.props.js';
+    import type { BadgeProps } from './Badge.types.js';
 
     type $$Props = BadgeProps;
     export let elementRef: $$Props['elementRef'] = undefined;

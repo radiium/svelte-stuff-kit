@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { clsx } from '$lib';
-    import { longpress } from '../../actions/longpress';
-    import { defaultInputNumberProps } from './InputNumber.props';
-    import type { InputNumberProps } from './InputNumber.types';
+    import { clsx } from '$lib/utils/clsx.js';
+    import { longpress } from '../../actions/longpress.js';
+    import { defaultInputNumberProps } from './InputNumber.props.js';
+    import type { InputNumberProps } from './InputNumber.types.js';
 
     type $$Props = InputNumberProps;
     export let elementRef: $$Props['elementRef'] = defaultInputNumberProps.elementRef;

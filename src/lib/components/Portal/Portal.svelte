@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
     import { tick } from 'svelte';
-    import { useThemeContext } from '../ThemeProvider/theme.utils';
+    import { useThemeContext } from '../ThemeProvider/theme.utils.js';
     import { get } from 'svelte/store';
 
     /**
@@ -55,8 +55,8 @@
 </script>
 
 <script lang="ts">
-    import { defaultPortalProps } from './Portal.props';
-    import type { PortalProps } from './Portal.types';
+    import { defaultPortalProps } from './Portal.props.js';
+    import type { PortalProps } from './Portal.types.js';
 
     type $$Props = PortalProps;
     export let target: $$Props['target'] = defaultPortalProps.target;

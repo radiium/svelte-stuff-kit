@@ -5,7 +5,7 @@ description: Select component
 
 <script lang="ts">
     import {Select} from '$lib';
-    import {docSelectPropsDefs} from '$lib/components/Select/Select.props';
+    import {docSelectPropsDefs} from '$lib/components/Select/Select.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
     import PlaygroundForm from '$lib-doc/components/PlaygroundForm.svelte';

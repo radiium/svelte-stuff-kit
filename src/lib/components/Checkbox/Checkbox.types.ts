@@ -1,4 +1,4 @@
-import { Colors, Sizes1To3 } from '$lib/constants';
+import { Colors, Sizes1To3 } from '$lib/constants.js';
 import type { HTMLInputAttributes } from 'svelte/elements';
 
 export interface CheckboxProps extends Omit<HTMLInputAttributes, 'size' | 'checked' | 'indeterminate'> {

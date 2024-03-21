@@ -12,8 +12,8 @@
     } from '@floating-ui/dom';
     import { clickoutside } from '../../actions/clickoutside';
     import { focusTrap } from '../../actions/focus-trap';
-    import { defaultPopoverProps } from './Popover.props';
-    import type { PopoverProps } from './Popover.types';
+    import { defaultPopoverProps } from './Popover.props.js';
+    import type { PopoverProps } from './Popover.types.js';
 
     type $$Props = PopoverProps;
     export let isOpen: $$Props['isOpen'] = defaultPopoverProps.isOpen;

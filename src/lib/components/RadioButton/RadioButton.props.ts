@@ -1,5 +1,5 @@
-import { Sizes1To3, Colors } from '$lib/constants';
-import type { RadioButtonProps } from './RadioButton.types';
+import { Sizes1To3, Colors } from '$lib/constants.js';
+import type { RadioButtonProps } from './RadioButton.types.js';
 
 export const defaultRadioButtonProps: RadioButtonProps = {
     elementRef: undefined,
