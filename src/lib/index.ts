@@ -14,6 +14,7 @@ export { default as ButtonIcon } from './components/Button/ButtonIcon.svelte';
 export { default as Card } from './components/Card/Card.svelte';
 export { default as Checkbox } from './components/Checkbox/Checkbox.svelte';
 export { default as Flexbox } from './components/Flexbox/Flexbox.svelte';
+export { default as Box } from './components/Box/Box.svelte';
 export { default as Input } from './components/Input/Input.svelte';
 export { default as InputNumber } from './components/InputNumber/InputNumber.svelte';
 export { default as InputRange } from './components/InputRange/InputRange.svelte';
