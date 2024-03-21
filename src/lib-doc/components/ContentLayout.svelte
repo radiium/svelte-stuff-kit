@@ -10,7 +10,7 @@
 </script>
 
 <script>
-    import { Flexbox } from '$lib';
+    import { Flexbox } from '$lib/index.js';
     /** @type {string} */
     export let title;
     /** @type {string} */

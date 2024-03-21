@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Text } from '$lib';
+    import { Text } from '$lib/index.js';
     import { page } from '$app/stores';
 
     let elementRef: HTMLHeadingElement;

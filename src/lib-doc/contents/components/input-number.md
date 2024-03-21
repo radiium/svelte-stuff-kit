@@ -4,7 +4,7 @@ description: InputNumber component
 ---
 
 <script lang="ts">
-    import {InputNumber} from '$lib';
+    import {InputNumber} from '$lib/index.js';
     import {docInputNumberPropsDefs} from '$lib/components/InputNumber/InputNumber.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

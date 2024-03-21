@@ -1,7 +1,7 @@
 <script lang="ts">
     import Minus from 'phosphor-svelte/lib/Minus';
     import Info from 'phosphor-svelte/lib/Info';
-    import type { DocProps } from '../types';
+    import type { DocProps } from '../types.js';
     import Card from '$lib/components/Card/Card.svelte';
     import Popover from '$lib/components/Popover/Popover.svelte';
     import Button from '$lib/components/Button/Button.svelte';

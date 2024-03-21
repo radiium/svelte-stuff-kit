@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Flexbox, Card } from '$lib';
+    import { Flexbox, Card } from '$lib/index.js';
 </script>
 
 <Card noPadding class="mt-3 mb-5 playground">

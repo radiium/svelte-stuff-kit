@@ -1,5 +1,5 @@
 import type { ComponentType } from 'svelte';
-import type { LayoutData } from './$types';
+import type { LayoutData } from './$types.js';
 
 export const prerender = false;
 export const ssr = false;

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { PUBLIC_PKG_NAME } from '$env/static/public';
     import { version } from '$app/environment';
-    import { ThemeSelect, Text } from '$lib';
+    import { ThemeSelect, Text } from '$lib/index.js';
     import GithubLink from './GithubLink.svelte';
     import Badge from '$lib/components/Badge/Badge.svelte';
 </script>

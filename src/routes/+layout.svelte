@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ThemeProvider } from '$lib/index';
+    import { ThemeProvider } from '$lib/index.js';
     import IconContext from 'phosphor-svelte/lib/IconContext';
     import DocLayout from '../lib-doc/components/DocLayout.svelte';
     import DocHeader from '../lib-doc/components/DocHeader.svelte';

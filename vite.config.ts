@@ -1,10 +1,10 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
-import examples from 'mdsvexamples/vite';
+import mdsvexamples from 'mdsvexamples/vite';
 import path from 'node:path';
 
 export default defineConfig({
-    plugins: [sveltekit(), examples],
+    plugins: [sveltekit(), mdsvexamples],
     optimizeDeps: {
         exclude: ['phosphor-svelte']
     },

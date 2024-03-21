@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Text } from '$lib';
+    import { Text } from '$lib/index.js';
 </script>
 
 <Text as="h1" size="8" weight="bold" class="mb-3">

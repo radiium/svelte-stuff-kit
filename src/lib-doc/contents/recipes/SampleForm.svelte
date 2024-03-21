@@ -12,7 +12,7 @@
         Select,
         InputRange,
         Colors
-    } from '$lib';
+    } from '$lib/index.js';
     import PlaygroundForm from '../../components/PlaygroundForm.svelte';
 
     let groupOptions = ['opt1', 'opt2', 'opt3'];

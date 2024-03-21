@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Flexbox, ButtonGroup, Button, Select, Text, Switch, InputNumber, Input } from '$lib';
+    import { Flexbox, ButtonGroup, Button, Select, Text, Switch, InputNumber, Input } from '$lib/index.js';
 
     export let schema: any = {
         props: [],
@@ -9,7 +9,7 @@
     };
     export let propsString = '';
     export let props = {};
-    export let propsExcluded = [];
+    // export let propsExcluded = [];
     export let onChange = (data) => {};
 
     void onMount(() => {

@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-    import { Button } from '$lib';
+    import { Button } from '$lib/index.js';
     import List from 'phosphor-svelte/lib/List';
     import X from 'phosphor-svelte/lib/X';
     import { fade } from 'svelte/transition';
@@ -59,10 +59,10 @@
 </div>
 
 <style lang="scss">
-    :global(.Card) {
+    /* :global(.Card) { */
         /* margin-top: var(--space-3);
         margin-bottom: var(--space-3); */
-    }
+    /* } */
     /* 
     :global(h3) {
         margin: inherit;

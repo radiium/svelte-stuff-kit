@@ -1,7 +1,7 @@
 <script lang="ts">
     import Clipboard from 'phosphor-svelte/lib/Clipboard';
     import Check from 'phosphor-svelte/lib/Check';
-    import { Flexbox, Card, Button } from '$lib';
+    import { Flexbox, Card, Button } from '$lib/index.js';
 
     export let src: string | undefined = undefined;
     export let meta: Record<string, unknown> = {};

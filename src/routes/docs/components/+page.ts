@@ -1,4 +1,4 @@
-import type { PageData } from './$types';
+import type { PageData } from './$types.js';
 import { error, redirect } from '@sveltejs/kit';
 
 export const load: PageData = async ({ params, parent }) => {

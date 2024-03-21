@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { DocBlocApi } from '../types';
+    import type { DocBlocApi } from '../types.js';
     import TableProps from './TableProps.svelte';
     import TableSlots from './TableSlots.svelte';
     import H4 from './h4.svelte';

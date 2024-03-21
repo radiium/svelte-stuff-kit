@@ -1,6 +1,6 @@
 <script lang="ts">
     import Minus from 'phosphor-svelte/lib/Minus';
-    import type { DocSlots } from '../types';
+    import type { DocSlots } from '../types.js';
     import Card from '$lib/components/Card/Card.svelte';
 
     export let slots: DocSlots[] = [];

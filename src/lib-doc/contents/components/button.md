@@ -5,7 +5,7 @@ description: Button component
 
 <script lang="ts">
     import { onMount, tick } from 'svelte';
-    import {Button} from '$lib';
+    import {Button} from '$lib/index.js';
     import {docButtonPropsDefs} from '$lib/components/Button/Button.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
@@ -149,7 +149,7 @@ Extend HTMLButtonAttributes
 #### Import
 
 ```typescript example
-import { Button } from '$lib';
+import { Button } from '$lib/index.js';
 ```
 
 ```bash example

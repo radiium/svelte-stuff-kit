@@ -10,8 +10,8 @@
         type Side,
         type Alignment
     } from '@floating-ui/dom';
-    import { clickoutside } from '../../actions/clickoutside';
-    import { focusTrap } from '../../actions/focus-trap';
+    import { clickoutside } from '../../actions/clickoutside.js';
+    import { focusTrap } from '../../actions/focus-trap.js';
     import { defaultPopoverProps } from './Popover.props.js';
     import type { PopoverProps } from './Popover.types.js';
 

@@ -4,7 +4,7 @@ description: Text component
 ---
 
 <script lang="ts">
-    import {Text} from '$lib';
+    import {Text} from '$lib/index.js';
     import {docTextPropsDefs} from '$lib/components/Text/Text.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

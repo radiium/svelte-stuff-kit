@@ -1,6 +1,6 @@
 <script>
     import { PUBLIC_PKG_HOMEPAGE } from '$env/static/public';
-    import { Button } from '$lib';
+    import { Button } from '$lib/index.js';
 </script>
 
 <a href={PUBLIC_PKG_HOMEPAGE} target="_blank" rel="noreferrer">
