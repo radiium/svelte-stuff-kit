@@ -1,4 +1,4 @@
-import type { DialogProps } from './Dialog.types';
+import type { DialogProps } from './Dialog.types.js';
 export declare const defaultDialogProps: DialogProps;
 export declare const docDialogPropsDefs: {
     props: ({

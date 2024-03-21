@@ -1,4 +1,4 @@
-import { listen } from '../utils/listen';
+import { listen } from '../utils/listen.js';
 /**
  * Listen click outside a node
  *

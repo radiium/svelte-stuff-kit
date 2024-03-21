@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { AccordionGroupProps } from './Accordion.types';
+import type { AccordionGroupProps } from './Accordion.types.js';
 declare const __propDef: {
     props: AccordionGroupProps;
     events: {

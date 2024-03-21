@@ -1,8 +1,9 @@
-import { Colors, Sizes1To3 } from '../../constants';
+import { Colors, Sizes1To3 } from '../../constants.js';
 export const defaultInputRangeProps = {
     elementRef: undefined,
+    value: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false,
     fullWidth: false
 };
@@ -11,6 +12,11 @@ export const docInputRangePropsDefs = {
         {
             name: 'elementRef',
             type: 'HTMLInputElement'
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultInputRangeProps.value
         },
         {
             name: 'size',

@@ -1,4 +1,4 @@
-import type { InputProps } from './Input.types';
+import type { InputProps } from './Input.types.js';
 export declare const defaultInputProps: InputProps;
 export declare const docInputPropsDefs: {
     props: ({

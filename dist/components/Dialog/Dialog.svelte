@@ -17,11 +17,11 @@ const lastDialog = () => {
 
 <script>import X from 'phosphor-svelte/lib/X';
 import { fade, scale } from 'svelte/transition';
-import { isBrowser } from '../../utils/is-browser';
-import { focusTrap } from '../../actions/focus-trap';
-import { clsx } from '../../utils/clsx';
+import { isBrowser } from '../../utils/is-browser.js';
+import { focusTrap } from '../../actions/focus-trap.js';
+import { clsx } from '../../utils/clsx.js';
 import Button from '../Button/Button.svelte';
-import { defaultDialogProps } from './Dialog.props';
+import { defaultDialogProps } from './Dialog.props.js';
 export let isOpen = defaultDialogProps.isOpen;
 export let size = defaultDialogProps.size;
 export let closeOnBackdropClick = defaultDialogProps.closeOnBackdropClick;
@@ -128,23 +128,9 @@ $: cssClass = clsx($$restProps.class, `Dialog`, {
                 </Button>
             {/if}
 
-            {#if $$slots.header}
-                <header>
-                    <slot name="header" />
-                </header>
-            {/if}
-
-            {#if $$slots.content}
-                <div class="content">
-                    <slot name="content" />
-                </div>
-            {/if}
-
-            {#if $$slots.footer}
-                <footer>
-                    <slot name="footer" />
-                </footer>
-            {/if}
+            <div class="Dialog-content-inner">
+                <slot />
+            </div>
         </div>
     </div>
 {/if}
@@ -191,20 +177,10 @@ $: cssClass = clsx($$restProps.class, `Dialog`, {
   box-shadow: var(--border-color) 0px 0px 0px 1px;
   outline: none;
 }
-.Dialog .Dialog-content header {
-  width: 100%;
-}
-.Dialog .Dialog-content .content {
+.Dialog .Dialog-content .Dialog-content-inner {
   width: 100%;
   max-height: 50vh;
   overflow: auto;
-}
-.Dialog .Dialog-content footer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--space-3);
 }
 .Dialog :global(.Dialog-close-btn) {
   position: absolute;

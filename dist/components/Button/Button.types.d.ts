@@ -1,4 +1,4 @@
-import type { Sizes1To4, Aligns, Colors, Variants } from '../../constants';
+import type { Sizes1To4, Aligns, Colors, Variants } from '../../constants.js';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 export interface ButtonProps extends Omit<HTMLButtonAttributes, 'size' | 'align'> {
     elementRef?: HTMLButtonElement;

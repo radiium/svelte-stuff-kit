@@ -1,9 +1,10 @@
-import { Sizes1To3, Colors } from '../../constants';
+import { Sizes1To3, Colors } from '../../constants.js';
 export const defaultRadioButtonProps = {
     elementRef: undefined,
     group: undefined,
+    value: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 export const docRadioButtonPropsDefs = {
@@ -17,6 +18,11 @@ export const docRadioButtonPropsDefs = {
             name: 'group',
             type: 'any',
             default: defaultRadioButtonProps.group
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultRadioButtonProps.value
         },
         {
             name: 'size',

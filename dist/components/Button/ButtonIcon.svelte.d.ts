@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { ButtonIconProps } from './Button.types';
+import type { ButtonIconProps } from './Button.types.js';
 declare const __propDef: {
     props: ButtonIconProps;
     events: {

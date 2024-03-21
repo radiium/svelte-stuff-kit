@@ -1,4 +1,4 @@
-import type { BadgeProps } from './Badge.types';
+import type { BadgeProps } from './Badge.types.js';
 export declare const defaultBadgeProps: BadgeProps;
 export declare const docBadgePropsDefs: {
     props: ({
@@ -9,18 +9,18 @@ export declare const docBadgePropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["1", "2"];
-        default: "1" | "2" | undefined;
-    } | {
-        name: string;
-        type: string;
         values: readonly ["solid", "soft", "outline"];
         default: "solid" | "soft" | "outline" | undefined;
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["1", "2"];
+        default: "1" | "2" | undefined;
+    } | {
+        name: string;
+        type: string;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     } | {
         name: string;
         type: string;

@@ -1,4 +1,4 @@
-import { storable } from '../utils/storable';
+import { storable } from '../utils/storable.js';
 export class EditorLayoutState {
     isPanelLeftOpen = false;
     isPanelRightOpen = false;

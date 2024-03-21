@@ -1,6 +1,6 @@
 import { SvelteComponent } from "svelte";
 import '../../style.scss';
-import { type ThemeProviderProps } from './ThemeProvider.types';
+import { type ThemeProviderProps } from './ThemeProvider.types.js';
 declare const __propDef: {
     props: ThemeProviderProps;
     events: {

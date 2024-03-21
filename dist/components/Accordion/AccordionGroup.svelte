@@ -1,6 +1,6 @@
 <script>import { setContext } from 'svelte';
 import { writable } from 'svelte/store';
-import { defaultAccordionGroupProps, contextKeyAccordionGroup } from './Accordion.props';
+import { defaultAccordionGroupProps, contextKeyAccordionGroup } from './Accordion.props.js';
 export let multi = defaultAccordionGroupProps.multi;
 const current = writable();
 setContext(contextKeyAccordionGroup, {

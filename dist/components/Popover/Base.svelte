@@ -1,6 +1,6 @@
 <script>import { fade, fly, scale } from 'svelte/transition';
-import { clickoutside } from '../../actions/clickoutside';
-import { createFloating } from '../../actions/create-floating';
+import { clickoutside } from '../../actions/clickoutside.js';
+import { createFloating } from '../../actions/create-floating.js';
 import { afterUpdate, onMount } from 'svelte';
 import { expoOut } from 'svelte/easing';
 export let defaultOpen = false;

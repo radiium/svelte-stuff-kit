@@ -1,4 +1,4 @@
-import { Aligns, InputTypes, Sizes1To3 } from '../../constants';
+import { Aligns, InputTypes, Sizes1To3 } from '../../constants.js';
 export const defaultInputProps = {
     elementRef: undefined,
     value: '',

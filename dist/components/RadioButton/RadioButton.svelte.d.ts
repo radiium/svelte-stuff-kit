@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { RadioButtonProps } from './RadioButton.types';
+import type { RadioButtonProps } from './RadioButton.types.js';
 declare const __propDef: {
     props: RadioButtonProps;
     events: {

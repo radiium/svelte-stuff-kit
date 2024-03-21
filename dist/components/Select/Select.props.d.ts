@@ -1,4 +1,4 @@
-import type { SelectProps } from './Select.types';
+import type { SelectProps } from './Select.types.js';
 export declare const defaultSelectProps: SelectProps;
 export declare const docSelectPropsDefs: {
     title: string;

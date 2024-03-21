@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultLinkProps } from './Link.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultLinkProps } from './Link.props.js';
 export let elementRef = defaultLinkProps.elementRef;
 export let href = defaultLinkProps.href;
 export let target = defaultLinkProps.target;
@@ -111,7 +111,7 @@ a.Link.Link-size-1 {
 a.Link.Link-size-1.Link-icon-only {
   --button-min-width: var(--space-5);
   --button-width: var(--space-5);
-  --button-padding: var(--space-0);
+  --button-padding: calc(var(--space-1) / 2);
 }
 a.Link.Link-size-2 {
   --button-height: var(--space-6);
@@ -126,7 +126,7 @@ a.Link.Link-size-2 {
 a.Link.Link-size-2.Link-icon-only {
   --button-min-width: var(--space-6);
   --button-width: var(--space-6);
-  --button-padding: var(--space-0);
+  --button-padding: calc(var(--space-1) / 2);
 }
 a.Link.Link-size-3 {
   --button-height: var(--space-7);

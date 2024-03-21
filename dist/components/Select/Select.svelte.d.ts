@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { SelectProps } from './Select.types';
+import type { SelectProps } from './Select.types.js';
 declare const __propDef: {
     props: SelectProps;
     events: {

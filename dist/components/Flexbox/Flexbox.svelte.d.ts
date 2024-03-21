@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { FlexboxProps } from './Flexbox.types';
+import type { FlexboxProps } from './Flexbox.types.js';
 declare const __propDef: {
     props: FlexboxProps;
     events: {

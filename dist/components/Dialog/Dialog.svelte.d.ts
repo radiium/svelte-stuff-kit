@@ -1,14 +1,12 @@
 import { SvelteComponent } from "svelte";
-import type { DialogProps } from './Dialog.types';
+import type { DialogProps } from './Dialog.types.js';
 declare const __propDef: {
     props: DialogProps;
     events: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
-        header: {};
-        content: {};
-        footer: {};
+        default: {};
     };
 };
 type DialogProps_ = typeof __propDef.props;

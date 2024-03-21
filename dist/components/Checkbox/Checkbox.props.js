@@ -1,10 +1,12 @@
-import { Colors, Sizes1To3 } from '../../constants';
+import { Colors, Sizes1To3 } from '../../constants.js';
 export const defaultCheckboxProps = {
     elementRef: undefined,
+    group: [],
+    value: undefined,
     checked: false,
     indeterminate: false,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 export const docCheckboxPropsDefs = {
@@ -14,14 +16,19 @@ export const docCheckboxPropsDefs = {
             type: 'HTMLInputElement'
         },
         {
+            name: 'group',
+            type: 'any',
+            default: defaultCheckboxProps.group
+        },
+        {
+            name: 'value',
+            type: 'any',
+            default: defaultCheckboxProps.value
+        },
+        {
             name: 'checked',
             type: 'boolean',
             default: defaultCheckboxProps.checked
-        },
-        {
-            name: 'indeterminate',
-            type: 'boolean',
-            default: defaultCheckboxProps.indeterminate
         },
         {
             name: 'size',
@@ -34,6 +41,11 @@ export const docCheckboxPropsDefs = {
             type: 'enum',
             values: Colors,
             default: defaultCheckboxProps.color
+        },
+        {
+            name: 'indeterminate',
+            type: 'boolean',
+            default: defaultCheckboxProps.indeterminate
         },
         {
             name: 'error',

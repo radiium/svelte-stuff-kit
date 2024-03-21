@@ -1,10 +1,10 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultSwitchProps } from './Switch.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultSwitchProps } from './Switch.props.js';
 export let elementRef = defaultSwitchProps.elementRef;
+export let checked = defaultSwitchProps.checked;
 export let size = defaultSwitchProps.size;
 export let color = defaultSwitchProps.color;
 export let error = defaultSwitchProps.error;
-let { class: _class, style, checked, required, disabled, value, ...restProps } = $$restProps;
 $: cssClass = clsx($$restProps.class, 'Switch', {
     [`Switch-size-${size}`]: size,
     [`Switch-color-${color}`]: color,
@@ -13,7 +13,7 @@ $: cssClass = clsx($$restProps.class, 'Switch', {
 </script>
 
 <input
-    {...restProps}
+    {...$$restProps}
     data-color={color}
     data-size={size}
     class={cssClass}

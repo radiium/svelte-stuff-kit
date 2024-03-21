@@ -1,4 +1,4 @@
-import { Strategies, Placements } from './Popover.types';
+import { Strategies, Placements } from './Popover.types.js';
 export const defaultPopoverProps = {
     isOpen: false,
     backdrop: false,
@@ -18,26 +18,6 @@ export const docPopoverPropsDefs = {
             name: 'isOpen',
             type: 'boolean',
             default: defaultPopoverProps.isOpen
-        },
-        {
-            name: 'backdrop',
-            type: 'boolean',
-            default: defaultPopoverProps.backdrop
-        },
-        {
-            name: 'arrow',
-            type: 'boolean',
-            default: defaultPopoverProps.arrow
-        },
-        {
-            name: 'flip',
-            type: 'boolean',
-            default: defaultPopoverProps.flip
-        },
-        {
-            name: 'shift',
-            type: 'boolean',
-            default: defaultPopoverProps.shift
         },
         {
             name: 'strategy',
@@ -70,6 +50,26 @@ export const docPopoverPropsDefs = {
             name: 'transitionDuration',
             type: 'number',
             default: defaultPopoverProps.transitionDuration
+        },
+        {
+            name: 'backdrop',
+            type: 'boolean',
+            default: defaultPopoverProps.backdrop
+        },
+        {
+            name: 'arrow',
+            type: 'boolean',
+            default: defaultPopoverProps.arrow
+        },
+        {
+            name: 'flip',
+            type: 'boolean',
+            default: defaultPopoverProps.flip
+        },
+        {
+            name: 'shift',
+            type: 'boolean',
+            default: defaultPopoverProps.shift
         }
     ],
     slots: [],

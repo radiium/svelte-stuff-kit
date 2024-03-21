@@ -1,4 +1,4 @@
-import { ThemeStrategy } from './ThemeProvider.types';
+import { ThemeStrategy } from './ThemeProvider.types.js';
 export const defaultThemeProviderProps = {
     strategy: undefined
 };

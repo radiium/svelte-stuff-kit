@@ -1,4 +1,4 @@
-import type { InputNumberProps } from './InputNumber.types';
+import type { InputNumberProps } from './InputNumber.types.js';
 export declare const defaultInputNumberProps: InputNumberProps;
 export declare const docInputNumberPropsDefs: {
     props: ({
@@ -19,8 +19,8 @@ export declare const docInputNumberPropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     } | {
         name: string;
         type: string;

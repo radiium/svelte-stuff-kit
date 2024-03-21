@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultInputProps } from './Input.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultInputProps } from './Input.props.js';
 export let elementRef = defaultInputProps.elementRef;
 export let value = defaultInputProps.value;
 export let type = defaultInputProps.type;
@@ -14,10 +14,17 @@ $: cssClass = clsx($$restProps.class, 'Input', {
     'Input-full-width': fullWidth,
     'Input-error': error
 });
-const setType = (node) => {
-    if (type) {
-        node.type = type;
+const setType = (node, value) => {
+    if (value) {
+        node.type = value;
     }
+    return {
+        update: (newValue) => {
+            if (newValue) {
+                node.type = newValue;
+            }
+        }
+    };
 };
 </script>
 
@@ -36,7 +43,7 @@ const setType = (node) => {
     on:keydown
     on:keypress
     on:keyup
-    use:setType
+    use:setType={type}
 />
 
 <style>.Input {
@@ -76,7 +83,6 @@ const setType = (node) => {
   height: var(--space-5);
   padding: 0 var(--space-2);
   border-radius: var(--radius-3);
-  gap: var(--space-1);
   font-size: var(--font-size-1);
   letter-spacing: var(--letter-spacing-1);
 }
@@ -84,7 +90,6 @@ const setType = (node) => {
   height: var(--space-6);
   padding: 0 var(--space-2);
   border-radius: var(--radius-3);
-  gap: var(--space-1);
   font-size: var(--font-size-2);
   letter-spacing: var(--letter-spacing-2);
 }
@@ -92,7 +97,6 @@ const setType = (node) => {
   height: var(--space-7);
   padding: 0 var(--space-3);
   border-radius: var(--radius-3);
-  gap: var(--space-3);
   font-size: var(--font-size-3);
   letter-spacing: var(--letter-spacing-3);
 }

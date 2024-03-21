@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultFlexboxProps } from './Flexbox.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultFlexboxProps } from './Flexbox.props.js';
 export let elementRef = defaultFlexboxProps.elementRef;
 export let as = defaultFlexboxProps.as;
 export let display = defaultFlexboxProps.display;

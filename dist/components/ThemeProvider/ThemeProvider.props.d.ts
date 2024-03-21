@@ -1,4 +1,4 @@
-import { ThemeStrategy, type ThemeProviderProps } from './ThemeProvider.types';
+import { ThemeStrategy, type ThemeProviderProps } from './ThemeProvider.types.js';
 export declare const defaultThemeProviderProps: ThemeProviderProps;
 export declare const docThemeProviderPropsDefs: {
     title: string;

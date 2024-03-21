@@ -1,9 +1,9 @@
 <script>import { afterUpdate } from 'svelte';
 import { fade, fly } from 'svelte/transition';
 import { computePosition, flip as flipMiddleware, offset as offsetMiddleware, arrow as arrowMiddleware, shift as shiftMiddleware } from '@floating-ui/dom';
-import { clickoutside } from '../../actions/clickoutside';
-import { focusTrap } from '../../actions/focus-trap';
-import { defaultPopoverProps } from './Popover.props';
+import { clickoutside } from '../../actions/clickoutside.js';
+import { focusTrap } from '../../actions/focus-trap.js';
+import { defaultPopoverProps } from './Popover.props.js';
 export let isOpen = defaultPopoverProps.isOpen;
 export let backdrop = defaultPopoverProps.backdrop;
 export let arrow = defaultPopoverProps.arrow;

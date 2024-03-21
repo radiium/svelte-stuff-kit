@@ -1,4 +1,4 @@
-import type { SwitchProps } from './Switch.types';
+import type { SwitchProps } from './Switch.types.js';
 export declare const defaultSwitchProps: SwitchProps;
 export declare const docSwitchPropsDefs: {
     title: string;
@@ -15,8 +15,8 @@ export declare const docSwitchPropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     } | {
         name: string;
         type: string;

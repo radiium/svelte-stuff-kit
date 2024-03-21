@@ -1,17 +1,19 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultTextProps } from './Text.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultTextProps } from './Text.props.js';
 export let elementRef = defaultTextProps.elementRef;
 export let as = defaultTextProps.as;
 export let color = defaultTextProps.color;
 export let size = defaultTextProps.size;
 export let weight = defaultTextProps.weight;
+export let transform = defaultTextProps.transform;
 export let align = defaultTextProps.align;
 export let disabled = defaultTextProps.disabled;
 $: cssClass = clsx($$restProps.class, 'Text', {
     [`Text-size-${size}`]: size,
+    [`Text-color-${color}`]: color,
     [`Text-weight-${weight}`]: weight,
     [`Text-align-${align}`]: align,
-    [`Text-color-${color}`]: color,
+    [`Text-transform-${transform}`]: transform,
     'Text-disabled': disabled
 });
 </script>
@@ -87,6 +89,15 @@ $: cssClass = clsx($$restProps.class, 'Text', {
 }
 .Text.Text-weight-bold {
   font-weight: var(--font-weight-bold);
+}
+.Text.Text-transform-lowercase {
+  text-transform: lowercase;
+}
+.Text.Text-transform-uppercase {
+  text-transform: uppercase;
+}
+.Text.Text-transform-capitalize {
+  text-transform: capitalize;
 }
 .Text.Text-align-start {
   text-align: start;

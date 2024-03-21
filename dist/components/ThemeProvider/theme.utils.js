@@ -1,6 +1,6 @@
 import { getContext } from 'svelte';
-import { isBrowser } from '../../utils/is-browser';
-import { ThemeScheme, ThemeStrategy } from './ThemeProvider.types';
+import { isBrowser } from '../../utils/is-browser.js';
+import { ThemeScheme, ThemeStrategy } from './ThemeProvider.types.js';
 export const THEME_CONTEXT_KEY = 'THEME_CONTEXT';
 export const THEME_STORAGE_KEY = 'THEME_STATE';
 export const DEFAULT_STRATEGY = ThemeStrategy.SYSTEM;

@@ -1,8 +1,8 @@
+import type { AccordionGroupProps, AccordionItemProps } from './Accordion.types.js';
 export declare const contextKeyAccordionGroup = "AccordionGroup";
 /**
  * AccordionGroup
  */
-import type { AccordionGroupProps, AccordionItemProps } from './Accordion.types';
 export declare const defaultAccordionGroupProps: AccordionGroupProps;
 export declare const docAccordionGroupPropsDefs: {
     props: {

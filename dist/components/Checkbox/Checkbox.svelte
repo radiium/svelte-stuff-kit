@@ -1,36 +1,59 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultCheckboxProps } from './Checkbox.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultCheckboxProps } from './Checkbox.props.js';
 export let elementRef = defaultCheckboxProps.elementRef;
+export let group = defaultCheckboxProps.group;
+export let value = defaultCheckboxProps.value;
 export let checked = defaultCheckboxProps.checked;
 export let indeterminate = defaultCheckboxProps.indeterminate;
 export let size = defaultCheckboxProps.size;
 export let color = defaultCheckboxProps.color;
 export let error = defaultCheckboxProps.error;
-$: required = $$restProps.required;
-$: disabled = $$restProps.disabled;
 $: cssClass = clsx($$restProps.class, 'Checkbox', {
     [`Checkbox-size-${size}`]: size,
     [`Checkbox-color-${color}`]: color,
     'Checkbox-error': error
 });
+$: if (group) {
+    groupCheck();
+}
+function groupCheck() {
+    if (value) {
+        checked = group?.includes(value);
+    }
+}
+// Update group when checkbox changes
+function onChange() {
+    if (group && value) {
+        let inGroup = group.includes(value);
+        if (!inGroup) {
+            // Add to group
+            group = [...group, value];
+        }
+        else {
+            // Remove from group
+            group = group.filter((v) => v != value);
+        }
+    }
+}
 </script>
 
 <input
-    class={cssClass}
     {...$$restProps}
+    class={cssClass}
+    style={$$restProps.style}
     data-color={color}
     data-size={size}
     data-checked={checked || undefined}
     data-indeterminate={indeterminate || undefined}
     type="checkbox"
     autocomplete="off"
-    {required}
-    {disabled}
+    {value}
     bind:checked
     bind:indeterminate
     bind:this={elementRef}
     on:input
     on:change
+    on:change={onChange}
     on:focus
     on:blur
 />
@@ -62,14 +85,14 @@ $: cssClass = clsx($$restProps.class, 'Checkbox', {
   transform: translate(-50%, -60%) rotate(45deg);
   border-width: 0 2px 2px 0;
 }
-.Checkbox:checked {
+.Checkbox:checked, .Checkbox[data-checked=true] {
   background-color: var(--checkbox-background-checked);
   box-shadow: none;
 }
-.Checkbox:checked:after {
+.Checkbox:checked:after, .Checkbox[data-checked=true]:after {
   display: block;
 }
-.Checkbox:checked[data-indeterminate]:after {
+.Checkbox:checked[data-indeterminate=true]:after, .Checkbox[data-checked=true][data-indeterminate=true]:after {
   transform: translate(-50%, -80%) rotate(0);
   border-width: 0 0 2px 0;
   width: calc(var(--space-4) / 2.5);

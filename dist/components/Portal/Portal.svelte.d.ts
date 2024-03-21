@@ -6,7 +6,7 @@ export declare function portal(el: HTMLElement, target?: HTMLElement | string): 
     update: (newTarget: any) => Promise<void>;
     destroy: () => void;
 };
-import type { PortalProps } from './Portal.types';
+import type { PortalProps } from './Portal.types.js';
 declare const __propDef: {
     props: PortalProps;
     events: {

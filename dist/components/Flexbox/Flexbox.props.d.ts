@@ -1,4 +1,4 @@
-import type { FlexboxProps } from './Flexbox.types';
+import type { FlexboxProps } from './Flexbox.types.js';
 export declare const defaultFlexboxProps: FlexboxProps;
 export declare const docFlexboxPropsDefs: {
     props: ({
@@ -9,7 +9,7 @@ export declare const docFlexboxPropsDefs: {
     } | {
         name: string;
         type: string;
-        default: keyof import("svelte/elements").SvelteHTMLElements | undefined;
+        default: keyof import("svelte/elements.js").SvelteHTMLElements | undefined;
         values?: undefined;
     } | {
         name: string;

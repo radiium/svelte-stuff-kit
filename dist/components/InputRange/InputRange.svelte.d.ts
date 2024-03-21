@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { InputRangeProps } from './InputRange.types';
+import type { InputRangeProps } from './InputRange.types.js';
 declare const __propDef: {
     props: InputRangeProps;
     events: {

@@ -1,4 +1,4 @@
-import type { CardProps } from './Card.types';
+import type { CardProps } from './Card.types.js';
 export declare const defaultCardProps: CardProps;
 export declare const docCardPropsDefs: {
     props: ({

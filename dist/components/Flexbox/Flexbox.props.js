@@ -1,4 +1,4 @@
-import { AlignItems, Directions, Displays, Gaps, Grows, Justifys, Shrinks, Wraps } from '../../constants';
+import { AlignItems, Directions, FlexDisplays, Gaps, Grows, Justifys, Shrinks, Wraps } from '../../constants.js';
 export const defaultFlexboxProps = {
     elementRef: undefined,
     as: 'div',
@@ -25,7 +25,7 @@ export const docFlexboxPropsDefs = {
         {
             name: 'display',
             type: 'enum',
-            values: Displays,
+            values: FlexDisplays,
             default: defaultFlexboxProps.display
         },
         {

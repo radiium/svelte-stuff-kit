@@ -1,11 +1,11 @@
-import { Sizes1To4, Colors, Aligns, Variants } from '../../constants';
+import { Sizes1To4, Colors, Aligns, Variants } from '../../constants.js';
 export const defaultLinkProps = {
     href: '',
     target: '_blank',
     rel: undefined,
     size: '2',
     variant: 'solid',
-    color: 'neutral',
+    color: 'gray',
     align: 'center',
     active: false,
     iconOnly: false,

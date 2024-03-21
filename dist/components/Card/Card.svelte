@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultCardProps } from './Card.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultCardProps } from './Card.props.js';
 export let elementRef = defaultCardProps.elementRef;
 export let size = defaultCardProps.size;
 export let noPadding = defaultCardProps.noPadding;

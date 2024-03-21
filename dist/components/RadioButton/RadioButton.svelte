@@ -1,7 +1,8 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultRadioButtonProps } from './RadioButton.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultRadioButtonProps } from './RadioButton.props.js';
 export let elementRef = defaultRadioButtonProps.elementRef;
 export let group = defaultRadioButtonProps.group;
+export let value = defaultRadioButtonProps.value;
 export let size = defaultRadioButtonProps.size;
 export let color = defaultRadioButtonProps.color;
 export let error = defaultRadioButtonProps.error;
@@ -19,8 +20,9 @@ $: cssClass = clsx($$restProps.class, 'RadioButton', {
     class={cssClass}
     style={$$restProps.style}
     type="radio"
-    bind:this={elementRef}
+    {value}
     bind:group
+    bind:this={elementRef}
     on:input
     on:change
     on:focus

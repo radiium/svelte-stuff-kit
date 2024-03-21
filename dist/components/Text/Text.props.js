@@ -1,10 +1,11 @@
-import { Sizes1To9, Colors, Weights, Aligns, TextTags } from '../../constants';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms } from '../../constants.js';
 export const defaultTextProps = {
     elementRef: undefined,
     as: 'span',
     color: undefined,
     size: '3',
     weight: 'regular',
+    transform: undefined,
     align: 'start',
     disabled: false
 };
@@ -37,6 +38,12 @@ export const docTextPropsDefs = {
             type: 'enum',
             values: Weights,
             default: defaultTextProps.weight
+        },
+        {
+            name: 'transform',
+            type: 'enum',
+            values: Transforms,
+            default: defaultTextProps.transform
         },
         {
             name: 'align',

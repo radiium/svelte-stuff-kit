@@ -1,4 +1,4 @@
-import { Sizes1To4 } from '../../constants';
+import { Sizes1To4 } from '../../constants.js';
 export const defaultDialogProps = {
     isOpen: false,
     size: '3',

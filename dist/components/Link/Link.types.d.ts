@@ -1,4 +1,4 @@
-import type { Sizes1To4, Colors, Aligns, Variants } from '../../constants';
+import type { Sizes1To4, Colors, Aligns, Variants } from '../../constants.js';
 import type { HTMLAnchorAttributes } from 'svelte/elements';
 export interface LinkProps extends HTMLAnchorAttributes {
     elementRef?: HTMLAnchorElement;

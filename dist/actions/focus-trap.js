@@ -1,5 +1,5 @@
 // credit: https://github.com/henrygd/trap-focus-svelte/blob/main/index.ts
-import { listen } from '../utils/listen';
+import { listen } from '../utils/listen.js';
 let stack = [];
 /**
  * Traps focus within a wrapper element

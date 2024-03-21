@@ -1,4 +1,7 @@
 export const contextKeyAccordionGroup = 'AccordionGroup';
+/**
+ * AccordionGroup
+ */
 export const defaultAccordionGroupProps = {
     multi: false
 };

@@ -1,6 +1,7 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultInputRangeProps } from './InputRange.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultInputRangeProps } from './InputRange.props.js';
 export let elementRef = defaultInputRangeProps.elementRef;
+export let value = defaultInputRangeProps.value;
 export let size = defaultInputRangeProps.size;
 export let color = defaultInputRangeProps.color;
 export let error = defaultInputRangeProps.error;
@@ -21,6 +22,7 @@ $: cssClass = clsx($$restProps.class, 'InputRange', {
     class={cssClass}
     style={$$restProps.style}
     bind:this={elementRef}
+    bind:value
     on:input
     on:change
     on:focus

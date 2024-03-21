@@ -2,14 +2,15 @@
 let id = 0;
 </script>
 
-<script>import { getContext } from 'svelte';
-import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props';
+<script>import { getContext, afterUpdate } from 'svelte';
+import { defaultAccordionItemProps, contextKeyAccordionGroup } from './Accordion.props.js';
 export let isOpen = defaultAccordionItemProps.isOpen;
+afterUpdate(() => {
+    accordionStore.isOpen = isOpen;
+});
 const accordionStore = {
     key: Symbol('accordion-' + id++),
-    get isOpen() {
-        return isOpen;
-    },
+    isOpen,
     open: () => (isOpen = true),
     close: () => (isOpen = false),
     toggle: () => (isOpen = !isOpen)

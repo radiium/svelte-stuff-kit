@@ -1,7 +1,7 @@
 <script context="module">import '../../style.scss';
 import { derived, writable } from 'svelte/store';
-import { prefersColorSchemeDark, resolveStrategy, resolveScheme, resolveSchemeSystem, setThemeStorage, THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.utils';
-import { defaultThemeProviderProps } from './ThemeProvider.props';
+import { prefersColorSchemeDark, resolveStrategy, resolveScheme, resolveSchemeSystem, setThemeStorage, THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.utils.js';
+import { defaultThemeProviderProps } from './ThemeProvider.props.js';
 const schemeSystemStore = writable(resolveSchemeSystem());
 const onSchemeSystemChange = () => {
     schemeSystemStore.set(resolveSchemeSystem());
@@ -9,8 +9,8 @@ const onSchemeSystemChange = () => {
 </script>
 
 <script>import { hasContext, onMount, setContext } from 'svelte';
-import { isBrowser } from '../../utils/is-browser';
-import { ThemeStrategy } from './ThemeProvider.types';
+import { isBrowser } from '../../utils/is-browser.js';
+import { ThemeStrategy } from './ThemeProvider.types.js';
 export let strategy = defaultThemeProviderProps.strategy;
 let isRoot = !hasContext(THEME_CONTEXT_KEY);
 const resolvedStrategy = resolveStrategy(strategy);
@@ -52,6 +52,6 @@ onMount(() => {
 <!-- <svelte:body class={$themeStore.theme} style={`color-scheme: ${$themeStore.theme};`} /> -->
 
 <!--  data-radius={$themeStore.radius} -->
-<div class="radiium-svelte-ui" data-theme={$schemeStore} data-theme-root={isRoot}>
+<div class="svxui" data-theme={$schemeStore} data-theme-root={isRoot}>
     <slot />
 </div>

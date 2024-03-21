@@ -1,11 +1,11 @@
 <script>import AppWindow from 'phosphor-svelte/lib/AppWindow';
 import Moon from 'phosphor-svelte/lib/Moon';
 import Sun from 'phosphor-svelte/lib/Sun';
-import { useThemeContext } from './theme.utils';
+import { useThemeContext } from './theme.utils.js';
 import Popover from '../Popover/Popover.svelte';
 import Button from '../Button/Button.svelte';
 import Flexbox from '../Flexbox/Flexbox.svelte';
-import { ThemeStrategy } from './ThemeProvider.types';
+import { ThemeStrategy } from './ThemeProvider.types.js';
 export let placement = 'bottom';
 const themeContext = useThemeContext();
 const { strategy, updateStrategy = () => { } } = themeContext;
@@ -30,7 +30,7 @@ const selectTheme = (option) => {
         on:click={open}
         active={isOpen}
         size="2"
-        color="neutral"
+        color="gray"
         variant="outline"
         iconOnly={false}
     >
@@ -40,14 +40,7 @@ const selectTheme = (option) => {
         {/if}
     </Button>
 
-    <Flexbox
-        slot="content"
-        direction="column"
-        gap="1"
-        class="no-p no-m"
-        style="position: relative;"
-        let:close
-    >
+    <Flexbox slot="content" direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
         {#each themeOptions as option}
             <Button
                 size="2"

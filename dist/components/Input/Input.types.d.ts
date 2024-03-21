@@ -1,4 +1,4 @@
-import type { Aligns, InputTypes, Sizes1To3 } from '../../constants';
+import type { Aligns, InputTypes, Sizes1To3 } from '../../constants.js';
 import type { HTMLInputAttributes } from 'svelte/elements';
 export interface InputProps extends Omit<HTMLInputAttributes, 'size' | 'align'> {
     elementRef?: HTMLInputElement;

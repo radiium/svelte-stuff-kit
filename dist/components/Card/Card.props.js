@@ -1,4 +1,4 @@
-import { Sizes1To5 } from '../../constants';
+import { Sizes1To5 } from '../../constants.js';
 export const defaultCardProps = {
     elementRef: undefined,
     size: '3',

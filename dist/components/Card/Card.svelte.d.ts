@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { CardProps } from './Card.types';
+import type { CardProps } from './Card.types.js';
 declare const __propDef: {
     props: CardProps;
     events: {

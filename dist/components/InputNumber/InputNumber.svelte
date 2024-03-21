@@ -1,6 +1,6 @@
-<script>import { clsx } from '../..';
-import { longpress } from '../../actions/longpress';
-import { defaultInputNumberProps } from './InputNumber.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { longpress } from '../../actions/longpress.js';
+import { defaultInputNumberProps } from './InputNumber.props.js';
 export let elementRef = defaultInputNumberProps.elementRef;
 export let value = defaultInputNumberProps.value;
 export let step = defaultInputNumberProps.step;
@@ -14,7 +14,7 @@ export let readonly = defaultInputNumberProps.readonly;
 let { class: _class, style, ...restProps } = $$restProps;
 // Input css classes
 let cssClass = '';
-$: cssClass = clsx($$restProps.class, 'InputNumber-wrapper', {
+$: cssClass = clsx($$restProps.class, 'InputNumber', {
     [`InputNumber-color-${color}`]: color,
     [`InputNumber-size-${size}`]: size,
     'input-disabled': disabled,

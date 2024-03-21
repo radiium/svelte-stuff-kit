@@ -1,8 +1,8 @@
-import { Sizes1To3, Colors } from '../../constants';
+import { Sizes1To3, Colors } from '../../constants.js';
 export const defaultSwitchProps = {
     elementRef: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false
 };
 export const docSwitchPropsDefs = {

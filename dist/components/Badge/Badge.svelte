@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultBadgeProps } from './Badge.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultBadgeProps } from './Badge.props.js';
 export let elementRef = undefined;
 export let size = defaultBadgeProps.size;
 export let variant = defaultBadgeProps.variant;

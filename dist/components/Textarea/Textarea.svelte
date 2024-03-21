@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultTextareaProps } from './Textarea.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultTextareaProps } from './Textarea.props.js';
 export let elementRef = defaultTextareaProps.elementRef;
 export let value = defaultTextareaProps.value;
 export let size = defaultTextareaProps.size;

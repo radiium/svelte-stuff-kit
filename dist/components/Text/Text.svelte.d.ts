@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { TextProps } from './Text.types';
+import type { TextProps } from './Text.types.js';
 declare const __propDef: {
     props: TextProps;
     events: {

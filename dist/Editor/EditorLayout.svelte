@@ -1,6 +1,6 @@
 <script>import SidebarSimple from 'phosphor-svelte/lib/SidebarSimple';
 import Button from '../components/Button/Button.svelte';
-import { editorLayoutStore } from './editor-layout.store';
+import { editorLayoutStore } from './editor-layout.store.js';
 import Toolbar from './Toolbar.svelte';
 </script>
 
@@ -31,7 +31,7 @@ import Toolbar from './Toolbar.svelte';
                     <Button
                         class="panel-btn"
                         size="1"
-                        color="neutral"
+                        color="gray"
                         variant="clear"
                         iconOnly
                         on:click={editorLayoutStore.toggleLeft}
@@ -47,7 +47,7 @@ import Toolbar from './Toolbar.svelte';
                     <Button
                         class="panel-btn"
                         size="1"
-                        color="neutral"
+                        color="gray"
                         variant="clear"
                         iconOnly
                         on:click={editorLayoutStore.toggleRight}

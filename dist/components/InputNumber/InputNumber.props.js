@@ -1,4 +1,4 @@
-import { Sizes1To3, Colors } from '../../constants';
+import { Sizes1To3, Colors } from '../../constants.js';
 export const defaultInputNumberProps = {
     elementRef: undefined,
     value: undefined,
@@ -6,7 +6,7 @@ export const defaultInputNumberProps = {
     min: undefined,
     max: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     disabled: false,
     required: false,
     readonly: false

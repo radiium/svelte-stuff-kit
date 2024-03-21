@@ -1,6 +1,6 @@
-<script>import { clsx } from '../../utils/clsx';
+<script>import { clsx } from '../../utils/clsx.js';
 import { setContext } from 'svelte';
-import { ButtonGroupContextKey } from './Button.props';
+import { ButtonGroupContextKey } from './Button.props.js';
 $: cssClass = clsx($$restProps.class, `ButtonGroup`);
 setContext(ButtonGroupContextKey, true);
 </script>

@@ -1,4 +1,4 @@
-import { Sizes1To3 } from '../../constants';
+import { Sizes1To3 } from '../../constants.js';
 export const defaultSelectProps = {
     elementRef: undefined,
     options: [],

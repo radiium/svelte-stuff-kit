@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { AccordionItemProps } from './Accordion.types';
+import type { AccordionItemProps } from './Accordion.types.js';
 declare const __propDef: {
     props: AccordionItemProps;
     events: {

@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { BadgeProps } from './Badge.types';
+import type { BadgeProps } from './Badge.types.js';
 declare const __propDef: {
     props: BadgeProps;
     events: {

@@ -1,11 +1,16 @@
-import type { InputRangeProps } from './InputRange.types';
+import type { InputRangeProps } from './InputRange.types.js';
 export declare const defaultInputRangeProps: InputRangeProps;
 export declare const docInputRangePropsDefs: {
     props: ({
         name: string;
         type: string;
-        values?: undefined;
         default?: undefined;
+        values?: undefined;
+    } | {
+        name: string;
+        type: string;
+        default: string | number | undefined;
+        values?: undefined;
     } | {
         name: string;
         type: string;
@@ -14,8 +19,8 @@ export declare const docInputRangePropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     } | {
         name: string;
         type: string;

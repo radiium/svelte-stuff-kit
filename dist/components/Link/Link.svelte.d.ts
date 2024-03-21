@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { LinkProps } from './Link.types';
+import type { LinkProps } from './Link.types.js';
 declare const __propDef: {
     props: LinkProps;
     events: {

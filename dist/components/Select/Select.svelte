@@ -1,5 +1,5 @@
-<script>import { clsx } from '../../utils/clsx';
-import { defaultSelectProps } from './Select.props';
+<script>import { clsx } from '../../utils/clsx.js';
+import { defaultSelectProps } from './Select.props.js';
 export let elementRef = defaultSelectProps.elementRef;
 export let options = defaultSelectProps.options;
 export let value = defaultSelectProps.value;
@@ -79,6 +79,9 @@ $: cssClass = clsx($$restProps.class, `Select`, {
   font-size: var(--font-size-3);
   letter-spacing: normal;
   appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: relative;
 }
 .Select[multiple] {
   height: auto !important;

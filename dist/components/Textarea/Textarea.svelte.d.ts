@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { TextareaProps } from './Textarea.types';
+import type { TextareaProps } from './Textarea.types.js';
 declare const __propDef: {
     props: TextareaProps;
     events: {

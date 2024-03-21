@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { SwitchProps } from './Switch.types';
+import type { SwitchProps } from './Switch.types.js';
 declare const __propDef: {
     props: SwitchProps;
     events: {

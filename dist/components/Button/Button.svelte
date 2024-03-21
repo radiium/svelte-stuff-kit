@@ -1,6 +1,6 @@
 <script>import { getContext } from 'svelte';
-import { clsx } from '../../utils/clsx';
-import { ButtonGroupContextKey, defaultButtonProps } from './Button.props';
+import { clsx } from '../../utils/clsx.js';
+import { ButtonGroupContextKey, defaultButtonProps } from './Button.props.js';
 export let elementRef = undefined;
 export let size = defaultButtonProps.size;
 export let variant = defaultButtonProps.variant;
@@ -110,7 +110,7 @@ button.Button.Button-size-1 {
 button.Button.Button-size-1.Button-icon-only {
   --button-min-width: var(--space-5);
   --button-width: var(--space-5);
-  --button-padding: var(--space-0);
+  --button-padding: calc(var(--space-1) / 2);
   --button-icon-height: 80%;
 }
 button.Button.Button-size-2 {
@@ -126,7 +126,7 @@ button.Button.Button-size-2 {
 button.Button.Button-size-2.Button-icon-only {
   --button-min-width: var(--space-6);
   --button-width: var(--space-6);
-  --button-padding: var(--space-0);
+  --button-padding: calc(var(--space-1) / 2);
 }
 button.Button.Button-size-3 {
   --button-height: var(--space-7);

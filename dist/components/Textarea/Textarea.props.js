@@ -1,9 +1,9 @@
-import { Sizes1To3, Colors } from '../../constants';
+import { Sizes1To3, Colors } from '../../constants.js';
 export const defaultTextareaProps = {
     elementRef: undefined,
     value: undefined,
     size: '2',
-    color: 'neutral',
+    color: 'gray',
     error: false,
     fullWidth: false
 };

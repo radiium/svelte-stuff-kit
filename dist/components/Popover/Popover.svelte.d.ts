@@ -1,5 +1,5 @@
 import { SvelteComponent } from "svelte";
-import type { PopoverProps } from './Popover.types';
+import type { PopoverProps } from './Popover.types.js';
 declare const __propDef: {
     props: PopoverProps;
     events: {

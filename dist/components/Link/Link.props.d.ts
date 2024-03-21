@@ -1,4 +1,4 @@
-import type { LinkProps } from './Link.types';
+import type { LinkProps } from './Link.types.js';
 export declare const defaultLinkProps: LinkProps;
 export declare const docLinkPropsDefs: {
     props: ({
@@ -24,8 +24,8 @@ export declare const docLinkPropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
     } | {
         name: string;
         type: string;

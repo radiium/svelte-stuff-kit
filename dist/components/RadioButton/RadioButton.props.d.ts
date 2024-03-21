@@ -1,4 +1,4 @@
-import type { RadioButtonProps } from './RadioButton.types';
+import type { RadioButtonProps } from './RadioButton.types.js';
 export declare const defaultRadioButtonProps: RadioButtonProps;
 export declare const docRadioButtonPropsDefs: {
     title: string;
@@ -10,7 +10,12 @@ export declare const docRadioButtonPropsDefs: {
     } | {
         name: string;
         type: string;
-        default: any;
+        default: (string | number)[] | undefined;
+        values?: undefined;
+    } | {
+        name: string;
+        type: string;
+        default: string | number | undefined;
         values?: undefined;
     } | {
         name: string;
@@ -20,8 +25,13 @@ export declare const docRadioButtonPropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["neutral", "primary", "blue", "green", "yellow", "orange", "red"];
-        default: "neutral" | "primary" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+        values: readonly ["primary", "gray", "blue", "green", "yellow", "orange", "red"];
+        default: "primary" | "gray" | "blue" | "green" | "yellow" | "orange" | "red" | undefined;
+    } | {
+        name: string;
+        type: string;
+        default: boolean | undefined;
+        values?: undefined;
     })[];
     slots: never[];
     events: never[];

@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { isBrowser } from './is-browser';
+import { isBrowser } from './is-browser.js';
 export var StorableStorageType;
 (function (StorableStorageType) {
     StorableStorageType["local"] = "local";
