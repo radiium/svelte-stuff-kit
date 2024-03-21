@@ -91,12 +91,12 @@
                 <Switch color="primary" bind:checked={props[prop.name]} />
                 <Text size="2">{prop.name}</Text>
             </Flexbox>
-            {:else if prop.type === 'number'}
+        {:else if prop.type === 'number'}
             <Flexbox as="label" direction="column" gap="2">
                 <Text size="2">{prop.name}</Text>
                 <InputNumber color="primary" bind:value={props[prop.name]} />
             </Flexbox>
-            {:else if prop.type === 'string'}
+        {:else if prop.type === 'string'}
             <Flexbox as="label" direction="column" gap="2">
                 <Text size="2">{prop.name}</Text>
                 <Input size="1" color="primary" bind:value={props[prop.name]} />

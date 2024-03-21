@@ -72,7 +72,7 @@ export const docPopoverPropsDefs = {
             name: 'shift',
             type: 'boolean',
             default: defaultPopoverProps.shift
-        },
+        }
     ],
     slots: [],
     events: []

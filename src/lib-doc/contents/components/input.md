@@ -15,6 +15,7 @@ description: Input component
 </script>
 
 ## Playground
+
 <Playground>
     <Input slot="component" {...props}/>
     <PlaygroundForm slot="form" bind:props schema={docInputPropsDefs} />

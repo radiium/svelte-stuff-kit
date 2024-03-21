@@ -1,4 +1,13 @@
-import { AlignItems, Directions, FlexDisplays, Gaps, Grows, Justifys, Shrinks, Wraps } from '$lib/constants.js';
+import {
+    AlignItems,
+    Directions,
+    FlexDisplays,
+    Gaps,
+    Grows,
+    Justifys,
+    Shrinks,
+    Wraps
+} from '$lib/constants.js';
 import type { FlexboxProps } from './Flexbox.types.js';
 
 export const defaultFlexboxProps: FlexboxProps = {

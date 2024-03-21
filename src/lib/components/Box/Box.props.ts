@@ -23,7 +23,7 @@ export const docBoxPropsDefs = {
             type: 'enum',
             values: BlockDisplays,
             default: defaultBoxProps.display
-        },
+        }
     ],
     slots: [],
     events: []

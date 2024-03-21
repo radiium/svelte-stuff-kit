@@ -60,7 +60,7 @@
 
 <style lang="scss">
     /* :global(.Card) { */
-        /* margin-top: var(--space-3);
+    /* margin-top: var(--space-3);
         margin-bottom: var(--space-3); */
     /* } */
     /* 

@@ -24,7 +24,7 @@ export const Weights = ['light', 'regular', 'medium', 'bold'] as const;
 export const Aligns = ['start', 'center', 'end'] as const;
 export const Transforms = ['lowercase', 'uppercase', 'capitalize'] as const;
 export const FlexDisplays = ['none', 'inline-flex', 'flex'] as const;
-export const BlockDisplays = ['none', 'inline','inline-block', 'block'] as const;
+export const BlockDisplays = ['none', 'inline', 'inline-block', 'block'] as const;
 // prettier-ignore
 export const Justifys = ['start', 'center', 'end', 'around', 'between', 'evenly', 'normal'] as const;
 export const Directions = ['row', 'column', 'row-reverse', 'column-reverse'] as const;

@@ -13,7 +13,7 @@
     afterUpdate(() => {
         accordionStore.isOpen = isOpen;
     });
-    
+
     const accordionStore = {
         key: Symbol('accordion-' + id++),
         isOpen,

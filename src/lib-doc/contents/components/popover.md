@@ -32,6 +32,7 @@ description: Popover component
     </Popover>
 
     <PlaygroundForm slot="form" bind:props schema={docPopoverPropsDefs} />
+
 </Playground>
 
 ## API Reference

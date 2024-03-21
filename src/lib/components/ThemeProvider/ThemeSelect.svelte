@@ -45,14 +45,7 @@
         {/if}
     </Button>
 
-    <Flexbox
-        slot="content"
-        direction="column"
-        gap="1"
-        class="p-0 m-0"
-        style="position: relative;"
-        let:close
-    >
+    <Flexbox slot="content" direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
         {#each themeOptions as option}
             <Button
                 size="2"

@@ -8,7 +8,7 @@
     import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
     import Text from '$lib/components/Text/Text.svelte';
 
-export let props: DocProps[] = [];
+    export let props: DocProps[] = [];
 </script>
 
 {#if Array.isArray(props) && props}

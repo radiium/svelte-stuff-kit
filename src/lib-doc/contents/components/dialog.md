@@ -32,6 +32,7 @@ description: Dialog component
     </div>
 
     <PlaygroundForm slot="form" bind:props schema={docDialogPropsDefs} />
+
 </Playground>
 
 ## API Reference
