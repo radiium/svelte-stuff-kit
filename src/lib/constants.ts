@@ -20,11 +20,11 @@ export const Colors = ['primary', 'gray', 'blue', 'green', 'yellow', 'orange', '
 export const Variants = ['solid', 'soft', 'outline', 'clear'] as const;
 export const VariantsBadge = ['solid', 'soft', 'outline'] as const;
 export const Weights = ['light', 'regular', 'medium', 'bold'] as const;
-export const Margins = ['m', 'mt', 'mr', 'mb', 'ml', 'mx', 'my'] as const;
-export const Paddings = ['p', 'pt', 'pr', 'pb', 'pl', 'px', 'py'] as const;
+
 export const Aligns = ['start', 'center', 'end'] as const;
 export const Transforms = ['lowercase', 'uppercase', 'capitalize'] as const;
-export const Displays = ['none', 'inline-flex', 'flex'] as const;
+export const FlexDisplays = ['none', 'inline-flex', 'flex'] as const;
+export const BlockDisplays = ['none', 'inline','inline-block', 'block'] as const;
 // prettier-ignore
 export const Justifys = ['start', 'center', 'end', 'around', 'between', 'evenly', 'normal'] as const;
 export const Directions = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
