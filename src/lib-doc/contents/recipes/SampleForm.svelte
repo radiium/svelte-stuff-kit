@@ -69,8 +69,8 @@
     let props: any = {};
 
     $: size = sizesConfig[props.size];
-    $: console.log(props?.size, size);
     $: formDataJson = JSON.stringify(formData, null, 2);
+    // $: console.log(props?.size, size);
 </script>
 
 <Text as="h2" size="6" weight="bold" class="mt-7 mb-3">Form config</Text>

@@ -20,7 +20,6 @@
                 }
                 return acc;
             }, {});
-            console.log(props);
             onChange({ props, propsString });
         }
     });
