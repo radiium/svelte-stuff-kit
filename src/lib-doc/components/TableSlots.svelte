@@ -6,7 +6,7 @@
     export let slots: DocSlots[] = [];
 </script>
 
-<Card noPadding class="mt-3 mb-5">
+<Card size="0" class="mt-3 mb-5">
     <table>
         <thead class="rt-TableHeader">
             <tr class="rt-TableRow">

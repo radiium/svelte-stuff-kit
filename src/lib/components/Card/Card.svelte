@@ -6,11 +6,9 @@
     type $$Props = CardProps;
     export let elementRef: $$Props['elementRef'] = defaultCardProps.elementRef;
     export let size: $$Props['size'] = defaultCardProps.size;
-    export let noPadding: $$Props['noPadding'] = defaultCardProps.noPadding;
 
     $: cssClass = clsx($$restProps.class, 'Card', {
-        [`Card-size-${size}`]: size,
-        'Card-no-padding': noPadding
+        [`Card-size-${size}`]: size
     });
 </script>
 
@@ -28,6 +26,10 @@
         overflow: hidden;
 
         // Sizes
+        &.Card-size-0 {
+            --card-padding: var(--space-0);
+            --card-border-radius: var(--radius-3);
+        }
         &.Card-size-1 {
             --card-padding: var(--space-3);
             --card-border-radius: var(--radius-4);
@@ -47,10 +49,6 @@
         &.Card-size-5 {
             --card-padding: var(--space-8);
             --card-border-radius: var(--radius-6);
-        }
-
-        &.Card-no-padding {
-            --card-padding: 0;
         }
     }
 </style>

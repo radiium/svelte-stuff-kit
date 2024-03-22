@@ -35,7 +35,7 @@
     // $: console.log(src ? src.replace(/<pre.*?>.*?<\/pre>/gi, '') : 'no src');
 </script>
 
-<Card size="1" noPadding class="doc-code-wrapper mt-3 mb-5 {$$slots.example ? 'has-demo' : ''}">
+<Card size="0" class="doc-code-wrapper mt-3 mb-5 {$$slots.example ? 'has-demo' : ''}">
     <Flexbox direction="column">
         {#if $$slots.example}
             <section class="demo-block px-4 py-4" class:column={meta.column}>
