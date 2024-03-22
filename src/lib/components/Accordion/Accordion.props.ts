@@ -18,7 +18,11 @@ export const docAccordionGroupPropsDefs = {
             default: defaultAccordionGroupProps.multi
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };
 
@@ -38,6 +42,37 @@ export const docAccordionItemPropsDefs = {
             default: defaultAccordionItemProps.isOpen
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        },
+        {
+            name: 'header',
+            description: 'Header of accordion',
+            props: [
+                {
+                    name: 'key',
+                    type: 'symbol'
+                },
+                {
+                    name: 'isOpen',
+                    type: 'readonly (boolean | undefined)',
+                    default: false
+                },
+                {
+                    name: 'open',
+                    type: 'function'
+                },
+                {
+                    name: 'close',
+                    type: 'function'
+                },
+                {
+                    name: 'toggle',
+                    type: 'function'
+                }
+            ]
+        }
+    ],
     events: []
 };

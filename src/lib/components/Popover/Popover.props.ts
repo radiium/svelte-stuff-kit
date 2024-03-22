@@ -74,6 +74,14 @@ export const docPopoverPropsDefs = {
             default: defaultPopoverProps.shift
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        },
+        {
+            name: 'trigger',
+            description: 'Trigger of the popover'
+        }
+    ],
     events: []
 };

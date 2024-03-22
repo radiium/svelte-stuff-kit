@@ -14,6 +14,10 @@ export const docThemeProviderPropsDefs = {
             default: defaultThemeProviderProps.strategy
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

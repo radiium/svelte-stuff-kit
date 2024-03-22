@@ -83,6 +83,10 @@ export const docFlexboxPropsDefs = {
             default: defaultFlexboxProps.shrink
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

@@ -81,6 +81,10 @@ export const docLinkPropsDefs = {
             default: defaultLinkProps.fullWidth
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

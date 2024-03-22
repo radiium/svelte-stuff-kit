@@ -55,6 +55,10 @@ export const docTextPropsDefs = {
             default: defaultTextProps.align
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

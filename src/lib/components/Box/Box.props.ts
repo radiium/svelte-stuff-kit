@@ -25,6 +25,10 @@ export const docBoxPropsDefs = {
             default: defaultBoxProps.display
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

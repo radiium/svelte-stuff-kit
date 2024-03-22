@@ -21,7 +21,7 @@ export const docCardPropsDefs = {
     ],
     slots: [
         {
-            default: true
+            name: 'default'
         }
     ],
     events: []

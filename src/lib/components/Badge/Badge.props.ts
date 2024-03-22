@@ -40,7 +40,7 @@ export const docBadgePropsDefs = {
     ],
     slots: [
         {
-            default: true
+            name: 'default'
         }
     ],
     events: []
