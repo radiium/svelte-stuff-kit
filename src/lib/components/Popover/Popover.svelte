@@ -131,7 +131,7 @@
         {#if arrow}
             <div bind:this={arrowRef} class="popover-arrow {side}" />
         {/if}
-        <slot name="content" {isOpen} {open} {close} />
+        <slot {isOpen} {open} {close} />
     </div>
 {/if}
 
