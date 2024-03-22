@@ -1,8 +1,8 @@
 <script lang="ts">
-    import AppWindow from 'phosphor-svelte/lib/AppWindow';
-    import Moon from 'phosphor-svelte/lib/Moon';
-    import Sun from 'phosphor-svelte/lib/Sun';
     import { useThemeContext } from './theme.utils.js';
+    import AppWindow from '../../icons/AppWindow.svelte';
+    import Sun from '../../icons/Sun.svelte';
+    import Moon from '../../icons/Moon.svelte';
     import Popover from '../Popover/Popover.svelte';
     import Button from '../Button/Button.svelte';
     import Flexbox from '../Flexbox/Flexbox.svelte';
@@ -45,7 +45,7 @@
         {/if}
     </Button>
 
-    <Flexbox slot="content" direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
+    <Flexbox  direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
         {#each themeOptions as option}
             <Button
                 size="2"
