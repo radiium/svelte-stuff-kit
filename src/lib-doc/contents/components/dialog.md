@@ -4,7 +4,8 @@ description: Dialog component
 ---
 
 <script lang="ts">
-    import {Dialog, Button} from '$lib/index.js';
+    import Button from '$lib/components/Button/Button.svelte';
+    import Dialog from '$lib/components/Dialog/Dialog.svelte';
     import {docDialogPropsDefs} from '$lib/components/Dialog/Dialog.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

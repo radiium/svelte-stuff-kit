@@ -4,7 +4,7 @@ description: RadioButton component
 ---
 
 <script lang="ts">
-    import {RadioButton} from '$lib/index.js';
+    import RadioButton from '$lib/components/RadioButton/RadioButton.svelte';
     import {docRadioButtonPropsDefs} from '$lib/components/RadioButton/RadioButton.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

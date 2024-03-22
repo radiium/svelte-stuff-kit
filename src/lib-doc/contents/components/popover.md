@@ -4,7 +4,8 @@ description: Popover component
 ---
 
 <script lang="ts">
-    import {Popover, Button} from '$lib/index.js';
+    import Button from '$lib/components/Button/Button.svelte';
+    import Popover from '$lib/components/Popover/Popover.svelte';
     import {docPopoverPropsDefs} from '$lib/components/Popover/Popover.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';
