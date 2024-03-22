@@ -158,7 +158,7 @@
     }
 
     .popover {
-        position: absolute;
+        position: fixed;
         width: max-content;
         top: 0;
         left: 0;
@@ -169,6 +169,9 @@
         background: var(--popover-background);
         border: 1px solid var(--popover-border-color);
         border-radius: var(--popover-border-radius);
+        overflow: auto;
+        height: auto;
+        max-height: 32rem;
 
         &[data-state='open'] {
             display: block;
