@@ -16,7 +16,7 @@
         <table>
             <thead class="rt-TableHeader">
                 <tr class="rt-TableRow">
-                    <th scope="col" style="width: auto;">Prop</th>
+                    <th scope="col" style="width: auto;">Prop name</th>
                     <th scope="col">Type</th>
                     <th scope="col">Default</th>
                 </tr>
