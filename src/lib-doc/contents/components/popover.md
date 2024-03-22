@@ -19,15 +19,15 @@ description: Popover component
 <Playground>
     <Popover slot="component" {...props}>
         <Button
-            variant="soft"
             slot="trigger"
+            variant="soft"
             let:open
             let:isOpen
             on:click={open}
         >
            Open
         </Button>
-        <div slot="content">
+        <div>
             Popover content
         </div>
     </Popover>
