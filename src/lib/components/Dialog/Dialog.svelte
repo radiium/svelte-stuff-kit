@@ -137,7 +137,7 @@
                     iconOnly
                     circle
                     variant="clear"
-                    size="1"
+                    size={Math.min(size, 2)}
                     class="Dialog-close-btn"
                     on:click={() => (isOpen = false)}
                 >
