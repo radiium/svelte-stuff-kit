@@ -8,9 +8,8 @@ export interface DocProps {
 }
 export interface DocSlots {
     name?: string;
-    default: boolean;
-    // TODO
-    // props?: string;
+    description?: string;
+    props?: DocProps[];
 }
 export interface DocEvents {
     name: string;
