@@ -5,7 +5,11 @@ description: Accordion component
 
 <script lang="ts">
     import { slide } from 'svelte/transition';
-    import {AccordionGroup, AccordionItem, Button, Flexbox, Card} from '$lib/index.js';
+    import Card from '$lib/components/Card/Card.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
+    import Button from '$lib/components/Button/Button.svelte';
+    import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+    import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
     import {docAccordionGroupPropsDefs, docAccordionItemPropsDefs} from '$lib/components/Accordion/Accordion.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

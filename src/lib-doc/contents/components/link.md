@@ -4,7 +4,7 @@ description: Link component
 ---
 
 <script lang="ts">
-    import {Link} from '$lib/index.js';
+    import Link from '$lib/components/Link/Link.svelte';
     import {docLinkPropsDefs} from '$lib/components/Link/Link.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

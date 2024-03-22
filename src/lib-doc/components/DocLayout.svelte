@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-    import { Button } from '$lib/index.js';
+    import Button from '$lib/components/Button/Button.svelte';;
     import List from 'phosphor-svelte/lib/List';
     import X from 'phosphor-svelte/lib/X';
     import { fade } from 'svelte/transition';

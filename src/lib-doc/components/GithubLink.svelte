@@ -1,6 +1,6 @@
 <script>
     import { PUBLIC_PKG_HOMEPAGE } from '$env/static/public';
-    import { Button } from '$lib/index.js';
+    import Button from '$lib/components/Button/Button.svelte';;
 </script>
 
 <a href={PUBLIC_PKG_HOMEPAGE} target="_blank" rel="noreferrer">

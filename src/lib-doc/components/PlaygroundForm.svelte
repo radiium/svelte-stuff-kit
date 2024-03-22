@@ -1,6 +1,13 @@
 <script lang="ts">
+    import ButtonGroup from '$lib/components/Button/ButtonGroup.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
+    import InputNumber from '$lib/components/InputNumber/InputNumber.svelte';
+    import Input from '$lib/components/Input/Input.svelte';
+    import Switch from '$lib/components/Switch/Switch.svelte';
+    import Select from '$lib/components/Select/Select.svelte';
+    import Button from '$lib/components/Button/Button.svelte';
+    import Text from '$lib/components/Text/Text.svelte';
     import { onMount } from 'svelte';
-    import { Flexbox, ButtonGroup, Button, Select, Text, Switch, InputNumber, Input } from '$lib/index.js';
 
     export let schema: any = {
         props: [],

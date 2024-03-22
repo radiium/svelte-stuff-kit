@@ -4,7 +4,7 @@ description: InputRange component
 ---
 
 <script lang="ts">
-    import {InputRange} from '$lib/index.js';
+    import InputRange from '$lib/components/InputRange/InputRange.svelte';
     import {docInputRangePropsDefs} from '$lib/components/InputRange/InputRange.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
     import Playground from '$lib-doc/components/Playground.svelte';

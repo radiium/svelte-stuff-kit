@@ -5,12 +5,12 @@
     import h3 from './h3.svelte';
     import h4 from './h4.svelte';
     import p from './p.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
 
     export { pre, h1, h2, h3, h4, p };
 </script>
 
 <script>
-    import { Flexbox } from '$lib/index.js';
     /** @type {string} */
     export let title;
     /** @type {string} */

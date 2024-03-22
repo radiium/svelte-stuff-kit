@@ -1,9 +1,11 @@
 <script lang="ts">
     import { PUBLIC_PKG_NAME } from '$env/static/public';
     import { version } from '$app/environment';
-    import { ThemeSelect, Text } from '$lib/index.js';
     import GithubLink from './GithubLink.svelte';
     import Badge from '$lib/components/Badge/Badge.svelte';
+    import ThemeSelect from '$lib/components/ThemeProvider/ThemeSelect.svelte';
+    import Text from '$lib/components/Text/Text.svelte';
+    
 </script>
 
 <div class="container pl-3 pr-3">

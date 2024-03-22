@@ -1,19 +1,18 @@
 <script lang="ts">
-    import {
-        Checkbox,
-        Flexbox,
-        Input,
-        Text,
-        Switch,
-        RadioButton,
-        Card,
-        Button,
-        Textarea,
-        Select,
-        InputRange,
-        Colors
-    } from '$lib/index.js';
+    import Checkbox from '$lib/components/Checkbox/Checkbox.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
+    import Input from '$lib/components/Input/Input.svelte';
+    import Text from '$lib/components/Text/Text.svelte';
+    import Switch from '$lib/components/Switch/Switch.svelte';
+    import RadioButton from '$lib/components/RadioButton/RadioButton.svelte';
+    import Card from '$lib/components/Card/Card.svelte';
+    import Button from '$lib/components/Button/Button.svelte';
+    import Textarea from '$lib/components/Textarea/Textarea.svelte';
+    import Select from '$lib/components/Select/Select.svelte';
+    import InputRange from '$lib/components/InputRange/InputRange.svelte';
+
     import PlaygroundForm from '../../components/PlaygroundForm.svelte';
+    import { Colors } from '$lib/constants.js';
 
     let groupOptions = ['opt1', 'opt2', 'opt3'];
     let selectOptions = groupOptions.map((o) => ({ label: o, value: o }));

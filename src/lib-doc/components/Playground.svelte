@@ -1,5 +1,7 @@
 <script lang="ts">
-    import { Flexbox, Card } from '$lib/index.js';
+    import Card from '$lib/components/Card/Card.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
+
 </script>
 
 <Card noPadding class="mt-3 mb-5 playground">

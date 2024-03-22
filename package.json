@@ -21,9 +21,9 @@
     "bugs": {
         "url": "https://github.com/radiium/svxui/issues"
     },
+    "type": "module",
     "svelte": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "type": "module",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",

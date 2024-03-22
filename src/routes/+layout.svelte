@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { ThemeProvider } from '$lib/index.js';
     import IconContext from 'phosphor-svelte/lib/IconContext';
     import DocLayout from '../lib-doc/components/DocLayout.svelte';
     import DocHeader from '../lib-doc/components/DocHeader.svelte';
     import DocSidebar from '../lib-doc/components/DocSidebar.svelte';
     import { navigating } from '$app/stores';
     import '../lib-doc/prism.js.scss';
+    import ThemeProvider from '$lib/components/ThemeProvider/ThemeProvider.svelte';
 
     let mainRef: HTMLDivElement | null;
     $: {
