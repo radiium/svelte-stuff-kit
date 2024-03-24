@@ -23,7 +23,7 @@
         background-color: var(--background-level-2);
         border: 1px solid var(--gray-5);
         position: relative;
-        overflow: hidden;
+        overflow: visible;
 
         // Sizes
         &.Card-size-0 {
