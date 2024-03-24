@@ -5,6 +5,7 @@ description: Popover component
 
 <script lang="ts">
     import Button from '$lib/components/Button/Button.svelte';
+    import Card from '$lib/components/Card/Card.svelte';
     import Popover from '$lib/components/Popover/Popover.svelte';
     import {docPopoverPropsDefs} from '$lib/components/Popover/Popover.props.js';
     import ApiReference from '$lib-doc/components/ApiReference.svelte';
@@ -17,7 +18,7 @@ description: Popover component
 ## Playground
 
 <Playground>
-    <Popover slot="component" {...props}>
+    <Popover slot="component" {...props} bind:isOpen={props.isOpen}>
         <Button
             slot="trigger"
             variant="soft"
@@ -27,7 +28,7 @@ description: Popover component
         >
            Open
         </Button>
-        <div>
+        <div class="p-2">
             Popover content
         </div>
     </Popover>

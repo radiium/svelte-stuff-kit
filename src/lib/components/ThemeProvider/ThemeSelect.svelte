@@ -45,23 +45,25 @@
         {/if}
     </Button>
 
-    <Flexbox  direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
-        {#each themeOptions as option}
-            <Button
-                size="2"
-                variant="clear"
-                align="start"
-                fullWidth
-                on:click={() => {
-                    close();
-                    selectTheme(option);
-                }}
-            >
-                <svelte:component this={option.icon} />
-                {option.label}
-            </Button>
-        {/each}
-    </Flexbox>
+    <svelte:fragment let:close>
+            <Flexbox direction="column" gap="1" class="p-2 m-0" style="position: relative;">
+                {#each themeOptions as option}
+                    <Button
+                        size="2"
+                        variant="clear"
+                        align="start"
+                        fullWidth
+                        on:click={() => {
+                            close();
+                            selectTheme(option);
+                        }}
+                    >
+                        <svelte:component this={option.icon} />
+                        {option.label}
+                    </Button>
+                {/each}
+            </Flexbox>
+    </svelte:fragment>
 </Popover>
 
 <!-- <Select

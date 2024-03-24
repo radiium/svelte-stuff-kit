@@ -26,7 +26,7 @@
         <DotsNine size={24} />
     </Button>
 
-    <Flexbox as="div" direction="column" gap="3" slot="content">
+    <Flexbox as="div" direction="column" gap="3">
         <header>
             <h1 class="mt-0">Settings</h1>
         </header>

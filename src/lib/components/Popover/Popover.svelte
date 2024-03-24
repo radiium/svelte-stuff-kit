@@ -29,7 +29,7 @@
     export let transitionDuration: $$Props['transitionDuration'] = defaultPopoverProps.transitionDuration;
 
     let triggerRef: HTMLDivElement | undefined = undefined;
-    let arrowRef: HTMLDivElement | undefined = undefined;
+    let arrowRef: any | undefined = undefined;
     let popoverRef: HTMLDivElement | undefined = undefined;
 
     let side: Side;
@@ -57,8 +57,8 @@
                 middleware: [
                     offsetMiddleware(offset ?? 0),
                     flip && flipMiddleware(),
-                    arrow && arrowRef && arrowMiddleware({ element: arrowRef }),
-                    shift && shiftMiddleware({ padding: 10 })
+                    shift && shiftMiddleware({ padding: 10 }),
+                    arrow && arrowRef && arrowMiddleware({ element: arrowRef })
                 ]
             });
 
@@ -120,6 +120,7 @@
             duration: transitionDuration
         }}
         bind:this={popoverRef}
+        style:position={strategy}
         role="dialog"
         class="popover"
         active={isOpen}
@@ -129,7 +130,15 @@
         data-align={align}
     >
         {#if arrow}
-            <div bind:this={arrowRef} class="popover-arrow {side}" />
+            <svg
+                bind:this={arrowRef}
+                viewBox="0 0 14 8"
+                class="popover-arrow {side}"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path class="bg" d="M0 0 14 0 7 8Z" />
+                <path class="border" d="M14 0 7 8 0 0" />
+            </svg>
         {/if}
         <slot {isOpen} {open} {close} />
     </div>
@@ -139,7 +148,7 @@
     [data-popover] {
         --popover-color: var(--color);
         --popover-background: var(--background-level-2);
-        --popover-border-color: var(--border-color);
+        --popover-border-color: var(--gray-5);
         --popover-border-radius: var(--radius-3);
     }
 
@@ -158,20 +167,13 @@
     }
 
     .popover {
-        position: fixed;
-        width: max-content;
         top: 0;
         left: 0;
         z-index: 10002;
-        max-width: 32rem;
-        padding: 1rem;
         color: var(--popover-color);
         background: var(--popover-background);
         border: 1px solid var(--popover-border-color);
         border-radius: var(--popover-border-radius);
-        overflow: auto;
-        height: auto;
-        max-height: 32rem;
 
         &[data-state='open'] {
             display: block;
@@ -183,26 +185,34 @@
 
         .popover-arrow {
             position: absolute;
-            background: var(--popover-background);
-            width: 10px;
-            height: 10px;
-            transform: rotate(45deg);
-            z-index: -1;
+            width: 14px;
+            height: 7px;
+            z-index: 10;
             pointer-events: none;
-            border-style: solid;
-            border-color: var(--popover-border-color);
 
+            path {
+                &.bg {
+                    fill: var(--popover-background);
+                    stroke-width: 0;
+                    stroke: none;
+                }
+                &.border {
+                    fill: transparent;
+                    stroke-width: 1px;
+                    stroke: var(--popover-border-color);
+                }
+            }
             &.top {
-                border-width: 0 1px 1px 0;
+                transform: rotate(0deg) translateY(2px);
             }
             &.bottom {
-                border-width: 1px 0 0 1px;
+                transform: rotate(180deg) translateY(2px);
             }
             &.left {
-                border-width: 1px 1px 0 0;
+                transform: rotate(-90deg) translateY(5.5px);
             }
             &.right {
-                border-width: 0 0 1px 1px;
+                transform: rotate(90deg) translateY(5.5px);
             }
         }
     }
