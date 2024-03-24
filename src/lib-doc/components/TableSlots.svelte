@@ -3,30 +3,28 @@
     import type { DocSlots } from '../types.js';
     import Card from '$lib/components/Card/Card.svelte';
     import TableProps from './TableProps.svelte';
-    import Popover from '$lib/components/Popover/Popover.svelte';
-    import Button from '$lib/components/Button/Button.svelte';
-    import Info from 'phosphor-svelte/lib/Info';
+    import TablePopover from './TablePopover.svelte';
 
     export let slots: DocSlots[] = [];
 </script>
 
-<Card size="0" class="mt-3 mb-5">
+<Card size="0" class={$$restProps.class}>
     <table>
         <thead class="rt-TableHeader">
             <tr class="rt-TableRow">
-                <th scope="col" style="width: auto;">Slot name</th>
-                <th scope="col">description</th>
+                <th scope="col" style="width: auto;">Name</th>
+                <th scope="col">Description</th>
                 <th scope="col">Slot props</th>
             </tr>
         </thead>
         <tbody>
             {#each slots as slot}
                 <tr>
-                    <td data-color={slot.name === 'default' ? 'gray' : 'primary'}>
+                    <td data-color="primary">
                         {#if slot.name}
-                            <Minus color="var(--accent-a11)" size="15" />
-                        {:else}
                             <code class="name">{slot.name}</code>
+                        {:else}
+                            <Minus color="var(--accent-a11)" size="15" />
                         {/if}
                     </td>
                     <td data-color="gray">
@@ -40,25 +38,13 @@
                     </td>
                     <td data-color="gray">
                         {#if Array.isArray(slot.props) && slot.props?.length > 0}
-                            <Popover arrow={false}>
-                                <Button
-                                    size="1"
-                                    iconOnly
-                                    color="gray"
-                                    variant="clear"
-                                    slot="trigger"
-                                    let:open
-                                    let:isOpen
-                                    on:click={open}
-                                >
-                                    <Info size="32" />
-                                </Button>
+                            <TablePopover>
+                                <TableProps props={slot.props} />
+                                <!-- <TableProps props={slot.props} />
                                 <TableProps props={slot.props} />
                                 <TableProps props={slot.props} />
-                                <TableProps props={slot.props} />
-                                <TableProps props={slot.props} />
-                                <TableProps props={slot.props} />
-                            </Popover>
+                                <TableProps props={slot.props} /> -->
+                            </TablePopover>
                         {:else}
                             <Minus color="var(--accent-a11)" size="15" />
                         {/if}

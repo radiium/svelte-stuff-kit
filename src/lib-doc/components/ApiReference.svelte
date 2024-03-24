@@ -14,19 +14,19 @@
 {#if data}
     <!-- Props -->
     {#if hasPropsBloc}
-        <svelte:component this={H4}>Props</svelte:component>
-        <TableProps props={data.props} />
+        <H4>Props</H4>
+        <TableProps props={data.props} class="mb-5"/>
     {/if}
 
     <!-- Slots -->
     {#if hasSlotsBloc}
-        <svelte:component this={H4}>Slots</svelte:component>
-        <TableSlots slots={data.slots} />
+        <H4>Slots</H4>
+        <TableSlots slots={data.slots} class="mb-5"/>
     {/if}
 
     <!-- Events -->
     {#if hasEventsBloc}
-        <svelte:component this={H4}>Events</svelte:component>
+        <H4>Events</H4>
         // TODO
     {/if}
 {/if}

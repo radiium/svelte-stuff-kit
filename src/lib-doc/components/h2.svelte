@@ -11,7 +11,7 @@
     }
 </script>
 
-<Text as="h2" {id} bind:elementRef size="6" weight="bold" class="mt-7 mb-2">
+<Text as="h2" {id} bind:elementRef size="6" weight="bold" class="mt-7 mb-3">
     {#if id}
         <a href={`#${id}`} data-color="primary">#</a>
     {/if}
