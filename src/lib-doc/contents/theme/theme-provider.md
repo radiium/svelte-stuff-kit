@@ -8,7 +8,6 @@ description:
     import ThemeProvider from '$lib/theme/ThemeProvider/ThemeProvider.svelte';
     import ThemeSelect from '$lib/theme/ThemeSelect/ThemeSelect.svelte';
     import Card from '$lib/components/Card/Card.svelte';
-    import FlexBox from '$lib/components/FlexBox/FlexBox.svelte';
     import Text from '$lib/components/Text/Text.svelte';
     import Badge from '$lib/components/Badge/Badge.svelte';
     import Input from '$lib/components/Input/Input.svelte';
