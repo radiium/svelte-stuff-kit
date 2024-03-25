@@ -1,20 +1,20 @@
 <script lang="ts">
     import { clsx } from '../../utils/clsx.js';
-    import { defaultRadioButtonProps } from './RadioButton.props.js';
-    import type { RadioButtonProps } from './RadioButton.types.js';
+    import { defaultRadioProps } from './Radio.props.js';
+    import type { RadioProps } from './Radio.types.js';
 
-    type $$Props = RadioButtonProps;
-    export let elementRef: $$Props['elementRef'] = defaultRadioButtonProps.elementRef;
-    export let group: $$Props['group'] = defaultRadioButtonProps.group;
-    export let value: $$Props['value'] = defaultRadioButtonProps.value;
-    export let size: $$Props['size'] = defaultRadioButtonProps.size;
-    export let color: $$Props['color'] = defaultRadioButtonProps.color;
-    export let error: $$Props['error'] = defaultRadioButtonProps.error;
+    type $$Props = RadioProps;
+    export let elementRef: $$Props['elementRef'] = defaultRadioProps.elementRef;
+    export let group: $$Props['group'] = defaultRadioProps.group;
+    export let value: $$Props['value'] = defaultRadioProps.value;
+    export let size: $$Props['size'] = defaultRadioProps.size;
+    export let color: $$Props['color'] = defaultRadioProps.color;
+    export let error: $$Props['error'] = defaultRadioProps.error;
 
-    $: cssClass = clsx($$restProps.class, 'RadioButton', {
-        [`RadioButton-size-${size}`]: size,
-        [`RadioButton-color-${color}`]: color,
-        'RadioButton-error': error
+    $: cssClass = clsx($$restProps.class, 'Radio', {
+        [`Radio-size-${size}`]: size,
+        [`Radio-color-${color}`]: color,
+        'Radio-error': error
     });
 </script>
 
@@ -38,7 +38,7 @@
 />
 
 <style lang="scss">
-    .RadioButton {
+    .Radio {
         -webkit-appearance: none;
         appearance: none;
         outline: none;
@@ -102,17 +102,17 @@
         --check-color: white;
 
         // Sizes
-        &.RadioButton-size-1 {
+        &.Radio-size-1 {
             --radio-size: calc(var(--space-4) * 0.875);
             --check-width: calc(var(--radio-size) / 3.5);
             --check-height: calc(var(--radio-size) / 2.5);
         }
-        &.RadioButton-size-2 {
+        &.Radio-size-2 {
             --radio-size: var(--space-4);
             --check-width: calc(var(--radio-size) / 3.5);
             --check-height: calc(var(--radio-size) / 2.5);
         }
-        &.RadioButton-size-3 {
+        &.Radio-size-3 {
             --radio-size: calc(var(--space-4) * 1.25);
             --check-width: calc(var(--radio-size) / 3.5);
             --check-height: calc(var(--radio-size) / 2.5);

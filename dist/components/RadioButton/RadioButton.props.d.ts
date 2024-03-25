@@ -1,6 +1,6 @@
-import type { RadioButtonProps } from './RadioButton.types.js';
-export declare const defaultRadioButtonProps: RadioButtonProps;
-export declare const docRadioButtonPropsDefs: {
+import type { RadioProps } from './Radio.types.js';
+export declare const defaultRadioProps: RadioProps;
+export declare const docRadioPropsDefs: {
     title: string;
     props: ({
         name: string;

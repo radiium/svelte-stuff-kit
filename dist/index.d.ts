@@ -19,7 +19,7 @@ export { default as Link } from './components/Link/Link.svelte';
 export { default as Dialog } from './components/Dialog/Dialog.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
 export { default as Portal } from './components/Portal/Portal.svelte';
-export { default as RadioButton } from './components/RadioButton/RadioButton.svelte';
+export { default as Radio } from './components/Radio/Radio.svelte';
 export { default as Select } from './components/Select/Select.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Text } from './components/Text/Text.svelte';

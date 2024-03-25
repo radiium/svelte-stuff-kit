@@ -1,7 +1,7 @@
 import { Sizes1To3, Colors } from '$lib/constants.js';
-import type { RadioButtonProps } from './RadioButton.types.js';
+import type { RadioProps } from './Radio.types.js';
 
-export const defaultRadioButtonProps: RadioButtonProps = {
+export const defaultRadioProps: RadioProps = {
     elementRef: undefined,
     group: undefined,
     value: undefined,
@@ -10,8 +10,8 @@ export const defaultRadioButtonProps: RadioButtonProps = {
     error: false
 };
 
-export const docRadioButtonPropsDefs = {
-    title: 'RadioButton',
+export const docRadioPropsDefs = {
+    title: 'Radio',
     props: [
         {
             name: 'elementRef',
@@ -20,29 +20,29 @@ export const docRadioButtonPropsDefs = {
         {
             name: 'group',
             type: 'any',
-            default: defaultRadioButtonProps.group
+            default: defaultRadioProps.group
         },
         {
             name: 'value',
             type: 'any',
-            default: defaultRadioButtonProps.value
+            default: defaultRadioProps.value
         },
         {
             name: 'size',
             type: 'enum',
             values: Sizes1To3,
-            default: defaultRadioButtonProps.size
+            default: defaultRadioProps.size
         },
         {
             name: 'color',
             type: 'enum',
             values: Colors,
-            default: defaultRadioButtonProps.color
+            default: defaultRadioProps.color
         },
         {
             name: 'error',
             type: 'boolean',
-            default: defaultRadioButtonProps.error
+            default: defaultRadioProps.error
         }
     ],
     slots: [],
