@@ -49,7 +49,6 @@ const config = defineConfig({
             {
                 defaults: {
                     Wrapper: '/src/lib-doc/components/CodeWrapper.svelte',
-                    hideScript: true,
                     hideStyle: true
                 }
             }
