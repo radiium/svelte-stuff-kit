@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { Sizes1To9, Colors, Weights, Aligns, Transforms, TextTags } from '$lib/constants.js';
+import type { Sizes1To9, Colors, Weights, Aligns, Transforms, TextTags, TextWraps } from '$lib/constants.js';
 
 export interface TextProps extends Omit<HTMLAttributes<HTMLElement>, 'size' | 'align'> {
     elementRef?: HTMLElement;
@@ -9,5 +9,7 @@ export interface TextProps extends Omit<HTMLAttributes<HTMLElement>, 'size' | 'a
     weight?: (typeof Weights)[number];
     align?: (typeof Aligns)[number];
     transform?: (typeof Transforms)[number];
+    wrap?: (typeof TextWraps)[number];
+    truncate?: boolean;
     disabled?: boolean;
 }

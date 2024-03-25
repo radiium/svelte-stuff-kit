@@ -8,29 +8,30 @@
     export let href: $$Props['href'] = defaultLinkProps.href;
     export let target: $$Props['target'] = defaultLinkProps.target;
     export let rel: $$Props['rel'] = defaultLinkProps.rel;
-    export let size: $$Props['size'] = defaultLinkProps.size;
-    export let variant: $$Props['variant'] = defaultLinkProps.variant;
     export let color: $$Props['color'] = defaultLinkProps.color;
+    export let size: $$Props['size'] = defaultLinkProps.size;
+    export let weight: $$Props['weight'] = defaultLinkProps.weight;
+    export let transform: $$Props['transform'] = defaultLinkProps.transform;
     export let align: $$Props['align'] = defaultLinkProps.align;
-    export let active: $$Props['active'] = defaultLinkProps.active;
-    export let iconOnly: $$Props['iconOnly'] = defaultLinkProps.iconOnly;
-    export let circle: $$Props['circle'] = defaultLinkProps.fullWidth;
-    export let fullWidth: $$Props['fullWidth'] = defaultLinkProps.fullWidth;
+    export let underline: $$Props['underline'] = defaultLinkProps.underline;
+    export let wrap: $$Props['wrap'] = defaultLinkProps.wrap;
+    export let truncate: $$Props['truncate'] = defaultLinkProps.truncate;
+    export let disabled: $$Props['disabled'] = defaultLinkProps.disabled;
 
     $: cssClass = clsx($$restProps.class, 'Link', {
-        [`Link-${variant}`]: variant,
         [`Link-size-${size}`]: size,
-        [`Link-${color}`]: color,
+        [`Link-color-${color}`]: color,
+        [`Link-weight-${weight}`]: weight,
         [`Link-align-${align}`]: align,
-        'Link-full-width': fullWidth,
-        'Link-active': active,
-        'Link-icon-only': iconOnly,
-        'Link-circle': circle
+        [`Link-transform-${transform}`]: transform,
+        [`Link-underline-${underline}`]: underline,
+        [`Link-wrap-${wrap}`]: wrap,
+        'Link-truncate': truncate,
+        'Link-disabled': disabled
     });
 </script>
 
 <a
-    tabindex="0"
     {...$$restProps}
     {href}
     {target}
@@ -40,230 +41,138 @@
     class={cssClass}
     style={$$restProps.style}
     bind:this={elementRef}
-    on:click
-    on:focus
-    on:blur
 >
     <slot />
 </a>
 
 <style lang="scss">
-    a.Link {
-        // CSS Vars
-        --button-min-width: calc(var(--space-5) * 2);
-        --button-width: unset;
-        --button-height: var(--space-5);
-        --button-padding: 0 var(--space-2);
-        --button-border: none;
-        --button-border-radius: var(--radius-3);
-        --button-background: transparent;
-        --button-background-hover: var(--accent-a6);
-        --button-background-active: var(--accent-a7);
-        --button-color: var(--accent-a12);
-        --button-font-size: var(--font-size-1);
-        --button-line-height: var(--line-height-1);
-        --button-letter-spacing: var(--letter-spacing-1);
-        --button-gap: var(--space-1);
+    .Link {
+        // Colors
+        color: var(--accent-a11, var(--color));
+        text-decoration-line: none;
 
-        // Customizable
-        min-width: var(--button-min-width);
-        width: var(--button-width);
-        height: var(--button-height);
-        padding: var(--button-padding);
-        border: var(--button-border);
-        border-radius: var(--button-border-radius);
-        background-color: var(--button-background);
-        color: var(--button-color);
-        font-size: var(--button-font-size);
-        line-height: var(--button-line-height);
-        letter-spacing: var(--button-letter-spacing);
-        gap: var(--button-gap);
+    text-decoration-thickness: min(2px, max(1px, 0.05em));
+    text-underline-offset: calc(0.025em + 2px);
+    text-decoration-color: var(--accent-a6);
 
-        // Common
-        cursor: pointer;
-        position: relative;
-        box-sizing: border-box;
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        flex-shrink: 0;
-        text-decoration: none;
-        white-space: nowrap;
-        user-select: none;
-        font-weight: bold;
-        transition: background-color linear 80ms;
-
-        :global(svg) {
-            height: 60%;
-            width: auto;
-            fill: var(--button-color);
-        }
-
-        // In group
-        &.Link-is-in-group {
-            border-radius: 0;
-
-            &:first-child {
-                border-top-left-radius: var(--button-border-radius);
-                border-bottom-left-radius: var(--button-border-radius);
-            }
-            &:last-child {
-                border-top-right-radius: var(--button-border-radius);
-                border-bottom-right-radius: var(--button-border-radius);
-            }
-        }
 
         // Sizes
         &.Link-size-1 {
-            --button-height: var(--space-5);
-            --button-min-width: calc(var(--space-5) * 2);
-            --button-padding: 0 var(--space-2);
-            --button-border-radius: var(--radius-3);
-            --button-gap: var(--space-1);
-
-            --button-font-size: var(--font-size-1);
-            --button-line-height: var(--line-height-1);
-            --button-letter-spacing: var(--letter-spacing-1);
-
-            &.Link-icon-only {
-                --button-min-width: var(--space-5);
-                --button-width: var(--space-5);
-                --button-padding: calc(var(--space-1) / 2);
-            }
+            font-size: var(--font-size-1);
+            line-height: var(--line-height-1);
+            letter-spacing: var(--letter-spacing-1);
         }
         &.Link-size-2 {
-            --button-height: var(--space-6);
-            --button-min-width: calc(var(--space-6) * 2);
-            --button-padding: 0 var(--space-2);
-            --button-border-radius: var(--radius-3);
-            --button-gap: var(--space-1);
-
-            --button-font-size: var(--font-size-2);
-            --button-line-height: var(--line-height-2);
-            --button-letter-spacing: var(--letter-spacing-2);
-
-            &.Link-icon-only {
-                --button-min-width: var(--space-6);
-                --button-width: var(--space-6);
-                --button-padding: calc(var(--space-1) / 2);
-            }
+            font-size: var(--font-size-2);
+            line-height: var(--line-height-2);
+            letter-spacing: var(--letter-spacing-2);
         }
         &.Link-size-3 {
-            --button-height: var(--space-7);
-            --button-min-width: calc(var(--space-7) * 2);
-            --button-padding: 0 var(--space-3);
-            --button-border-radius: var(--radius-3);
-            --button-gap: var(--space-3);
-
-            --button-font-size: var(--font-size-3);
-            --button-line-height: var(--line-height-3);
-            --button-letter-spacing: var(--letter-spacing-3);
-
-            &.Link-icon-only {
-                --button-min-width: var(--space-7);
-                --button-width: var(--space-7);
-                --button-padding: var(--space-1);
-            }
+            font-size: var(--font-size-3);
+            line-height: var(--line-height-3);
+            letter-spacing: var(--letter-spacing-3);
         }
         &.Link-size-4 {
-            --button-height: var(--space-8);
-            --button-min-width: calc(var(--space-8) * 2);
-            --button-padding: 0 var(--space-4);
-            --button-border-radius: var(--radius-3);
-            --button-gap: var(--space-3);
-
-            --button-font-size: var(--font-size-4);
-            --button-line-height: var(--line-height-4);
-            --button-letter-spacing: var(--letter-spacing-4);
-
-            &.Link-icon-only {
-                --button-min-width: var(--space-8);
-                --button-width: var(--space-8);
-                --button-padding: var(--space-1);
-            }
+            font-size: var(--font-size-4);
+            line-height: var(--line-height-4);
+            letter-spacing: var(--letter-spacing-4);
+        }
+        &.Link-size-5 {
+            font-size: var(--font-size-5);
+            line-height: var(--line-height-5);
+            letter-spacing: var(--letter-spacing-5);
+        }
+        &.Link-size-6 {
+            font-size: var(--font-size-6);
+            line-height: var(--line-height-6);
+            letter-spacing: var(--letter-spacing-6);
+        }
+        &.Link-size-7 {
+            font-size: var(--font-size-7);
+            line-height: var(--line-height-7);
+            letter-spacing: var(--letter-spacing-7);
+        }
+        &.Link-size-8 {
+            font-size: var(--font-size-8);
+            line-height: var(--line-height-8);
+            letter-spacing: var(--letter-spacing-8);
+        }
+        &.Link-size-9 {
+            font-size: var(--font-size-9);
+            line-height: var(--line-height-9);
+            letter-spacing: var(--letter-spacing-9);
         }
 
-        // Variants
-        &.Link-clear {
-            --button-border: none;
-            --button-color: var(--accent-a12);
-            --button-background: transparent;
-            --button-background-hover: var(--accent-a6);
-            --button-background-active: var(--accent-a7);
+        // Weight
+        &.Link-weight-light {
+            font-weight: var(--font-weight-light);
         }
-        &.Link-outline {
-            --button-border: 1px solid var(--accent-9);
-            --button-color: var(--accent-a12);
-            --button-background: transparent;
-            --button-background-hover: var(--accent-a6);
-            --button-background-active: var(--accent-a7);
+        &.Link-weight-regular {
+            font-weight: var(--font-weight-regular);
         }
-        &.Link-soft {
-            --button-border: none;
-            --button-color: var(--accent-a12);
-            --button-background: var(--accent-a6);
-            --button-background-hover: var(--accent-a7);
-            --button-background-active: var(--accent-a8);
+        &.Link-weight-medium {
+            font-weight: var(--font-weight-medium);
         }
-        &.Link-solid {
-            --button-border: none;
-            --button-color: var(--contrast);
-            --button-background: var(--accent-9);
-            --button-background-hover: var(--accent-10);
-            --button-background-active: var(--accent-11);
+        &.Link-weight-bold {
+            font-weight: var(--font-weight-bold);
         }
 
-        &.Link-icon-only {
-            &.Link-circle {
-                --button-border-radius: var(--radius-full);
-
-                :global(svg) {
-                    height: 65%;
-                }
-            }
+        // Transform
+        &.Link-transform-lowercase {
+            text-transform: lowercase;
+        }
+        &.Link-transform-uppercase {
+            text-transform: uppercase;
+        }
+        &.Link-transform-capitalize {
+            text-transform: capitalize;
         }
 
-        // Content
+        // Alignement
         &.Link-align-start {
-            justify-content: flex-start;
             text-align: start;
         }
         &.Link-align-center {
-            justify-content: center;
             text-align: center;
         }
         &.Link-align-end {
-            justify-content: flex-end;
             text-align: end;
         }
-        &.Link-full-width {
-            width: 100%;
-        }
 
-        // States
-        &:hover {
-            background: var(--button-background-hover);
-
-            &.Link-link {
-                text-decoration: underline;
+        // Underline
+        &.Link-underline-auto:hover,
+        &.Link-underline-hover:hover,
+        &.Link-underline-always {
+            & {
+                text-decoration-line: underline;
             }
         }
-        &:active,
-        &.Link-active {
-            background: var(--button-background-active);
-        }
-        &:disabled {
-            @include disabled;
-        }
-        &:focus-visible {
-            @include input-box-shadow-focus;
-        }
-        &:visited {
-            color: var(--button-color);
 
-            :global(svg) {
-                fill: var(--button-color);
-            }
+        // Wrap
+        &.Link-wrap-wrap {
+            white-space: normal;
+        }
+        &.Link-wrap-nowrap {
+            white-space: nowrap;
+        }
+        &.Link-wrap-pretty {
+            white-space: normal;
+            text-wrap: pretty;
+        }
+        &.Link-wrap-balance {
+            white-space: normal;
+            text-wrap: balance;
+        }
+
+
+        &.Link-truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &.Link-disabled {
+            opacity: 0.5 !important;
         }
     }
 </style>
