@@ -8,7 +8,7 @@ description: Customize theme of components
     import ThemeProvider from '$lib/theme/ThemeProvider/ThemeProvider.svelte';
     import ThemeSelect from '$lib/theme/ThemeSelect/ThemeSelect.svelte';
     import Card from '$lib/components/Card/Card.svelte';
-    import FlexBox from '$lib/components/FlexBox/FlexBox.svelte';
+    import Flexbox from '$lib/components/Flexbox/Flexbox.svelte';
     import Text from '$lib/components/Text/Text.svelte';
     import Badge from '$lib/components/Badge/Badge.svelte';
     import Input from '$lib/components/Input/Input.svelte';
@@ -37,32 +37,32 @@ Only the root themProvider will respond to the ThemeSelect change
 
 <ThemeProvider strategy="dark">
     <Card>
-        <FlexBox direction="column" gap="3">
+        <Flexbox direction="column" gap="3">
             <Text size="5" weightt="bold">Forced Dark theme</Text>
             <Input placeholder="Login"/>
             <Input placeholder="Passwword" type="passwword"/>
             <Button>Submit</Button>
             <ThemeProvider strategy="light">
                 <Card class="mt-7">
-                    <FlexBox direction="column" gap="3">
+                    <Flexbox direction="column" gap="3">
                         <Text size="5" weightt="bold">Forced Light theme</Text>
                         <Input placeholder="Login"/>
                         <Input placeholder="Passwword" type="passwword"/>
                         <Button>Submit</Button>
                          <ThemeProvider strategy="system">
                             <Card class="mt-7">
-                                <FlexBox direction="column" gap="3">
+                                <Flexbox direction="column" gap="3">
                                     <Text size="5" weightt="bold">User theme</Text>
                                     <Input placeholder="Login"/>
                                     <Input placeholder="Passwword" type="passwword"/>
                                     <Button>Submit</Button>
-                                </FlexBox>
+                                </Flexbox>
                             </Card>
                         </ThemeProvider>
-                    </FlexBox>
+                    </Flexbox>
                 </Card>
             </ThemeProvider>
-        </FlexBox>
+        </Flexbox>
     </Card>
 </ThemeProvider>
 
