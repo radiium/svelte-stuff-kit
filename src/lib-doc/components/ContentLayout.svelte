@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script context="module">
     import pre from './pre.svelte';
     import h1 from './h1.svelte';
     import h2 from './h2.svelte';

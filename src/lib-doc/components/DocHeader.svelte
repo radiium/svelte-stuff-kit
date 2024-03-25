@@ -1,20 +1,32 @@
 <script lang="ts">
-    import { PUBLIC_PKG_NAME } from '$env/static/public';
+    import { PUBLIC_PKG_NAME, PUBLIC_PKG_HOMEPAGE } from '$env/static/public';
     import { version } from '$app/environment';
-    import GithubLink from './GithubLink.svelte';
+    import GithubIcon from './GithubIcon.svelte';
     import Badge from '$lib/components/Badge/Badge.svelte';
-    import ThemeSelect from '$lib/components/ThemeProvider/ThemeSelect.svelte';
+    import ThemeSelect from '$lib/theme/ThemeSelect/ThemeSelect.svelte';
     import Text from '$lib/components/Text/Text.svelte';
-    
+    import Button from '$lib/components/Button/Button.svelte';
 </script>
 
 <div class="container pl-3 pr-3">
     <div class="side start">
-        <Text size="7" class="mb-2">{PUBLIC_PKG_NAME}</Text>
-        <Badge>v{version}</Badge>
+        <a
+            href="/"
+            target="_blank"
+            rel="noreferrer"
+            data-sveltekit-preload-data="tap"
+            title={PUBLIC_PKG_NAME}
+        >
+            <Text size="7" class="mb-2">{PUBLIC_PKG_NAME}</Text>
+        </a>
+        <Badge title="Version">v{version}</Badge>
     </div>
     <div class="side end">
-        <GithubLink />
+        <a href={PUBLIC_PKG_HOMEPAGE} target="_blank" rel="noreferrer" title="Github">
+            <Button variant="outline" size="2" iconOnly class="p-0">
+                <GithubIcon />
+            </Button>
+        </a>
         <ThemeSelect placement="bottom-end" />
     </div>
 </div>

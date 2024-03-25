@@ -5,6 +5,9 @@
 
     $: slug = $page.params.slug;
     const { nav } = $page.data;
+
+    console.log(nav)
+
 </script>
 
 <nav class="p-4">

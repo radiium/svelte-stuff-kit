@@ -30,9 +30,11 @@
                                 <code class="type">{prop.type}</code>
                                 {#if prop.values}
                                     <TablePopover>
-                                        <Text color="gray">
-                                            {prop.values.join(' | ')}
-                                        </Text>
+                                        <div class="p-3">
+                                            <Text color="gray">
+                                                {prop.values.join(' | ')}
+                                            </Text>
+                                        </div>
                                     </TablePopover>
                                 {/if}
                             </Flexbox>
