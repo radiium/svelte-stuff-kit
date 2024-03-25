@@ -36,6 +36,7 @@ export const Shrinks = ['0', '1'] as const;
 // prettier-ignore
 export const InputTypes = ['number', 'time', 'text', 'search', 'password', 'email', 'tel', 'url', 'date',	'datetime-local', 'month', 'week'] as const;
 export const TextTags = ['div', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'] as const;
-
+export const TextUnderlines = ['auto', 'always', 'hover', 'none'] as const;
+export const TextWraps = ['wrap', 'nowrap', 'pretty', 'balance'] as const;
 export const Margins = ['m', 'mt', 'mr', 'mb', 'ml', 'mx', 'my'] as const;
 export const Paddings = ['p', 'pt', 'pr', 'pb', 'pl', 'px', 'py'] as const;
