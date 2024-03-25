@@ -1,6 +1,6 @@
 <script context="module">import '../../style.scss';
 import { derived, writable } from 'svelte/store';
-import { prefersColorSchemeDark, resolveStrategy, resolveScheme, resolveSchemeSystem, setThemeStorage, THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from './theme.utils.js';
+import { prefersColorSchemeDark, resolveStrategy, resolveScheme, resolveSchemeSystem, setThemeStorage } from './theme.utils.js';
 import { defaultThemeProviderProps } from './ThemeProvider.props.js';
 const schemeSystemStore = writable(resolveSchemeSystem());
 const onSchemeSystemChange = () => {
@@ -10,8 +10,10 @@ const onSchemeSystemChange = () => {
 
 <script>import { hasContext, onMount, setContext } from 'svelte';
 import { isBrowser } from '../../utils/is-browser.js';
-import { ThemeStrategy } from './ThemeProvider.types.js';
+import { ThemeStrategy } from '../theme.types.js';
+import { THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from '../theme.constant.js';
 export let strategy = defaultThemeProviderProps.strategy;
+export let radius = defaultThemeProviderProps.radius;
 let isRoot = !hasContext(THEME_CONTEXT_KEY);
 const resolvedStrategy = resolveStrategy(strategy);
 const strategyStore = writable(resolvedStrategy);
@@ -52,6 +54,6 @@ onMount(() => {
 <!-- <svelte:body class={$themeStore.theme} style={`color-scheme: ${$themeStore.theme};`} /> -->
 
 <!--  data-radius={$themeStore.radius} -->
-<div class="svxui" data-theme={$schemeStore} data-theme-root={isRoot}>
+<div class="svxui" data-theme-root={isRoot} data-theme={$schemeStore} data-radius={radius}>
     <slot />
 </div>

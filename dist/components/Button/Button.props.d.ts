@@ -34,7 +34,7 @@ export declare const docButtonPropsDefs: {
         values?: undefined;
     })[];
     slots: {
-        default: boolean;
+        name: string;
     }[];
     events: never[];
 };

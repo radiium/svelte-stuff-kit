@@ -15,7 +15,7 @@ const lastDialog = () => {
 };
 </script>
 
-<script>import X from 'phosphor-svelte/lib/X';
+<script>import X from '../../icons/X.svelte';
 import { fade, scale } from 'svelte/transition';
 import { isBrowser } from '../../utils/is-browser.js';
 import { focusTrap } from '../../actions/focus-trap.js';
@@ -120,11 +120,13 @@ $: cssClass = clsx($$restProps.class, `Dialog`, {
                     iconOnly
                     circle
                     variant="clear"
-                    size="1"
+                    size={Math.min(size, 2)}
                     class="Dialog-close-btn"
                     on:click={() => (isOpen = false)}
                 >
-                    <X />
+                    <slot name="close-icon">
+                        <X />
+                    </slot>
                 </Button>
             {/if}
 

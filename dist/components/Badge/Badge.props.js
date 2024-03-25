@@ -1,4 +1,4 @@
-import { Colors, Sizes1To2, VariantsBadge } from '../../constants.js';
+import { Colors, Sizes1To3, VariantsBadge } from '../../constants.js';
 export const defaultBadgeProps = {
     color: 'gray',
     size: '1',
@@ -20,7 +20,7 @@ export const docBadgePropsDefs = {
         {
             name: 'size',
             type: 'enum',
-            values: Sizes1To2,
+            values: Sizes1To3,
             default: defaultBadgeProps.size
         },
         {
@@ -37,7 +37,7 @@ export const docBadgePropsDefs = {
     ],
     slots: [
         {
-            default: true
+            name: 'default'
         }
     ],
     events: []

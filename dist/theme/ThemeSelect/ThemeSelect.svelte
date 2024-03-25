@@ -1,11 +1,11 @@
-<script>import AppWindow from 'phosphor-svelte/lib/AppWindow';
-import Moon from 'phosphor-svelte/lib/Moon';
-import Sun from 'phosphor-svelte/lib/Sun';
-import { useThemeContext } from './theme.utils.js';
-import Popover from '../Popover/Popover.svelte';
-import Button from '../Button/Button.svelte';
-import Flexbox from '../Flexbox/Flexbox.svelte';
-import { ThemeStrategy } from './ThemeProvider.types.js';
+<script>import AppWindow from '../../icons/AppWindow.svelte';
+import Sun from '../../icons/Sun.svelte';
+import Moon from '../../icons/Moon.svelte';
+import Popover from '../../components/Popover/Popover.svelte';
+import Button from '../../components/Button/Button.svelte';
+import Flexbox from '../../components/Flexbox/Flexbox.svelte';
+import { useThemeContext } from '../theme.context.js';
+import { ThemeStrategy } from '../theme.types.js';
 export let placement = 'bottom';
 const themeContext = useThemeContext();
 const { strategy, updateStrategy = () => { } } = themeContext;
@@ -33,6 +33,7 @@ const selectTheme = (option) => {
         color="gray"
         variant="outline"
         iconOnly={false}
+        title="Change theme"
     >
         {#if currentTheme}
             <svelte:component this={currentTheme.icon} />
@@ -40,23 +41,25 @@ const selectTheme = (option) => {
         {/if}
     </Button>
 
-    <Flexbox slot="content" direction="column" gap="1" class="p-0 m-0" style="position: relative;" let:close>
-        {#each themeOptions as option}
-            <Button
-                size="2"
-                variant="clear"
-                align="start"
-                fullWidth
-                on:click={() => {
-                    close();
-                    selectTheme(option);
-                }}
-            >
-                <svelte:component this={option.icon} />
-                {option.label}
-            </Button>
-        {/each}
-    </Flexbox>
+    <svelte:fragment let:close>
+        <Flexbox direction="column" gap="1" class="p-2 m-0" style="position: relative;">
+            {#each themeOptions as option}
+                <Button
+                    size="2"
+                    variant="clear"
+                    align="start"
+                    fullWidth
+                    on:click={() => {
+                        close();
+                        selectTheme(option);
+                    }}
+                >
+                    <svelte:component this={option.icon} />
+                    {option.label}
+                </Button>
+            {/each}
+        </Flexbox>
+    </svelte:fragment>
 </Popover>
 
 <!-- <Select

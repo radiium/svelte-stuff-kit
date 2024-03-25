@@ -14,8 +14,8 @@ export declare const docBadgePropsDefs: {
     } | {
         name: string;
         type: string;
-        values: readonly ["1", "2"];
-        default: "1" | "2" | undefined;
+        values: readonly ["1", "2", "3"];
+        default: "1" | "2" | "3" | undefined;
     } | {
         name: string;
         type: string;
@@ -28,7 +28,7 @@ export declare const docBadgePropsDefs: {
         values?: undefined;
     })[];
     slots: {
-        default: boolean;
+        name: string;
     }[];
     events: never[];
 };

@@ -11,7 +11,7 @@ declare const __propDef: {
             open: () => void;
             close: () => void;
         };
-        content: {
+        default: {
             isOpen: boolean | undefined;
             open: () => void;
             close: () => void;

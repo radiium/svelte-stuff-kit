@@ -45,15 +45,23 @@ $: cssClass = clsx($$restProps.class, 'Badge', {
   letter-spacing: var(--badge-letter-spacing);
 }
 .Badge.Badge-size-1 {
-  --badge-padding: calc(var(--space-1) / 2) var(--space-2);
-  --badge-border-radius: var(--radius-3);
-  --badge-gap: var(--space-1);
+  --badge-padding: calc(var(--space-1) * 0.5) calc(var(--space-1) * 1.5);
+  --badge-border-radius: var(--radius-1);
+  --badge-gap: calc(var(--space-1) * 1.5);
   --badge-font-size: var(--font-size-1);
   --badge-line-height: var(--line-height-1);
   --badge-letter-spacing: var(--letter-spacing-1);
 }
 .Badge.Badge-size-2 {
-  --badge-padding: calc(var(--space-1) * 1.5) var(--space-4);
+  --badge-padding: var(--space-1) var(--space-2);
+  --badge-border-radius: var(--radius-2);
+  --badge-gap: calc(var(--space-1) * 1.5);
+  --badge-font-size: var(--font-size-1);
+  --badge-line-height: var(--line-height-1);
+  --badge-letter-spacing: var(--letter-spacing-1);
+}
+.Badge.Badge-size-3 {
+  --badge-padding: var(--space-1) calc(var(--space-2) * 1.25);
   --badge-border-radius: var(--radius-3);
   --badge-gap: var(--space-2);
   --badge-font-size: var(--font-size-2);

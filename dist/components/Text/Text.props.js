@@ -1,4 +1,4 @@
-import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms } from '../../constants.js';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms, TextWraps } from '../../constants.js';
 export const defaultTextProps = {
     elementRef: undefined,
     as: 'span',
@@ -7,6 +7,8 @@ export const defaultTextProps = {
     weight: 'regular',
     transform: undefined,
     align: 'start',
+    wrap: undefined,
+    truncate: false,
     disabled: false
 };
 export const docTextPropsDefs = {
@@ -50,8 +52,23 @@ export const docTextPropsDefs = {
             type: 'enum',
             values: Aligns,
             default: defaultTextProps.align
+        },
+        {
+            name: 'wrap',
+            type: 'enum',
+            values: TextWraps,
+            default: defaultTextProps.wrap
+        },
+        {
+            name: 'truncate',
+            type: 'boolean',
+            default: defaultTextProps.truncate
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

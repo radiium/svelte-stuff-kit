@@ -1,7 +1,4 @@
-import { ThemeStrategy, type ThemeSchemeType, type ThemeStrategyType, type ThemeContext } from './ThemeProvider.types.js';
-export declare const THEME_CONTEXT_KEY: string;
-export declare const THEME_STORAGE_KEY: string;
-export declare const DEFAULT_STRATEGY: ThemeStrategy;
+import { type ThemeSchemeType, type ThemeStrategyType } from '../theme.types.js';
 export declare const prefersColorSchemeDark: MediaQueryList | {
     matches: boolean;
     addEventListener: (_: any) => undefined;
@@ -42,9 +39,3 @@ export declare const setThemeStorage: (key: string, strategy: ThemeStrategyType)
  * @returns calback for enable animation
  */
 export declare const disableAnimation: () => () => void;
-/**
- * Use theme context utils
- *
- * @returns current theme context or throw an error
- */
-export declare function useThemeContext(): ThemeContext;

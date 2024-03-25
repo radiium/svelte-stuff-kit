@@ -1,15 +1,15 @@
 <script>import { clsx } from '../../utils/clsx.js';
-import { defaultRadioButtonProps } from './RadioButton.props.js';
-export let elementRef = defaultRadioButtonProps.elementRef;
-export let group = defaultRadioButtonProps.group;
-export let value = defaultRadioButtonProps.value;
-export let size = defaultRadioButtonProps.size;
-export let color = defaultRadioButtonProps.color;
-export let error = defaultRadioButtonProps.error;
-$: cssClass = clsx($$restProps.class, 'RadioButton', {
-    [`RadioButton-size-${size}`]: size,
-    [`RadioButton-color-${color}`]: color,
-    'RadioButton-error': error
+import { defaultRadioProps } from './Radio.props.js';
+export let elementRef = defaultRadioProps.elementRef;
+export let group = defaultRadioProps.group;
+export let value = defaultRadioProps.value;
+export let size = defaultRadioProps.size;
+export let color = defaultRadioProps.color;
+export let error = defaultRadioProps.error;
+$: cssClass = clsx($$restProps.class, 'Radio', {
+    [`Radio-size-${size}`]: size,
+    [`Radio-color-${color}`]: color,
+    'Radio-error': error
 });
 </script>
 
@@ -32,7 +32,7 @@ $: cssClass = clsx($$restProps.class, 'RadioButton', {
     on:keyup
 />
 
-<style>.RadioButton {
+<style>.Radio {
   -webkit-appearance: none;
   appearance: none;
   outline: none;
@@ -52,7 +52,7 @@ $: cssClass = clsx($$restProps.class, 'RadioButton', {
   --radio-background-checked: var(--accent-9);
   --check-color: white;
 }
-.RadioButton:after {
+.Radio:after {
   width: var(--radio-size);
   height: var(--radio-size);
   content: "";
@@ -62,49 +62,49 @@ $: cssClass = clsx($$restProps.class, 'RadioButton', {
   background-color: transparent;
   transition: background-color ease 0.2s;
 }
-.RadioButton[data-checked] {
+.Radio[data-checked] {
   background-color: var(--checkbox-background-checked);
   box-shadow: none;
 }
-.RadioButton[data-checked]:after {
+.Radio[data-checked]:after {
   display: block;
 }
-.RadioButton[disabled] {
+.Radio[disabled] {
   cursor: default !important;
   opacity: 0.5 !important;
   outline: none !important;
   pointer-events: none;
 }
-.RadioButton[disabled]:focus, .RadioButton[disabled]:focus-within, .RadioButton[disabled]:focus-visible {
+.Radio[disabled]:focus, .Radio[disabled]:focus-within, .Radio[disabled]:focus-visible {
   box-shadow: none !important;
   outline: none !important;
 }
-.RadioButton:checked {
+.Radio:checked {
   background-color: var(--radio-background-checked);
   box-shadow: none;
 }
-.RadioButton:checked:after {
+.Radio:checked:after {
   background-color: var(--check-color);
 }
-.RadioButton:focus {
+.Radio:focus {
   box-shadow: var(--border-color-focus) 0px 0px 0px 1px;
   outline: none;
 }
-.RadioButton:focus-visible {
+.Radio:focus-visible {
   box-shadow: var(--border-color-focus) 0px 0px 0px 1px;
   outline: none;
 }
-.RadioButton.RadioButton-size-1 {
+.Radio.Radio-size-1 {
   --radio-size: calc(var(--space-4) * 0.875);
   --check-width: calc(var(--radio-size) / 3.5);
   --check-height: calc(var(--radio-size) / 2.5);
 }
-.RadioButton.RadioButton-size-2 {
+.Radio.Radio-size-2 {
   --radio-size: var(--space-4);
   --check-width: calc(var(--radio-size) / 3.5);
   --check-height: calc(var(--radio-size) / 2.5);
 }
-.RadioButton.RadioButton-size-3 {
+.Radio.Radio-size-3 {
   --radio-size: calc(var(--space-4) * 1.25);
   --check-width: calc(var(--radio-size) / 3.5);
   --check-height: calc(var(--radio-size) / 2.5);

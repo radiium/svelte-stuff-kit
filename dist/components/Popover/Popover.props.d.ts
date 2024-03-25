@@ -22,6 +22,18 @@ export declare const docPopoverPropsDefs: {
         default: number | undefined;
         values?: undefined;
     })[];
-    slots: never[];
+    slots: {
+        name: string;
+        description: string;
+        props: ({
+            name: string;
+            type: string;
+            default: boolean | undefined;
+        } | {
+            name: string;
+            type: string;
+            default?: undefined;
+        })[];
+    }[];
     events: never[];
 };

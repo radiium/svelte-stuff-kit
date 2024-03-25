@@ -1,7 +1,7 @@
 import { Colors, Sizes1To3 } from '../../constants.js';
 export const defaultCheckboxProps = {
     elementRef: undefined,
-    group: [],
+    group: undefined,
     value: undefined,
     checked: false,
     indeterminate: false,

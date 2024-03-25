@@ -27,9 +27,9 @@ export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Text } from './components/Text/Text.svelte';
 export { default as Textarea } from './components/Textarea/Textarea.svelte';
 // Theme
-export { useThemeContext } from './components/ThemeProvider/theme.utils.js';
-export { default as ThemeProvider } from './components/ThemeProvider/ThemeProvider.svelte';
-export { default as ThemeSelect } from './components/ThemeProvider/ThemeSelect.svelte';
+export { default as ThemeProvider } from './theme/ThemeProvider/ThemeProvider.svelte';
+export { default as ThemeSelect } from './theme/ThemeSelect/ThemeSelect.svelte';
+export { useThemeContext } from './theme/theme.context.js';
 // Editor
 export { default as EditorLayout } from './Editor/EditorLayout.svelte';
 export { default as EditorContent } from './Editor/EditorContent.svelte';

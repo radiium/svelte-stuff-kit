@@ -5,6 +5,8 @@ export declare const docPortalPropsDefs: {
         name: string;
         type: string;
     }[];
-    slots: never[];
+    slots: {
+        name: string;
+    }[];
     events: never[];
 };

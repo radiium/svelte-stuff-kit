@@ -17,6 +17,8 @@ export declare const docBoxPropsDefs: {
         values: readonly ["none", "inline", "inline-block", "block"];
         default: "none" | "inline" | "inline-block" | "block" | undefined;
     })[];
-    slots: never[];
+    slots: {
+        name: string;
+    }[];
     events: never[];
 };

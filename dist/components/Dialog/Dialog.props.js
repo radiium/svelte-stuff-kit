@@ -41,6 +41,14 @@ export const docDialogPropsDefs = {
             default: defaultDialogProps.blockScroll
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        },
+        {
+            name: 'close-icon',
+            description: 'Override close icon'
+        }
+    ],
     events: []
 };

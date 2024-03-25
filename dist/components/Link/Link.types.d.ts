@@ -1,13 +1,14 @@
-import type { Sizes1To4, Colors, Aligns, Variants } from '../../constants.js';
 import type { HTMLAnchorAttributes } from 'svelte/elements';
-export interface LinkProps extends HTMLAnchorAttributes {
+import type { Sizes1To9, Colors, Weights, Aligns, Transforms, TextUnderlines, TextWraps } from '../../constants.js';
+export interface LinkProps extends Omit<HTMLAnchorAttributes, 'size' | 'align'> {
     elementRef?: HTMLAnchorElement;
-    size?: (typeof Sizes1To4)[number];
-    variant?: (typeof Variants)[number];
     color?: (typeof Colors)[number];
+    size?: (typeof Sizes1To9)[number];
+    weight?: (typeof Weights)[number];
     align?: (typeof Aligns)[number];
-    active?: boolean;
-    iconOnly?: boolean;
-    circle?: boolean;
-    fullWidth?: boolean;
+    transform?: (typeof Transforms)[number];
+    wrap?: (typeof TextWraps)[number];
+    underline?: (typeof TextUnderlines)[number];
+    truncate?: boolean;
+    disabled?: boolean;
 }

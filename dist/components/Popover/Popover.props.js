@@ -72,6 +72,45 @@ export const docPopoverPropsDefs = {
             default: defaultPopoverProps.shift
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default',
+            description: 'Content',
+            props: [
+                {
+                    name: 'isOpen',
+                    type: 'readonly boolean',
+                    default: defaultPopoverProps.isOpen
+                },
+                {
+                    name: 'open',
+                    type: 'function'
+                },
+                {
+                    name: 'close',
+                    type: 'function'
+                }
+            ]
+        },
+        {
+            name: 'trigger',
+            description: 'Trigger of the popover',
+            props: [
+                {
+                    name: 'isOpen',
+                    type: 'readonly boolean',
+                    default: defaultPopoverProps.isOpen
+                },
+                {
+                    name: 'open',
+                    type: 'function'
+                },
+                {
+                    name: 'close',
+                    type: 'function'
+                }
+            ]
+        }
+    ],
     events: []
 };

@@ -1,5 +1,5 @@
 <script>import DotsNine from 'phosphor-svelte/lib/DotsNine';
-import ThemeSelect from '../components/ThemeProvider/ThemeSelect.svelte';
+import ThemeSelect from '../theme/ThemeSelect/ThemeSelect.svelte';
 import Popover from '../components/Popover/Popover.svelte';
 import Button from '../components/Button/Button.svelte';
 import Flexbox from '../components/Flexbox/Flexbox.svelte';
@@ -25,7 +25,7 @@ import Flexbox from '../components/Flexbox/Flexbox.svelte';
         <DotsNine size={24} />
     </Button>
 
-    <Flexbox as="div" direction="column" gap="3" slot="content">
+    <Flexbox as="div" direction="column" gap="3">
         <header>
             <h1 class="mt-0">Settings</h1>
         </header>

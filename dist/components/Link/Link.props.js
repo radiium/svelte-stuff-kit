@@ -1,49 +1,25 @@
-import { Sizes1To4, Colors, Aligns, Variants } from '../../constants.js';
+import { Sizes1To9, Colors, Weights, Aligns, TextTags, Transforms, TextUnderlines, TextWraps } from '../../constants.js';
 export const defaultLinkProps = {
+    elementRef: undefined,
     href: '',
     target: '_blank',
     rel: undefined,
-    size: '2',
-    variant: 'solid',
-    color: 'gray',
-    align: 'center',
-    active: false,
-    iconOnly: false,
-    circle: false,
-    fullWidth: false
+    color: undefined,
+    size: '3',
+    weight: 'regular',
+    transform: undefined,
+    align: 'start',
+    underline: 'auto',
+    wrap: undefined,
+    truncate: false,
+    disabled: false
 };
 export const docLinkPropsDefs = {
+    title: 'Link',
     props: [
         {
             name: 'elementRef',
-            type: 'HTMLAnchorElement'
-        },
-        {
-            name: 'href',
-            type: 'string',
-            default: defaultLinkProps.href
-        },
-        {
-            name: 'target',
-            type: 'string',
-            default: defaultLinkProps.target
-        },
-        {
-            name: 'rel',
-            type: 'string',
-            default: defaultLinkProps.rel
-        },
-        {
-            name: 'size',
-            type: 'enum',
-            values: Sizes1To4,
-            default: defaultLinkProps.size
-        },
-        {
-            name: 'variant',
-            type: 'enum',
-            values: Variants,
-            default: defaultLinkProps.variant
+            type: 'HTMLElement'
         },
         {
             name: 'color',
@@ -52,32 +28,51 @@ export const docLinkPropsDefs = {
             default: defaultLinkProps.color
         },
         {
+            name: 'size',
+            type: 'enum',
+            values: Sizes1To9,
+            default: defaultLinkProps.size
+        },
+        {
+            name: 'weight',
+            type: 'enum',
+            values: Weights,
+            default: defaultLinkProps.weight
+        },
+        {
+            name: 'transform',
+            type: 'enum',
+            values: Transforms,
+            default: defaultLinkProps.transform
+        },
+        {
             name: 'align',
             type: 'enum',
             values: Aligns,
             default: defaultLinkProps.align
         },
         {
-            name: 'active',
-            type: 'boolean',
-            default: defaultLinkProps.active
+            name: 'underline',
+            type: 'enum',
+            values: TextUnderlines,
+            default: defaultLinkProps.underline
         },
         {
-            name: 'iconOnly',
-            type: 'boolean',
-            default: defaultLinkProps.iconOnly
+            name: 'wrap',
+            type: 'enum',
+            values: TextWraps,
+            default: defaultLinkProps.wrap
         },
         {
-            name: 'circle',
+            name: 'truncate',
             type: 'boolean',
-            default: defaultLinkProps.circle
-        },
-        {
-            name: 'fullWidth',
-            type: 'boolean',
-            default: defaultLinkProps.fullWidth
+            default: defaultLinkProps.truncate
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

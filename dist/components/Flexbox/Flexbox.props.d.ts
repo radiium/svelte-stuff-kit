@@ -47,6 +47,8 @@ export declare const docFlexboxPropsDefs: {
         values: readonly ["0", "1"];
         default: "0" | "1" | undefined;
     })[];
-    slots: never[];
+    slots: {
+        name: string;
+    }[];
     events: never[];
 };

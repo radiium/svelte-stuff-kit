@@ -7,6 +7,8 @@ export let size = defaultTextProps.size;
 export let weight = defaultTextProps.weight;
 export let transform = defaultTextProps.transform;
 export let align = defaultTextProps.align;
+export let wrap = defaultTextProps.wrap;
+export let truncate = defaultTextProps.truncate;
 export let disabled = defaultTextProps.disabled;
 $: cssClass = clsx($$restProps.class, 'Text', {
     [`Text-size-${size}`]: size,
@@ -14,6 +16,8 @@ $: cssClass = clsx($$restProps.class, 'Text', {
     [`Text-weight-${weight}`]: weight,
     [`Text-align-${align}`]: align,
     [`Text-transform-${transform}`]: transform,
+    [`Text-wrap-${wrap}`]: wrap,
+    'Text-truncate': truncate,
     'Text-disabled': disabled
 });
 </script>
@@ -107,6 +111,25 @@ $: cssClass = clsx($$restProps.class, 'Text', {
 }
 .Text.Text-align-end {
   text-align: end;
+}
+.Text.Text-wrap-wrap {
+  white-space: normal;
+}
+.Text.Text-wrap-nowrap {
+  white-space: nowrap;
+}
+.Text.Text-wrap-pretty {
+  white-space: normal;
+  text-wrap: pretty;
+}
+.Text.Text-wrap-balance {
+  white-space: normal;
+  text-wrap: balance;
+}
+.Text.Text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .Text.Text-disabled {
   opacity: 0.5 !important;

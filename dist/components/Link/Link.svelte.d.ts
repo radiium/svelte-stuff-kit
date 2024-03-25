@@ -3,10 +3,6 @@ import type { LinkProps } from './Link.types.js';
 declare const __propDef: {
     props: LinkProps;
     events: {
-        click: MouseEvent;
-        focus: FocusEvent;
-        blur: FocusEvent;
-    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

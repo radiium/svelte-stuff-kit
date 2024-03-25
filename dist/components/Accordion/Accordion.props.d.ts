@@ -10,7 +10,9 @@ export declare const docAccordionGroupPropsDefs: {
         type: string;
         default: boolean | undefined;
     }[];
-    slots: never[];
+    slots: {
+        name: string;
+    }[];
     events: never[];
 };
 /**
@@ -23,6 +25,22 @@ export declare const docAccordionItemPropsDefs: {
         type: string;
         default: boolean | undefined;
     }[];
-    slots: never[];
+    slots: ({
+        name: string;
+        description?: undefined;
+        props?: undefined;
+    } | {
+        name: string;
+        description: string;
+        props: ({
+            name: string;
+            type: string;
+            default?: undefined;
+        } | {
+            name: string;
+            type: string;
+            default: boolean;
+        })[];
+    })[];
     events: never[];
 };

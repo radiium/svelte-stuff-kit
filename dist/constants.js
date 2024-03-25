@@ -12,7 +12,7 @@ export const Sizes0To1 = [size0, size1];
 export const Sizes1To2 = [size1, size2];
 export const Sizes1To3 = [size1, size2, size3];
 export const Sizes1To4 = [size1, size2, size3, size4];
-export const Sizes1To5 = [size1, size2, size3, size4, size5];
+export const Sizes0To5 = [size0, size1, size2, size3, size4, size5];
 export const Sizes1To9 = [size1, size2, size3, size4, size5, size6, size7, size8, size9];
 // prettier-ignore
 export const Sizes0To9 = [size0, size1, size2, size3, size4, size5, size6, size7, size8, size9];
@@ -35,5 +35,7 @@ export const Shrinks = ['0', '1'];
 // prettier-ignore
 export const InputTypes = ['number', 'time', 'text', 'search', 'password', 'email', 'tel', 'url', 'date', 'datetime-local', 'month', 'week'];
 export const TextTags = ['div', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'];
+export const TextUnderlines = ['auto', 'always', 'hover', 'none'];
+export const TextWraps = ['wrap', 'nowrap', 'pretty', 'balance'];
 export const Margins = ['m', 'mt', 'mr', 'mb', 'ml', 'mx', 'my'];
 export const Paddings = ['p', 'pt', 'pr', 'pb', 'pl', 'px', 'py'];

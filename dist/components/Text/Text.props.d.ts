@@ -37,7 +37,19 @@ export declare const docTextPropsDefs: {
         type: string;
         values: readonly ["start", "center", "end"];
         default: "start" | "center" | "end" | undefined;
+    } | {
+        name: string;
+        type: string;
+        values: readonly ["wrap", "nowrap", "pretty", "balance"];
+        default: "nowrap" | "wrap" | "pretty" | "balance" | undefined;
+    } | {
+        name: string;
+        type: string;
+        default: boolean | undefined;
+        values?: undefined;
     })[];
-    slots: never[];
+    slots: {
+        name: string;
+    }[];
     events: never[];
 };

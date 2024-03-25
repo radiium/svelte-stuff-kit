@@ -8,6 +8,10 @@ export const docPortalPropsDefs = {
             type: 'HTMLElement | string'
         }
     ],
-    slots: [],
+    slots: [
+        {
+            name: 'default'
+        }
+    ],
     events: []
 };

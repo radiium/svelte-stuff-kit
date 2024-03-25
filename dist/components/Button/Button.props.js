@@ -63,7 +63,7 @@ export const docButtonPropsDefs = {
     ],
     slots: [
         {
-            default: true
+            name: 'default'
         }
     ],
     events: []

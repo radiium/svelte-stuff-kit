@@ -11,15 +11,22 @@ export declare enum ThemeScheme {
 }
 export type ThemeStrategyType = `${ThemeStrategy}`;
 export type ThemeSchemeType = `${ThemeScheme}`;
+export declare const Radius: readonly ["none", "small", "medium", "large", "full"];
 export interface ThemeContext {
+    /**
+     * true if we are inde root <ThemeProvider/>
+     */
     isRoot: boolean;
+    /**
+     * Readable store of current strategy
+     */
     strategy: Readable<ThemeStrategyType>;
+    /**
+     * Readable store of current resolved theme
+     */
     scheme: Readable<ThemeSchemeType>;
+    /**
+     * function for manualy update strategy of near parent <ThemeProvider>
+     */
     updateStrategy: (strategy: ThemeStrategyType) => void;
-}
-export declare const THEME_CONTEXT_KEY: string;
-export declare const THEME_STORAGE_KEY: string;
-export declare const DEFAULT_STRATEGY: ThemeStrategy;
-export interface ThemeProviderProps {
-    strategy?: ThemeStrategyType;
 }

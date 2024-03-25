@@ -9,6 +9,4 @@ export var ThemeScheme;
     ThemeScheme["DARK"] = "dark";
     ThemeScheme["LIGHT"] = "light";
 })(ThemeScheme || (ThemeScheme = {}));
-export const THEME_CONTEXT_KEY = 'THEME_CONTEXT';
-export const THEME_STORAGE_KEY = 'THEME_STATE';
-export const DEFAULT_STRATEGY = ThemeStrategy.SYSTEM;
+export const Radius = ['none', 'small', 'medium', 'large', 'full'];

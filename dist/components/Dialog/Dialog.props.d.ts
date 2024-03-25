@@ -12,6 +12,12 @@ export declare const docDialogPropsDefs: {
         values: readonly ["1", "2", "3", "4"];
         default: "1" | "2" | "3" | "4" | undefined;
     })[];
-    slots: never[];
+    slots: ({
+        name: string;
+        description?: undefined;
+    } | {
+        name: string;
+        description: string;
+    })[];
     events: never[];
 };

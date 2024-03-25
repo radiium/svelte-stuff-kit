@@ -1,8 +1,7 @@
-import { Sizes1To5 } from '../../constants.js';
+import { Sizes0To5 } from '../../constants.js';
 export const defaultCardProps = {
     elementRef: undefined,
     size: '3',
-    noPadding: false
 };
 export const docCardPropsDefs = {
     props: [
@@ -13,18 +12,13 @@ export const docCardPropsDefs = {
         {
             name: 'size',
             type: 'enum',
-            values: Sizes1To5,
+            values: Sizes0To5,
             default: defaultCardProps.size
-        },
-        {
-            name: 'noPadding',
-            type: 'boolean',
-            default: defaultCardProps.noPadding
         }
     ],
     slots: [
         {
-            default: true
+            name: 'default'
         }
     ],
     events: []

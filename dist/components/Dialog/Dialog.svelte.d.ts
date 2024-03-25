@@ -6,6 +6,7 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
+        'close-icon': {};
         default: {};
     };
 };
