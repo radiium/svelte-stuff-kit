@@ -4,7 +4,7 @@
     import Input from '$lib/components/Input/Input.svelte';
     import Text from '$lib/components/Text/Text.svelte';
     import Switch from '$lib/components/Switch/Switch.svelte';
-    import RadioButton from '$lib/components/RadioButton/RadioButton.svelte';
+    import Radio from '$lib/components/Radio/Radio.svelte';
     import Card from '$lib/components/Card/Card.svelte';
     import Button from '$lib/components/Button/Button.svelte';
     import Textarea from '$lib/components/Textarea/Textarea.svelte';
@@ -174,7 +174,7 @@
                     <Flexbox direction="column" gap="2">
                         {#each groupOptions as opt}
                             <Flexbox as="label" gap="2" alignItems="center">
-                                <RadioButton
+                                <Radio
                                     size={size?.input}
                                     color={props.color}
                                     name="radioGroup"
