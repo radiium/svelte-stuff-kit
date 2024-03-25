@@ -1,4 +1,4 @@
-import { Colors, Sizes1To2, VariantsBadge } from '$lib/constants.js';
+import { Colors, Sizes1To3, VariantsBadge } from '$lib/constants.js';
 import type { BadgeProps } from './Badge.types.js';
 
 export const defaultBadgeProps: BadgeProps = {
@@ -23,7 +23,7 @@ export const docBadgePropsDefs = {
         {
             name: 'size',
             type: 'enum',
-            values: Sizes1To2,
+            values: Sizes1To3,
             default: defaultBadgeProps.size
         },
         {
