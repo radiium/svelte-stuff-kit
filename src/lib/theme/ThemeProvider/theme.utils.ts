@@ -1,16 +1,6 @@
-import { getContext } from 'svelte';
 import { isBrowser } from '$lib/utils/is-browser.js';
-import {
-    ThemeScheme,
-    ThemeStrategy,
-    type ThemeSchemeType,
-    type ThemeStrategyType,
-    type ThemeContext
-} from './ThemeProvider.types.js';
-
-export const THEME_CONTEXT_KEY: string = 'THEME_CONTEXT';
-export const THEME_STORAGE_KEY: string = 'THEME_STATE';
-export const DEFAULT_STRATEGY: ThemeStrategy = ThemeStrategy.SYSTEM;
+import { DEFAULT_STRATEGY, THEME_STORAGE_KEY } from '../theme.constant.js';
+import { ThemeStrategy, type ThemeSchemeType, ThemeScheme, type ThemeStrategyType } from '../theme.types.js';
 
 const prefersDarkFallback = false;
 const noop = (_) => undefined;
@@ -126,16 +116,3 @@ export const disableAnimation = () => {
         }, 1);
     };
 };
-
-/**
- * Use theme context utils
- *
- * @returns current theme context or throw an error
- */
-export function useThemeContext(): ThemeContext {
-    const themeContext = getContext<ThemeContext | undefined>(THEME_CONTEXT_KEY);
-    if (!themeContext) {
-        throw new Error('`useThemeContext` must be used within a `<ThemeProvider`');
-    }
-    return themeContext;
-}

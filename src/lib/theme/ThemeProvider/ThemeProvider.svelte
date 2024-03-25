@@ -7,9 +7,7 @@
         resolveStrategy,
         resolveScheme,
         resolveSchemeSystem,
-        setThemeStorage,
-        THEME_CONTEXT_KEY,
-        THEME_STORAGE_KEY
+        setThemeStorage
     } from './theme.utils.js';
     import { defaultThemeProviderProps } from './ThemeProvider.props.js';
 
@@ -22,16 +20,18 @@
 <script lang="ts">
     import { hasContext, onMount, setContext } from 'svelte';
     import { isBrowser } from '$lib/utils/is-browser.js';
+    import type { ThemeProviderProps } from './ThemeProvider.types.js';
     import {
         ThemeStrategy,
-        type ThemeProviderProps,
         type ThemeSchemeType,
         type ThemeStrategyType,
         type ThemeContext
-    } from './ThemeProvider.types.js';
+    } from '../theme.types.js';
+    import { THEME_CONTEXT_KEY, THEME_STORAGE_KEY } from '../theme.constant.js';
 
     type $$Props = ThemeProviderProps;
     export let strategy: $$Props['strategy'] = defaultThemeProviderProps.strategy;
+    export let radius: $$Props['radius'] = defaultThemeProviderProps.radius;
 
     let isRoot = !hasContext(THEME_CONTEXT_KEY);
     const resolvedStrategy = resolveStrategy(strategy);
@@ -78,6 +78,6 @@
 <!-- <svelte:body class={$themeStore.theme} style={`color-scheme: ${$themeStore.theme};`} /> -->
 
 <!--  data-radius={$themeStore.radius} -->
-<div class="svxui" data-theme={$schemeStore} data-theme-root={isRoot}>
+<div class="svxui" data-theme-root={isRoot} data-theme={$schemeStore} data-radius={radius}>
     <slot />
 </div>

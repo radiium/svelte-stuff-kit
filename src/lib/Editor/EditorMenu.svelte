@@ -1,6 +1,6 @@
 <script lang="ts">
     import DotsNine from 'phosphor-svelte/lib/DotsNine';
-    import ThemeSelect from '../components/ThemeProvider/ThemeSelect.svelte';
+    import ThemeSelect from '../theme/ThemeSelect/ThemeSelect.svelte';
     import Popover from '../components/Popover/Popover.svelte';
     import Button from '../components/Button/Button.svelte';
     import Flexbox from '../components/Flexbox/Flexbox.svelte';
