@@ -41,10 +41,12 @@ async function parseModule([path, resolver]): Promise<DocPage> {
 
 export const load: LayoutData = async ({ params }): Promise<DocNav> => {
     const modulesRoot = import.meta.glob('../lib-doc/contents/*.md');
+    const modulesTheme = import.meta.glob('../lib-doc/contents/theme/*.md');
     const modulesComponents = import.meta.glob('../lib-doc/contents/components/*.md');
     const modulesRecipes = import.meta.glob('../lib-doc/contents/recipes/*.md');
 
     const pagesRoot = await Promise.all(Object.entries(modulesRoot).map(parseModule));
+    const pagesTheme = await Promise.all(Object.entries(modulesTheme).map(parseModule));
     const pagesComponents = await Promise.all(Object.entries(modulesComponents).map(parseModule));
     const pagesRecipes = await Promise.all(Object.entries(modulesRecipes).map(parseModule));
 
@@ -52,6 +54,10 @@ export const load: LayoutData = async ({ params }): Promise<DocNav> => {
         nav: [
             {
                 pages: pagesRoot
+            },
+            {
+                title: 'Theme',
+                pages: pagesTheme.sort((a: DocPage, b: DocPage) => (a.slug === 'theme-provider' ? -1 : 1))
             },
             {
                 title: 'Components',

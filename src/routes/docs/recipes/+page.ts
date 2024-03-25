@@ -5,9 +5,9 @@ export const load: PageData = async ({ params, parent }) => {
     const { slug } = params;
     const { nav } = await parent();
 
-    const page = nav?.[2]?.pages?.[0];
+    const page = nav?.[3]?.pages?.[0];
     if (!page) {
-        error(404, '/docs/' + slug + 'not fount');
+        error(404, '"/docs/recipes/' + slug + '" not fount');
     }
     redirect(303, page.href);
 };

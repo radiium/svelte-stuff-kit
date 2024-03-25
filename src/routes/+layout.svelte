@@ -5,7 +5,7 @@
     import DocSidebar from '../lib-doc/components/DocSidebar.svelte';
     import { navigating } from '$app/stores';
     import '../lib-doc/prism.js.scss';
-    import ThemeProvider from '$lib/components/ThemeProvider/ThemeProvider.svelte';
+    import ThemeProvider from '$lib/theme/ThemeProvider/ThemeProvider.svelte';
 
     let mainRef: HTMLDivElement | null;
     $: {
